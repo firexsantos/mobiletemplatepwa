@@ -1,0 +1,110 @@
+/*----------------------------------------
+  Timeline
+------------------------------------------*/
+
+.timeline {
+	position: relative;
+	display: inline-block;
+	width: 100%;
+	margin-top: -15px;
+}
+.timeline .verline {
+	position: absolute;
+	height: 100%;
+	width: 10px;
+	/* background-color: rgba(var(--primary-rgb), 0.15); */
+	background-color: rgba(0,0,0, 0.1);
+	left: 0%;
+	margin-left: 0px;
+	top: 30px;
+}
+.timeline .event {
+	position: relative;
+	display: inline-block;
+	width: 100%;
+}
+.timeline .event .date {
+	/* display: inline-block; */
+	width: auto;
+	width: 250px;
+	height: auto;
+	text-align: center;
+	margin: 30px auto 20px 0;
+	border-radius: var(--border-radius);
+	border-top-left-radius: 0px;
+	border-bottom-left-radius: 0px;
+	/* background-color: rgba(var(--primary-rgb), 0.15); */
+	background-color: rgba(0,0,0, 0.1);
+	padding: 5px;
+	margin-left: 10px;
+	white-space: nowrap;
+}
+.timeline :nth-child(2) .date{
+	color: #ffffff;
+}
+
+/* .timeline .event .date:after {
+	content: " ";
+	position: absolute;
+	width: 14px;
+	height: 14px;
+	border-radius: var(--border-radius-50percent);
+	right: -10px;
+	top: 50%;
+	margin-top: 0px;
+	background-color: #dddddd;
+}*/
+.timeline .event:before {
+	content: " ";
+	position: absolute;
+	width: 50px;
+	height: 10px;
+	left: 10px;
+	top: 30px;
+	margin-top: 4px;
+	/* background-color: rgba(var(--primary-rgb), 0.15); */
+	background-color: rgba(0,0,0, 0.1);
+}
+.timeline .event.has-date:before{
+	top: 100px;
+}
+
+.timeline .event .card-panel {
+	width: calc(100% - 30px);
+	position: relative;
+	display: inline-block;
+	margin-left: 30px;
+	padding-bottom: 10px;
+}
+
+.timeline .event .date div,
+.timeline .event h4 {
+	margin-bottom: 0px;
+	display: inline;
+	font-size: 15px;
+	line-height: 25px;
+}
+
+.timeline .card-panel.has-image{
+	padding: 15px; 
+}
+.timeline .card-panel.has-image img{
+	border-radius: var(--border-radius);
+}
+.timeline .card-panel.has-image .msg{
+	padding: 10px 0px 0px 0px;
+}
+
+.timeline .event .card-panel.white-text .user-actions a,
+.timeline .event .card-panel.white-text .user-actions a i{
+	color: #ffffff;
+}
+
+/*----------------------------------------
+  Site - Dark Mode - Timeline
+----------------------------------------*/
+[data-site_mode="dark"] .timeline .verline,
+[data-site_mode="dark"] .timeline .event:before,
+[data-site_mode="dark"] .timeline .event .date {
+	background-color: rgba(0,0,0, 0.2);
+}

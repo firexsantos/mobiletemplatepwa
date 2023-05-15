@@ -1,0 +1,366 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="integrations">Integrations</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="algolia-places">Algolia Places</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="algolia-places">Algolia Places</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="block">
+				<p><a href="https://community.algolia.com/places" target="_blank" class="external">Algolia Places</a> is a geocoder which provides an easy way to integrate address search autocomplete.</p>
+				<p>It relies on <a href="https://www.openstreetmap.org" target="_blank" class="external">OpenStreetMap</a> data for geocoding.</p>
+			</div>
+
+			<div class="list no-hairlines no-hairlines-between">
+				<ul>
+					<li class="item-divider">Default Autocomplete</li>
+					<li>
+						<div class="item-content item-input">
+							<div class="item-inner">
+								<div class="item-input-wrap">
+									<input type="text" id="input-places-autocomplete-default" placeholder="Where are we going?" />
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="item-divider">Countries Autocomplete</li>
+					<li>
+						<div class="item-content item-input">
+							<div class="item-inner">
+								<div class="item-input-wrap">
+									<input type="text" id="input-places-autocomplete-countries" placeholder="Your Country" />
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="item-divider">Cities Autocomplete</li>
+					<li>
+						<div class="item-content item-input">
+							<div class="item-inner">
+								<div class="item-input-wrap">
+									<input type="text" id="input-places-autocomplete-cities" placeholder="Your City" />
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="item-divider">Search in Country</li>
+					<li>
+						<div class="item-content item-input">
+							<div class="item-inner">
+								<div class="item-input-wrap">
+									<input type="text" id="input-places-autocomplete-search-in-country-countries" placeholder="Select Country" />
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content item-input">
+							<div class="item-inner">
+								<div class="item-input-wrap">
+									<input type="text" id="input-places-autocomplete-search-in-country" />
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+
+			<div class="block-title">Address Form Autofill</div>
+			<form id="form-address-autofill">
+				<div class="list no-hairlines no-hairlines-between">
+					<ul>
+						<li>
+							<div class="item-content item-input">
+								<div class="item-inner">
+									<div class="item-title item-label">Address</div>
+									<div class="item-input-wrap">
+										<input type="text" name="address" />
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="item-content item-input">
+								<div class="item-inner">
+									<div class="item-title item-label">Suburb</div>
+									<div class="item-input-wrap">
+										<input type="text" name="suburb" />
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="item-content item-input">
+								<div class="item-inner">
+									<div class="item-title item-label">City</div>
+									<div class="item-input-wrap">
+										<input type="text" name="city" />
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="item-content item-input">
+								<div class="item-inner">
+									<div class="item-title item-label">Postcode</div>
+									<div class="item-input-wrap">
+										<input type="text" name="postcode" />
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="item-content item-input">
+								<div class="item-inner">
+									<div class="item-title item-label">County</div>
+									<div class="item-input-wrap">
+										<input type="text" name="county" />
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="item-content item-input">
+								<div class="item-inner">
+									<div class="item-title item-label">Administrative Region</div>
+									<div class="item-input-wrap">
+										<input type="text" name="administrative" />
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="item-content item-input">
+								<div class="item-inner">
+									<div class="item-title item-label">Country</div>
+									<div class="item-input-wrap">
+										<input type="text" name="country" />
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</form>
+
+			<div class="block-title">Display Map</div>
+			<div class="block">
+				<div class="embed">
+					<div id="map-container" class="embed-content"></div>
+				</div>
+			</div>
+			<div class="list no-hairlines no-hairlines-between">
+				<ul>
+					<li>
+						<div class="item-content item-input">
+							<div class="item-inner">
+								<div class="item-input-wrap">
+									<input type="text" id="input-places-autocomplete-display-map" placeholder="Where are we going?" />
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+
+		</div>
+
+	</div>
+</template>
+
+<script>
+	return {
+		methods: {
+			initializePlacesAutocompleteDefault: function() {
+				var self = this;
+				var placesAutocomplete = places({
+					container: document.querySelector('#input-places-autocomplete-default')
+				});
+				placesAutocomplete.on('limit', function(event) {
+					self.showLimitError();
+				});
+			},
+			initializePlacesAutocompleteCountries: function() {
+				var self = this;
+				var placesAutocomplete = places({
+					container: document.querySelector('#input-places-autocomplete-countries'),
+					type: 'country'
+				});
+				placesAutocomplete.on('limit', function(event) {
+					self.showLimitError();
+				});
+			},
+			initializePlacesAutocompleteCities: function() {
+				var self = this;
+				var placesAutocomplete = places({
+					container: document.querySelector('#input-places-autocomplete-cities'),
+					type: 'city',
+					aroundLatLngViaIP: false
+				});
+				placesAutocomplete.on('limit', function(event) {
+					self.showLimitError();
+				});
+			},
+			initializePlacesAutocompleteSearchInCountry: function() {
+				var self = this;
+				var placesAutocompleteCountries = places({
+					container: document.querySelector('#input-places-autocomplete-search-in-country-countries'),
+					type: 'country'
+				});
+				placesAutocompleteCountries.on('limit', function(event) {
+					self.showLimitError();
+				});
+				placesAutocompleteCountries.on('change', function(event) {
+					self.$('#input-places-autocomplete-search-in-country').attr('placeholder', 'Search in ' + event.suggestion.name);
+					var placesAutocomplete = places({
+						container: document.querySelector('#input-places-autocomplete-search-in-country'),
+						countries: [event.suggestion.countryCode]
+					});
+					placesAutocomplete.on('limit', function(event) {
+						self.showLimitError();
+					});
+				});
+			},
+			initializePlacesAutocompleteAddressFormAutofill: function() {
+				var self = this;
+				var placesAutocomplete = places({
+					container: document.querySelector('#form-address-autofill [name=address]'),
+					type: 'address',
+					templates: {
+						value: function(suggestion) {
+							return suggestion.name;
+						}
+					}
+				});
+				placesAutocomplete.on('change', function(event) {
+					document.querySelector('#form-address-autofill [name=suburb]').value = event.suggestion.suburb || '';
+					document.querySelector('#form-address-autofill [name=city]').value = event.suggestion.city || '';
+					document.querySelector('#form-address-autofill [name=postcode]').value = event.suggestion.postcode || '';
+					document.querySelector('#form-address-autofill [name=county]').value = event.suggestion.county || '';
+					document.querySelector('#form-address-autofill [name=administrative]').value = event.suggestion.administrative || '';
+					document.querySelector('#form-address-autofill [name=country]').value = event.suggestion.country || '';
+				});
+				placesAutocomplete.on('limit', function(event) {
+					self.showLimitError();
+				});
+			},
+			initializePlacesAutocompleteDisplayMap: function() {
+				var self = this;
+				var placesAutocomplete = places({
+					container: document.querySelector('#input-places-autocomplete-display-map')
+				});
+
+				var map = L.map('map-container');
+				var mapLayer = new L.TileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+					attribution: 'Map Data &copy; <a href="https://openstreetmap.org">OpenStreetMap</a> Contributors'
+				});
+				var markers = [];
+				map.setView(new L.LatLng(0, 0), 1);
+				map.addLayer(mapLayer);
+
+				placesAutocomplete.on('suggestions', function(event) {
+					markers.forEach(removeMarker);
+					markers = [];
+					if (event.suggestions.length == 0) {
+						map.setView(new L.LatLng(0, 0), 1);
+						return;
+					}
+					event.suggestions.forEach(addMarker);
+					findBestZoom();
+				});
+
+				placesAutocomplete.on('cursorchanged', function(event) {
+					markers.forEach(function(marker, markerIndex) {
+						if (markerIndex == event.suggestionIndex) {
+							marker.setOpacity(1);
+							marker.setZIndexOffset(1000);
+						}
+						else {
+							marker.setZIndexOffset(0);
+							marker.setOpacity(0.5);
+						}
+					});
+				});
+
+				placesAutocomplete.on('change', function(event) {
+					markers.forEach(function(marker, markerIndex) {
+						if (markerIndex == event.suggestionIndex) {
+							markers = [marker];
+							marker.setOpacity(1);
+							findBestZoom();
+						}
+						else {
+							removeMarker(marker);
+						}
+					});
+				});
+
+				placesAutocomplete.on('clear', function(event) {
+					map.setView(new L.LatLng(0, 0), 1);
+					markers.forEach(removeMarker);
+				});
+
+				placesAutocomplete.on('limit', function(event) {
+					self.showLimitError();
+				});
+
+				function addMarker(suggestion) {
+					var marker = L.marker(suggestion.latlng, {opacity: 0.4});
+					marker.addTo(map);
+					markers.push(marker);
+				}
+
+				function removeMarker(marker) {
+					map.removeLayer(marker);
+				}
+
+				function findBestZoom() {
+					var featureGroup = L.featureGroup(markers);
+					map.fitBounds(featureGroup.getBounds().pad(0.5), {animate: false});
+				}
+			},
+			showLimitError: function(message) {
+				var self = this;
+				app.toast.show({
+					text: 'You have reached the daily limit. Please sign up for free 100000 queries per month.',
+					position: 'bottom',
+					cssClass: 'bg-color-red',
+					closeTimeout: 0,
+					closeButton: true,
+					closeButtonColor: 'white',
+					closeButtonText: 'Sign Up',
+					on: {
+						closeButtonClick: function() {
+							window.open('https://www.algolia.com/users/sign_up/places', '_system');
+						}
+					}
+				});
+			}
+		},
+		on: {
+			pageInit: function() {
+				var self = this;
+				self.initializePlacesAutocompleteDefault();
+				self.initializePlacesAutocompleteCountries();
+				self.initializePlacesAutocompleteCities();
+				self.initializePlacesAutocompleteSearchInCountry();
+				self.initializePlacesAutocompleteAddressFormAutofill();
+				self.initializePlacesAutocompleteDisplayMap();
+			}
+		}
+	}
+</script>

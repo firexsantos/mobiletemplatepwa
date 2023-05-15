@@ -1,0 +1,155 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="components">Components</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="notification">Notification</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="notification">Notification</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="block">
+				<p>Notification allows to show messages to the user which look like push or local system notifications.</p>
+			</div>
+
+			<div class="list">
+				<div class="list-group">
+					<ul>
+						<li class="list-group-title">Text Notification</li>
+						<li>
+							<a href="#" class="item-link" @click="showTextNotification">
+								<div class="item-content">
+									<div class="item-media">
+										<i class="icon fas fa-fw fa-lg fa-font color-blue"></i>
+									</div>
+									<div class="item-inner">
+										<div class="item-title">Text</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="#" class="item-link" @click="showLinkNotification">
+								<div class="item-content">
+									<div class="item-media">
+										<i class="icon fas fa-fw fa-lg fa-link color-red"></i>
+									</div>
+									<div class="item-inner">
+										<div class="item-title">Link</div>
+									</div>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="list-group">
+					<ul>
+						<li class="list-group-title">Media Notification</li>
+						<li>
+							<a href="#" class="item-link" @click="showImageNotification">
+								<div class="item-content">
+									<div class="item-media">
+										<i class="icon fas fa-fw fa-lg fa-image color-orange"></i>
+									</div>
+									<div class="item-inner">
+										<div class="item-title">Image</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="#" class="item-link" @click="showAudioNotification">
+								<div class="item-content">
+									<div class="item-media">
+										<i class="icon fas fa-fw fa-lg fa-music color-green"></i>
+									</div>
+									<div class="item-inner">
+										<div class="item-title">Audio</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="#" class="item-link" @click="showVideoNotification">
+								<div class="item-content">
+									<div class="item-media">
+										<i class="icon fas fa-fw fa-lg fa-film color-pink"></i>
+									</div>
+									<div class="item-inner">
+										<div class="item-title">Video</div>
+									</div>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+</template>
+
+<script>
+	return {
+		methods: {
+			showTextNotification: function() {
+				var self = this;
+				var notification = app.notification.create({
+					titleRightText: 'Now',
+					subtitle: 'Welcome to Nectar',
+					text: 'Bring your product to life with the help of Nectar.'
+				});
+				notification.open();
+			},
+			showLinkNotification: function() {
+				var self = this;
+				var notification = app.notification.create({
+					titleRightText: 'Now',
+					subtitle: 'Welcome to Nectar',
+					text: 'Bring your product to life with the help of Nectar.<a href="' + window.config.envato.itemUrl + '" target="_blank" class="display-block external">Buy Now</a>'
+				});
+				notification.open();
+			},
+			showImageNotification: function() {
+				var self = this;
+				var notification = app.notification.create({
+					titleRightText: 'Now',
+					subtitle: 'Welcome to Nectar',
+					text: '<img src="https://www.dropbox.com/s/ltjqwlhqw3q5ykk/FMkrYuWb.jpg?raw=1" alt="" />'
+				});
+				notification.open();
+			},
+			showAudioNotification: function() {
+				var self = this;
+				var notification = app.notification.create({
+					titleRightText: 'Now',
+					subtitle: 'Welcome to Nectar',
+					text: '<audio class="no-fastclick" preload="auto" controls><source type="audio/mpeg" src="https://www.dropbox.com/s/1kx3pczogt0kyhp/EwWMck8x.mp3?raw=1" /></audio>'
+				});
+				notification.open();
+			},
+			showVideoNotification: function() {
+				var self = this;
+				var notification = app.notification.create({
+					titleRightText: 'Now',
+					subtitle: 'Welcome to Nectar',
+					text: '<video class="no-fastclick" preload="auto" controls><source type="video/mp4" src="https://www.dropbox.com/s/h5yzy6qv0z4zge0/BRRc0aSL.mp4?raw=1" /></video>'
+				});
+				notification.open();
+			}
+		}
+	}
+</script>

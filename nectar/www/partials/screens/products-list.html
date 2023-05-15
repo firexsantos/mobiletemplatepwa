@@ -1,0 +1,177 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="back">Back</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="products-list">Products - List</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="products-list">Products - List</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="block">
+				{{#if products}}
+				<div class="row justify-content-flex-start">
+					{{#each products}}
+					<div class="col-100 tablet-50 desktop-33">
+						<div class="card card-outline">
+							<div class="card-content card-content-padding">
+								<div class="row">
+									<div class="product-type col-50">
+										{{#js_if "this.type === 'nonveg'"}}
+										<i class="icon material-icons color-red-9">radio_button_checked</i>
+										{{else}}
+										<i class="icon material-icons color-green-9">radio_button_checked</i>
+										{{/js_if}}
+									</div>
+									<div class="product-pack col-50">{{this.pack}}</div>
+								</div>
+								<img class="product-image" src="{{this.image}}" alt="" />
+								<div class="product-name">{{this.name}}</div>
+								<div class="product-price row">
+									{{#js_if "this.price.original === this.price.final"}}
+									<div class="price-final col-100 text-align-center">{{this.price.final}}</div>
+									{{else}}
+									<div class="price-original col-50">{{this.price.original}}</div>
+									<div class="price-final col-50">{{this.price.final}}</div>
+									{{/js_if}}
+								</div>
+							</div>
+							<div class="card-footer no-hairline">
+								<a href="/screens/products-single" class="link tooltip-init" data-tooltip="More Info">
+									<i class="fas fa-fw fa-lg fa-info-circle text-color-blue"></i>
+								</a>
+								<a href="#" class="link tooltip-init" data-tooltip="Add to Cart" @click="addToCart">
+									<i class="fas fa-fw fa-lg fa-cart-plus text-color-green"></i>
+								</a>
+								<a href="#" class="link tooltip-init" data-tooltip="Add to Wishlist" @click="addToWishlist">
+									<i class="fas fa-fw fa-lg fa-heart text-color-pink"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+					{{/each}}
+				</div>
+				{{/if}}
+			</div>
+
+		</div>
+
+	</div>
+</template>
+
+<style scoped>
+	.product-type {
+		text-align: left;
+	}
+
+	[dir=rtl] {{this}} .product-type {
+		text-align: right;
+	}
+
+	.product-pack {
+		font-size: 18px;
+		text-align: right;
+	}
+
+	[dir=rtl] {{this}} .product-pack {
+		text-align: left;
+	}
+
+	.product-image {
+		display: block;
+		height: 144px;
+		margin: 0 auto;
+		margin-top: 16px;
+	}
+
+	.product-name {
+		font-size: 18px;
+		margin-top: 16px;
+		text-align: center;
+	}
+
+	.product-price {
+		margin-top: 16px;
+	}
+
+	.price-original {
+		font-size: 20px;
+		text-decoration: line-through;
+		text-align: right;
+	}
+
+	[dir=rtl] {{this}} .price-original {
+		text-align: left;
+	}
+
+	.price-final {
+		font-size: 20px;
+		font-weight: bold;
+		text-align: left;
+	}
+
+	[dir=rtl] {{this}} .price-final {
+		text-align: right;
+	}
+</style>
+
+<script>
+	return {
+		data: function() {
+			return {
+				products: null
+			}
+		},
+		methods: {
+			loadData: function() {
+				var self = this;
+				app.request.json(
+					'assets/custom/dataset/products.json',
+					function(data) {
+						if (data) {
+							self.$setState({
+								products: data
+							});
+						}
+					}
+				);
+			},
+			addToWishlist: function() {
+				var self = this;
+				app.toast.show({
+					icon: '<i class="fas fa-fw fa-lg fa-heart"></i>',
+					text: 'Added to Wishlist',
+					position: 'bottom',
+					cssClass: 'toast-round bg-color-pink'
+				});
+			},
+			addToCart: function() {
+				var self = this;
+				app.toast.show({
+					icon: '<i class="fas fa-fw fa-lg fa-cart-plus"></i>',
+					text: 'Added to Cart',
+					position: 'bottom',
+					cssClass: 'toast-round bg-color-green'
+				});
+			}
+		},
+		on: {
+			pageInit: function() {
+				var self = this;
+				self.loadData();
+			}
+		}
+	}
+</script>

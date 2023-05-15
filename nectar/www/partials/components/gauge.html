@@ -1,0 +1,106 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="components">Components</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="gauge">Gauge</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="gauge">Gauge</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="block-title">Circle</div>
+			<div class="block block-strong text-align-center">
+				<div class="gauge gauge-circle"></div>
+				<p class="segmented">
+					<a href="#" class="button button-outline" data-gauge-circle-value="0">0%</a>
+					<a href="#" class="button button-outline" data-gauge-circle-value="25">25%</a>
+					<a href="#" class="button button-outline" data-gauge-circle-value="50">50%</a>
+					<a href="#" class="button button-outline" data-gauge-circle-value="75">75%</a>
+					<a href="#" class="button button-outline" data-gauge-circle-value="100">100%</a>
+				</p>
+			</div>
+
+			<div class="block-title">Semicircle</div>
+			<div class="block block-strong text-align-center">
+				<div class="gauge gauge-semicircle"></div>
+				<p class="segmented">
+					<a href="#" class="button button-outline" data-gauge-semicircle-value="0">0%</a>
+					<a href="#" class="button button-outline" data-gauge-semicircle-value="25">25%</a>
+					<a href="#" class="button button-outline" data-gauge-semicircle-value="50">50%</a>
+					<a href="#" class="button button-outline" data-gauge-semicircle-value="75">75%</a>
+					<a href="#" class="button button-outline" data-gauge-semicircle-value="100">100%</a>
+				</p>
+			</div>
+
+		</div>
+
+	</div>
+</template>
+
+<script>
+	return {
+		methods: {
+			initializeGaugeCircle: function() {
+				var self = this;
+				var gauge = app.gauge.create({
+					el: '.gauge-circle',
+					type: 'circle',
+					value: 0.75,
+					borderBgColor: '#F8F0FC',
+					borderColor: '#DA77F2',
+					borderWidth: 12,
+					valueText: '$75',
+					valueTextColor: '#DA77F2',
+					labelText: 'of $100 budget'
+				});
+				self.$('[data-gauge-circle-value]').on('click', function() {
+					var value = self.$(this).attr('data-gauge-circle-value');
+					gauge.update({
+						value: value/100,
+						valueText: '$' + (value/100)*100
+					});
+				});
+			},
+			initializeGaugeSemicircle: function() {
+				var self = this;
+				var gauge = app.gauge.create({
+					el: '.gauge-semicircle',
+					type: 'semicircle',
+					value: 0.5,
+					borderBgColor: '#FFF5F5',
+					borderColor: '#FF8787',
+					borderWidth: 12,
+					valueText: '30kg',
+					valueTextColor: '#FF8787',
+					labelText: 'of 60kg'
+				});
+				self.$('[data-gauge-semicircle-value]').on('click', function() {
+					var value = self.$(this).attr('data-gauge-semicircle-value');
+					gauge.update({
+						value: value/100,
+						valueText: (value/100)*60 + 'kg'
+					});
+				});
+			}
+		},
+		on: {
+			pageInit: function() {
+				var self = this;
+				self.initializeGaugeCircle();
+				self.initializeGaugeSemicircle();
+			}
+		}
+	}
+</script>

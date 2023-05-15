@@ -1,0 +1,37 @@
+[
+	{
+		"rating": 5,
+		"comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+		"name": "June Cha",
+		"designation": "UI/UX Designer",
+		"photo": "https://randomuser.me/api/portraits/women/44.jpg"
+	},
+	{
+		"rating": 4.5,
+		"comment": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+		"name": "Emre Topaloglu",
+		"designation": "Mobile Developer",
+		"photo": "https://randomuser.me/api/portraits/men/47.jpg"
+	},
+	{
+		"rating": 3,
+		"comment": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+		"name": "Britney Cooper",
+		"designation": "WordPress Developer",
+		"photo": "https://randomuser.me/api/portraits/women/63.jpg"
+	},
+	{
+		"rating": 5,
+		"comment": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+		"name": "Christopher Gibson",
+		"designation": "System Administrator",
+		"photo": "https://randomuser.me/api/portraits/men/1.jpg"
+	},
+	{
+		"rating": 3.5,
+		"comment": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.",
+		"name": "Topias Kantola",
+		"designation": "Data Scientist",
+		"photo": "https://randomuser.me/api/portraits/men/60.jpg"
+	}
+]

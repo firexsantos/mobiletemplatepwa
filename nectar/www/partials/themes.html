@@ -1,0 +1,228 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="home">Home</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="themes">Themes</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="themes">Themes</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="block">{{$root.config.app.title}} comes with 8 theme colors and 2 theme layouts.</div>
+
+			<div class="block-title" data-i18n="theme-colors">Theme Colors</div>
+			<div class="list">
+				<ul>
+					<li>
+						<label class="item-radio item-content">
+							<input type="radio" name="theme-color" value="red" />
+							<i class="icon icon-radio"></i>
+							<div class="item-media ios-only">
+								<i class="icon f7-icons color-red">circle_fill</i>
+							</div>
+							<div class="item-inner">
+								<div class="item-title" data-i18n="red">Red</div>
+								<div class="item-after md-only">
+									<i class="icon material-icons color-red">lens</i>
+								</div>
+							</div>
+						</label>
+					</li>
+					<li>
+						<label class="item-radio item-content">
+							<input type="radio" name="theme-color" value="green" />
+							<i class="icon icon-radio"></i>
+							<div class="item-media ios-only">
+								<i class="icon f7-icons color-green">circle_fill</i>
+							</div>
+							<div class="item-inner">
+								<div class="item-title" data-i18n="green">Green</div>
+								<div class="item-after md-only">
+									<i class="icon material-icons color-green">lens</i>
+								</div>
+							</div>
+						</label>
+					</li>
+					<li>
+						<label class="item-radio item-content">
+							<input type="radio" name="theme-color" value="blue" />
+							<i class="icon icon-radio"></i>
+							<div class="item-media ios-only">
+								<i class="icon f7-icons color-blue">circle_fill</i>
+							</div>
+							<div class="item-inner">
+								<div class="item-title" data-i18n="blue">Blue</div>
+								<div class="item-after md-only">
+									<i class="icon material-icons color-blue">lens</i>
+								</div>
+							</div>
+						</label>
+					</li>
+					<li>
+						<label class="item-radio item-content">
+							<input type="radio" name="theme-color" value="pink" />
+							<i class="icon icon-radio"></i>
+							<div class="item-media ios-only">
+								<i class="icon f7-icons color-pink">circle_fill</i>
+							</div>
+							<div class="item-inner">
+								<div class="item-title" data-i18n="pink">Pink</div>
+								<div class="item-after md-only">
+									<i class="icon material-icons color-pink">lens</i>
+								</div>
+							</div>
+						</label>
+					</li>
+					<li>
+						<label class="item-radio item-content">
+							<input type="radio" name="theme-color" value="yellow" />
+							<i class="icon icon-radio"></i>
+							<div class="item-media ios-only">
+								<i class="icon f7-icons color-yellow">circle_fill</i>
+							</div>
+							<div class="item-inner">
+								<div class="item-title" data-i18n="yellow">Yellow</div>
+								<div class="item-after md-only">
+									<i class="icon material-icons color-yellow">lens</i>
+								</div>
+							</div>
+						</label>
+					</li>
+					<li>
+						<label class="item-radio item-content">
+							<input type="radio" name="theme-color" value="orange" />
+							<i class="icon icon-radio"></i>
+							<div class="item-media ios-only">
+								<i class="icon f7-icons color-orange">circle_fill</i>
+							</div>
+							<div class="item-inner">
+								<div class="item-title" data-i18n="orange">Orange</div>
+								<div class="item-after md-only">
+									<i class="icon material-icons color-orange">lens</i>
+								</div>
+							</div>
+						</label>
+					</li>
+					<li>
+						<label class="item-radio item-content">
+							<input type="radio" name="theme-color" value="gray" />
+							<i class="icon icon-radio"></i>
+							<div class="item-media ios-only">
+								<i class="icon f7-icons color-gray">circle_fill</i>
+							</div>
+							<div class="item-inner">
+								<div class="item-title" data-i18n="gray">Gray</div>
+								<div class="item-after md-only">
+									<i class="icon material-icons color-gray">lens</i>
+								</div>
+							</div>
+						</label>
+					</li>
+					<li>
+						<label class="item-radio item-content">
+							<input type="radio" name="theme-color" value="black" />
+							<i class="icon icon-radio"></i>
+							<div class="item-media ios-only">
+								<i class="icon f7-icons color-black">circle_fill</i>
+							</div>
+							<div class="item-inner">
+								<div class="item-title" data-i18n="black">Black</div>
+								<div class="item-after md-only">
+									<i class="icon material-icons color-black">lens</i>
+								</div>
+							</div>
+						</label>
+					</li>
+				</ul>
+			</div>
+
+			<div class="block-title" data-i18n="theme-layouts">Theme Layouts</div>
+			<div class="list">
+				<ul>
+					<li>
+						<label class="item-radio item-content">
+							<input type="radio" name="theme-layout" value="light" />
+							<i class="icon icon-radio"></i>
+							<div class="item-media ios-only">
+								<i class="icon f7-icons color-gray-0">circle_fill</i>
+							</div>
+							<div class="item-inner">
+								<div class="item-title" data-i18n="light">Light</div>
+								<div class="item-after md-only">
+									<i class="icon material-icons color-gray-0">lens</i>
+								</div>
+							</div>
+						</label>
+					</li>
+					<li>
+						<label class="item-radio item-content">
+							<input type="radio" name="theme-layout" value="dark" />
+							<i class="icon icon-radio"></i>
+							<div class="item-media ios-only">
+								<i class="icon f7-icons color-black">circle_fill</i>
+							</div>
+							<div class="item-inner">
+								<div class="item-title" data-i18n="dark">Dark</div>
+								<div class="item-after md-only">
+									<i class="icon material-icons color-black">lens</i>
+								</div>
+							</div>
+						</label>
+					</li>
+				</ul>
+			</div>
+
+		</div>
+
+	</div>
+</template>
+
+<style scoped>
+	.color-gray-0 {
+		color: var(--oc-color-gray-0) !important;
+	}
+</style>
+
+<script>
+	return {
+		methods: {
+			checkmarkCurrentTheme: function() {
+				var self = this;
+				var color = app.utils.theme.getColor();
+				var layout = app.utils.theme.getLayout();
+				self.$('[name=theme-color][value=' + color + ']').prop('checked', true);
+				self.$('[name=theme-layout][value=' + layout + ']').prop('checked', true);
+			},
+			changeThemeColor: function(event) {
+				var self = this;
+				var color = event.target.value;
+				app.utils.theme.setColor(color);
+			},
+			changeThemeLayout: function(event) {
+				var self = this;
+				var layout = event.target.value;
+				app.utils.theme.setLayout(layout);
+			}
+		},
+		on: {
+			pageInit: function() {
+				var self = this;
+				self.checkmarkCurrentTheme();
+				self.$('[name=theme-color]').on('change', self.changeThemeColor);
+				self.$('[name=theme-layout]').on('change', self.changeThemeLayout);
+			}
+		}
+	}
+</script>

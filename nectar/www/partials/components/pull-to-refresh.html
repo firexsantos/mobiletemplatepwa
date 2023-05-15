@@ -1,0 +1,165 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="components">Components</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="pull-to-refresh">Pull to Refresh</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="pull-to-refresh">Pull to Refresh</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="page-content ptr-content" data-ptr-distance="55">
+
+			<div class="ptr-preloader">
+				<div class="preloader"></div>
+				<div class="ptr-arrow"></div>
+			</div>
+
+			<div class="block">
+				<p>Pull to Refresh is used to initiate the refreshing of page's contents.</p>
+			</div>
+
+			<div class="list">
+				<ul>
+					<li>
+						<div class="item-content">
+							<div class="item-media">
+								<img class="img-circle" src="https://randomuser.me/api/portraits/women/44.jpg" width="44" alt="" />
+							</div>
+							<div class="item-inner">
+								<div class="item-title">Jane Zhu</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-media">
+								<img class="img-circle" src="https://randomuser.me/api/portraits/women/48.jpg" width="44" alt="" />
+							</div>
+							<div class="item-inner">
+								<div class="item-title">Laurie Barnaby</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-media">
+								<img class="img-circle" src="https://randomuser.me/api/portraits/men/35.jpg" width="44" alt="" />
+							</div>
+							<div class="item-inner">
+								<div class="item-title">Noah Pierre</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-media">
+								<img class="img-circle" src="https://randomuser.me/api/portraits/men/60.jpg" width="44" alt="" />
+							</div>
+							<div class="item-inner">
+								<div class="item-title">Topias Kantola</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-media">
+								<img class="img-circle" src="https://randomuser.me/api/portraits/men/91.jpg" width="44" alt="" />
+							</div>
+							<div class="item-inner">
+								<div class="item-title">Wyatt Morris</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+
+			<div class="block">
+				<div class="note note-info text-align-center">
+					<p>Pull down to refresh the content.</p>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+</template>
+
+<script>
+	return {
+		data: function() {
+			return {
+				content: [
+					{
+						avatar: 'https://randomuser.me/api/portraits/men/97.jpg',
+						name: 'Veeti Seppanen'
+					},
+					{
+						avatar: 'https://randomuser.me/api/portraits/women/17.jpg',
+						name: 'Lilja Peltola'
+					},
+					{
+						avatar: 'https://randomuser.me/api/portraits/women/13.jpg',
+						name: 'Lidia Marin'
+					},
+					{
+						avatar: 'https://randomuser.me/api/portraits/women/79.jpg',
+						name: 'Line Rolland'
+					},
+					{
+						avatar: 'https://randomuser.me/api/portraits/men/64.jpg',
+						name: 'Jacob Ginnish'
+					}
+				]
+			}
+		},
+		methods: {
+			refreshContent: function() {
+				var self = this;
+				setTimeout(function() {
+					if (self.content.length) {
+						var index = Math.floor(Math.random() * self.content.length);
+						var item = self.content[index];
+						self.content.splice(index, 1);
+						var itemHTML =
+							'<li>' +
+								'<div class="item-content">' +
+									'<div class="item-media">' +
+										'<img class="img-circle" src="' + item.avatar + '" width="44" alt="" />' +
+									'</div>' +
+									'<div class="item-inner">' +
+										'<div class="item-title">' + item.name + '</div>' +
+									'</div>' +
+							'</li>'
+						;
+						self.$('.ptr-content').find('ul').prepend(itemHTML);
+					}
+					else {
+						app.toast.show({
+							text: 'No new content available',
+							cssClass: 'toast-round bg-color-yellow text-color-black'
+						});
+					}
+					app.ptr.done();
+				}, 1500);
+			}
+		},
+		on: {
+			pageInit: function() {
+				var self = this;
+				self.$('.ptr-content').on('ptr:refresh', self.refreshContent);
+			}
+		}
+	}
+</script>

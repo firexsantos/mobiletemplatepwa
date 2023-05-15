@@ -1,0 +1,147 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="web-apis">Web APIs</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="online-offline-status-api">Online/Offline Status API</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="online-offline-status-api">Online/Offline Status API</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			{{#if isApiSupported}}
+			<div class="empty-state">
+				<div class="empty-state-media">
+					<img src="assets/custom/img/offline.svg" alt="" />
+				</div>
+				<div class="empty-state-title">Yaay!</div>
+				<div class="empty-state-text">This browser supports Online/Offline Status API.</div>
+				<div class="empty-state-actions">
+					<button type="button" class="button button-big button-fill button-round" @click="explore" data-i18n="explore">Explore</button>
+				</div>
+			</div>
+			{{else}}
+			<div class="empty-state">
+				<div class="empty-state-media">
+					<img class="filter-grayscale" src="assets/custom/img/offline.svg" alt="" />
+				</div>
+				<div class="empty-state-title">Oops!</div>
+				<div class="empty-state-text">This browser does not support Online/Offline Status API.</div>
+				<div class="empty-state-actions">
+					<a href="https://caniuse.com/online-status" target="_blank" class="button button-big button-fill button-round external" data-i18n="supported-browsers">Supported Browsers</a>
+				</div>
+			</div>
+			{{/if}}
+
+		</div>
+
+		{{#if isApiSupported}}
+		<div class="popup popup-tablet-fullscreen popup-explore">
+			<div class="view">
+				<div class="page">
+
+					<div class="navbar">
+						<div class="navbar-inner">
+							<div class="left ios-only">
+								<a href="#" class="link popup-close">
+									<span data-i18n="close">Close</span>
+								</a>
+							</div>
+							<div class="title" data-i18n="online-offline-status-api">Online/Offline Status API</div>
+							<div class="right md-only">
+								<a href="#" class="link icon-only popup-close">
+									<i class="icon material-icons">close</i>
+								</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="page-content">
+
+						<div class="block">
+							<p>Online/Offline Status API allows to detect whether the browser is online or offline.</p>
+						</div>
+
+						<div class="block text-align-center connection-status">
+							{{#if isOnline}}
+							<i class="icon material-icons text-color-green">wifi_tethering</i>
+							<div class="text-color-green">Online</div>
+							{{else}}
+							<i class="icon material-icons text-color-red">portable_wifi_off</i>
+							<div class="text-color-red">Offline</div>
+							{{/if}}
+						</div>
+
+						<div class="note note-info text-align-center">
+							<p>Try connecting and disconnecting the internet.</p>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+		{{/if}}
+
+	</div>
+</template>
+
+<style scoped>
+	{{html}} .connection-status {
+		font-size: 24px;
+	}
+
+	{{html}} .connection-status .icon {
+		font-size: 192px;
+	}
+</style>
+
+<script>
+	return {
+		data: function() {
+			return {
+				isApiSupported: (function() {
+					return app.support.webApi.onlineOfflineStatus;
+				})(),
+				isOnline: true
+			}
+		},
+		methods: {
+			explore: function() {
+				var self = this;
+				var popup = app.popup.create({
+					el: '.popup-explore',
+					on: {
+						opened: function() {
+							self.updateConnectionStatus();
+							window.addEventListener('online', self.updateConnectionStatus);
+							window.addEventListener('offline', self.updateConnectionStatus);
+						},
+						closed: function() {
+							window.removeEventListener('online', self.updateConnectionStatus);
+							window.removeEventListener('offline', self.updateConnectionStatus);
+						}
+					}
+				});
+				popup.open();
+			},
+			updateConnectionStatus: function() {
+				var self = this;
+				self.$setState({
+					isOnline: navigator.onLine
+				});
+			}
+		}
+	}
+</script>

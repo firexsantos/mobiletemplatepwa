@@ -1,0 +1,67 @@
+
+/*----------------------------------------
+  Drop Down
+------------------------------------------*/
+.dropdown-content li>a, .dropdown-content li>span{
+  color: #455A64;
+}
+.dropdown-content li>a>i{
+  margin: 0 10px 0 0;
+}
+.dropdown-content{
+  border-radius: var(--border-radius);
+}
+
+.dropdown-trigger.btn-small i:not(.icon-only),
+.dropdown-trigger.btn-large i:not(.icon-only),
+.dropdown-trigger.btn i:not(.icon-only) {
+  font-size: 1.2rem;
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  /* line-height: 31px; */
+  border-left: 1px solid rgba(0,0,0,.1);
+  padding-left: 7px;
+  margin-left: 4px;
+}
+
+.dropdown-trigger.btn {
+  line-height: 30px;
+}
+
+.dropdown-trigger.btn,
+.dropdown-trigger.btn-small,
+.dropdown-trigger.btn-large{
+  padding-right: 9px;
+}
+
+.dropdown-trigger i.icon-only{
+  padding-right: 7px;
+}
+
+body .dropdown-trigger.btn i{
+  height: 32px;
+}
+body .dropdown-trigger.btn-large i{
+  height: 38px;
+}
+body .dropdown-trigger.btn-small i{
+  font-size: 1rem;
+  height: 24px;
+}
+
+
+/*----------------------------------------
+  Site - Dark Mode - Dropdown
+----------------------------------------*/
+[data-site_mode="dark"] .dropdown-content{
+  background-color: #37474F;
+}
+[data-site_mode="dark"] .dropdown-content li>a, 
+[data-site_mode="dark"] .dropdown-content li>span{
+  color: #f5f5f5;
+}
+[data-site_mode="dark"] .dropdown-content li:hover, 
+[data-site_mode="dark"] .dropdown-content li.active {
+    background-color: rgba(33,33,33,0.25);
+}

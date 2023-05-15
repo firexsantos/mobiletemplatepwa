@@ -1,0 +1,137 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="components">Components</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="infinite-scroll">Infinite Scroll</div>
+				<div class="right">
+					<a href="#" class="link icon-only searchbar-enable" data-searchbar="#searchbar-infinite-scroll">
+						<i class="icon f7-icons ios-only">search</i>
+						<i class="icon material-icons md-only">search</i>
+					</a>
+				</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="infinite-scroll">Infinite Scroll</div>
+					</div>
+				</div>
+				<form id="searchbar-infinite-scroll" class="searchbar searchbar-expandable searchbar-init" data-search-container="#list-infinite-scroll" data-search-item="li" data-search-in=".item-title">
+					<div class="searchbar-inner">
+						<div class="searchbar-input-wrap">
+							<input type="search" placeholder="Search" data-i18n="[placeholder]search" />
+							<i class="searchbar-icon"></i>
+							<span class="input-clear-button"></span>
+						</div>
+						<span class="searchbar-disable-button" data-i18n="cancel">Cancel</span>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<div class="page-content infinite-scroll-content">
+
+			<div class="searchbar-hide-on-search">
+				<div class="block">
+					<p>Infinite Scroll allows to load additional content or perform an action when the page scroll approaches the bottom.</p>
+				</div>
+			</div>
+
+			<div class="searchbar-not-found">
+				<div class="empty-state">
+					<div class="empty-state-media">
+						<img src="assets/custom/img/no-search.svg" alt="" />
+					</div>
+					<div class="empty-state-title" data-i18n="no-search-results">No Search Results</div>
+				</div>
+			</div>
+
+			<div class="searchbar-found">
+				<div id="list-infinite-scroll" class="list simple-list">
+					<ul>
+						<li>Item 1</li>
+						<li>Item 2</li>
+						<li>Item 3</li>
+						<li>Item 4</li>
+						<li>Item 5</li>
+						<li>Item 6</li>
+						<li>Item 7</li>
+						<li>Item 8</li>
+						<li>Item 9</li>
+						<li>Item 10</li>
+						<li>Item 11</li>
+						<li>Item 12</li>
+						<li>Item 13</li>
+						<li>Item 14</li>
+						<li>Item 15</li>
+						<li>Item 16</li>
+						<li>Item 17</li>
+						<li>Item 18</li>
+						<li>Item 19</li>
+						<li>Item 20</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="preloader infinite-scroll-preloader"></div>
+
+		</div>
+
+	</div>
+</template>
+
+<script>
+	return {
+		data: function() {
+			return {
+				allowInfinite: true,
+				itemsPerLoad: 20,
+				maxItems: 200,
+				lastItemIndex: null
+			}
+		},
+		methods: {
+			onInfiniteScroll: function() {
+				var self = this;
+				if (!self.allowInfinite) {
+					return;
+				}
+				self.$setState({
+					allowInfinite: false
+				});
+				setTimeout(function() {
+					self.$setState({
+						allowInfinite: true
+					});
+					if (self.lastItemIndex >= self.maxItems) {
+						app.infiniteScroll.destroy('.infinite-scroll-content');
+						self.$('.infinite-scroll-preloader').remove();
+						return;
+					}
+					var html = '';
+					for (var i = self.lastItemIndex + 1; i <= self.lastItemIndex + self.itemsPerLoad; i++) {
+						html += '<li>Item ' + i + '</li>';
+					}
+					self.$('#list-infinite-scroll ul').append(html);
+					self.$setState({
+						lastItemIndex: self.$('#list-infinite-scroll li').length
+					});
+				}, 1500);
+			}
+		},
+		on: {
+			pageInit: function() {
+				var self = this;
+				self.$setState({
+					lastItemIndex: self.$('#list-infinite-scroll li').length
+				});
+				self.$('.infinite-scroll-content').on('infinite', self.onInfiniteScroll);
+			}
+		}
+	}
+</script>

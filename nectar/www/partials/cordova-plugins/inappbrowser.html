@@ -1,0 +1,91 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="cordova-plugins">Cordova Plugins</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="in-app-browser">In-App Browser</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="in-app-browser">In-App Browser</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="block">
+				<p>This plugin acts as a standard web browser that allows to show external web pages inside the app without leaving it.</p>
+			</div>
+
+			<div class="list margin-vertical no-hairlines no-hairlines-between">
+				<ul>
+					<li>
+						<div class="item-content item-input item-input-with-clear-button">
+							<div class="item-inner">
+								<div class="item-title item-label">URL</div>
+								<div class="item-input-wrap">
+									<input type="url" name="url" value="{{$root.config.envato.itemUrl}}" />
+									<span class="input-clear-button"></span>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="block margin-vertical">
+				<button type="button" class="button button-big button-fill" @click="openUrl">Open URL</button>
+			</div>
+
+		</div>
+
+	</div>
+</template>
+
+<script>
+	return {
+		methods: {
+			openUrl: function() {
+				var self = this;
+				var url = self.$('input[name=url]').val();
+				var actions = app.actions.create({
+					buttons: [
+						[
+							{
+								text: 'Open URL',
+								label: true
+							}
+						],
+						[
+							{
+								text: 'Open in In-App Browser',
+								onClick: function() {
+									cordova.InAppBrowser.open(url, '_blank');
+								}
+							},
+							{
+								text: 'Open in System\'s Web Browser',
+								onClick: function() {
+									cordova.InAppBrowser.open(url, '_system');
+								}
+							}
+						],
+						[
+							{
+								text: 'Cancel',
+								color: 'red'
+							}
+						]
+					]
+				});
+				actions.open();
+			}
+		}
+	}
+</script>

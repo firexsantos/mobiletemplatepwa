@@ -1,0 +1,515 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="back">Back</span>
+					</a>
+				</div>
+				<div class="title" data-i18n="checkout">Checkout</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="segmented">
+							<a href="#tab-review" class="button tab-link tab-link-active">Review</a>
+							<a href="#tab-address" class="button tab-link disabled">Address</a>
+							<a href="#tab-payment" class="button tab-link disabled">Payment</a>
+							<a href="#tab-done" class="button tab-link disabled">Done</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="toolbar tabbar tabbar-scrollable md-only">
+			<div class="toolbar-inner">
+				<a href="#tab-review" class="tab-link tab-link-active">Review</a>
+				<a href="#tab-address" class="tab-link disabled">Address</a>
+				<a href="#tab-payment" class="tab-link disabled">Payment</a>
+				<a href="#tab-done" class="tab-link disabled">Done</a>
+			</div>
+		</div>
+
+		<div class="tabs">
+
+			<div id="tab-review" class="page-content tab tab-active">
+				<div class="card">
+					<div class="card-content card-content-padding">
+						<div class="list media-list no-hairlines no-hairlines-between">
+							<ul>
+								<li class="swipeout">
+									<div class="swipeout-content">
+										<div class="item-content">
+											<div class="item-media">
+												<img src="https://www.dropbox.com/s/5t6xrzwx72zppnb/iphone-7-plus-black.png?raw=1" width="48" alt="" />
+											</div>
+											<div class="item-inner">
+												<div class="item-title-row">
+													<div class="item-title">Apple iPhone 7 Plus</div>
+													<div class="item-after">₹70000</div>
+												</div>
+												<div class="item-subtitle">Color: Black | Storage: 128 GB</div>
+												<div class="item-text">
+													<div class="chip">
+														<div class="chip-label">1</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="swipeout-actions swipeout-actions-left">
+										<a href="/screens/products-single" class="swipeout-action swipeout-close color-blue">
+											<div class="swipeout-action-icon">
+												<i class="icon fas fa-info-circle"></i>
+											</div>
+											<div class="swipeout-action-label">Info</div>
+										</a>
+									</div>
+									<div class="swipeout-actions swipeout-actions-right">
+										<a href="#" class="swipeout-action swipeout-close color-orange">
+											<div class="swipeout-action-icon">
+												<i class="icon fas fa-pencil-alt"></i>
+											</div>
+											<div class="swipeout-action-label">Change Quantity</div>
+										</a>
+										<a href="#" class="swipeout-action swipeout-close color-red">
+											<div class="swipeout-action-icon">
+												<i class="icon fas fa-trash"></i>
+											</div>
+											<div class="swipeout-action-label">Remove</div>
+										</a>
+									</div>
+								</li>
+								<li class="swipeout">
+									<div class="swipeout-content">
+										<div class="item-content">
+											<div class="item-media">
+												<img src="https://www.dropbox.com/s/hqt8pembrzbrakf/apple-watch-series-1.png?raw=1" width="48" alt="" />
+											</div>
+											<div class="item-inner">
+												<div class="item-title-row">
+													<div class="item-title">Apple Watch Series 1</div>
+													<div class="item-after">₹30000</div>
+												</div>
+												<div class="item-subtitle">Color: Black</div>
+												<div class="item-text">
+													<div class="chip">
+														<div class="chip-label">1</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="swipeout-actions swipeout-actions-left">
+										<a href="/screens/products-single" class="swipeout-action swipeout-close color-blue">
+											<div class="swipeout-action-icon">
+												<i class="icon fas fa-info-circle"></i>
+											</div>
+											<div class="swipeout-action-label">Info</div>
+										</a>
+									</div>
+									<div class="swipeout-actions swipeout-actions-right">
+										<a href="#" class="swipeout-action swipeout-close color-orange">
+											<div class="swipeout-action-icon">
+												<i class="icon fas fa-pencil-alt"></i>
+											</div>
+											<div class="swipeout-action-label">Change Quantity</div>
+										</a>
+										<a href="#" class="swipeout-action swipeout-close color-red">
+											<div class="swipeout-action-icon">
+												<i class="icon fas fa-trash"></i>
+											</div>
+											<div class="swipeout-action-label">Remove</div>
+										</a>
+									</div>
+								</li>
+								<li class="swipeout">
+									<div class="swipeout-content">
+										<div class="item-content">
+											<div class="item-media">
+												<img src="https://www.dropbox.com/s/d79j8pzl1nmlcsl/beats-solo-2-wireless-headphones.png?raw=1" width="48" alt="" />
+											</div>
+											<div class="item-inner">
+												<div class="item-title-row">
+													<div class="item-title">Beats Solo 2 Wireless Headphones</div>
+													<div class="item-after">₹20000</div>
+												</div>
+												<div class="item-subtitle">Color: Blue</div>
+												<div class="item-text">
+													<div class="chip">
+														<div class="chip-label">1</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="swipeout-actions swipeout-actions-left">
+										<a href="/screens/products-single" class="swipeout-action swipeout-close color-blue">
+											<div class="swipeout-action-icon">
+												<i class="icon fas fa-info-circle"></i>
+											</div>
+											<div class="swipeout-action-label">Info</div>
+										</a>
+									</div>
+									<div class="swipeout-actions swipeout-actions-right">
+										<a href="#" class="swipeout-action swipeout-close color-orange">
+											<div class="swipeout-action-icon">
+												<i class="icon fas fa-pencil-alt"></i>
+											</div>
+											<div class="swipeout-action-label">Change Quantity</div>
+										</a>
+										<a href="#" class="swipeout-action swipeout-close color-red">
+											<div class="swipeout-action-icon">
+												<i class="icon fas fa-trash"></i>
+											</div>
+											<div class="swipeout-action-label">Remove</div>
+										</a>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="card">
+					<div class="card-content card-content-padding">
+						<div class="list no-hairlines no-hairlines-between">
+							<ul>
+								<li>
+									<div class="item-content">
+										<div class="item-inner">
+											<div class="item-title">Subtotal</div>
+											<div class="item-after">₹120000</div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="item-content">
+										<div class="item-inner">
+											<div class="item-title">Discount @ 10%</div>
+											<div class="item-after">₹12000</div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="item-content">
+										<div class="item-inner">
+											<div class="item-title">Shipping Charges</div>
+											<div class="item-after">Free</div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="item-content">
+										<div class="item-inner">
+											<div class="item-title"><b>Grand Total</b></div>
+											<div class="item-after"><b>₹108000</b></div>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="card">
+					<div class="card-content card-content-padding">
+						<button class="button button-big button-fill" @click="showTabAddress">Continue</button>
+					</div>
+				</div>
+			</div>
+
+			<div id="tab-address" class="page-content tab">
+				<div class="card">
+					<div class="card-content padding-vertical">
+						<form id="address" name="address" action="#" method="POST" enctype="multipart/form-data">
+							<div class="list no-hairlines no-hairlines-between margin-bottom">
+								<ul>
+									<li>
+										<div class="item-content item-input item-input-with-info">
+											<div class="item-inner">
+												<div class="item-title item-label">Name</div>
+												<div class="item-input-wrap">
+													<input type="text" name="name" required />
+													<div class="item-input-info input-error-message"></div>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="item-content item-input item-input-with-info">
+											<div class="item-inner">
+												<div class="item-title item-label">Address</div>
+												<div class="item-input-wrap">
+													<textarea name="address" class="resizable" required></textarea>
+													<div class="item-input-info input-error-message"></div>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="item-content item-input item-input-with-info">
+											<div class="item-inner">
+												<div class="item-title item-label">City</div>
+												<div class="item-input-wrap">
+													<input type="text" name="city" required />
+													<div class="item-input-info input-error-message"></div>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="item-content item-input item-input-with-info">
+											<div class="item-inner">
+												<div class="item-title item-label">ZIP</div>
+												<div class="item-input-wrap">
+													<input type="text" name="zip" required />
+													<div class="item-input-info input-error-message"></div>
+												</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+							<div class="block">
+								<button type="submit" class="button button-big button-fill">Continue</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+
+			<div id="tab-payment" class="page-content tab">
+				<div class="card">
+					<div class="card-content padding-vertical">
+						<form id="payment" name="payment" action="#" method="POST" enctype="multipart/form-data">
+							<div class="list no-hairlines no-hairlines-between margin-bottom">
+								<ul>
+									<li>
+										<label class="item-radio item-content">
+											<input type="radio" name="method" value="cod" />
+											<i class="icon icon-radio"></i>
+											<div class="item-media ios-only">
+												<i class="fa-stack fa-lg">
+													<span class="fas fa-square fa-stack-2x text-color-green"></span>
+													<span class="fas fa-coins fa-stack-1x fa-inverse"></span>
+												</i>
+											</div>
+											<div class="item-inner">
+												<div class="item-title">Cash on Delivery</div>
+												<div class="item-after md-only">
+													<i class="fa-stack fa-lg">
+														<span class="fas fa-circle fa-stack-2x text-color-green"></span>
+														<span class="fas fa-coins fa-stack-1x fa-inverse"></span>
+													</i>
+												</div>
+											</div>
+										</label>
+									</li>
+									<li>
+										<label class="item-radio item-content">
+											<input type="radio" name="method" value="card" />
+											<i class="icon icon-radio"></i>
+											<div class="item-media ios-only">
+												<i class="fa-stack fa-lg">
+													<span class="fas fa-square fa-stack-2x text-color-black"></span>
+													<span class="far fa-credit-card fa-stack-1x fa-inverse"></span>
+												</i>
+											</div>
+											<div class="item-inner">
+												<div class="item-title">Credit/Debit Card</div>
+												<div class="item-after md-only">
+													<i class="fa-stack fa-lg">
+														<span class="fas fa-circle fa-stack-2x text-color-black"></span>
+														<span class="far fa-credit-card fa-stack-1x fa-inverse"></span>
+													</i>
+												</div>
+											</div>
+										</label>
+									</li>
+									<li>
+										<label class="item-radio item-content">
+											<input type="radio" name="method" value="bitcoin" />
+											<i class="icon icon-radio"></i>
+											<div class="item-media ios-only">
+												<i class="fa-stack fa-lg">
+													<span class="fas fa-square fa-stack-2x text-color-orange"></span>
+													<span class="fab fa-bitcoin fa-stack-1x fa-inverse"></span>
+												</i>
+											</div>
+											<div class="item-inner">
+												<div class="item-title">Bitcoin</div>
+												<div class="item-after md-only">
+													<i class="fa-stack fa-lg">
+														<span class="fas fa-circle fa-stack-2x text-color-orange"></span>
+														<span class="fab fa-bitcoin fa-stack-1x fa-inverse"></span>
+													</i>
+												</div>
+											</div>
+										</label>
+									</li>
+									<li>
+										<label class="item-radio item-content">
+											<input type="radio" name="method" value="android_pay" />
+											<i class="icon icon-radio"></i>
+											<div class="item-media ios-only">
+												<i class="fa-stack fa-lg">
+													<span class="fas fa-square fa-stack-2x brand-color-android"></span>
+													<span class="fab fa-android fa-stack-1x fa-inverse"></span>
+												</i>
+											</div>
+											<div class="item-inner">
+												<div class="item-title">Android Pay</div>
+												<div class="item-after md-only">
+													<i class="fa-stack fa-lg">
+														<span class="fas fa-circle fa-stack-2x brand-color-android"></span>
+														<span class="fab fa-android fa-stack-1x fa-inverse"></span>
+													</i>
+												</div>
+											</div>
+										</label>
+									</li>
+									<li>
+										<label class="item-radio item-content">
+											<input type="radio" name="method" value="apple_pay" />
+											<i class="icon icon-radio"></i>
+											<div class="item-media ios-only">
+												<i class="fa-stack fa-lg">
+													<span class="fas fa-square fa-stack-2x brand-color-apple"></span>
+													<span class="fab fa-apple fa-stack-1x fa-inverse"></span>
+												</i>
+											</div>
+											<div class="item-inner">
+												<div class="item-title">Apple Pay</div>
+												<div class="item-after md-only">
+													<i class="fa-stack fa-lg">
+														<span class="fas fa-circle fa-stack-2x brand-color-apple"></span>
+														<span class="fab fa-apple fa-stack-1x fa-inverse"></span>
+													</i>
+												</div>
+											</div>
+										</label>
+									</li>
+								</ul>
+							</div>
+							<div class="block margin-bottom">
+								<div class="input-error-message text-align-center" style="position: relative;"></div>
+							</div>
+							<div class="block">
+								<button type="submit" class="button button-big button-fill">Pay</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+
+			<div id="tab-done" class="page-content tab">
+				<div class="empty-state">
+					<div class="empty-state-media">
+						<img src="assets/custom/img/shopping.svg" alt="" />
+					</div>
+					<div class="empty-state-title">Thank You</div>
+					<div class="empty-state-text">Your order has been received successfully.</div>
+					<div class="empty-state-actions">
+						<a href="/screens" class="button button-big button-fill button-round">Done</a>
+					</div>
+				</div>
+			</div>
+
+			</div>
+
+	</div>
+</template>
+
+<style scoped>
+	.empty-state .empty-state-media img {
+		height: auto;
+		width: 256px;
+	}
+</style>
+
+<script>
+	return {
+		data: function() {
+			return {
+				formValidatorAddress: null,
+				formValidatorPayment: null
+			}
+		},
+		methods: {
+			showTabAddress: function() {
+				var self = this;
+				self.$('[href="#tab-address"]').removeClass('disabled');
+				app.tab.show('#tab-address');
+			},
+			initializeAddressForm: function() {
+				var self = this;
+				self.formValidatorAddress = jQuery('form[name=address]').validate({
+					ignore: [],
+					rules: {
+						name: {
+							required: true
+						},
+						address: {
+							required: true
+						},
+						city: {
+							required: true
+						},
+						zip: {
+							required: true
+						}
+					},
+    			messages: {
+						name: {
+							required: 'Please enter name.'
+      			},
+						address: {
+							required: 'Please enter address.'
+      			},
+						city: {
+							required: 'Please enter city.'
+      			},
+						zip: {
+							required: 'Please enter ZIP code.'
+      			}
+					},
+					submitHandler: function(form) {
+						self.$('[href="#tab-payment"]').removeClass('disabled');
+						app.tab.show('#tab-payment');
+					}
+				});
+			},
+			initializePaymentForm: function() {
+				var self = this;
+				self.formValidatorPayment = jQuery('form[name=payment]').validate({
+					ignore: [],
+					rules: {
+						method: {
+							required: true
+						}
+					},
+    			messages: {
+						method: {
+							required: 'Please select payment method.'
+      			}
+					},
+					errorPlacement: function(error, element) {
+						error.appendTo('form[name=payment] .input-error-message');
+					},
+					submitHandler: function(form) {
+						self.$('[href="#tab-done"]').removeClass('disabled');
+						app.tab.show('#tab-done');
+					}
+				});
+			}
+		},
+		on: {
+			pageInit: function() {
+				var self = this;
+				self.initializeAddressForm();
+				self.initializePaymentForm();
+			}
+		}
+	}
+</script>

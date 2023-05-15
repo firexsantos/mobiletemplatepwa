@@ -1,0 +1,185 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="cordova-plugins">Cordova Plugins</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="geolocation">Geolocation</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="geolocation">Geolocation</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="block">
+				<p>This plugin allows to access user's geographical location - using either GPS or network environment.</p>
+			</div>
+
+			{{#if hasGeolocationInfo}}
+			<div class="list">
+				<ul>
+					<li>
+						<div class="item-content">
+							<div class="item-inner">
+								<div class="item-title">Latitude</div>
+								<div class="item-after">{{position.latitude}}</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-inner">
+								<div class="item-title">Location</div>
+								<div class="item-after">{{position.longitude}}</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-inner">
+								<div class="item-title">Location Accuracy</div>
+								<div class="item-after">{{position.accuracy}}</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-inner">
+								<div class="item-title">Altitude</div>
+								<div class="item-after">{{position.altitude}}</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-inner">
+								<div class="item-title">Altitude Accuracy</div>
+								<div class="item-after">{{position.altitudeAccuracy}}</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-inner">
+								<div class="item-title">Heading</div>
+								<div class="item-after">{{position.heading}}</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-inner">
+								<div class="item-title">Speed</div>
+								<div class="item-after">{{position.speed}}</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+
+			{{#if watchId}}
+			<div class="block">
+				<button class="button button-big button-fill color-red" @click="stopTracking">Stop Tracking</button>
+			</div>
+			<div class="note note-info text-align-center">
+				<p>The geolocation information will change when you move your device from one location to another.</p>
+			</div>
+			{{else}}
+			<div class="block">
+				<button class="button button-big button-fill color-green" @click="startTracking">Start Tracking</button>
+			</div>
+			{{/if}}
+			{{else}}
+			<div class="block">
+				<button class="button button-big button-fill color-green" @click="getGeolocationInfo">Get Geolocation Info</button>
+			</div>
+			{{/if}}
+
+		</div>
+
+	</div>
+</template>
+
+<script>
+	return {
+		data: function() {
+			return {
+				hasGeolocationInfo: false,
+				watchId: null,
+				position: {
+					latitude: null,
+					longitude: null,
+					accuracy: null,
+					altitude: null,
+					altitudeAccuracy: null,
+					heading: null,
+					speed: null
+				},
+				geolocationOptions: {
+					enableHighAccuracy: true,
+					maximumAge: 3000,
+					timeout: 5000
+				}
+			}
+		},
+		methods: {
+			getGeolocationInfo: function() {
+				var self = this;
+				navigator.geolocation.getCurrentPosition(self.onGeolocationSuccess, self.onGeolocationError, self.geolocationOptions);
+			},
+			onGeolocationSuccess: function(position) {
+				var self = this;
+				self.updateGeolocationInfo(position);
+			},
+			onGeolocationError: function(error) {
+				var self = this;
+				app.toast.show({
+					text: error.message,
+					position: 'bottom',
+					cssClass: 'toast-round bg-color-red'
+				});
+			},
+			updateGeolocationInfo: function(position) {
+				var self = this;
+				var positionData = {};
+				positionData.latitude = position.coords.latitude ? position.coords.latitude + ' deg' : 'Not Available';
+				positionData.longitude = position.coords.longitude ? position.coords.longitude + ' deg' : 'Not Available';
+				positionData.accuracy = position.coords.accuracy ? position.coords.accuracy + ' m' : 'Not Available';
+				positionData.altitude = position.coords.altitude ? position.coords.altitude + ' m' : 'Not Available';
+				positionData.altitudeAccuracy = position.coords.altitudeAccuracy ? position.coords.altitudeAccuracy + ' m' : 'Not Available';
+				positionData.heading = position.coords.heading ? position.coords.heading + ' deg' : 'Not Available';
+				positionData.speed = position.coords.speed ? position.coords.speed + ' m/s' : 'Not Available';
+				self.$setState({
+					hasGeolocationInfo: true,
+					position: positionData
+				});
+			},
+			startTracking: function() {
+				var self = this;
+				self.watchId = navigator.geolocation.watchPosition(self.onGeolocationSuccess, self.onGeolocationError, self.geolocationOptions);
+			},
+			stopTracking: function() {
+				var self = this;
+				navigator.geolocation.clearWatch(self.watchId);
+				self.$setState({
+					watchId: null
+				});
+			}
+		},
+		on: {
+			pageBeforeRemove: function() {
+				var self = this;
+				self.stopTracking();
+			}
+		}
+	}
+</script>

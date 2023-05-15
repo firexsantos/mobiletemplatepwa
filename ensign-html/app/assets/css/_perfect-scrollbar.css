@@ -1,0 +1,12 @@
+/*----------------------------------------
+  Perfect Scrollbar
+----------------------------------------*/
+.sidemenu, .sidesettings{
+    overflow: hidden;
+}
+.ps--active-x > .ps__rail-x, .ps--active-y > .ps__rail-y{
+  z-index: 2;
+}
+.ps__thumb-y {
+    background-color: rgba(130,130,130,.5);
+}

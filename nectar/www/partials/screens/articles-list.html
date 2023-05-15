@@ -1,0 +1,94 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="back">Back</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="articles-list">Articles - List</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="articles-list">Articles - List</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+      {{#if articles}}
+      <div class="cards">
+        {{#each articles}}
+        <a href="/screens/articles-single" class="card" style="background-image: url('{{this.image}}');">
+          <div class="card-content card-content-padding">
+            <p>{{this.title}}</p>
+            <span class="badge color-yellow text-color-black">{{this.category}}</span>
+          </div>
+        </a>
+        {{/each}}
+      </div>
+      {{/if}}
+
+		</div>
+
+	</div>
+</template>
+
+<style scoped>
+	.cards .card {
+		background-color: #292929;
+    background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		box-shadow: none;
+		color: #FFFFFF;
+    display: flex;
+    height: 48vw;
+	}
+
+	.theme-dark {{this}} .cards .card {
+		background-color: #292929;
+	}
+
+  .card .card-content {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+</style>
+
+<script>
+	return {
+		data: function() {
+			return {
+				articles: null
+			}
+		},
+		methods: {
+			loadData: function() {
+				var self = this;
+				app.request.json(
+					'assets/custom/dataset/articles.json',
+					function(data) {
+						if (data) {
+							self.$setState({
+								articles: data
+							});
+						}
+					}
+				);
+			}
+		},
+		on: {
+			pageInit: function() {
+				var self = this;
+				self.loadData();
+			}
+		}
+	}
+</script>

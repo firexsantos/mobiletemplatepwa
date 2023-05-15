@@ -1,0 +1,87 @@
+
+/*----------------------------------------
+  Invoice
+----------------------------------------*/
+.collection.invoice-item .collection-item.non-avatar{
+  padding-left: 15px;
+  position: relative;
+  display: inline-block;
+    width: 100%;
+}
+.collection.invoice-item .collection-item.non-avatar .secondary-content{
+  position: relative;
+  top: auto;
+  right: auto;
+  width: 100%;
+  text-align: center;
+}
+.collection.invoice-item .collection-item.non-avatar .item-det h6{
+  margin-top: 5px;
+}
+.collection.invoice-item .collection-item.avatar .secondary-content{
+  /* top: 17px; */
+  right: 20px;
+  margin-top: 4px;
+}
+.collection.invoice-item .collection-item.avatar .title{
+  font-size: 18px;
+}
+.invoice-item .item-det p{
+  font-size: 80%;
+  opacity: 0.8;
+  font-style: italic;
+}
+.invoice-item li:not(.total) h6{
+  background: var(--primary-color);
+  color: #ffffff;
+  border-radius: var(--border-radius);
+  padding: 3px 10px;
+  margin-bottom: 5px;
+  font-size: 16px;
+  min-width: 90px;
+  text-align: center;
+}
+.invoice-item .total h6{
+  background: transparent;
+}
+.invoice-item .total .secondary-content{
+  position: relative;
+}
+.invoice-item .total h5{
+  border-radius: var(--border-radius-button);
+  padding: 5px 10px;
+  margin-bottom: 15px;
+  font-size: 22px;
+  min-width: 140px;
+  text-align: center;
+  display: inline-block;
+  background: var(--primary-color);
+  color: #ffffff;
+}
+.invoice-item .total h6{
+  text-align: center;
+}
+.invoice-item li:not(.total) h6.credit{
+  background-color: var(--success-color);
+}
+.invoice-item li:not(.total) h6.debit{
+  background-color: var(--danger-color);
+}
+.collection.invoice-item .collection-item.avatar{
+  min-height: 82px;
+}
+.collection.invoice-item .collection-item.avatar:not(:last-child):after {
+  content: " ";
+  border-bottom: 1px solid #e5e5e5;
+  width: 100%;
+  width: calc(100% - 70px);
+  margin-left: 0px;
+  display: inline-block;
+  height: 1px;
+  top: 75px;
+  position: absolute;
+}
+
+[data-site_mode="dark"] .collection.invoice-item .collection-item.avatar:not(:last-child):after{
+	border-color:#455a64;
+}

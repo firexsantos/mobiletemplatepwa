@@ -1,0 +1,73 @@
+/*----------------------------------------
+  Table
+----------------------------------------*/
+table{
+    -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+    background-color: #ffffff;
+    border-radius: var(--border-radius);
+}
+table td, table th{
+  padding: 15px 15px;
+}    
+table thead{
+  background: rgba(0,0,0,0.07);
+}
+table th:first-child {
+  border-radius: var(--border-radius) 0 0 0;
+}
+table th:last-child {
+  border-radius: 0px var(--border-radius) 0px 0;
+}
+
+table.responsive-table th:first-child {
+  border-radius: var(--border-radius) 0 0 0;
+}
+table.responsive-table th:last-child {
+  border-radius: 0px 0px 0px var(--border-radius);
+}
+
+
+table.colored thead tr{
+  padding-right: 0;
+}
+table.colored.responsive-table tr td{
+  background: transparent;
+}
+
+table.colored.primary thead th{
+  background: var(--primary-color);
+  color: #ffffff;
+}
+table.colored.primary td{
+  background: rgba(var(--primary-rgb), 0.1);
+}
+table.colored.primary.responsive-table tbody{
+  background: rgba(var(--primary-rgb), 0.1);
+}
+
+
+table.colored.accent thead th{
+  background: var(--accent-color);
+  color: #ffffff;
+}
+table.colored.accent td{
+  background: rgba(var(--accent-rgb), 0.1);
+}
+table.colored.accent.responsive-table tbody{
+  background: rgba(var(--accent-rgb), 0.1);
+}
+
+
+/*----------------------------------------
+  Site - Dark Mode - Table
+----------------------------------------*/
+[data-site_mode="dark"] table {
+  background-color: #37474F;
+}
+[data-site_mode="dark"] table:not(.datepicker-table) tr {
+    border-bottom: 1px solid #455A64;
+}
+[data-site_mode="dark"] table.striped>tbody>tr:nth-child(odd) {
+    background-color: rgba(33,33,33,0.25);
+}

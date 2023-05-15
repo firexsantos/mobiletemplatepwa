@@ -1,0 +1,144 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="integrations">Integrations</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="google-sheets">Google Sheets</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="google-sheets">Google Sheets</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="block">
+				<p>Save your custom form data into the <a href="https://docs.google.com/spreadsheets" target="_blank" class="external">Google Spreadsheet</a> and get notified by email.</p>
+			</div>
+
+			<form id="subscribe" name="subscribe" action="#" method="GET" enctype="application/x-www-form-urlencoded">
+				<div class="list no-hairlines no-hairlines-between">
+					<ul>
+						<li>
+							<div class="item-content item-input item-input-with-info">
+								<div class="item-media">
+									<i class="icon f7-icons ios-only">person</i>
+									<i class="icon material-icons md-only">person</i>
+								</div>
+								<div class="item-inner">
+									<div class="item-title item-floating-label">Name</div>
+									<div class="item-input-wrap">
+										<input type="text" name="name" required />
+										<div class="item-input-info input-error-message"></div>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="item-content item-input item-input-with-info">
+								<div class="item-media">
+									<i class="icon f7-icons ios-only">email</i>
+									<i class="icon material-icons md-only">email</i>
+								</div>
+								<div class="item-inner">
+									<div class="item-title item-floating-label">Email</div>
+									<div class="item-input-wrap">
+										<input type="email" name="email" required />
+										<div class="item-input-info input-error-message"></div>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="block md-only">
+					<button type="submit" class="button button-big button-fill">Send</button>
+				</div>
+			</form>
+
+		</div>
+
+	</div>
+</template>
+
+<script>
+	return {
+		data: function() {
+			return {
+				formValidator: null
+			}
+		},
+		methods: {
+			initializeFormValidator: function() {
+				var self = this;
+				self.formValidator = jQuery('form[name=subscribe]').validate({
+					ignore: [],
+					rules: {
+						name: {
+							required: true
+						},
+						email: {
+							required: true,
+							email: true
+						}
+					},
+    			messages: {
+						name: {
+							required: 'Please enter name.'
+      			},
+						email: {
+							required: 'Please enter email address.',
+							email: 'Please enter a valid email address.'
+						}
+					},
+					submitHandler: function(form) {
+						self.submitForm(form);
+					}
+				});
+			},
+			submitForm: function(form) {
+				var self = this;
+				app.request.get(
+					'https://script.google.com/macros/s/AKfycbyPd6HlmlMhQueRFya_e813yCHmEG9xzc7MRJFPN2Nq0ACtCNw/exec',
+					app.form.convertToData(form),
+					function(data) {
+						if (data.result === 'success') {
+							app.toast.show({
+								text: 'Form has been submitted successfully.',
+								cssClass: 'bg-color-green'
+							});
+							form.reset();
+						}
+						else {
+							app.toast.show({
+								text: data.error.message,
+								cssClass: 'bg-color-green'
+							});
+						}
+					},
+					function() {
+						app.toast.show({
+							text: 'An error occured while submitting the form.',
+							cssClass: 'bg-color-red'
+						});
+					},
+					'json'
+				);
+			}
+		},
+		on: {
+			pageInit: function() {
+				var self = this;
+				self.initializeFormValidator();
+			}
+		}
+	}
+</script>

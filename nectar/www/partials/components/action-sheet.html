@@ -1,0 +1,120 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="components">Components</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="action-sheet">Action Sheet</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="action-sheet">Action Sheet</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="block">
+				<p>Action Sheet is a slide-up pane which displays a set of buttons representing several alternative choices to complete a task initiated by the user.</p>
+			</div>
+
+			<div class="block">
+				<p><button class="button button-big button-fill" @click="openActionSheet">Open Action Sheet</button></p>
+				<p><button class="button button-big button-fill" @click="openActionGrid">Open Action Grid</button></p>
+			</div>
+
+		</div>
+
+	</div>
+</template>
+
+<script>
+	return {
+		methods: {
+			openActionSheet: function() {
+				var self = this;
+				var actionSheet = app.actions.create({
+					buttons: [
+						[
+							{
+								text: 'Actions',
+								label: true
+							}
+						],
+						[
+							{
+								icon: app.theme == 'ios' ? '<i class="icon f7-icons">search</i>' : '<i class="icon material-icons">search</i>',
+								text: 'Search'
+							},
+							{
+								icon: app.theme == 'ios' ? '<i class="icon f7-icons">bookmark</i>' : '<i class="icon material-icons">bookmark</i>',
+								text: 'Bookmark'
+							},
+							{
+								icon: app.theme == 'ios' ? '<i class="icon f7-icons">share</i>' : '<i class="icon material-icons">share</i>',
+								text: 'Share'
+							},
+							{
+								icon: app.theme == 'ios' ? '<i class="icon f7-icons">settings</i>' : '<i class="icon material-icons">settings</i>',
+								text: 'Settings'
+							},
+							{
+								icon: app.theme == 'ios' ? '<i class="icon f7-icons">trash</i>' : '<i class="icon material-icons">delete</i>',
+								text: 'Delete'
+							}
+						],
+						[
+							{
+								text: 'Cancel',
+								color: 'red'
+							}
+						]
+					]
+				});
+				actionSheet.open();
+			},
+			openActionGrid: function() {
+				var self = this;
+				var actionSheet = app.actions.create({
+					grid: true,
+					buttons: [
+						[
+							{
+								icon: '<i class="fa-stack fa-lg"><span class="fas fa-square fa-stack-2x text-color-blue ios-only"></span><span class="fas fa-circle fa-stack-2x text-color-blue md-only"></span><span class="fas fa-search fa-stack-1x fa-inverse"></span></i>',
+								text: 'Search',
+								color: 'blue'
+							},
+							{
+								icon: '<i class="fa-stack fa-lg"><span class="fas fa-square fa-stack-2x text-color-orange ios-only"></span><span class="fas fa-circle fa-stack-2x text-color-orange md-only"></span><span class="fas fa-bookmark fa-stack-1x fa-inverse"></span></i>',
+								text: 'Bookmark',
+								color: 'orange'
+							},
+							{
+								icon: '<i class="fa-stack fa-lg"><span class="fas fa-square fa-stack-2x text-color-green ios-only"></span><span class="fas fa-circle fa-stack-2x text-color-green md-only"></span><span class="fas fa-share-alt fa-stack-1x fa-inverse"></span></i>',
+								text: 'Share',
+								color: 'green'
+							},
+							{
+								icon: '<i class="fa-stack fa-lg"><span class="fas fa-square fa-stack-2x text-color-pink ios-only"></span><span class="fas fa-circle fa-stack-2x text-color-pink md-only"></span><span class="fas fa-cog fa-stack-1x fa-inverse"></span></i>',
+								text: 'Settings',
+								color: 'pink'
+							},
+							{
+								icon: '<i class="fa-stack fa-lg"><span class="fas fa-square fa-stack-2x text-color-red ios-only"></span><span class="fas fa-circle fa-stack-2x text-color-red md-only"></span><span class="fas fa-trash-alt fa-stack-1x fa-inverse"></span></i>',
+								text: 'Delete',
+								color: 'red'
+							}
+						]
+					]
+				});
+				actionSheet.open();
+			}
+		}
+	}
+</script>

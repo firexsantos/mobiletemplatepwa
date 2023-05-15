@@ -1,0 +1,88 @@
+
+/*----------------------------------------
+  Testimonials  
+------------------------------------------*/
+
+.slider .slides.testimonials li .userinfo img{
+  position: relative;
+  top: 3px;
+  width: 46px;
+  height: 46px;
+  float: left;
+  margin-right: 10px;
+}
+.testimonials .userinfo{
+  margin-top: 10px;
+  display: inline-block;
+  width: auto;
+}
+.testimonials .userinfo img{
+}
+.testimonials .userinfo .left-align{
+  white-space: nowrap;
+  float: left;
+}
+.slider .slides.testimonials.center .userinfo{
+  margin-bottom: 0px;
+}
+.slider .slides.testimonials.center .userinfo img{
+  float: none;  
+  margin-bottom: 10px;
+}
+.testimonials.center .userinfo .name strong{
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.testimonials.center .userinfo .position strong{
+  font-size: 13px;
+  margin-bottom: 0px;
+}
+.testimonials.center p i{
+  display: block;
+  font-size: 44px;
+  margin: 10px;
+  opacity: 0.2;
+}
+.testi-boxed{
+  background: #ffffff;
+  border-radius: var(--border-radius);
+  padding: 15px;
+}
+
+.slider.testi-boxed li{
+  padding: 15px;
+}
+
+.testi-overlay{
+  margin-top: 40px;
+  height: 350px !important;
+}
+
+.testi-overlay li {
+  margin-top: -70px;
+}
+.slider.testi-overlay .slides.testimonials li .userinfo img{
+  height: 70px;
+  width: 70px;
+  -webkit-box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1), 0 3px 11px -2px rgba(0, 0, 0, 0.1), 0 1px 5px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1), 0 3px 11px -2px rgba(0, 0, 0, 0.1), 0 1px 5px 0 rgba(0, 0, 0, 0.1);
+}
+.slider .slides.testimonials li{
+  overflow: visible;
+}
+.testimonials .prod-rating{
+  margin-top: 10px;
+  text-align: center;
+}
+
+.primary-bg .testimonials .prod-rating i{
+  color: #ffffff;
+}
+
+[data-site_mode="dark"] .testi-boxed {
+  background-color: #37474f;
+  color: #CFD8DC;
+}
+[data-site_mode="dark"] .testi-boxed.primary-bg {
+    background-color: var(--primary-color);
+}

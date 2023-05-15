@@ -1,0 +1,160 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="components">Components</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="rating">Rating</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="rating">Rating</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="block">
+				<p>Rating can used to collect user feedback.</p>
+			</div>
+
+			<div class="list simple-list">
+				<ul>
+					<li class="item-divider">Default</li>
+					<li>
+						<div class="item-cell">
+							<div class="rating-default"></div>
+						</div>
+					</li>
+					<li class="item-divider">Full Star</li>
+					<li>
+						<div class="item-cell">
+							<div class="rating-full-star"></div>
+						</div>
+					</li>
+					<li class="item-divider">Half Star</li>
+					<li>
+						<div class="item-cell">
+							<div class="rating-half-star"></div>
+						</div>
+					</li>
+					<li class="item-divider">Stars Length</li>
+					<li>
+						<div class="item-cell">
+							<div class="rating-stars-length"></div>
+						</div>
+					</li>
+					<li class="item-divider">Multi-color</li>
+					<li>
+						<div class="item-cell">
+							<div class="rating-multicolor"></div>
+						</div>
+					</li>
+					<li class="item-divider">Custom Shape</li>
+					<li>
+						<div class="item-cell">
+							<div class="rating-heart-shape"></div>
+						</div>
+					</li>
+				</ul>
+			</div>
+
+		</div>
+
+	</div>
+</template>
+
+<script>
+	return {
+		methods: {
+			initializeRatingDefault: function() {
+				var self = this;
+				jQuery('.rating-default').rateYo({
+					normalFill: '#FFF9DB',
+					ratedFill: '#FCC419',
+					rating: 3,
+					spacing: '2px',
+					starWidth: '32px'
+				});
+			},
+			initializeRatingFullStar: function() {
+				var self = this;
+				jQuery('.rating-full-star').rateYo({
+					fullStar: true,
+					normalFill: '#F8F0FC',
+					ratedFill: '#CC5DE8',
+					rating: 2,
+					spacing: '2px',
+					starWidth: '32px'
+				});
+			},
+			initializeRatingHalfStar: function() {
+				var self = this;
+				jQuery('.rating-half-star').rateYo({
+					halfStar: true,
+					normalFill: '#E7F5FF',
+					ratedFill: '#339AF0',
+					rating: 2.5,
+					spacing: '2px',
+					starWidth: '32px'
+				});
+			},
+			initializeRatingStarsLength: function() {
+				var self = this;
+				jQuery('.rating-stars-length').rateYo({
+					fullStar: true,
+					maxValue: 7,
+					numStars: 7,
+					normalFill: '#EBFBEE',
+					ratedFill: '#51CF66',
+					rating: 4,
+					spacing: '2px',
+					starWidth: '32px'
+				});
+			},
+			initializeRatingMulticolor: function() {
+				var self = this;
+				jQuery('.rating-multicolor').rateYo({
+					halfStar: true,
+					normalFill: '#F8F9FA',
+					multiColor: {
+						startColor: '#FF6B6B',
+						endColor: '#94D82D'
+					},
+					rating: 2.5,
+					spacing: '2px',
+					starWidth: '32px'
+				});
+			},
+			initializeRatingHeartShape: function() {
+				var self = this;
+				jQuery('.rating-heart-shape').rateYo({
+					halfStar: true,
+					normalFill: '#FFF0F6',
+					ratedFill: '#F06595',
+					rating: 3,
+					spacing: '4px',
+					starWidth: '32px',
+					starSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 4.435c-1.989-5.399-12-4.597-12 3.568 0 4.068 3.06 9.481 12 14.997 8.94-5.516 12-10.929 12-14.997 0-8.118-10-8.999-12-3.568z" /></svg>'
+				});
+			},
+		},
+		on: {
+			pageInit: function() {
+				var self = this;
+				self.initializeRatingDefault();
+				self.initializeRatingFullStar();
+				self.initializeRatingHalfStar();
+				self.initializeRatingStarsLength();
+				self.initializeRatingMulticolor();
+				self.initializeRatingHeartShape();
+			}
+		}
+	}
+</script>

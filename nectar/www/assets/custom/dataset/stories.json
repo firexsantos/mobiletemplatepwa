@@ -1,0 +1,70 @@
+[
+	{
+		"id": "mtv",
+		"photo": "https://logo.clearbit.com/mtv.it",
+		"name": "MTV",
+		"items": [
+			{
+				"id": "mtv-1",
+				"type": "photo",
+				"src": "https://source.unsplash.com/9b6yj0m2WVA"
+			},
+			{
+				"id": "mtv-2",
+				"type": "video",
+				"src": "https://assets.mixkit.co/videos/449/449-720.mp4"
+			},
+			{
+				"id": "mtv-3",
+				"type": "photo",
+				"src": "https://source.unsplash.com/JN7PFqKAwzU"
+			}
+		]
+	},
+	{
+		"id": "kate",
+		"photo": "https://randomuser.me/api/portraits/women/57.jpg",
+		"name": "Kate",
+		"items": [
+			{
+				"id": "kate-1",
+				"type": "photo",
+				"src": "https://source.unsplash.com/mEZ3PoFGs_k"
+			},
+			{
+				"id": "kate-2",
+				"type": "photo",
+				"src": "https://source.unsplash.com/nahUo1GhcrA"
+			}
+		]
+	},
+	{
+		"id": "maserati",
+		"photo": "https://logo.clearbit.com/maseratiusa.com",
+		"name": "Maserati",
+		"items": [
+			{
+				"id": "maserati-1",
+				"type": "photo",
+				"src": "https://source.unsplash.com/zu95jkyrGtw"
+			}
+		]
+	},
+	{
+		"id": "leo",
+		"photo": "https://randomuser.me/api/portraits/men/42.jpg",
+		"name": "Leo",
+		"items": [
+			{
+				"id": "leo-1",
+				"type": "photo",
+				"src": "https://source.unsplash.com/XhMSz5I1kn8"
+			},
+			{
+				"id": "leo-2",
+				"type": "photo",
+				"src": "https://source.unsplash.com/KPZ1aNqpQkQ"
+			}
+		]
+	}
+]

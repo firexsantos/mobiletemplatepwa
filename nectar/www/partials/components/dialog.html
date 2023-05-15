@@ -1,0 +1,641 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="components">Components</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="dialog">Dialog</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="dialog">Dialog</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="block">
+				<p>Dialog is a modal that allows to provide information, ask for a decision or get input from the user.</p>
+			</div>
+
+			<div class="list">
+				<div class="list-group">
+					<ul>
+						<li class="list-group-title">Alert Dialog</li>
+						<li>
+							<a href="#" class="item-link" @click="showBasicAlertDialog">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title">Basic</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="#" class="item-link" @click="showSuccessAlertDialog">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title">Success</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="#" class="item-link" @click="showInfoAlertDialog">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title">Info</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="#" class="item-link" @click="showWarningAlertDialog">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title">Warning</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="#" class="item-link" @click="showDangerAlertDialog">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title">Danger</div>
+									</div>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="list-group">
+					<ul>
+						<li class="list-group-title">Confirm Dialog</li>
+						<li>
+							<a href="#" class="item-link" @click="showBasicConfirmDialog">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title">Basic</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="#" class="item-link" @click="showDeleteConfirmDialog">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title">Delete</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="#" class="item-link" @click="showPermissionConfirmDialog">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title">Permission</div>
+									</div>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="list-group">
+					<ul>
+						<li class="list-group-title">Prompt Dialog</li>
+						<li>
+							<a href="#" class="item-link" @click="showBasicPromptDialog">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title">Basic</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="#" class="item-link" @click="showLoginPromptDialog">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title">Login</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="#" class="item-link" @click="showPasswordPromptDialog">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title">Password</div>
+									</div>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="list-group">
+					<ul>
+						<li class="list-group-title">Preloader Dialog</li>
+						<li>
+							<a href="#" class="item-link" @click="showPreloaderDialog">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title">Preloader</div>
+									</div>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="list-group">
+					<ul>
+						<li class="list-group-title">Progress Dialog</li>
+						<li>
+							<a href="#" class="item-link" @click="showDeterminateProgressDialog">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title">Determinate</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="#" class="item-link" @click="showInfiniteProgressDialog">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title">Infinite</div>
+									</div>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="list-group">
+					<ul>
+						<li class="list-group-title">Choice Dialog</li>
+						<li>
+							<a href="#" class="item-link" @click="showRadioChoiceDialog">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title">Radio</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="#" class="item-link" @click="showCheckboxChoiceDialog">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title">Checkbox</div>
+									</div>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="dialog dialog-choice-radio">
+			<div class="dialog-inner">
+				<div class="dialog-title text-align-center">What is the day today?</div>
+				<div class="list no-margin margin-top no-hairlines no-hairlines-between">
+					<ul>
+						<li>
+							<label class="item-radio item-content">
+								<input type="radio" name="today" value="Sunday" checked />
+								<i class="icon icon-radio"></i>
+								<div class="item-inner">
+									<div class="item-title">Sunday</div>
+								</div>
+							</label>
+						</li>
+						<li>
+							<label class="item-radio item-content">
+								<input type="radio" name="today" value="Monday" />
+								<i class="icon icon-radio"></i>
+								<div class="item-inner">
+									<div class="item-title">Monday</div>
+								</div>
+							</label>
+						</li>
+						<li>
+							<label class="item-radio item-content">
+								<input type="radio" name="today" value="Tuesday" />
+								<i class="icon icon-radio"></i>
+								<div class="item-inner">
+									<div class="item-title">Tuesday</div>
+								</div>
+							</label>
+						</li>
+						<li>
+							<label class="item-radio item-content">
+								<input type="radio" name="today" value="Wednesday" />
+								<i class="icon icon-radio"></i>
+								<div class="item-inner">
+									<div class="item-title">Wednesday</div>
+								</div>
+							</label>
+						</li>
+						<li>
+							<label class="item-radio item-content">
+								<input type="radio" name="today" value="Thursday" />
+								<i class="icon icon-radio"></i>
+								<div class="item-inner">
+									<div class="item-title">Thursday</div>
+								</div>
+							</label>
+						</li>
+						<li>
+							<label class="item-radio item-content">
+								<input type="radio" name="today" value="Friday" />
+								<i class="icon icon-radio"></i>
+								<div class="item-inner">
+									<div class="item-title">Friday</div>
+								</div>
+							</label>
+						</li>
+						<li>
+							<label class="item-radio item-content">
+								<input type="radio" name="today" value="Saturday" />
+								<i class="icon icon-radio"></i>
+								<div class="item-inner">
+									<div class="item-title">Saturday</div>
+								</div>
+							</label>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="dialog-buttons">
+				<span class="dialog-button" @click="closeDialog">Cancel</span>
+				<span class="dialog-button dialog-button-bold" @click="showSelectedRadioValue">OK</span>
+			</div>
+		</div>
+
+		<div class="dialog dialog-choice-checkbox">
+			<div class="dialog-inner">
+				<div class="dialog-title text-align-center">What are your favourite colors?</div>
+				<div class="list no-margin margin-top no-hairlines no-hairlines-between">
+					<ul>
+						<li>
+							<label class="item-checkbox item-content">
+								<input type="checkbox" name="colors" value="Violet" />
+								<i class="icon icon-checkbox"></i>
+								<div class="item-inner">
+									<div class="item-title">Violet</div>
+								</div>
+							</label>
+						</li>
+						<li>
+							<label class="item-checkbox item-content">
+								<input type="checkbox" name="colors" value="Indigo" />
+								<i class="icon icon-checkbox"></i>
+								<div class="item-inner">
+									<div class="item-title">Indigo</div>
+								</div>
+							</label>
+						</li>
+						<li>
+							<label class="item-checkbox item-content">
+								<input type="checkbox" name="colors" value="Blue" checked />
+								<i class="icon icon-checkbox"></i>
+								<div class="item-inner">
+									<div class="item-title">Blue</div>
+								</div>
+							</label>
+						</li>
+						<li>
+							<label class="item-checkbox item-content">
+								<input type="checkbox" name="colors" value="Green" />
+								<i class="icon icon-checkbox"></i>
+								<div class="item-inner">
+									<div class="item-title">Green</div>
+								</div>
+							</label>
+						</li>
+						<li>
+							<label class="item-checkbox item-content">
+								<input type="checkbox" name="colors" value="Yellow" />
+								<i class="icon icon-checkbox"></i>
+								<div class="item-inner">
+									<div class="item-title">Yellow</div>
+								</div>
+							</label>
+						</li>
+						<li>
+							<label class="item-checkbox item-content">
+								<input type="checkbox" name="colors" value="Orange" checked />
+								<i class="icon icon-checkbox"></i>
+								<div class="item-inner">
+									<div class="item-title">Orange</div>
+								</div>
+							</label>
+						</li>
+						<li>
+							<label class="item-checkbox item-content">
+								<input type="checkbox" name="colors" value="Red" />
+								<i class="icon icon-checkbox"></i>
+								<div class="item-inner">
+									<div class="item-title">Red</div>
+								</div>
+							</label>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="dialog-buttons">
+				<span class="dialog-button" @click="closeDialog">Cancel</span>
+				<span class="dialog-button dialog-button-bold" @click="showSelectedCheckboxValues">OK</span>
+			</div>
+		</div>
+
+	</div>
+</template>
+
+<script>
+	return {
+		methods: {
+			showBasicAlertDialog: function() {
+				var self = this;
+				app.dialog.alert('Welcome to Nectar', window.config.app.title);
+			},
+			showSuccessAlertDialog: function() {
+				var self = this;
+				var dialog = app.dialog.create({
+					content: '<div class="block no-margin margin-top text-align-center"><i class="fa-stack fa-3x"><span class="fas fa-stack-2x fa-circle text-color-green"></span><span class="fas fa-stack-1x fa-inverse fa-check"></span></i><p>Neque porro quisquam est.</p></div>',
+					buttons: [
+						{
+							text: 'Awesome',
+							bold: true,
+							color: 'green'
+						}
+					]
+				});
+				dialog.open();
+			},
+			showInfoAlertDialog: function() {
+				var self = this;
+				var dialog = app.dialog.create({
+					content: '<div class="block no-margin margin-top text-align-center"><i class="fa-stack fa-3x"><span class="fas fa-stack-2x fa-circle text-color-blue"></span><span class="fas fa-stack-1x fa-inverse fa-info"></span></i><p>Neque porro quisquam est.</p></div>',
+					buttons: [
+						{
+							text: 'Got It',
+							bold: true,
+							color: 'blue'
+						}
+					]
+				});
+				dialog.open();
+			},
+			showWarningAlertDialog: function() {
+				var self = this;
+				var dialog = app.dialog.create({
+					content: '<div class="block no-margin margin-top text-align-center"><i class="fa-stack fa-3x"><span class="fas fa-stack-2x fa-circle text-color-orange"></span><span class="fas fa-stack-1x fa-inverse fa-exclamation"></span></i><p>Neque porro quisquam est.</p></div>',
+					buttons: [
+						{
+							text: 'Okay',
+							bold: true,
+							color: 'orange'
+						}
+					]
+				});
+				dialog.open();
+			},
+			showDangerAlertDialog: function() {
+				var self = this;
+				var dialog = app.dialog.create({
+					content: '<div class="block no-margin margin-top text-align-center"><i class="fa-stack fa-3x"><span class="fas fa-stack-2x fa-circle text-color-red"></span><span class="fas fa-stack-1x fa-inverse fa-times"></span></i><p>Neque porro quisquam est.</p></div>',
+					buttons: [
+						{
+							text: 'Retry',
+							bold: true,
+							color: 'red'
+						}
+					]
+				});
+				dialog.open();
+			},
+			showBasicConfirmDialog: function() {
+				var self = this;
+				app.dialog.confirm(
+					'Neque porro quisquam est?',
+					function() {
+						app.toast.show({
+							text: 'Yaay!',
+							position:'bottom',
+							cssClass: 'toast-round bg-color-green'
+						});
+					},
+					function() {
+						app.toast.show({
+							text: 'Oops!',
+							position:'bottom',
+							cssClass: 'toast-round bg-color-red'
+						});
+					}
+				);
+			},
+			showDeleteConfirmDialog: function() {
+				var self = this;
+				var dialog = app.dialog.create({
+					content: '<div class="block no-margin margin-top text-align-center"><i class="fa-stack fa-3x"><span class="fas fa-stack-2x fa-circle text-color-red"></span><span class="fas fa-stack-1x fa-inverse fa-times"></span></i><p>Do you want to delete this item?</p></div>',
+					buttons: [
+						{
+							text: 'Cancel',
+							color: 'gray'
+						},
+						{
+							text: 'Delete',
+							bold: true,
+							color: 'red',
+							onClick: function() {
+								app.toast.show({
+									text: 'Deleted!',
+									position:'bottom',
+									cssClass: 'toast-round bg-color-red'
+								});
+							}
+						}
+					]
+				});
+				dialog.open();
+			},
+			showPermissionConfirmDialog: function() {
+				var self = this;
+				var dialog = app.dialog.create({
+					content: '<div class="block no-margin margin-top text-align-center"><i class="fa-stack fa-3x"><span class="fas fa-stack-2x fa-circle text-color-pink"></span><span class="fas fa-stack-1x fa-inverse fa-camera"></span></i><p>To start video chat, please allow the app to access device camera?</p></div>',
+					buttons: [
+						{
+							text: 'Deny',
+							color: 'gray',
+							onClick: function() {
+								app.toast.show({
+									text: 'Access Denied!',
+									position:'bottom',
+									cssClass: 'toast-round bg-color-red'
+								});
+							}
+						},
+						{
+							text: 'Allow',
+							bold: true,
+							color: 'green',
+							onClick: function() {
+								app.toast.show({
+									text: 'Access Granted!',
+									position:'bottom',
+									cssClass: 'toast-round bg-color-green'
+								});
+							}
+						}
+					]
+				});
+				dialog.open();
+			},
+			showBasicPromptDialog: function() {
+				var self = this;
+				app.dialog.prompt(
+					'What is your name?',
+					function(value) {
+						if (value != '') {
+							app.toast.show({
+								text: 'Welcome ' + value + '!',
+								position:'bottom',
+								cssClass: 'toast-round bg-color-yellow text-color-black'
+							});
+						}
+						else {
+							app.toast.show({
+								text: 'Welcome Anonymous!',
+								position:'bottom',
+								cssClass: 'toast-round bg-color-yellow text-color-black'
+							});
+						}
+					},
+					function(value) {
+						if (value != '') {
+							app.toast.show({
+								text: 'Goodbye ' + value + '!',
+								position:'bottom',
+								cssClass: 'toast-round bg-color-yellow text-color-black'
+							});
+						}
+						else {
+							app.toast.show({
+								text: 'Goodbye Anonymous!',
+								position:'bottom',
+								cssClass: 'toast-round bg-color-yellow text-color-black'
+							});
+						}
+					}
+				);
+			},
+			showLoginPromptDialog: function() {
+				var self = this;
+				app.dialog.login(
+					'Enter your credentials',
+					window.config.app.title,
+					function(username, password) {
+						app.toast.show({
+							text: 'Username: ' + username + ' Password: ' + password,
+							position:'bottom',
+							cssClass: 'toast-round bg-color-blue'
+						});
+					}
+				);
+			},
+			showPasswordPromptDialog: function() {
+				var self = this;
+				app.dialog.password(
+					'Enter password to access this feature',
+					window.config.app.title,
+					function(password) {
+						app.toast.show({
+							text: 'Your password is: ' + password,
+							position:'bottom',
+							cssClass: 'toast-round bg-color-blue'
+						});
+					}
+				);
+			},
+			showPreloaderDialog: function() {
+				var self = this;
+				app.dialog.preloader('Please wait...', 'multi');
+				setTimeout(function() {
+					app.dialog.close();
+				}, 3000);
+			},
+			showDeterminateProgressDialog: function() {
+				var self = this;
+				var progress = 0;
+				var dialog = app.dialog.progress('Loading...', progress);
+				dialog.setText('Image 1 of 10');
+				var interval = setInterval(function() {
+					progress += 10;
+					dialog.setProgress(progress);
+					dialog.setText('Image ' + ((progress)/10) + ' of 10');
+					if (progress == 100) {
+						clearInterval(interval);
+						dialog.close();
+					}
+				}, 500);
+			},
+			showInfiniteProgressDialog: function() {
+				var self = this;
+				app.dialog.progress('Loading...');
+				setTimeout(function() {
+					app.dialog.close();
+				}, 3000);
+			},
+			showRadioChoiceDialog: function() {
+				var self = this;
+				var dialog = app.dialog.create({
+					el: '.dialog-choice-radio'
+				});
+				dialog.open();
+			},
+			showSelectedRadioValue: function() {
+				var self = this;
+				var value = self.$('input[name=today]:checked').val();
+				app.toast.show({
+					text: 'Today is ' + value,
+					position:'bottom',
+					cssClass: 'toast-round bg-color-blue'
+				});
+				self.closeDialog();
+			},
+			showCheckboxChoiceDialog: function() {
+				var self = this;
+				var dialog = app.dialog.create({
+					el: '.dialog-choice-checkbox'
+				});
+				dialog.open();
+			},
+			showSelectedCheckboxValues: function() {
+				var self = this;
+				var values = [];
+				self.$('input[name=colors]:checked').each(function() {
+					values.push(this.value);
+				});
+				app.toast.show({
+					text: 'Your favourite colors are ' + values.join(', '),
+					position:'bottom',
+					cssClass: 'toast-round bg-color-blue'
+				});
+				self.closeDialog();
+			},
+			closeDialog: function() {
+				var self = this;
+				app.dialog.close();
+			}
+		}
+	}
+</script>

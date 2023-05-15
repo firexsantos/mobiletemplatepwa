@@ -1,0 +1,717 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="back">Back</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="business-profile">Business Profile</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="business-profile">Business Profile</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			{{#if business}}
+			<div class="profile-header" style="background-image: url('{{business.hero}}');">
+				<img class="business-logo" src="{{business.logo}}" alt="" />
+				<div class="business-name">{{business.name}}</div>
+				<div class="business-rating" data-rating="{{business.rating}}"></div>
+			</div>
+
+			<div class="toolbar tabbar tabbar-scrollable tabbar-sticky">
+				<div class="toolbar-inner">
+					<a href="#tab-overview" class="tab-link tab-link-active">Overview</a>
+					<a href="#tab-menu" class="tab-link">Menu</a>
+					<a href="#tab-reservations" class="tab-link">Reservations</a>
+					<a href="#tab-reviews" class="tab-link">Reviews</a>
+				</div>
+			</div>
+
+			<div class="tabs">
+
+				<div id="tab-overview" class="tab tab-active">
+					<div class="card">
+						<div class="card-header justify-content-flex-start">
+							<i class="fa-stack">
+								<span class="fas fa-square fa-stack-2x text-color-blue ios-only"></span>
+								<span class="fas fa-circle fa-stack-2x text-color-blue md-only"></span>
+								<span class="fas fa-info fa-stack-1x fa-inverse"></span>
+							</i>
+							<span>&ensp;</span>
+							<span>About Us</span>
+						</div>
+						<div class="card-content card-content-padding">
+							<p>{{business.about}}</p>
+						</div>
+					</div>
+					<div class="card">
+						<div class="card-header justify-content-flex-start">
+							<i class="fa-stack">
+								<span class="fas fa-square fa-stack-2x text-color-green ios-only"></span>
+								<span class="fas fa-circle fa-stack-2x text-color-green md-only"></span>
+								<span class="fas fa-map-marker-alt fa-stack-1x fa-inverse"></span>
+							</i>
+							<span>&ensp;</span>
+							<span>Contact Us</span>
+						</div>
+						<div class="card-content card-content-padding">
+							<div class="embed">
+								<iframe class="embed-content" frameborder="0" allowfullscreen src="https://www.google.com/maps/embed/v1/place?key={{$root.config.googleMaps.apiKey}}&q={{business.latitude}},{{business.longitude}}"></iframe>
+							</div>
+							<div class="list no-hairlines no-hairlines-between margin-vertical">
+								<ul>
+									<li>
+										<div class="item-content">
+											<div class="item-inner">
+												<div class="item-title">{{business.address}}</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="item-content">
+											<div class="item-inner">
+												<div class="item-title">{{business.phone}}</div>
+												<div class="item-after">
+													<a href="tel:{{business.phone}}" target="_blank" class="external">Call</a>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="item-content">
+											<div class="item-inner">
+												<div class="item-title">{{business.email}}</div>
+												<div class="item-after">
+													<a href="mailto:{{business.email}}" target="_blank" class="external">Send Mail</a>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="item-content">
+											<div class="item-inner">
+												<div class="item-title">
+													<a href="{{business.social.facebook}}" target="_blank" class="external">
+														<i class="fa-stack">
+															<span class="fas fa-square fa-stack-2x brand-color-facebook ios-only"></span>
+															<span class="fas fa-circle fa-stack-2x brand-color-facebook md-only"></span>
+															<span class="fab fa-facebook-f fa-stack-1x fa-inverse"></span>
+														</i>
+													</a>
+													<a href="{{business.social.twitter}}" target="_blank" class="external">
+														<i class="fa-stack">
+															<span class="fas fa-square fa-stack-2x brand-color-twitter ios-only"></span>
+															<span class="fas fa-circle fa-stack-2x brand-color-twitter md-only"></span>
+															<span class="fab fa-twitter fa-stack-1x fa-inverse"></span>
+														</i>
+													</a>
+													<a href="{{business.social.linkedin}}" target="_blank" class="external">
+														<i class="fa-stack">
+															<span class="fas fa-square fa-stack-2x brand-color-linkedin ios-only"></span>
+															<span class="fas fa-circle fa-stack-2x brand-color-linkedin md-only"></span>
+															<span class="fab fa-linkedin-in fa-stack-1x fa-inverse"></span>
+														</i>
+													</a>
+													<a href="{{business.social.youtube}}" target="_blank" class="external">
+														<i class="fa-stack">
+															<span class="fas fa-square fa-stack-2x brand-color-youtube ios-only"></span>
+															<span class="fas fa-circle fa-stack-2x brand-color-youtube md-only"></span>
+															<span class="fab fa-youtube fa-stack-1x fa-inverse"></span>
+														</i>
+													</a>
+												</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="card">
+						<div class="card-header justify-content-flex-start">
+							<i class="fa-stack">
+								<span class="fas fa-square fa-stack-2x text-color-pink ios-only"></span>
+								<span class="fas fa-circle fa-stack-2x text-color-pink md-only"></span>
+								<span class="far fa-clock fa-stack-1x fa-inverse"></span>
+							</i>
+							<span>&ensp;</span>
+							<span>Opening Hours</span>
+						</div>
+						<div class="card-content card-content-padding">
+							<div class="list no-hairlines-between">
+								<ul>
+									{{#each business.opening_hours}}
+									<li>
+										<div class="item-content">
+											<div class="item-inner">
+												<div class="item-title">{{this.day}}</div>
+												<div class="item-after">{{this.time}}</div>
+											</div>
+										</div>
+									</li>
+									{{/each}}
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="card">
+						<div class="card-header justify-content-flex-start">
+							<i class="fa-stack">
+								<span class="fas fa-square fa-stack-2x text-color-orange ios-only"></span>
+								<span class="fas fa-circle fa-stack-2x text-color-orange md-only"></span>
+								<span class="far fa-images fa-stack-1x fa-inverse"></span>
+							</i>
+							<span>&ensp;</span>
+							<span>Photos</span>
+						</div>
+						<div class="card-content card-content-padding">
+							<div class="photo-gallery">
+								<div class="swiper-container">
+									<div class="swiper-wrapper">
+										{{#each business.photos}}
+										<div class="swiper-slide">
+											<div class="slide-media">
+												<img class="img-responsive" src="{{this.url}}" alt="" />
+											</div>
+										</div>
+										{{/each}}
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div id="tab-menu" class="tab">
+					<div class="list no-hairlines no-hairlines-between no-margin">
+					{{#each business.menu}}
+						<div class="list-group">
+							<ul>
+								<li class="list-group-title">{{this.cuisine}}</li>
+								{{#each this.items}}
+								<li>
+									<div class="item-content">
+										<div class="item-media">
+											<img src="{{this.image}}" width="48" alt="" />
+										</div>
+										<div class="item-inner">
+											<div class="item-title">{{this.name}}</div>
+											<div class="item-price">{{this.price}}</div>
+										</div>
+									</div>
+								</li>
+								{{/each}}
+							</ul>
+						</div>
+					{{/each}}
+					</div>
+				</div>
+
+				<div id="tab-reservations" class="tab">
+					<div class="block-title text-align-center">BOOK YOUR TABLE</div>
+					<form id="reservation" name="reservation" action="#" method="POST" enctype="multipart/form-data">
+						<div class="list no-hairlines no-hairlines-between no-margin">
+							<ul>
+								<li>
+									<div class="item-content item-input item-input-with-info">
+										<div class="item-media">
+											<i class="icon f7-icons ios-only">calendar</i>
+											<i class="icon material-icons md-only">date_range</i>
+										</div>
+										<div class="item-inner">
+											<div class="item-title item-floating-label">Date</div>
+											<div class="item-input-wrap">
+												<input type="text" name="date" required />
+												<div class="item-input-info input-error-message"></div>
+											</div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="item-content item-input item-input-with-info">
+										<div class="item-media">
+											<i class="icon f7-icons ios-only">time</i>
+											<i class="icon material-icons md-only">access_time</i>
+										</div>
+										<div class="item-inner">
+											<div class="item-title item-floating-label">Time</div>
+											<div class="item-input-wrap">
+												<input type="text" name="time" required />
+												<div class="item-input-info input-error-message"></div>
+											</div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="item-content item-input item-input-with-info">
+										<div class="item-media">
+											<i class="icon f7-icons ios-only">persons</i>
+											<i class="icon material-icons md-only">people</i>
+										</div>
+										<div class="item-inner">
+											<div class="item-title item-floating-label">Guests</div>
+											<div class="item-input-wrap">
+												<input type="number" name="guests" required />
+												<div class="item-input-info input-error-message"></div>
+											</div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="item-content item-input item-input-with-info">
+										<div class="item-media">
+											<i class="icon f7-icons ios-only">person</i>
+											<i class="icon material-icons md-only">person</i>
+										</div>
+										<div class="item-inner">
+											<div class="item-title item-floating-label">Name</div>
+											<div class="item-input-wrap">
+												<input type="text" name="name" required />
+												<div class="item-input-info input-error-message"></div>
+											</div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="item-content item-input item-input-with-info">
+										<div class="item-media">
+											<i class="icon f7-icons ios-only">phone</i>
+											<i class="icon material-icons md-only">call</i>
+										</div>
+										<div class="item-inner">
+											<div class="item-title item-floating-label">Mobile</div>
+											<div class="item-input-wrap">
+												<input type="tel" name="mobile" />
+												<div class="item-input-info input-error-message"></div>
+											</div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="item-content item-input item-input-with-info">
+										<div class="item-media">
+											<i class="icon f7-icons ios-only">email</i>
+											<i class="icon material-icons md-only">email</i>
+										</div>
+										<div class="item-inner">
+											<div class="item-title item-floating-label">Email (Optional)</div>
+											<div class="item-input-wrap">
+												<input type="email" name="email" />
+												<div class="item-input-info input-error-message"></div>
+											</div>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<div class="block">
+							<button type="submit" class="button button-big button-fill">Reserve</button>
+						</div>
+					</form>
+				</div>
+
+				<div id="tab-reviews" class="tab">
+					<div class="card">
+						<div class="card-content card-content-padding">
+							<div class="list media-list no-hairlines no-hairlines-between">
+								<ul>
+									{{#each business.reviews}}
+									<li>
+										<div class="item-content">
+											<div class="item-media">
+												<img class="img-circle" src="{{this.avatar}}" width="48" alt="" />
+											</div>
+											<div class="item-inner">
+												<div class="item-title-row">
+													<div class="item-title">{{this.name}}</div>
+													<div class="item-after">
+														<span class="badge color-yellow text-color-black">{{this.rating}} <i class="fas fa-fw fa-star"></i></span>
+													</div>
+												</div>
+												<div class="item-subtitle">{{this.comment}}</div>
+											</div>
+										</div>
+									</li>
+									{{/each}}
+								</ul>
+							</div>
+						</div>
+						<div class="card-footer justify-content-center">
+							<a href="#" class="link popup-open" data-popup=".popup-review">Write a Review</a>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			{{/if}}
+
+		</div>
+
+		<div class="popup popup-tablet-fullscreen popup-review">
+			<div class="view">
+				<div class="page">
+
+					<div class="navbar">
+						<div class="navbar-inner">
+							<div class="left ios-only">
+								<a href="#" class="link popup-close" data-popup=".popup-review">
+									<span data-i18n="cancel">Cancel</span>
+								</a>
+							</div>
+							<div class="title">Write a Review</div>
+							<div class="right ios-only">
+								<button type="submit" class="button link" form="review" data-i18n="submit">Submit</button>
+							</div>
+							<div class="right md-only">
+								<a href="#" class="link icon-only popup-close" data-popup=".popup-review">
+									<i class="icon material-icons">close</i>
+								</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="page-content">
+
+						<form id="review" name="review" action="#" method="POST" enctype="multipart/form-data">
+							<div class="list no-hairlines no-hairlines-between">
+								<ul>
+									<li>
+										<div class="item-content item-input item-input-with-info">
+											<div class="item-media">
+												<i class="icon f7-icons ios-only">person</i>
+												<i class="icon material-icons md-only">person</i>
+											</div>
+											<div class="item-inner">
+												<div class="item-title item-floating-label">Name</div>
+												<div class="item-input-wrap">
+													<input type="text" name="name" required />
+													<div class="item-input-info input-error-message"></div>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="item-content item-input item-input-with-info">
+											<div class="item-media">
+												<i class="icon f7-icons ios-only">email</i>
+												<i class="icon material-icons md-only">email</i>
+											</div>
+											<div class="item-inner">
+												<div class="item-title item-floating-label">Email</div>
+												<div class="item-input-wrap">
+													<input type="email" name="email" required />
+													<div class="item-input-info input-error-message"></div>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="item-content item-input item-input-with-info">
+											<div class="item-media">
+												<i class="icon f7-icons ios-only">star</i>
+												<i class="icon material-icons md-only">stars</i>
+											</div>
+											<div class="item-inner">
+												<input type="hidden" name="rating" required />
+												<div class="rating"></div>
+												<div class="item-input-info input-error-message"></div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="item-content item-input item-input-with-info">
+											<div class="item-media">
+												<i class="icon f7-icons ios-only">message</i>
+												<i class="icon material-icons md-only">message</i>
+											</div>
+											<div class="item-inner">
+												<div class="item-title item-floating-label">Comment</div>
+												<div class="item-input-wrap">
+													<textarea name="comment" class="resizable" required></textarea>
+													<div class="item-input-info input-error-message"></div>
+												</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+							<div class="block md-only">
+								<button type="submit" class="button button-big button-fill" data-i18n="submit">Submit</button>
+							</div>
+						</form>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+</template>
+
+<style scoped>
+	.profile-header {
+		align-items: stretch;
+		background-color: #323334;
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		box-sizing: border-box;
+		color: #FFFFFF;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		padding: 32px 16px;
+		text-align: center;
+		width: 100%;
+	}
+
+	.profile-header .business-logo {
+		height: 64px;
+		margin: 0 auto;
+		width: auto;
+	}
+
+	.profile-header .business-name {
+		font-size: 28px;
+		letter-spacing: 0.5px;
+		margin-top: 8px;
+	}
+
+	.profile-header .business-rating {
+		margin: 0 auto;
+		margin-top: 8px;
+	}
+</style>
+
+<script>
+	return {
+		data: function() {
+			return {
+				formValidatorReservation: null,
+				formValidatorReview: null,
+				business: null
+			}
+		},
+		methods: {
+			loadData: function() {
+				var self = this;
+				app.request.json(
+					'assets/custom/dataset/business.json',
+					function(data) {
+						if (data) {
+							self.$setState({
+								business: data
+							});
+							self.initializeRating();
+							self.initializePhotos();
+							self.initializeReservationForm();
+							self.initializeReviewForm();
+						}
+					}
+				);
+			},
+			initializeRating: function() {
+				var self = this;
+				jQuery('.profile-header .business-rating').rateYo({
+					rating: jQuery('.profile-header .business-rating').data('rating'),
+					halfStar: true,
+					normalFill: '#FFF9DB',
+					ratedFill: '#FFD43B',
+					readOnly: true,
+					spacing: '2px',
+					starWidth: '32px',
+					rtl: app.params.rtl
+				});
+			},
+			initializePhotos: function() {
+				var self = this;
+				app.swiper.create('.photo-gallery .swiper-container', {
+					centeredSlides: true,
+					grabCursor: true,
+					initialSlide: 3,
+					loop: true,
+					slidesPerView: 2,
+					spaceBetween: 16
+				});
+				self.$('.photo-gallery .slide-media img').on('click', function() {
+					var currentSlide = self.$('.photo-gallery .slide-media img').parent().parent('.swiper-slide-active').data('swiper-slide-index');
+					var photoBrowser = app.photoBrowser.create({
+						photos: self.business.photos,
+						swiper: {
+							initialSlide: currentSlide
+						},
+						theme: app.utils.theme.getLayout()
+					});
+					photoBrowser.open();
+				});
+			},
+			initializeReservationForm: function() {
+				var self = this;
+				self.$('form[name=reservation] input[name=date]').on('click', function() {
+					var picker = app.calendar.create({
+						inputEl: 'form[name=reservation] input[name=date]',
+						dateFormat: 'DD, MM dd, yyyy',
+						minDate: new Date(),
+						openIn: 'customModal',
+						header: true,
+						footer: true,
+						headerPlaceholder: 'Date'
+					});
+					picker.open();
+				});
+				self.$('form[name=reservation] input[name=time]').on('click', function() {
+					var picker = app.picker.create({
+						inputEl: 'form[name=reservation] input[name=time]',
+						rotateEffect: true,
+						cols: [
+							{
+								values: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+							},
+							{
+								divider: true,
+								content: ':'
+							},
+							{
+								values: ['00', '15', '30', '45']
+							},
+							{
+								values: ['AM', 'PM']
+							}
+						],
+						formatValue: function(values, displayValues) {
+							return values[0] + ':' + values[1] + ' ' + values[2];
+						}
+					});
+					picker.open();
+				});
+				self.formValidatorReservation = jQuery('form[name=reservation]').validate({
+					ignore: [],
+					rules: {
+						date: {
+							required: true
+						},
+						time: {
+							required: true
+						},
+						guests: {
+							required: true
+						},
+						name: {
+							required: true
+						},
+						mobile: {
+							required: true
+						},
+						email: {
+							email: true
+						}
+					},
+    			messages: {
+						date: {
+							required: 'Please select date.'
+      			},
+						time: {
+							required: 'Please select time.'
+      			},
+						guests: {
+							required: 'Please enter the number of guests.'
+      			},
+						name: {
+							required: 'Please enter name.'
+						},
+						mobile: {
+							required: 'Please enter mobile number.'
+      			},
+						email: {
+							email: 'Please enter a valid email address.'
+						}
+					},
+					submitHandler: function(form) {
+						app.toast.show({
+							text: 'Thank you for reserving the table with us. We will get back to you soon for confirmation.',
+							position: 'bottom',
+							cssClass: 'toast-round bg-color-green'
+						});
+						document.querySelector('form[name=reservation]').reset();
+					}
+				});
+			},
+			initializeReviewForm: function() {
+				var self = this;
+				jQuery('form[name=review] .rating').rateYo({
+					halfStar: true,
+					normalFill: '#FFF9DB',
+					ratedFill: '#FFD43B',
+					spacing: '2px',
+					starWidth: '32px'
+				})
+				.on('rateyo.set', function(e, data) {
+					jQuery('form[name=review] input[name=rating]').val(data.rating);
+					jQuery('form[name=review]').validate().element('input[name=rating]');
+				});
+				self.formValidatorReview = jQuery('form[name=review]').validate({
+					ignore: [],
+					rules: {
+						name: {
+							required: true
+						},
+						email: {
+							required: true,
+							email: true
+						},
+						rating: {
+							required: true,
+							min: 1,
+							max: 5
+      			},
+						comment: {
+							required: true
+						}
+					},
+    			messages: {
+						name: {
+							required: 'Please enter name.'
+      			},
+						email: {
+							required: 'Please enter email address.',
+							email: 'Please enter a valid email address.'
+						},
+						rating: {
+							required: 'Please select rating.',
+							min: 'Please select rating between 1 and 5.',
+							max: 'Please select rating between 1 and 5.'
+      			},
+						comment: {
+							required: 'Please enter comment.'
+						}
+					},
+					submitHandler: function(form) {
+						app.toast.show({
+							text: 'Thank you for the review.',
+							position: 'bottom',
+							cssClass: 'toast-round bg-color-green'
+						});
+						document.querySelector('form[name=review]').reset();
+						app.popup.close('.popup-review', false);
+					}
+				});
+			}
+		},
+		on: {
+			pageInit: function() {
+				var self = this;
+				self.loadData();
+			}
+		}
+	}
+</script>

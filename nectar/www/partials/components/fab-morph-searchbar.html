@@ -1,0 +1,97 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="floating-action-button">Floating Action Button</span>
+					</a>
+				</div>
+				<div class="title">FAB - Morph to Searchbar</div>
+			</div>
+		</div>
+
+		<form class="searchbar searchbar-init fab-morph-target" data-search-container=".search-list" data-search-item="li" data-search-in=".item-title">
+			<div class="searchbar-inner">
+				<div class="searchbar-input-wrap">
+					<input type="search" placeholder="Search" data-i18n="[placeholder]search" />
+					<i class="searchbar-icon"></i>
+					<span class="input-clear-button"></span>
+				</div>
+				<span class="searchbar-disable-button" data-i18n="cancel">Cancel</span>
+			</div>
+		</form>
+
+		<div class="page-content">
+
+			<div class="searchbar-not-found">
+				<div class="empty-state">
+					<div class="empty-state-media">
+						<img src="assets/custom/img/no-search.svg" alt="" />
+					</div>
+					<div class="empty-state-title">No Search Results</div>
+					<div class="empty-state-actions">
+						<button type="button" class="button button-big button-fill button-round color-black" @click="refreshSearchbar">Try Again</button>
+					</div>
+				</div>
+			</div>
+
+			<div class="list search-list searchbar-found no-margin-top">
+				<ul>
+					{{#each fruits}}
+					<li>
+						<div class="item-content">
+							<div class="item-inner">
+								<div class="item-title">{{this}}</div>
+							</div>
+						</div>
+					</li>
+					{{/each}}
+				</ul>
+			</div>
+
+		</div>
+
+		<div class="fab fab-morph fab-right-bottom color-yellow" data-morph-to=".searchbar">
+			<a href="#">
+				<i class="icon f7-icons color-black ios-only">search</i>
+				<i class="icon material-icons color-black md-only">search</i>
+			</a>
+		</div>
+
+	</div>
+</template>
+
+<script>
+	return {
+		data: function() {
+			return {
+				fruits: [
+					'Apple', 'Apricot', 'Avocado',
+					'Banana', 'Blackberry', 'Blueberry',
+					'Cherry', 'Coconut', 'Cranberry', 'Custard Apple',
+					'Date',
+					'Fig',
+					'Gooseberry', 'Grape', 'Guava',
+					'Jackfruit',
+					'Kiwi',
+					'Lemon', 'Litchi',
+					'Mango', 'Mulberry',
+					'Olive', 'Orange',
+					'Papaya', 'Peach', 'Pear', 'Plum', 'Pineapple', 'Pomegranate',
+					'Raspberry',
+					'Strawberry',
+					'Tamarind'
+				]
+			}
+		},
+		methods: {
+			refreshSearchbar: function() {
+				var self = this;
+				app.searchbar.clear('.searchbar');
+			}
+		}
+	}
+</script>

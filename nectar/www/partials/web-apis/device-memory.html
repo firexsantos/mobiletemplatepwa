@@ -1,0 +1,142 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="web-apis">Web APIs</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="device-memory-api">Device Memory API</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="device-memory-api">Device Memory API</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			{{#if isApiSupported}}
+			<div class="empty-state">
+				<div class="empty-state-media">
+					<img src="assets/custom/img/memory.svg" alt="" />
+				</div>
+				<div class="empty-state-title">Yaay!</div>
+				<div class="empty-state-text">This browser supports Device Memory API.</div>
+				<div class="empty-state-actions">
+					<button type="button" class="button button-big button-fill button-round" @click="explore" data-i18n="explore">Explore</button>
+				</div>
+			</div>
+			{{else}}
+			<div class="empty-state">
+				<div class="empty-state-media">
+					<img class="filter-grayscale" src="assets/custom/img/memory.svg" alt="" />
+				</div>
+				<div class="empty-state-title">Oops!</div>
+				<div class="empty-state-text">This browser does not support Device Memory API.</div>
+				<div class="empty-state-actions">
+					<a href="https://www.chromestatus.com/feature/5119701235531776" target="_blank" class="button button-big button-fill button-round external" data-i18n="supported-browsers">Supported Browsers</a>
+				</div>
+			</div>
+			{{/if}}
+
+		</div>
+
+		{{#if isApiSupported}}
+		<div class="popup popup-tablet-fullscreen popup-explore">
+			<div class="view">
+				<div class="page">
+
+					<div class="navbar">
+						<div class="navbar-inner">
+							<div class="left ios-only">
+								<a href="#" class="link popup-close">
+									<span data-i18n="close">Close</span>
+								</a>
+							</div>
+							<div class="title" data-i18n="device-memory-api">Device Memory API</div>
+							<div class="right md-only">
+								<a href="#" class="link icon-only popup-close">
+									<i class="icon material-icons">close</i>
+								</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="page-content">
+
+						<div class="block">
+							<p>Device Memory API returns how much RAM the device has in gigabytes, rounded down to the nearest power of two.</p>
+							<p>This allows us to make runtime decisions about what resources to serve based on the returned device memory value, for example, serve a 'lite' version of the app to the users on low-memory devices.</p>
+						</div>
+
+						<div class="list">
+							<ul>
+								<li>
+									<div class="item-content">
+										<div class="item-inner">
+											<div class="item-title">Device Memory</div>
+											<div class="item-after">{{deviceMemory}}</div>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+		{{/if}}
+
+	</div>
+</template>
+
+<script>
+	return {
+		data: function() {
+			return {
+				isApiSupported: (function() {
+					return app.support.webApi.deviceMemory;
+				})(),
+				deviceMemory: null
+			}
+		},
+		methods: {
+			explore: function() {
+				var self = this;
+				var deviceMemoryPromise;
+				var popup = app.popup.create({
+					el: '.popup-explore',
+					on: {
+						opened: function() {
+							deviceMemoryPromise = Promise.resolve(navigator.deviceMemory);
+							deviceMemoryPromise.then(function(deviceMemory) {
+								self.updateDeviceMemoryInfo(deviceMemory);
+							})
+							.catch(function(error) {
+								app.toast.show({
+									text: error.message,
+									position: 'bottom',
+									cssClass: 'toast-round bg-color-red'
+								});
+							});
+						}
+					}
+				});
+				popup.open();
+			},
+			updateDeviceMemoryInfo: function(deviceMemory) {
+				var self = this;
+				self.$setState({
+					deviceMemory: deviceMemory ? '~ ' + deviceMemory + ' GB' : 'Not Available'
+				});
+			}
+		}
+	}
+</script>

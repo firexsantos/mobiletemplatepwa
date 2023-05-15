@@ -1,0 +1,175 @@
+<template>
+	<div class="page no-navbar no-toolbar no-swipeback">
+
+		<div class="page-content">
+
+			<div class="block text-align-center">
+				<img class="theme-light-only" src="{{$root.config.app.logo}}" width="128" alt="" />
+				<img class="theme-dark-only" src="assets/custom/img/logo-white.svg" width="128" alt="" />
+			</div>
+
+			<form name="signup" action="#" method="POST" enctype="multipart/form-data">
+				<div class="list no-hairlines no-hairlines-between no-margin-bottom">
+					<ul>
+						<li>
+							<div class="item-content item-input item-input-with-info">
+								<div class="item-media">
+									<i class="icon f7-icons ios-only">person</i>
+									<i class="icon material-icons md-only">person</i>
+								</div>
+								<div class="item-inner">
+									<div class="item-input-wrap">
+										<input type="text" name="name" placeholder="Name" required />
+										<div class="item-input-info input-error-message"></div>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="item-content item-input item-input-with-info">
+								<div class="item-media">
+									<i class="icon f7-icons ios-only">phone</i>
+									<i class="icon material-icons md-only">local_phone</i>
+								</div>
+								<div class="item-inner">
+									<div class="item-input-wrap">
+										<input type="tel" name="mobile" placeholder="Mobile" required />
+										<div class="item-input-info input-error-message"></div>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="item-content item-input item-input-with-info">
+								<div class="item-media">
+									<i class="icon f7-icons ios-only">email</i>
+									<i class="icon material-icons md-only">mail</i>
+								</div>
+								<div class="item-inner">
+									<div class="item-input-wrap">
+										<input type="email" name="email" placeholder="Email" required />
+										<div class="item-input-info input-error-message"></div>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="item-content item-input item-input-with-info">
+								<div class="item-media">
+									<i class="icon f7-icons ios-only">lock</i>
+									<i class="icon material-icons md-only">lock</i>
+								</div>
+								<div class="item-inner">
+									<div class="item-input-wrap">
+										<input type="password" name="password" placeholder="Password" required data-toggle="show-hide-password" />
+										<div class="item-input-info input-error-message"></div>
+									</div>
+								</div>
+								<div class="item-media">
+									<a href="#" @click="showHidePassword">
+										{{#if isPasswordVisible}}
+										<i class="icon f7-icons ios-only">eye_off</i>
+										<i class="icon material-icons md-only">visibility_off</i>
+										{{else}}
+										<i class="icon f7-icons ios-only">eye</i>
+										<i class="icon material-icons md-only">visibility</i>
+										{{/if}}
+									</a>
+								</div>
+							</div>
+						</li>
+					</ul>
+					<div class="block text-align-center">
+						<button type="submit" class="button button-big button-fill" data-i18n="signup">Sign Up</button>
+						<p>By signing up, you agree to {{$root.config.app.title}}'s <a href="/screens/terms">Terms of Use</a>, <a href="/screens/privacy">Privacy Policy</a> and <a href="/screens/cookies">Cookie Policy</a>.</p>
+						<p>Already have an account? <a href="/screens/login" data-i18n="login">Log In</a></p>
+					</div>
+				</div>
+			</form>
+
+		</div>
+
+	</div>
+</template>
+
+<script>
+	return {
+		data: function() {
+			return {
+				formValidator: null,
+				isPasswordVisible: false
+			}
+		},
+		methods: {
+			showHidePassword: function(event) {
+				var self = this;
+				var input = self.$('input[data-toggle=show-hide-password]');
+				if (input.attr('type') == 'password') {
+					input.attr('type', 'text');
+					self.$setState({
+						isPasswordVisible: true
+					});
+				}
+				else {
+					input.attr('type', 'password');
+					self.$setState({
+						isPasswordVisible: false
+					});
+				}
+			},
+			initializeFormValidator: function() {
+				var self = this;
+				self.formValidator = jQuery('form[name=signup]').validate({
+					rules: {
+						name: {
+							required: true
+						},
+						mobile: {
+							required: true
+						},
+						email: {
+							required: true,
+        			email:true
+      			},
+      			password: {
+							required: true
+						}
+					},
+    			messages: {
+						name: {
+							required: 'Please enter name.'
+      			},
+						mobile: {
+							required: 'Please enter mobile number.'
+      			},
+						email: {
+							required: 'Please enter email address.',
+        			email: 'Please enter a valid email address.'
+      			},
+						password: {
+							required: 'Please enter password.'
+      			}
+					},
+					submitHandler: function(form) {
+						self.submitForm(form);
+					}
+				});
+			},
+			submitForm: function(form) {
+				var self = this;
+				app.toast.show({
+					text: 'Thank you for signing up. Please log in to continue.',
+					position: 'bottom',
+					cssClass: 'toast-round bg-color-green'
+				});
+				app.views.current.router.navigate('/screens/login');
+			}
+		},
+		on: {
+			pageInit: function() {
+				var self = this;
+				self.initializeFormValidator();
+			}
+		}
+	}
+</script>

@@ -1,0 +1,96 @@
+.collection.activity{
+  background: transparent;
+  border: none;
+  overflow: visible;
+}
+.collection.activity .collection-item{
+  border-radius: var(--border-radius);
+}
+.collection.activity .collection-item.avatar .maillink{
+  position: relative;
+}
+.collection.activity .collection-item.avatar .img-wrap img{
+  position: relative;
+  top: 0px;
+}
+
+.collection.activity .collection-item.avatar .status:after{
+	top: 22px;
+	left: 54px;
+}
+
+
+.collection.activity .collection-item .media{
+  display: inline-block;
+  padding: 0px 0px 0px 0px;
+}
+.collection.activity .collection-item .media .user-actions{
+  padding: 0px 0px 0px 15px;
+}
+.collection.activity .collection-item {
+  margin-bottom: 30px;
+}
+
+.collection.activity .collection-item .media textarea.materialize-textarea{
+  min-height: 40px;
+}
+.collection.activity .collection-item .media .input-field{
+  margin: 10px 0 10px 0;
+}
+.collection.activity .collection-item.avatar p{
+  font-size: 100%;
+  margin-top: 5px;
+  opacity: 1;
+}
+.contain-hc.social-home .container.full ul.collection.activity{
+  margin-top: 30px;
+}
+.contain-hc.social-home .container .overlay{
+  top: 20px;
+  margin-bottom: 40px;
+}
+.contain-hc.social-home .friends-wrap a p{
+  display: none;
+}
+.contain-hc.social-home .container .flickity-viewport,
+.contain-hc.social-home .container .flickity-slider{
+  min-height: 160px;
+}
+.contain-hc.social-home .container.social-gallery-carousel .flickity-viewport,
+.contain-hc.social-home .container.social-gallery-carousel .flickity-slider{
+  min-height: 240px;
+}
+.contain-hc.social-home .collection.gallery.vertical .collection-item.avatar{
+  width: 90px;
+}
+.contain-hc.social-home .collection.gallery.vertical .collection-item.avatar img{
+  width: 60px;
+  height: 60px;
+  margin-bottom: 10px;
+}
+.contain-hc.social-home .collection.gallery.vertical .collection-item.avatar .title{
+  font-size: 14px;
+}
+.contain-hc.social-home .container.friends-carousel{
+  min-height: 145px;
+  z-index: 1;
+  position: relative;
+}
+.contain-hc.social-home .container.friends-carousel .section{
+  padding-bottom: 0;
+}
+.contain-hc.social-home .collection.gallery.vertical .collection-item.avatar .status:after {
+  left: 68px;
+}
+.contain-hc.social-home .collection.gallery.vertical .collection-item.avatar:not(:last-child):after{
+  height: 100px;
+}
+.activity-list .collection.activity .collection-item{
+  margin-bottom: 30px;
+}
+
+
+
+[data-site_mode="dark"] .activity .media .input-field.col, [data-site_mode="dark"] .activity .media .input-field {
+  background-color: #455A64;
+}

@@ -1,0 +1,256 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="integrations">Integrations</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="alasql">AlaSQL</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="alasql">AlaSQL</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="block">
+				<p><a href="https://alasql.org" target="_blank" class="external">AlaSQL</a> is a JavaScript Database which handles both Relational Data and Nested JSON Data and allows to export, store and import data from LocalStorage, IndexedDB and Excel.</p>
+			</div>
+
+			<div class="block">
+				<button type="button" class="button button-big button-fill" @click="openPopup">To-Do List Example</button>
+			</div>
+
+		</div>
+
+		<div class="popup popup-tablet-fullscreen popup-todo">
+			<div class="view">
+				<div class="page">
+
+					<div class="navbar">
+						<div class="navbar-inner">
+							<div class="left ios-only">
+								<a href="#" class="link popup-close">
+									<span data-i18n="close">Close</span>
+								</a>
+							</div>
+							<div class="title">To-Do List</div>
+							<div class="right md-only">
+								<a href="#" class="link icon-only popup-close">
+									<i class="icon material-icons">close</i>
+								</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="page-content">
+
+						{{#if tasks}}
+						<div class="list no-margin no-hairlines">
+							<ul>
+								{{#each tasks}}
+								<li>
+									<label class="item-checkbox item-content">
+										<input type="checkbox" name="is_complete" value="{{this.is_complete}}" data-id="{{this.id}}" {{#if this.is_complete}} checked {{/if}} @change="setTaskStatus" />
+										<i class="icon icon-checkbox"></i>
+										<div class="item-inner">
+											<div class="item-title">{{this.title}}</div>
+											<div class="item-after">
+												<a href="#" @click="editTask" data-id="{{this.id}}" data-title="{{this.title}}">
+													<i class="icon f7-icons ios-only text-color-gray">edit</i>
+													<i class="icon material-icons md-only text-color-gray">edit</i>
+												</a>
+												<a href="#" @click="deleteTask" data-id="{{this.id}}">
+													<i class="icon f7-icons ios-only text-color-gray">trash</i>
+													<i class="icon material-icons md-only text-color-gray">delete</i>
+												</a>
+											</div>
+										</div>
+									</label>
+								</li>
+								{{/each}}
+							</ul>
+						</div>
+						{{else}}
+						<div class="empty-state">
+							<div class="empty-state-media">
+								<img src="assets/custom/img/todo.svg" alt="" />
+							</div>
+							<div class="empty-state-title">No Tasks</div>
+							<div class="empty-state-text">Add some tasks and they will appear here.</div>
+						</div>
+						{{/if}}
+
+					</div>
+
+					<div class="fab fab-right-bottom">
+						<a href="#" @click="addTask">
+							<i class="icon f7-icons ios-only">add</i>
+							<i class="icon material-icons md-only">add</i>
+						</a>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+</template>
+
+<style scoped>
+	{{html}} input[type=checkbox]:checked ~ .item-inner {
+		text-decoration: line-through;
+	}
+</style>
+
+<script>
+	return {
+		data: function() {
+			return {
+				tasks: null
+			}
+		},
+		methods: {
+			openPopup: function() {
+				var self = this;
+				var popup = app.popup.create({
+					el: '.popup-todo',
+					on: {
+						open: function() {
+							self.openDatabase();
+						},
+						close: function() {
+							self.closeDatabase();
+						}
+					}
+				});
+				popup.open();
+			},
+			openDatabase: function() {
+				var self = this;
+				alasql.promise('CREATE LOCALSTORAGE DATABASE IF NOT EXISTS todo')
+				.then(function() {
+					return alasql.promise('ATTACH LOCALSTORAGE DATABASE todo');
+				})
+				.then(function() {
+					return alasql.promise('USE DATABASE todo');
+				})
+				.then(function() {
+					return alasql.promise('CREATE TABLE IF NOT EXISTS tasks (id INT AUTO_INCREMENT PRIMARY KEY, title STRING, is_complete BOOLEAN)');
+				})
+				.then(function() {
+					self.populateTodoList();
+				})
+				.catch(function(error) {
+					self.showError(error);
+				});
+			},
+			populateTodoList: function() {
+				var self = this;
+				alasql.promise('SELECT * FROM tasks')
+				.then(function(tasks) {
+					if (tasks.length) {
+						self.$setState({
+							tasks: tasks
+						});
+					}
+					else {
+						self.$setState({
+							tasks: null
+						});
+					}
+				})
+			},
+			addTask: function() {
+				var self = this;
+				app.dialog.prompt(
+					'',
+					'Add Task',
+					function(title) {
+						if (title.trim().length) {
+							alasql.promise('INSERT INTO tasks (title, is_complete) VALUES (?, ?)', [title, 0])
+							.then(function() {
+								self.populateTodoList();
+							})
+							.catch(function(error) {
+								self.populateTodoList();
+							});
+						}
+					}
+				);
+			},
+			editTask: function(event) {
+				var self = this;
+				var target = event.target.tagName === 'A' ? event.target : event.currentTarget;
+				var id = target.dataset.id;
+				var title = target.dataset.title;
+				app.dialog.prompt(
+					'',
+					'Edit Task',
+					function(title) {
+						if (title.trim().length) {
+							alasql.promise('UPDATE tasks SET title=? WHERE id=?', [title, parseInt(id)])
+							.then(function() {
+								self.populateTodoList();
+							});
+						}
+					},
+					function() {},
+					title
+				);
+			},
+			deleteTask: function(event) {
+				var self = this;
+				var target = event.target.tagName === 'A' ? event.target : event.currentTarget;
+				var id = target.dataset.id;
+				alasql.promise('DELETE FROM tasks WHERE id=?', [parseInt(id)])
+				.then(function() {
+					self.populateTodoList();
+				});
+			},
+			setTaskStatus: function(event) {
+				var self = this;
+				var id = event.target.dataset.id;
+				var is_complete = event.target.checked ? 1 : 0;
+				alasql.promise('UPDATE tasks SET is_complete=? WHERE id=?', [parseInt(is_complete), parseInt(id)])
+				.then(function(result) {
+					if (result > 0) {
+						event.target.value = is_complete;
+					}
+					else {
+						event.target.checked = !event.target.checked;
+					}
+				})
+				.catch(function(error) {
+					event.target.checked = !event.target.checked;
+				});
+			},
+			closeDatabase: function() {
+				var self = this;
+				alasql.promise('DETACH DATABASE todo')
+				.then(function() {
+					self.$setState({
+						tasks: null
+					});
+				})
+				.catch(function(error) {
+					self.showError(error);
+				});
+			},
+			showError: function(error) {
+				var self = this;
+				app.toast.show({
+					text: error,
+					cssClass: 'bg-color-red'
+				});
+			}
+		}
+	}
+</script>

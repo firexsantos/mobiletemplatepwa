@@ -1,0 +1,232 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="back">Back</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="pricing-plans">Pricing Plans</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="pricing-plans">Pricing Plans</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="block margin-top">
+				<div class="segmented segmented-round">
+					<a href="#tab-free" class="button button-big button-outline button-round tab-link tab-link-active">Free</a>
+					<a href="#tab-standard" class="button button-big button-outline button-round tab-link">Standard</a>
+					<a href="#tab-premium" class="button button-big button-outline button-round tab-link">Premium</a>
+				</div>
+			</div>
+
+			<div class="tabs-swipeable-wrap">
+				<div class="tabs">
+					<div id="tab-free" class="tab tab-active">
+						<div class="block no-margin">
+							<div class="card card-pricing-plan">
+								<div class="card-content card-content-padding">
+									<div class="pricing-plan-icon">
+										<i class="fa-stack fa-3x">
+											<span class="fas fa-circle fa-stack-2x"></span>
+											<span class="fas fa-gift fa-stack-1x fa-inverse"></span>
+										</i>
+									</div>
+									<div class="pricing-plan-description">
+										<p>Great for personal projects or experiments</p>
+									</div>
+									<div class="pricing-plan-price">
+										<div class="price-value">FREE</div>
+										<div class="price-duration">forever</div>
+									</div>
+									<div class="pricing-plan-features">
+										<div class="list simple-list no-hairlines no-hairlines-between">
+											<ul>
+												<li>
+													<i class="icon f7-icons color-green">check_round</i>&ensp;<span>Single User</span>
+												</li>
+												<li>
+													<i class="icon f7-icons color-green">check_round</i>&ensp;<span>Single Domain</span>
+												</li>
+												<li>
+													<i class="icon f7-icons color-green">check_round</i>&ensp;<span>5GB Storage</span>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<div class="pricing-plan-cta">
+										<button class="button button-big button-fill button-round">Get Started</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="tab-standard" class="tab">
+						<div class="block no-margin">
+							<div class="card card-pricing-plan">
+								<div class="card-content card-content-padding">
+									<div class="pricing-plan-icon">
+										<i class="fa-stack fa-3x">
+											<span class="fas fa-circle fa-stack-2x"></span>
+											<span class="fab fa-fly fa-stack-1x fa-inverse"></span>
+										</i>
+									</div>
+									<div class="pricing-plan-description">
+										<p>Great for freelancers or developers</p>
+									</div>
+									<div class="pricing-plan-price">
+										<div class="price-value">$25</div>
+										<div class="price-duration">per month</div>
+									</div>
+									<div class="pricing-plan-features">
+										<div class="list simple-list no-hairlines no-hairlines-between">
+											<ul>
+												<li>
+													<i class="icon f7-icons color-green">check_round</i>&ensp;<span>5 Users</span>
+												</li>
+												<li>
+													<i class="icon f7-icons color-green">check_round</i>&ensp;<span>5 Domains</span>
+												</li>
+												<li>
+													<i class="icon f7-icons color-green">check_round</i>&ensp;<span>50GB Storage</span>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<div class="pricing-plan-cta">
+										<button class="button button-big button-fill button-round">Buy</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="tab-premium" class="tab">
+						<div class="block no-margin">
+							<div class="card card-pricing-plan">
+								<div class="card-content card-content-padding">
+									<div class="pricing-plan-icon">
+										<i class="fa-stack fa-3x">
+											<span class="fas fa-circle fa-stack-2x"></span>
+											<span class="fas fa-rocket fa-stack-1x fa-inverse"></span>
+										</i>
+									</div>
+									<div class="pricing-plan-description">
+										<p>Great for companies or organizations</p>
+									</div>
+									<div class="pricing-plan-price">
+										<div class="price-value">$75</div>
+										<div class="price-duration">per month</div>
+									</div>
+									<div class="pricing-plan-features">
+										<div class="list simple-list no-hairlines no-hairlines-between">
+											<ul>
+												<li>
+													<i class="icon f7-icons color-green">check_round</i>&ensp;<span>25 Users</span>
+												</li>
+												<li>
+													<i class="icon f7-icons color-green">check_round</i>&ensp;<span>25 Domains</span>
+												</li>
+												<li>
+													<i class="icon f7-icons color-green">check_round</i>&ensp;<span>250GB Storage</span>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<div class="pricing-plan-cta">
+										<button class="button button-big button-fill button-round">Buy</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+</template>
+
+<style scoped>
+	.card-pricing-plan {
+		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+		margin: 0 auto;
+		max-width: 480px;
+		text-align: center;
+	}
+
+	#tab-free .pricing-plan-icon .fa-circle {
+		background: linear-gradient(-135deg, #862E9C 0%, #AE3EC9 50%, #CC5DE8 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+
+	#tab-standard .pricing-plan-icon .fa-circle {
+		background: linear-gradient(-135deg, #E67700 0%, #F59F00 50%, #FCC419 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+
+	#tab-premium .pricing-plan-icon .fa-circle {
+		background: linear-gradient(-135deg, #5C940D 0%, #74B816 50%, #94D82D 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+
+	.pricing-plan-description {
+		font-size: 15px;
+	}
+
+	.pricing-plan-price {
+		margin-top: 16px;
+	}
+
+	.pricing-plan-price .price-value {
+		font-size: 52px;
+		font-weight: bold;
+		line-height: 1;
+	}
+
+	.pricing-plan-price .price-duration {
+		color: rgba(0, 0, 0, 0.35);
+		font-size: 12px;
+		text-transform: uppercase;
+	}
+
+	.theme-dark {{this}} .pricing-plan-price .price-duration {
+		color: rgba(255, 255, 255, 0.85);
+	}
+
+	.pricing-plan-features {
+		margin-top: 16px;
+	}
+
+	.pricing-plan-features .list li {
+		justify-content: flex-start;
+		padding: 0;
+	}
+
+	.pricing-plan-cta {
+		margin-top: 16px;
+	}
+
+	#tab-free .pricing-plan-cta .button {
+		background: linear-gradient(45deg, #862E9C 0%, #AE3EC9 50%, #CC5DE8 100%);
+	}
+
+	#tab-standard .pricing-plan-cta .button {
+		background: linear-gradient(45deg, #E67700 0%, #F59F00 50%, #FCC419 100%);
+	}
+
+	#tab-premium .pricing-plan-cta .button {
+		background: linear-gradient(45deg, #5C940D 0%, #74B816 50%, #94D82D 100%);
+	}
+</style>

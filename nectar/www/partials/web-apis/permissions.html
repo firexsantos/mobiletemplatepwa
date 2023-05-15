@@ -1,0 +1,341 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="web-apis">Web APIs</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="permissions-api">Permissions API</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="permissions-api">Permissions API</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			{{#if isApiSupported}}
+			<div class="empty-state">
+				<div class="empty-state-media">
+					<img src="assets/custom/img/permission.svg" alt="" />
+				</div>
+				<div class="empty-state-title">Yaay!</div>
+				<div class="empty-state-text">This browser supports Permissions API.</div>
+				<div class="empty-state-actions">
+					<button type="button" class="button button-big button-fill button-round" @click="explore" data-i18n="explore">Explore</button>
+				</div>
+			</div>
+			{{else}}
+			<div class="empty-state">
+				<div class="empty-state-media">
+					<img class="filter-grayscale" src="assets/custom/img/permission.svg" alt="" />
+				</div>
+				<div class="empty-state-title">Oops!</div>
+				<div class="empty-state-text">This browser does not support Permissions API.</div>
+				<div class="empty-state-actions">
+					<a href="https://caniuse.com/permissions-api" target="_blank" class="button button-big button-fill button-round external" data-i18n="supported-browsers">Supported Browsers</a>
+				</div>
+			</div>
+			{{/if}}
+
+		</div>
+
+		{{#if isApiSupported}}
+		<div class="popup popup-tablet-fullscreen popup-explore">
+			<div class="view">
+				<div class="page">
+
+					<div class="navbar">
+						<div class="navbar-inner">
+							<div class="left ios-only">
+								<a href="#" class="link popup-close">
+									<span data-i18n="close">Close</span>
+								</a>
+							</div>
+							<div class="title" data-i18n="permissions-api">Permissions API</div>
+							<div class="right md-only">
+								<a href="#" class="link icon-only popup-close">
+									<i class="icon material-icons">close</i>
+								</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="page-content">
+
+						<div class="block">
+							<p>Permissions API allows to query for the permission status or request the permission for the features that might require user consent such as camera, geolocation or notifications.</p>
+						</div>
+
+						<div class="list">
+							<ul>
+								<li class="permission-camera">
+									<div class="item-content">
+										<div class="item-media">
+											<i class="fa-stack">
+												<span class="fas fa-circle fa-stack-2x text-color-blue"></span>
+												<span class="fas fa-camera fa-stack-1x fa-inverse"></span>
+											</i>
+										</div>
+										<div class="item-inner">
+											<div class="item-title">Camera</div>
+											<div class="item-after">
+												<label class="toggle toggle-init color-blue tooltip-init" data-tooltip="Request">
+													<input type="checkbox" data-permission="camera" />
+													<span class="toggle-icon"></span>
+												</label>
+											</div>
+										</div>
+									</div>
+								</li>
+								<li class="permission-geolocation">
+									<div class="item-content">
+										<div class="item-media">
+											<i class="fa-stack">
+												<span class="fas fa-circle fa-stack-2x text-color-green"></span>
+												<span class="fas fa-map-marker-alt fa-stack-1x fa-inverse"></span>
+											</i>
+										</div>
+										<div class="item-inner">
+											<div class="item-title">Geolocation</div>
+											<div class="item-after">
+												<label class="toggle toggle-init color-green tooltip-init" data-tooltip="Request">
+													<input type="checkbox" data-permission="geolocation" />
+													<span class="toggle-icon"></span>
+												</label>
+											</div>
+										</div>
+									</div>
+								</li>
+								<li class="permission-microphone">
+									<div class="item-content">
+										<div class="item-media">
+											<i class="fa-stack">
+												<span class="fas fa-circle fa-stack-2x text-color-red"></span>
+												<span class="fas fa-microphone fa-stack-1x fa-inverse"></span>
+											</i>
+										</div>
+										<div class="item-inner">
+											<div class="item-title">Microphone</div>
+											<div class="item-after">
+												<label class="toggle toggle-init color-red tooltip-init" data-tooltip="Request">
+													<input type="checkbox" data-permission="microphone" />
+													<span class="toggle-icon"></span>
+												</label>
+											</div>
+										</div>
+									</div>
+								</li>
+								<li class="permission-midi">
+									<div class="item-content">
+										<div class="item-media">
+											<i class="fa-stack">
+												<span class="fas fa-circle fa-stack-2x text-color-pink"></span>
+												<span class="fas fa-music fa-stack-1x fa-inverse"></span>
+											</i>
+										</div>
+										<div class="item-inner">
+											<div class="item-title">MIDI</div>
+											<div class="item-after">
+												<label class="toggle toggle-init color-pink tooltip-init" data-tooltip="Request">
+													<input type="checkbox" data-permission="midi" />
+													<span class="toggle-icon"></span>
+												</label>
+											</div>
+										</div>
+									</div>
+								</li>
+								<li class="permission-notifications">
+									<div class="item-content">
+										<div class="item-media">
+											<i class="fa-stack">
+												<span class="fas fa-circle fa-stack-2x text-color-orange"></span>
+												<span class="fas fa-bell fa-stack-1x fa-inverse"></span>
+											</i>
+										</div>
+										<div class="item-inner">
+											<div class="item-title">Notifications</div>
+											<div class="item-after">
+												<label class="toggle toggle-init color-orange tooltip-init" data-tooltip="Request">
+													<input type="checkbox" data-permission="notifications" />
+													<span class="toggle-icon"></span>
+												</label>
+											</div>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+
+						<div class="note note-warning text-align-center">
+							<p>Once granted or denied, the permissions cannot be revoked using the Permissions API. They must be explicitly revoked by the user from browser's settings.</p>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+		{{/if}}
+
+	</div>
+</template>
+
+<script>
+	return {
+		data: function() {
+			return {
+				isApiSupported: (function() {
+					return app.support.webApi.permissions;
+				})()
+			}
+		},
+		methods: {
+			explore: function() {
+				var self = this;
+				var popup = app.popup.create({
+					el: '.popup-explore',
+					on: {
+						opened: function() {
+							self.checkPermissionStatus('camera');
+							self.checkPermissionStatus('geolocation');
+							self.checkPermissionStatus('microphone');
+							self.checkPermissionStatus('midi', {sysex: true});
+							self.checkPermissionStatus('notifications');
+
+							self.$('[data-permission]').on('change', function() {
+								self.requestPermission(this.dataset.permission);
+							});
+						}
+					}
+				});
+				popup.open();
+			},
+			checkPermissionStatus: function(permissionName, permissionDescriptor) {
+				var self = this;
+				navigator.permissions.query(Object.assign({name: permissionName}, permissionDescriptor))
+					.then(function(permission) {
+						self.updatePermissionStatus(permissionName, permission.state);
+						permission.addEventListener('change', function() {
+							self.updatePermissionStatus(permissionName, permission.state);
+						});
+					})
+					.catch(function(error) {
+						self.showErrorMessage(error.message);
+					});
+			},
+			updatePermissionStatus: function(permissionName, permissionState) {
+				var self = this;
+				if (permissionState == 'granted') {
+					self.$('[data-permission=' + permissionName + ']').prop('checked', true);
+					self.$('[data-permission=' + permissionName + ']').prop('disabled', true);
+					app.tooltip.get('.permission-' + permissionName + ' .toggle').setText('Granted');
+				}
+				else if (permissionState == 'denied') {
+					self.$('[data-permission=' + permissionName + ']').prop('checked', false);
+					self.$('[data-permission=' + permissionName + ']').prop('disabled', true);
+					app.tooltip.get('.permission-' + permissionName + ' .toggle').setText('Denied');
+				}
+				else {
+					self.$('[data-permission=' + permissionName + ']').prop('checked', false);
+					self.$('[data-permission=' + permissionName + ']').prop('disabled', false);
+					app.tooltip.get('.permission-' + permissionName + ' .toggle').setText('Request');
+				}
+			},
+			requestPermission: function(permissionName) {
+				var self = this;
+				switch (permissionName) {
+					case 'camera':
+						navigator.getUserMedia(
+							{
+								video: true
+							},
+							function() {
+								self.showSuccessMessage('Permission Granted');
+							},
+							function(error) {
+								self.showErrorMessage(error.message);
+							}
+						);
+						self.checkPermissionStatus('camera');
+					break;
+					case 'geolocation':
+						navigator.geolocation.getCurrentPosition(
+							function() {
+								self.showSuccessMessage('Permission Granted');
+							},
+							function(error) {
+								self.showErrorMessage(error.message);
+							}
+						);
+						self.checkPermissionStatus('geolocation');
+					break;
+					case 'microphone':
+						navigator.getUserMedia(
+							{
+								audio: true
+							},
+							function() {
+								self.showSuccessMessage('Permission Granted');
+							},
+							function(error) {
+								self.showErrorMessage(error.message);
+							}
+						);
+						self.checkPermissionStatus('microphone');
+					break;
+					case 'midi':
+						navigator.requestMIDIAccess(
+							{
+								sysex: true
+							})
+							.then(function() {
+								self.showSuccessMessage('Permission Granted');
+							})
+							.catch(function(error) {
+								self.showErrorMessage(error.message);
+								self.updatePermissionStatus('midi', 'denied');
+							});
+					break;
+					case 'notifications':
+						Notification.requestPermission()
+							.then(function(status) {
+								if (status == 'granted') {
+									self.showSuccessMessage('Permission Granted');
+								}
+								else if (status == 'denied') {
+									self.showErrorMessage('Permission Denied');
+								}
+							})
+							.catch(function(error) {
+								self.showErrorMessage(error.message);
+							});
+						self.checkPermissionStatus('notifications');
+					break;
+				}
+			},
+			showSuccessMessage: function(message) {
+				var self = this;
+				app.toast.show({
+					text: message,
+					position: 'bottom',
+					cssClass: 'toast-round bg-color-green'
+				});
+			},
+			showErrorMessage: function(message) {
+				var self = this;
+				app.toast.show({
+					text: message,
+					position: 'bottom',
+					cssClass: 'toast-round bg-color-red'
+				});
+			}
+		}
+	}
+</script>

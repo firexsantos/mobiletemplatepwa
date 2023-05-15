@@ -1,0 +1,25 @@
+
+/*----------------------------------------
+  Waves
+------------------------------------------*/
+
+.waves-color-demo .collection-item{
+  padding-bottom:26px;
+}
+.waves-color-demo .collection-item .btn{
+  float: right;
+}
+.waves-color-demo .btn, .waves-color-demo .btn-large, .waves-color-demo .btn-small {
+    background-color: #fff;
+    color: #212121;
+}
+
+/*----------------------------------------
+  Site - Dark Mode - Waves
+----------------------------------------*/
+[data-site_mode="dark"] .waves-color-demo .btn, 
+[data-site_mode="dark"] .waves-color-demo .btn-large, 
+[data-site_mode="dark"] .waves-color-demo .btn-small {
+  background-color: #455A64;
+  color: #f5f5f5;
+}

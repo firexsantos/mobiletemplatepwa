@@ -1,0 +1,140 @@
+{
+	"this_week": {
+		"you": {
+			"rank": 15,
+			"avatar": "https://randomuser.me/api/portraits/men/60.jpg",
+			"points": 45
+		},
+		"users": [
+			{
+				"rank": 1,
+				"name": "Miyah Myles",
+				"avatar": "https://randomuser.me/api/portraits/women/79.jpg",
+				"points": 97
+			},
+			{
+				"rank": 2,
+				"name": "Leo Gill",
+				"avatar": "https://randomuser.me/api/portraits/men/35.jpg",
+				"points": 93
+			},
+			{
+				"rank": 3,
+				"name": "Andreas Brixen",
+				"avatar": "https://randomuser.me/api/portraits/men/1.jpg",
+				"points": 89
+			},
+			{
+				"rank": 4,
+				"name": "Dianna Smiley",
+				"avatar": "https://randomuser.me/api/portraits/women/91.jpg",
+				"points": 87
+			},
+			{
+				"rank": 5,
+				"name": "Britney Cooper",
+				"avatar": "https://randomuser.me/api/portraits/women/81.jpg",
+				"points": 86
+			},
+			{
+				"rank": 6,
+				"name": "Tim Schoch",
+				"avatar": "https://randomuser.me/api/portraits/men/81.jpg",
+				"points": 81
+			},
+			{
+				"rank": 7,
+				"name": "Elizabeth Olsen",
+				"avatar": "https://randomuser.me/api/portraits/women/60.jpg",
+				"points": 72
+			},
+			{
+				"rank": 8,
+				"name": "Rodrigo Hawkins",
+				"avatar": "https://randomuser.me/api/portraits/men/42.jpg",
+				"points": 69
+			},
+			{
+				"rank": 9,
+				"name": "Chrishell Stause",
+				"avatar": "https://randomuser.me/api/portraits/women/44.jpg",
+				"points": 66
+			},
+			{
+				"rank": 10,
+				"name": "Alexis Doreau",
+				"avatar": "https://randomuser.me/api/portraits/men/0.jpg",
+				"points": 57
+			}
+		]
+	},
+	"all_time": {
+		"you": {
+			"rank": 12,
+			"avatar": "https://randomuser.me/api/portraits/men/60.jpg",
+			"points": 53
+		},
+		"users": [
+			{
+				"rank": 1,
+				"name": "Leo Gill",
+				"avatar": "https://randomuser.me/api/portraits/men/35.jpg",
+				"points": 95
+			},
+			{
+				"rank": 2,
+				"name": "Miyah Myles",
+				"avatar": "https://randomuser.me/api/portraits/women/79.jpg",
+				"points": 91
+			},
+			{
+				"rank": 3,
+				"name": "Britney Cooper",
+				"avatar": "https://randomuser.me/api/portraits/women/81.jpg",
+				"points": 88
+			},
+			{
+				"rank": 4,
+				"name": "Dianna Smiley",
+				"avatar": "https://randomuser.me/api/portraits/women/91.jpg",
+				"points": 84
+			},
+			{
+				"rank": 5,
+				"name": "Andreas Brixen",
+				"avatar": "https://randomuser.me/api/portraits/men/1.jpg",
+				"points": 74
+			},
+			{
+				"rank": 6,
+				"name": "Tim Schoch",
+				"avatar": "https://randomuser.me/api/portraits/men/81.jpg",
+				"points": 70
+			},
+			{
+				"rank": 7,
+				"name": "Rodrigo Hawkins",
+				"avatar": "https://randomuser.me/api/portraits/men/42.jpg",
+				"points": 69
+			},
+			{
+				"rank": 8,
+				"name": "Elizabeth Olsen",
+				"avatar": "https://randomuser.me/api/portraits/women/60.jpg",
+				"points": 65
+			},
+			{
+				"rank": 9,
+				"name": "Elena Satine",
+				"avatar": "https://randomuser.me/api/portraits/women/58.jpg",
+				"points": 63
+			},
+			{
+				"rank": 10,
+				"name": "Michelle Baldwin",
+				"avatar": "https://randomuser.me/api/portraits/women/17.jpg",
+				"points": 59
+			}
+		]
+	}
+}

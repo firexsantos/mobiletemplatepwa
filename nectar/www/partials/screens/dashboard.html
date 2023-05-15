@@ -1,0 +1,296 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="back">Back</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="dashboard">Dashboard</div>
+				<div class="right">
+					<a href="#" class="link icon-only">
+						<i class="icon f7-icons ios-only">bell<span class="badge color-red">5</span></i>
+						<i class="icon material-icons md-only">notifications<span class="badge color-red">5</span></i>
+					</a>
+				</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="dashboard">Dashboard</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="block block-greet">
+				<div class="greet-avatar">
+					<img class="img-circle" src="https://randomuser.me/api/portraits/men/60.jpg" height="72" alt="" />
+				</div>
+				<div class="greet-text">
+					<div class="greet-message">Good Morning!</div>
+					<div class="greet-username">Praveen</div>
+				</div>
+				<div class="greet-icon">
+					<img src="assets/custom/img/sun.svg" height="72" alt="" />
+				</div>
+			</div>
+
+			<div class="block block-stats">
+				<div class="row">
+					<div class="col-100 tablet-50 margin-top">
+						<div class="card card-stats" style="background-image: linear-gradient(135deg, #5F72BD 0%, #9B23EA 100%);">
+							<div class="card-content card-content-padding">
+								<div class="card-stats-icon">
+									<i class="fa-stack fa-2x">
+										<span class="fas fa-circle fa-stack-2x"></span>
+										<span class="fas fa-users fa-stack-1x fa-inverse"></span>
+									</i>
+								</div>
+								<div class="card-stats-info">
+									<div class="card-stats-label">Customers</div>
+									<div class="card-stats-value">15K</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-100 tablet-50 margin-top">
+						<div class="card card-stats" style="background-image: linear-gradient(135deg, #FE5196 0%, #F77062 100%);">
+							<div class="card-content card-content-padding">
+								<div class="card-stats-icon">
+									<i class="fa-stack fa-2x">
+										<span class="fas fa-circle fa-stack-2x"></span>
+										<span class="fas fa-envelope fa-stack-1x fa-inverse"></span>
+									</i>
+								</div>
+								<div class="card-stats-info">
+									<div class="card-stats-label">Messages</div>
+									<div class="card-stats-value">750</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-100 margin-top">
+						<div class="card card-stats" style="background-image: linear-gradient(135deg, #04BEFE 0%, #4481EB 100%);">
+							<div class="card-content card-content-padding">
+								<div class="card-stats-icon">
+									<i class="fa-stack fa-2x">
+										<span class="fas fa-circle fa-stack-2x"></span>
+										<span class="fas fa-tasks fa-stack-1x fa-inverse"></span>
+									</i>
+								</div>
+								<div class="card-stats-info">
+									<div class="card-stats-label">Tasks Progress</div>
+									<div class="card-stats-value">
+										<div class="progressbar bg-color-white" data-progress="85">
+											<span style="background-image: linear-gradient(to right, #96E6A1 0%, #D4FC79 100%);"></span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="block block-chart">
+				<div class="card card-chart" style="background-image: linear-gradient(135deg, #F5F5F5 0%, #F7F7F7 100%);">
+					<div class="card-content card-content-padding">
+						<canvas id="chart" class="chart" height="256"></canvas>
+					</div>
+				</div>
+			</div>
+
+			<div class="block block-vitals">
+				<div class="row">
+					<div class="col">
+						<div class="card card-vitals" style="background-image: linear-gradient(135deg, #F59F00 0%, #FCC419 100%);">
+							<div class="card-content card-content-padding">
+								<i class="material-icons-outlined text-color-white">offline_bolt</i>
+								<span>Speed</span>
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="card card-vitals" style="background-image: linear-gradient(135deg, #1C7ED6 0%, #339AF0 100%);">
+							<div class="card-content card-content-padding">
+								<i class="material-icons-outlined text-color-white">security</i>
+								<span>Security</span>
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="card card-vitals" style="background-image: linear-gradient(135deg, #74B816 0%, #94D82D 100%);">
+							<div class="card-content card-content-padding">
+								<i class="material-icons-outlined text-color-white">battery_charging_full</i>
+								<span>Power</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+</template>
+
+<style scoped>
+	.block-greet {
+		align-items: center;
+		display: flex;
+		justify-content: flex-start;
+	}
+
+	.greet-text {
+		padding: 0 16px;
+	}
+
+	.greet-message {
+		font-size: 20px;
+		line-height: 1.2;
+	}
+
+	.greet-username {
+		font-size: 32px;
+		font-weight: bold;
+		line-height: 1.2;
+	}
+
+	.greet-icon {
+		margin-left: auto;
+		margin-right: 0;
+	}
+
+	html[dir=rtl] {{this}} .greet-icon {
+		margin-left: 0;
+		margin-right: auto;
+	}
+
+	.card-stats {
+		border: none;
+		box-shadow: none;
+		color: #FFFFFF;
+		margin: 0;
+	}
+
+	.card-stats .card-content {
+		align-items: center;
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.card-stats-icon i {
+		width: 2em;
+	}
+
+	.card-stats-icon .fa-circle {
+		color: rgba(0, 0, 0, 0.25);
+	}
+
+	.card-stats-info {
+		text-align: right;
+	}
+
+	html[dir=rtl] {{this}} .card-stats-info {
+		text-align: left;
+	}
+
+	.card-stats-label {
+		font-size: 15px;
+	}
+
+	.card-stats-value {
+		font-size: 32px;
+		font-weight: bold;
+		line-height: 1;
+	}
+
+	.card-stats-value .progressbar {
+		height: 8px;
+		margin-top: 8px;
+		width: 144px;
+	}
+
+	.card-vitals {
+		border: none;
+		box-shadow: none;
+		color: #FFFFFF;
+		margin: 0;
+	}
+
+	.card-vitals .card-content {
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	.card-vitals i {
+		font-size: 48px;
+	}
+
+	.card-vitals span {
+		font-size: 16px;
+	}
+
+	.card-chart {
+		border: none;
+		box-shadow: none;
+		margin: 0;
+	}
+
+	.card-chart .chart {
+		margin: 0 auto;
+		width: 100%;
+	}
+</style>
+
+<script>
+	return {
+		methods: {
+			animateGreetIcon: function() {
+				var self = this;
+				var animation = anime({
+					targets: ['.greet-icon img'],
+					duration: 10000,
+					easing: 'linear',
+					loop: true,
+					rotate: 360
+				});
+			},
+			renderChart: function() {
+				var self = this;
+				var config = {
+					type: 'horizontalBar',
+					data: {
+						labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+						datasets: [
+							{
+								label: 'Dataset',
+								backgroundColor: window.config.colors.oc.green4,
+								borderColor: window.config.colors.oc.green6,
+								borderWidth: 1,
+								data: [80, -5, 25, 50, -15, 75]
+							}
+						]
+					},
+					options: {
+						responsive: false
+					}
+				};
+				var chart = new Chart(document.getElementById('chart').getContext('2d'), config);
+			}
+		},
+		on: {
+			pageInit: function() {
+				var self = this;
+				self.animateGreetIcon();
+				self.renderChart();
+			}
+		}
+	}
+</script>

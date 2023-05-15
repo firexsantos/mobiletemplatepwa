@@ -1,0 +1,72 @@
+
+/*----------------------------------------
+  Login Page
+//8,10,11,13
+------------------------------------------*/
+.login-bg{
+  position: fixed;
+  width: 100%; 
+  height: 100%;
+  background-image: url('../images/access-2.jpg');
+  min-height: 100%;
+  min-width: 100%;
+  max-height: 100%;
+  max-width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  top: 0px;
+  left: auto;
+  z-index: 1;
+}
+.access-login{ background-image: url('../images/access-7.jpg'); /* background-position: 0 -90px; */}
+.access-register{ background-image: url('../images/access-4.jpg'); /* background-position: 0 -90px; */ }
+.access-reset{ background-image: url('../images/access-3.jpg'); /*background-position: center center;*/  }
+.access-forgot{ background-image: url('../images/access-5.jpg'); }
+.access-403{ background-image: url('../images/access-8.jpg'); /* background-position: 0 0px; */ }
+.access-404{ background-image: url('../images/access-12.jpg'); /* background-position: 0 0px; */ }
+.access-405{ background-image: url('../images/access-15.jpg'); /* background-position: 0 0px; */ }
+.access-408{ background-image: url('../images/access-16.jpg'); /* background-position: 0 0px; */ }
+.access-500{ background-image: url('../images/access-6.jpg'); /* background-position: 0 -40px; */ }
+.access-503{ background-image: url('../images/access-17.jpg'); /* background-position: 0 -40px; */ }
+.access-offline{ background-image: url('../images/access-18.jpg'); /* background-position: 0 -40px; */ }
+
+
+.access-welcome{ background-image: url('../images/access-9.jpg'); /* background-position: 0 -70px; */}
+.access-lock{ background-image: url('../images/access-1.jpg'); /* background-position: 0 0px; */}
+.access-contact-call{ background-image: url('../images/access-10.jpg'); /* background-position: 0 0px; */}
+.access-product-payment{ background-image: url('../images/access-14.jpg'); /* background-position: 0 -70px; */}
+.access-chat-video{ background-image: url('../images/access-11.jpg'); /* background-position: 0 0px; */}
+.access-courses-payment{ background-image: url('../images/access-13.jpg'); /* background-position: 0 -70px; */}
+.login-area{
+  position: relative;
+  z-index: 2;
+  /* margin-top: 60px; */
+  padding-top: 120px;
+}
+body .login-area input[type="email"],
+body .login-area input[type="password"],
+body .login-area input[type="tel"],
+body .login-area input[type="text"]{
+  /* border-bottom: 1px solid #fafafa; */
+  /* color: #eeeeee; */
+}
+body .login-area label{
+  /* color: #eeeeee; */
+}
+.login-area .links .sep{
+  color: #fafafa;
+  font-size: 90%;
+}
+.login-area .links a{
+  color: #eeeeee;
+  font-size: 90%;
+  margin: 0 10px;
+}
+.login-area .input-field.col, .login-area .input-field{
+  background-color: rgba(230, 230, 230,0.9);
+}
+
+[data-site_mode="dark"] .login-area .input-field.col, .login-area .input-field{
+  background-color: rgba(55, 71, 79,0.9);
+}

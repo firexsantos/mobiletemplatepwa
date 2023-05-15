@@ -1,0 +1,77 @@
+{
+  "name": "Unic",
+  "short_name": "Unic",
+  "start_url": "index.html",
+  "display": "standalone",
+  "scope": "./",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "orientation": "portrait-primary",
+  "description": "Unic – NFT Marketplace PWA Mobile Template",
+  "categories": [
+    "multipurpose ",
+    "Service",
+    "nft",
+    "nft marketplace",
+    "blog",
+    "nft",
+    "marketplace",
+    "template",
+    "pwa",
+    "currency",
+    "coin",
+    "cordova",
+    "phonegap",
+    "mobile"
+  ],
+  "icons": [
+    {
+      "src": "images/favicon/icon-72x72.png",
+      "type": "image/png",
+      "sizes": "72x72",
+      "purpose": "any"
+    },
+    {
+      "src": "images/favicon/icon-96x96.png",
+      "type": "image/png",
+      "sizes": "96x96",
+      "purpose": "any"
+    },
+    {
+      "src": "images/favicon/icon-128x128.png",
+      "type": "image/png",
+      "sizes": "128x128",
+      "purpose": "any"
+    },
+    {
+      "src": "images/favicon/icon-144x144.png",
+      "type": "image/png",
+      "sizes": "144x144",
+      "purpose": "any"
+    },
+    {
+      "src": "images/favicon/icon-152x152.png",
+      "type": "image/png",
+      "sizes": "152x152",
+      "purpose": "any"
+    },
+    {
+      "src": "images/favicon/icon-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any"
+    },
+    {
+      "src": "images/favicon/icon-384x384.png",
+      "type": "image/png",
+      "sizes": "384x384",
+      "purpose": "any"
+    },
+    {
+      "src": "images/favicon/icon-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any"
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="integrations">Integrations</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="facebook-account-kit">Facebook Account Kit</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="facebook-account-kit">Facebook Account Kit</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="block">
+				<p>Use <a href="https://accountkit.com" target="_blank" class="external">Facebook Account Kit</a> to verify the phone number of your users by SMS or WhatsApp.</p>
+			</div>
+
+			<div class="block">
+				<button type="button" class="button button-big button-fill" @click="verifyPhoneNumber">Verify Phone Number</button>
+			</div>
+
+		</div>
+
+	</div>
+</template>
+
+<script>
+	return {
+		methods: {
+			initializeAccountKit: function() {
+				var self = this;
+				LazyLoad.js(['https://sdk.accountkit.com/en_US/sdk.js'], function() {
+					AccountKit_OnInteractive = function() {
+						AccountKit.init(
+							{
+								appId: app.data.config.facebook.appId,
+								debug: true,
+								display: 'popup',
+								state: 'QWERTY123456789',
+								version: 'v1.1',
+								fbAppEventsEnabled: true
+							}
+						);
+					};
+				});
+			},
+			verifyPhoneNumber: function() {
+				var self = this;
+				AccountKit.login(
+					'PHONE',
+					{},
+					function(response) {
+						if (response.status === "PARTIALLY_AUTHENTICATED") {
+							app.toast.show({
+								text: 'Your phone number has been verified successfully.',
+								cssClass: 'toast-round bg-color-green'
+							});
+						}
+						else if (response.status === "NOT_AUTHENTICATED") {
+							app.toast.show({
+								text: 'Your phone number could not be verified.',
+								cssClass: 'toast-round bg-color-red'
+							});
+						}
+						else if (response.status === "BAD_PARAMS") {
+							app.toast.show({
+								text: 'Invalid Request Parameters',
+								cssClass: 'toast-round bg-color-orange'
+							});
+						}
+					}
+				);
+			}
+		},
+		on: {
+			pageInit: function() {
+				var self = this;
+				self.initializeAccountKit();
+			}
+		}
+	}
+</script>

@@ -1,0 +1,120 @@
+/*----------------------------------------
+  Mailbox / Messages
+------------------------------------------*/
+.collection.mailbox .collection-item.avatar :not(.circle-clipper) > .circle {
+  left: 20px;
+}
+.collection.mailbox .collection-item {
+  padding: 0px 0px;
+}
+.collection.mailbox .from {
+  font-size: 80%;
+  display: block;
+  opacity: 0.8;
+}
+.collection.mailbox .title {
+  text-transform: none;
+}
+.collection.mailbox.messages .title {
+  /* text-transform: uppercase; */
+}
+.collection.mailbox .collection-item.avatar img {
+  position: absolute;
+  top: 20px;
+  margin-top: 0px;
+}
+.collection .collection-item .maillink {
+  color: #455a64;
+  padding: 15px 10px 15px 75px;
+  display: inline-block;
+  width: 100%;
+}
+
+.collection.mailbox:not(.messages) .collection-item.avatar .secondary-content a i {
+	font-size: 20px;
+	margin: 0 3px;
+	line-height: 20px;
+	color: #455a64;
+	background: transparent;
+}
+
+.collection.mailbox .collection-item.avatar .secondary-content {
+  position: absolute;
+  top: 60px;
+  margin-top: 0px;
+  right: 10px;
+}
+.collection.mailbox .time {
+  position: absolute;
+  top: -2px;
+  margin-top: 15px;
+  right: 20px;
+  font-size: 80%;
+  opacity: 0.8;
+}
+.collection.mailbox.mailview .time {
+  top: 28px;
+  right: 10px;
+}
+
+.collection.mailbox .mail-reply {
+  position: relative;
+  padding: 20px;
+  vertical-align: top;
+  margin-bottom: 0px;
+}
+.collection.mailbox .mail-reply label {
+  left: 20px;
+}
+.collection.mailbox .collection-item.avatar p {
+  font-size: 80%;
+  padding-right: 20px;
+  margin-top: 3px;
+}
+.collection.mailbox.mailview .collection-item.avatar p {
+  font-size: 13px;
+  padding-right: 20px;
+}
+
+
+.mailview .title {
+  margin-bottom: 10px;
+  width: 100%;
+	padding-right: 30px;
+	margin-top: 0px;
+}
+.mail-reply {
+  width: 90%;
+  margin-left: 5%;
+}
+.mail-reply-btns {
+  padding: 15px;
+}
+.mail-reply-actions {
+  position: absolute;
+  top: 12px;
+  right: 10px;
+}
+.mail-reply-actions a {
+  color: #455a64;
+}
+.mail-reply-actions a i {
+  font-size: 20px;
+}
+
+.collection.mailbox.messages p {
+  padding-right: 40px;
+}
+.collection.mailbox.messages .collection-item.avatar p{
+  font-size: 14px;
+}
+
+[data-site_mode="dark"] .mail-reply-actions a ,
+[data-site_mode="dark"] .collection.mailbox:not(.messages) .collection-item.avatar .secondary-content a i {
+    color: #CFD8DC;
+}
+
+[data-site_mode="dark"] .mailview .input-field.col, [data-site_mode="dark"] .mailview .input-field {
+  background-color: #455a64;
+}
+  

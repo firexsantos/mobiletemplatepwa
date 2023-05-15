@@ -1,0 +1,306 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="screens">Screens</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="contacts-list">Contacts List</div>
+				<div class="right">
+					<a href="#" class="link icon-only searchbar-enable" data-searchbar="#searchbar-list">
+						<i class="icon f7-icons ios-only">search</i>
+						<i class="icon material-icons md-only">search</i>
+					</a>
+				</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="contacts-list">Contacts List</div>
+					</div>
+				</div>
+				<form id="searchbar-list" class="searchbar searchbar-expandable searchbar-init" data-search-container=".list-contacts" data-search-item="li" data-search-in=".item-title">
+					<div class="searchbar-inner">
+						<div class="searchbar-input-wrap">
+							<input type="search" placeholder="Search" data-i18n="[placeholder]search" />
+							<i class="searchbar-icon"></i>
+							<span class="input-clear-button"></span>
+						</div>
+						<span class="searchbar-disable-button" data-i18n="cancel">Cancel</span>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<div class="list-index"></div>
+
+		<div class="page-content">
+
+			<div class="searchbar-not-found">
+				<div class="empty-state">
+					<div class="empty-state-media">
+						<img src="assets/custom/img/no-search.svg" alt="" />
+					</div>
+					<div class="empty-state-title" data-i18n="no-search-results">No Search Results</div>
+				</div>
+			</div>
+
+			<div class="searchbar-found">
+				<div class="list list-contacts no-hairlines no-margin no-chevron">
+					{{#each contacts}}
+					<div class="list-group">
+						<ul>
+							<li class="list-group-title">{{@key}}</li>
+							{{#each this}}
+							<li>
+								<a href="#" class="item-link" @click="showContact({{this.id}})">
+									<div class="item-content">
+										<div class="item-media">
+											<img src="{{this.photo}}" width="32" alt="" />
+										</div>
+										<div class="item-inner">
+											<div class="item-title">{{this.name}}</div>
+										</div>
+									</div>
+								</a>
+							</li>
+							{{/each}}
+						</ul>
+					</div>
+					{{/each}}
+				</div>
+			</div>
+
+		</div>
+
+		{{#if currentContact}}
+		<div class="popup popup-tablet-fullscreen popup-contact">
+			<div class="view">
+				<div class="page">
+
+					<div class="navbar">
+						<div class="navbar-inner">
+							<div class="left ios-only">
+								<a href="#" class="link popup-close">
+									<span data-i18n="close">Close</span>
+								</a>
+							</div>
+							<div class="right md-only">
+								<a href="#" class="link icon-only popup-close">
+									<i class="icon material-icons">close</i>
+								</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="page-content">
+
+						<div class="contact-header">
+							<img class="contact-photo" src="{{currentContact.photo}}" alt="" />
+							<div class="contact-name">{{currentContact.name}}</div>
+						</div>
+
+						<div class="list no-hairlines no-hairlines-between margin-vertical">
+							<ul>
+								<li>
+									<a href="tel:{{currentContact.phone}}" class="item-link external">
+										<div class="item-content">
+											<div class="item-media">
+												<i class="fa-stack">
+													<span class="fas fa-square fa-stack-2x text-color-blue ios-only"></span>
+													<span class="fas fa-circle fa-stack-2x text-color-blue md-only"></span>
+													<span class="fas fa-phone fa-stack-1x fa-inverse"></span>
+												</i>
+											</div>
+											<div class="item-inner">
+												<div class="item-after">{{currentContact.phone}}</div>
+											</div>
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="sms:{{currentContact.phone}}" class="item-link external">
+										<div class="item-content">
+											<div class="item-media">
+												<i class="fa-stack">
+													<span class="fas fa-square fa-stack-2x text-color-orange ios-only"></span>
+													<span class="fas fa-circle fa-stack-2x text-color-orange md-only"></span>
+													<span class="fas fa-sms fa-stack-1x fa-inverse"></span>
+												</i>
+											</div>
+											<div class="item-inner">
+												<div class="item-after">{{currentContact.phone}}</div>
+											</div>
+										</div>
+									</a>
+								</li>
+								{{#if currentContact.email}}
+								<li>
+									<a href="mailto:{{currentContact.email}}" class="item-link external">
+										<div class="item-content">
+											<div class="item-media">
+												<i class="fa-stack">
+													<span class="fas fa-square fa-stack-2x text-color-red ios-only"></span>
+													<span class="fas fa-circle fa-stack-2x text-color-red md-only"></span>
+													<span class="fas fa-envelope fa-stack-1x fa-inverse"></span>
+												</i>
+											</div>
+											<div class="item-inner">
+												<div class="item-after">{{currentContact.email}}</div>
+											</div>
+										</div>
+									</a>
+								</li>
+								{{/if}}
+								{{#if currentContact.whatsapp}}
+								<li>
+									<a href="https://wa.me/{{currentContact.whatsapp}}" target="_system" class="item-link external">
+										<div class="item-content">
+											<div class="item-media">
+												<i class="fa-stack">
+													<span class="fas fa-square fa-stack-2x brand-color-whatsapp ios-only"></span>
+													<span class="fas fa-circle fa-stack-2x brand-color-whatsapp md-only"></span>
+													<span class="fab fa-whatsapp fa-stack-1x fa-inverse"></span>
+												</i>
+											</div>
+											<div class="item-inner">
+												<div class="item-after">{{currentContact.whatsapp}}</div>
+											</div>
+										</div>
+									</a>
+								</li>
+								{{/if}}
+								{{#if currentContact.skype}}
+								<li>
+									<a href="skype:{{currentContact.skype}}?chat" target="_system" class="item-link external">
+										<div class="item-content">
+											<div class="item-media">
+												<i class="fa-stack">
+													<span class="fas fa-square fa-stack-2x brand-color-skype ios-only"></span>
+													<span class="fas fa-circle fa-stack-2x brand-color-skype md-only"></span>
+													<span class="fab fa-skype fa-stack-1x fa-inverse"></span>
+												</i>
+											</div>
+											<div class="item-inner">
+												<div class="item-after">{{currentContact.skype}}</div>
+											</div>
+										</div>
+									</a>
+								</li>
+								{{/if}}
+							</ul>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+		{{/if}}
+
+	</div>
+</template>
+
+<style scoped>
+	{{html}} .contact-header {
+		align-items: stretch;
+		background-image: linear-gradient(-20deg, var(--oc-color-gray-7) 0%, var(--oc-color-gray-9) 100%);
+		box-sizing: border-box;
+		color: #FFFFFF;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		padding: 32px 16px;
+		text-align: center;
+		width: 100%;
+	}
+
+	{{html}} .contact-header .contact-photo {
+		height: 128px;
+		margin: 0 auto;
+		width: 128px;
+	}
+
+	{{html}} .contact-header .contact-name {
+		font-size: 28px;
+		letter-spacing: 0.5px;
+		margin-top: 16px;
+	}
+
+	{{html}} .popup .navbar {
+		background: transparent !important;
+	}
+
+	{{html}} .popup .page-content {
+		padding-top: 0 !important;
+	}
+</style>
+
+<script>
+	return {
+		data: function() {
+			return {
+				contacts: null,
+				currentContact: null
+			}
+		},
+		methods: {
+			populateList: function() {
+				var self = this;
+				app.request.json(
+					'assets/custom/dataset/contacts.json',
+					function(data) {
+						var contacts = {};
+						for (var i = 0, l = data.length; i < l; i++) {
+							var letter = data[i].name.charAt(0).toUpperCase();
+							if (!contacts[letter]) {
+								contacts[letter] = [];
+							}
+							contacts[letter].push(data[i]);
+						}
+						self.$setState({
+							contacts: contacts
+						});
+						app.listIndex.create({
+							el: '.list-index',
+							listEl: self.$el.find('.list-contacts'),
+							label: true
+						});
+					}
+				);
+			},
+			showContact: function(id) {
+				var self = this;
+				var currentContact = null;
+				self.$setState({
+					currentContact: null
+				});
+				for (key in self.contacts) {
+					if (self.contacts.hasOwnProperty(key)) {
+						var currentContact = self.contacts[key].filter(function(contact) {
+							return contact.id == id;
+						});
+						if (currentContact.length) {
+							self.$setState({
+								currentContact: currentContact[0]
+							});
+							var popup = app.popup.create({
+								el: '.popup-contact'
+							});
+							popup.open();
+							break;
+						}
+					}
+				}
+			}
+		},
+		on: {
+			pageInit: function() {
+				var self = this;
+				self.populateList();
+			}
+		}
+	}
+</script>

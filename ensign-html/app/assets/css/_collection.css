@@ -1,0 +1,176 @@
+/*----------------------------------------
+  Collection
+------------------------------------------*/
+.collection {
+	border: 1px solid #eeeeee;
+	-webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+	border-radius: var(--border-radius);
+}
+.collection .collection-item {
+	border-bottom: none;
+}
+.collection .collection-item.avatar:not(:last-child):after{
+		content: " ";
+    border-bottom: 1px solid #eeeeee;
+    width: 100%;
+    width: calc(100% - 80px);
+    margin-left: 80px;
+    display: inline-block;
+    height: 1px;
+    top: -4px;
+    position: relative;
+}
+.collection.activity .collection-item.avatar:after{
+  display: none;
+}
+.collection a.collection-item {
+	color: #455a64;
+}
+.collection-item .title {
+	font-weight: 500;
+	/* text-transform: uppercase; */
+	margin-bottom: 3px;
+	display: inline-block;
+}
+.collection-item.avatar img,
+.collection-item.avatar i {
+	margin-top: 5px;
+}
+
+.collection-item.avatar p {
+	font-size: 13px;
+	line-height: 21px;
+	opacity: 0.8;
+}
+.collection .collection-item.active {
+	background-color: var(--primary-color);
+}
+
+.collection .collection-item.avatar {
+	min-height: 72px;
+	padding-left: 72px;
+	line-height: 1;
+}
+.collection.contacts .collection-item {
+	padding: 0px 0px;
+ }
+/* .collection .collection-item.avatar .secondary-content a i {
+	font-size: 20px;
+	margin: 0 3px;
+	line-height: 20px;
+} */
+.collection .collection-item.avatar .secondary-content {
+	position: absolute;
+	top: 34px;
+	right: 15px;
+}
+/* .collection.contacts .collection-item.avatar .secondary-content {
+	top: 25px;
+} */
+
+.collection .collection-item .chatlink {
+	color: #455a64;
+	display: inline-block;
+	width: 100%;
+	padding: 10px 75px 5px 80px;
+}
+.collection .collection-item:first-child{
+	padding-top: 10px;
+}
+
+
+.collection.contacts .collection-item.avatar :not(.circle-clipper) > .circle {
+	left: 20px;
+}
+
+.container.full ul.collection {
+	margin: 0px;
+}
+
+.collection .secondary-content a{
+	text-align: center;
+	margin-left: 6px;
+}
+
+.collection .secondary-content a i{
+	font-size: 18px;
+	background: var(--primary-color);
+	border-radius: var(--border-radius-50percent);
+	height: 32px;
+	width: 32px;
+	color: #ffffff;
+	line-height: 32px;
+	display: inline-block;
+}
+
+.collection .collection-item.avatar .secondary-content,
+.collection .collection-item.avatar .secondary-content {
+	top: 45%;
+	transform: translateY(-50%);
+}
+
+.collection.overflow{
+	overflow: visible !important;
+}
+
+.collection.ui-collection .collection-item.avatar:not(:last-child):after{
+	width: calc(100% + 20px);
+	top: 3px;
+	margin-left: 0;
+}
+
+/* .collection .collection-item.avatar:not(:last-child):after {
+	content: " ";
+	border-bottom: 1px solid #e5e5e5;
+	width: 100%;
+	display: inline-block;
+	height: 1px;
+	position: relative;
+} */
+
+/*----------------------------------------
+  Site - Dark Mode - Collections
+----------------------------------------*/
+[data-site_mode="dark"] .collection {
+	border: 1px solid #37474f;
+}
+[data-site_mode="dark"] .collection .collection-item {
+	background-color: #37474f;
+}
+[data-site_mode="dark"] .collection .collection-item .maillink {
+	color: #cfd8dc;
+}
+[data-site_mode="dark"] .collection .collection-item {
+	border-bottom: none;
+}
+[data-site_mode="dark"] .collection .collection-item.avatar .secondary-content a i {
+	color: #f5f5f5;
+}
+[data-site_mode="dark"] .collection .collection-item .chatlink {
+	color: #cfd8dc;
+}
+[data-site_mode="dark"] .collection.notifications .collection-item .notify {
+	color: #cfd8dc;
+}
+[data-site_mode="dark"] .collection a.collection-item {
+	color: #cfd8dc;
+}
+[data-site_mode="dark"] .collection a.collection-item:not(.active):hover {
+	background-color: rgba(33, 33, 33, .2);
+}
+[data-site_mode="dark"] .collection.with-header .collection-header {
+	background-color: #37474f;
+	border-bottom: 1px solid #455a64;
+}
+[data-site_mode="dark"] .secondary-content {
+	color: #eeeeee;
+}
+
+[data-site_mode="dark"] .collection-item.avatar .status:after{
+	border-color:#455a64;
+}
+
+[data-site_mode="dark"] .collection .collection-item.avatar:not(:last-child):after{
+	border-bottom: 1px solid #455a64;
+}

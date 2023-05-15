@@ -1,0 +1,1485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from orinostudio.com/unic-webpage/preview-web/unic-template/page-search-random.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 08 Aug 2022 08:58:21 GMT -->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=5, viewport-fit=cover" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="format-detection" content="telephone=no">
+    <!-- <meta name="theme-color" content="#ffffff"> -->
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#222032" media="(prefers-color-scheme: dark)">
+    <title>Unic – NFT Marketplace PWA Mobile Template</title>
+    <meta name="description" content="Unic – NFT Marketplace PWA Mobile Template">
+    <meta name="keywords"
+        content="bootstrap 5, mobile template, wallet, crypto, currency, about, blog, cordova, phonegap, mobile, html, nft, store, marketplace, pwa" />
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" href="images/favicon/icon-32x32.png" sizes="32x32">
+    <!-- IOS SUPPORT -->
+    <link rel="apple-touch-icon" href="images/favicon/icon-96x96.png">
+    <!-- CSS FILES -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/remixicon.min.css">
+    <link rel="stylesheet" href="assets/vendors/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/vendors/zuck_stories/zuck.min.css">
+    <link rel="manifest" href="_manifest.json" />
+
+</head>
+
+<body>
+    <!-- ===================================
+      START LODAER PAGE
+    ==================================== -->
+    <section class="loader-page" id="loaderPage">
+        <div class="spinner_flash"></div>
+    </section>
+    <!-- START WRAPPER -->
+    <div id="wrapper">
+        <!-- START CONTENT -->
+        <div id="content">
+            <!-- ===================================
+              START THE HEADER
+            ==================================== -->
+            <header class="default heade-sticky">
+                <div class="un-title-page">
+                    <h1>Discover</h1>
+                </div>
+                <div class="un-block-right">
+                    <div class="un-notification">
+                        <a href="page-activity.html" aria-label="activity">
+                            <i class="ri-notification-line"></i>
+                        </a>
+                        <span class="bull-activity"></span>
+                    </div>
+                    <div class="un-user-profile">
+                        <a href="page-my-profile.html" aria-label="profile">
+                            <picture>
+                                <source srcset="images/avatar/11.webp" type="image/webp">
+                                <img class="img-avatar" src="images/avatar/11.jpg" alt="">
+                            </picture>
+                        </a>
+                    </div>
+                    <!-- menu-sidebar -->
+                    <div class="menu-sidebar">
+                        <button type="button" name="sidebarMenu" aria-label="sidebarMenu" class="btn"
+                            data-bs-toggle="modal" data-bs-target="#mdllSidebar-connected">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="9.3" viewBox="0 0 19 9.3">
+                                <g id="Group_8081" data-name="Group 8081" transform="translate(-329 -37)">
+                                    <rect id="Rectangle_3986" data-name="Rectangle 3986" width="19" height="2.3"
+                                        rx="1.15" transform="translate(329 37)" fill="#222032" />
+                                    <rect id="Rectangle_3987" data-name="Rectangle 3987" width="19" height="2.3"
+                                        rx="1.15" transform="translate(329 44)" fill="#222032" />
+                                </g>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </header>
+            <!-- ===================================
+              START THE SPACE STICKY
+            ==================================== -->
+            <div class="space-sticky"></div>
+            <!-- ===================================
+              START HEADER TAB
+            ==================================== -->
+            <section class="main-search-header">
+                <div class="content-search">
+                    <div class="form-group with_icon">
+                        <div class="input_group">
+                            <input type="search" class="form-control rounded-pill" placeholder="Search anything ...">
+                            <div class="icon">
+                                <i class="ri-search-2-line"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-box-filter" data-bs-toggle="modal"
+                        data-bs-target="#mdllFilter">
+                        <i class="ri-equalizer-line"></i>
+                    </button>
+                </div>
+            </section>
+            <!-- ===================================
+              START THE CATEGORY
+            ==================================== -->
+            <section class="categories-tag-search">
+                <div class="content-tags">
+                    <button type="button" class="btn btn-tag-filter">
+                        <input type="checkbox">
+                        <span>All</span>
+                    </button>
+                    <button type="button" class="btn btn-tag-filter">
+                        <input type="checkbox">
+                        <span>New</span>
+                    </button>
+                    <button type="button" class="btn btn-tag-filter">
+                        <input type="checkbox" checked>
+                        <span>Gaming</span>
+                    </button>
+                    <button type="button" class="btn btn-tag-filter">
+                        <input type="checkbox">
+                        <span>Music</span>
+                    </button>
+                    <button type="button" class="btn btn-tag-filter">
+                        <input type="checkbox">
+                        <span>Virtual Worlds</span>
+                    </button>
+                    <button type="button" class="btn btn-tag-filter">
+                        <input type="checkbox">
+                        <span>Collectibles</span>
+                    </button>
+                    <button type="button" class="btn btn-tag-filter">
+                        <input type="checkbox">
+                        <span>Sport</span>
+                    </button>
+                </div>
+            </section>
+            <!-- ===================================
+              START NFT ITEMS
+            ==================================== -->
+            <section class="discover-nft-random">
+                <div class="content-NFTs-body">
+                    <!-- item-card-nft -->
+                    <div class="item-card-nft">
+                        <picture>
+                            <source srcset="images/other/18.webp" type="image/webp">
+                            <img class="big-image" src="images/other/18.jpg" alt="">
+                        </picture>
+                        <div class="counterdown">
+                            <span>08H</span>
+                            <span>38M</span>
+                            <span>16S</span>
+                        </div>
+                        <div class="btn-like-click">
+                            <div class="btnLike">
+                                <input type="checkbox" checked>
+                                <span class="count-likes">197</span>
+                                <i class="ri-heart-3-line"></i>
+                            </div>
+                        </div>
+                        <a href="page-collectibles-details.html" class="un-info-card">
+                            <div class="block-left">
+                                <h4>Dark Side of Me</h4>
+                                <div class="user">
+                                    <picture>
+                                        <source srcset="images/avatar/19.webp" type="image/webp">
+                                        <img class="img-avatar" src="images/avatar/19.jpg" alt="">
+                                    </picture>
+                                    <h5>Julian Co.</span>
+                                </div>
+                            </div>
+                            <div class="block-right">
+                                <h6>Starting Bid</h6>
+                                <p>
+                                    <span>($3,650)</span>
+                                    1.50 ETH
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- item-sm-card-NFTs -->
+                    <a href="page-collectibles-details.html" class="item-sm-card-NFTs">
+                        <div class="cover-image">
+                            <picture>
+                                <source srcset="images/other/27.webp" type="image/webp">
+                                <img class="big-image" src="images/other/27.jpg" alt="">
+                            </picture>
+                            <div class="content-text">
+                                <div class="btn-like-click">
+                                    <div class="btnLike">
+                                        <input type="checkbox">
+                                        <span class="count-likes">14</span>
+                                        <i class="ri-heart-3-line"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="user-text">
+                                <div class="user-avatar">
+                                    <picture>
+                                        <source srcset="images/avatar/10.webp" type="image/webp">
+                                        <img class="sm-user" src="images/avatar/10.jpg" alt="">
+                                    </picture>
+                                    <span>Camillo</span>
+                                </div>
+                                <div class="number-eth">
+                                    <span class="main-price">1.50 ETH</span>
+                                    <span>($3,650)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <!-- item-sm-card-NFTs -->
+                    <a href="page-collectibles-details.html" class="item-sm-card-NFTs">
+                        <div class="cover-image">
+                            <picture>
+                                <source srcset="images/other/19.webp" type="image/webp">
+                                <img class="big-image" src="images/other/19.jpg" alt="">
+                            </picture>
+                            <div class="content-text">
+                                <div class="icon-type">
+                                    <i class="ri-vidicon-line"></i>
+                                </div>
+
+                                <div class="btn-like-click">
+                                    <div class="btnLike">
+                                        <input type="checkbox">
+                                        <span class="count-likes">0</span>
+                                        <i class="ri-heart-3-line"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="user-text">
+                                <div class="user-avatar">
+                                    <picture>
+                                        <source srcset="images/avatar/14.webp" type="image/webp">
+                                        <img class="sm-user" src="images/avatar/14.jpg" alt="">
+                                    </picture>
+                                    <span>Julian Co.</span>
+                                </div>
+                                <div class="number-eth">
+                                    <span class="main-price">1.50 ETH</span>
+                                    <span>($3,650)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <!-- item-sm-card-NFTs -->
+                    <a href="page-collectibles-details.html" class="item-sm-card-NFTs">
+                        <div class="cover-image">
+                            <picture>
+                                <source srcset="images/other/24.webp" type="image/webp">
+                                <img class="big-image" src="images/other/24.jpg" alt="">
+                            </picture>
+                            <div class="content-text">
+                                <div class="btn-like-click">
+                                    <div class="btnLike">
+                                        <input type="checkbox" checked>
+                                        <span class="count-likes">42</span>
+                                        <i class="ri-heart-3-line"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="user-text">
+                                <div class="user-avatar">
+                                    <picture>
+                                        <source srcset="images/avatar/10.webp" type="image/webp">
+                                        <img class="sm-user" src="images/avatar/10.jpg" alt="">
+                                    </picture>
+                                    <span>Camillo</span>
+                                </div>
+                                <div class="number-eth">
+                                    <span class="main-price">1.50 ETH</span>
+                                    <span>($3,650)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <!-- item-sm-card-NFTs -->
+                    <a href="page-collectibles-details.html" class="item-sm-card-NFTs">
+                        <div class="cover-image">
+                            <picture>
+                                <source srcset="images/other/16.webp" type="image/webp">
+                                <img class="big-image" src="images/other/16.jpg" alt="">
+                            </picture>
+                            <div class="content-text">
+                                <div class="icon-type">
+                                    <i class="ri-vidicon-line"></i>
+                                </div>
+
+                                <div class="btn-like-click">
+                                    <div class="btnLike">
+                                        <input type="checkbox">
+                                        <span class="count-likes">27</span>
+                                        <i class="ri-heart-3-line"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="user-text">
+                                <div class="user-avatar">
+                                    <picture>
+                                        <source srcset="images/avatar/14.webp" type="image/webp">
+                                        <img class="sm-user" src="images/avatar/14.jpg" alt="">
+                                    </picture>
+                                    <span>Julian Co.</span>
+                                </div>
+                                <div class="number-eth">
+                                    <span class="main-price">1.50 ETH</span>
+                                    <span>($3,650)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <!-- item-card-nft -->
+                    <div class="item-card-nft">
+                        <picture>
+                            <source srcset="images/other/35.webp" type="image/webp">
+                            <img class="big-image" src="images/other/35.jpg" alt="">
+                        </picture>
+                        <div class="counterdown">
+                            <span>08H</span>
+                            <span>38M</span>
+                            <span>16S</span>
+                        </div>
+                        <div class="btn-like-click">
+                            <div class="btnLike">
+                                <input type="checkbox" checked>
+                                <span class="count-likes">240</span>
+                                <i class="ri-heart-3-line"></i>
+                            </div>
+                        </div>
+                        <a href="page-collectibles-details.html" class="un-info-card">
+                            <div class="block-left">
+                                <h4>Dark Side of Me</h4>
+                                <div class="user">
+                                    <picture>
+                                        <source srcset="images/avatar/19.webp" type="image/webp">
+                                        <img class="img-avatar" src="images/avatar/19.jpg" alt="">
+                                    </picture>
+                                    <h5>Julian Co.</span>
+                                </div>
+                            </div>
+                            <div class="block-right">
+                                <h6>Starting Bid</h6>
+                                <p>
+                                    <span>($3,650)</span>
+                                    1.50 ETH
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- item-sm-card-NFTs -->
+                    <a href="page-collectibles-details.html" class="item-sm-card-NFTs">
+                        <div class="cover-image">
+                            <picture>
+                                <source srcset="images/other/25.webp" type="image/webp">
+                                <img class="big-image" src="images/other/25.jpg" alt="">
+                            </picture>
+                            <div class="content-text">
+                                <div class="btn-like-click">
+                                    <div class="btnLike">
+                                        <input type="checkbox" checked>
+                                        <span class="count-likes">4</span>
+                                        <i class="ri-heart-3-line"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="user-text">
+                                <div class="user-avatar">
+                                    <picture>
+                                        <source srcset="images/avatar/10.webp" type="image/webp">
+                                        <img class="sm-user" src="images/avatar/10.jpg" alt="">
+                                    </picture>
+                                    <span>Camillo</span>
+                                </div>
+                                <div class="number-eth">
+                                    <span class="main-price">1.50 ETH</span>
+                                    <span>($3,650)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <!-- item-sm-card-NFTs -->
+                    <a href="page-collectibles-details.html" class="item-sm-card-NFTs">
+                        <div class="cover-image">
+                            <picture>
+                                <source srcset="images/other/1.webp" type="image/webp">
+                                <img class="big-image" src="images/other/1.jpg" alt="">
+                            </picture>
+                            <div class="content-text">
+                                <div class="icon-type">
+                                    <i class="ri-vidicon-line"></i>
+                                </div>
+
+                                <div class="btn-like-click">
+                                    <div class="btnLike">
+                                        <input type="checkbox">
+                                        <span class="count-likes">17</span>
+                                        <i class="ri-heart-3-line"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="user-text">
+                                <div class="user-avatar">
+                                    <picture>
+                                        <source srcset="images/avatar/14.webp" type="image/webp">
+                                        <img class="sm-user" src="images/avatar/14.jpg" alt="">
+                                    </picture>
+                                    <span>Julian Co.</span>
+                                </div>
+                                <div class="number-eth">
+                                    <span class="main-price">1.50 ETH</span>
+                                    <span>($3,650)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <!-- lds-spinner -->
+                <div class="loader-items margin-y-20">
+                    <div class="lds-spinner">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!-- ===================================
+          START THE BOTTOM NAVIGATION
+        ==================================== -->
+        <footer class="un-bottom-navigation filter-blur">
+            <div class="em_body_navigation border-0 -active-links">
+                <div class="item_link">
+                    <a href="homepage.html" class="btn btn_navLink" aria-label="btnNavigation">
+                        <div class="icon_current">
+                            <i class="ri-home-5-line"></i>
+                        </div>
+                        <div class="icon_active">
+                            <i class="ri-home-5-fill"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="item_link">
+                    <a href="page-search-random.html" class="btn btn_navLink" aria-label="btnNavigation">
+                        <div class="icon_current">
+                            <i class="ri-search-2-line"></i>
+                        </div>
+                        <div class="icon_active">
+                            <i class="ri-search-2-fill"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="item_link">
+                    <button type="button" name="uploadItem" aria-label="uploadItem"
+                        class="btn btn_navLink without_active" data-bs-toggle="modal" data-bs-target="#mdllUploadItem"
+                        aria-label="btnNavigation">
+                        <div class="btn btnCircle_default">
+                            <i class="ri-add-line"></i>
+                        </div>
+                    </button>
+                </div>
+                <div class="item_link">
+                    <a href="page-favourit-random.html" class="btn btn_navLink" aria-label="btnNavigation">
+                        <div class="icon_current">
+                            <i class="ri-heart-3-line"></i>
+                        </div>
+                        <div class="icon_active">
+                            <i class="ri-heart-3-fill"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="item_link">
+                    <a href="page-account.html" class="btn btn_navLink" aria-label="btnNavigation">
+                        <div class="icon_current">
+                            <i class="ri-user-4-line"></i>
+                        </div>
+                        <div class="icon_active">
+                            <i class="ri-user-4-fill"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- ===================================
+      START THE EXTERNAL OPEN MODAL
+    ==================================== -->
+    <div class="modal transition-bottom screenFull defaultModal mdlladd__rate fade" id="mdllOtherOpen" tabindex="-1"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header border-0"></div>
+                <div class="modal-body pt-0">
+                    <div class="content-alert-actions">
+                        <div class="margin-b-20">
+                            <h2>
+                                This page will open another application.
+                            </h2>
+                        </div>
+
+                        <div class="action-links">
+                            <button type="button" class="btn border color-text rounded-pill margin-r-20">Cancel</button>
+                            <a href="javascript: void(0)" class="btn bg-primary text-white rounded-pill">Open</a>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="modal-footer border-0">
+                    <div class="env-pb"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ===================================
+      START THE MODAL UPLOAD
+    ==================================== -->
+    <div class="modal transition-bottom screenFull defaultModal mdlladd__rate fade" id="mdllUploadItem" tabindex="-1"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="title-modal">Upload Item</h1>
+                    <button type="button" class="btn btnClose" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="ri-close-fill"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="content-upload-item text-center">
+                        <p>
+                            Choose <span>"Single"</span> if you want your collectible to be one of a kind or
+                            <span>"Multiple"</span>
+                            if you want
+                            to sell one collectible multiple times
+                        </p>
+                        <div class="grid_buttonUpload">
+                            <a href="page-create-single.html" class="btn btn-create bg-primary text-white margin-b-20">
+                                Create Single
+                            </a>
+                            <a href="page-create-multi.html"
+                                class="btn btn-create bg-white border border-solid border-snow text-dark">
+                                Create Multiple
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer border-0">
+                    <div class="env-pb"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ===================================
+      START THE MODAL ADD ETH
+    ==================================== -->
+    <div class="modal transition-bottom screenFull defaultModal mdlladd__rate fade" id="mdllAddETH" tabindex="-1"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="title-modal">Add ETH to your wallet</h1>
+                    <button type="button" class="btn btnClose" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="ri-close-fill"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="content-upload-item">
+                        <p class="text-center">
+                            Select one of the options to deposit <br> ETH to your wallet
+                        </p>
+                        <div class="un-navMenu-default margin-t-30 p-0">
+                            <ul class="nav flex-column">
+                                <li class="nav-item mb-3">
+                                    <a class="nav-link effect-click" href="javascript: void(0)">
+                                        <div class="item-content-link">
+                                            <div class="icon color-text w-auto">
+                                                <i class="ri-exchange-box-line"></i>
+                                            </div>
+                                            <h3 class="link-title">Deposit from an exchange</h3>
+                                        </div>
+                                        <div class="other-cc">
+                                            <span class="badge-text"></span>
+                                            <div class="icon-arrow">
+                                                <i class="ri-arrow-drop-right-line"></i>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="nav-item mb-0">
+                                    <a class="nav-link effect-click" href="javascript: void(0)">
+                                        <div class="item-content-link">
+                                            <div class="icon color-text w-auto">
+                                                <i class="ri-bank-card-line"></i>
+                                            </div>
+                                            <h3 class="link-title">Buy with card</h3>
+                                        </div>
+                                        <div class="other-cc">
+                                            <span class="badge-text"></span>
+                                            <div class="icon-arrow">
+                                                <i class="ri-arrow-drop-right-line"></i>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="modal-footer border-0">
+                    <div class="env-pb"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ===================================
+      START THE MODAL SIDEBAR MENU - CONNECTED
+    ==================================== -->
+    <div class="modal sidebarMenu -left fade" id="mdllSidebar-connected" tabindex="-1"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header d-block pb-1">
+
+                    <!-- un-user-profile -->
+                    <div class="un-user-profile">
+                        <div class="image_user">
+                            <picture>
+                                <source srcset="images/avatar/11.webp" type="image/webp">
+                                <img src="images/avatar/11.jpg" alt="image">
+                            </picture>
+                        </div>
+                        <div class="text-user">
+                            <h3>Rocco Gavin</h3>
+                            <p>0xe3oowe0b88...E162</p>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn btnClose" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="ri-close-fill"></i>
+                    </button>
+
+                    <!-- cover-balance -->
+                    <div class="cover-balance">
+                        <div class="un-balance">
+                            <div class="content-balance">
+                                <div class="head-balance">
+                                    <h4>My Balance</h4>
+                                    <a class="btn link-addBalance" data-bs-toggle="modal" data-bs-dismiss="modal"
+                                        data-bs-target="#mdllAddETH">
+                                        <i class="ri-add-fill"></i>
+                                    </a>
+                                </div>
+                                <p class="no-balance">3,650 ETH</p>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-sm-size bg-white text-dark rounded-pill"
+                            data-bs-toggle="modal" data-bs-dismiss="modal" data-bs-target="#mdllUploadItem">
+                            Create
+                        </button>
+                    </div>
+
+
+                </div>
+                <div class="modal-body">
+                    <ul class="nav flex-column -active-links">
+                        <li class="nav-item">
+                            <a class="nav-link" href="homepage.html">
+                                <div class="icon_current">
+                                    <i class="ri-compass-line"></i>
+                                </div>
+                                <div class="icon_active">
+                                    <i class="ri-compass-fill"></i>
+                                </div>
+                                <span class="title_link">Discover</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="app-homes.html">
+                                <div class="icon_current">
+                                    <i class="ri-home-5-line"></i>
+                                </div>
+                                <div class="icon_active">
+                                    <i class="ri-home-5-fill"></i>
+                                </div>
+                                <span class="title_link">Home Styles</span>
+
+                                <span class="xs-badge">8</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="app-pages.html">
+                                <div class="icon_current">
+                                    <i class="ri-pages-line"></i>
+                                </div>
+                                <div class="icon_active">
+                                    <i class="ri-pages-fill"></i>
+                                </div>
+                                <span class="title_link">Page Packs</span>
+
+                                <div class="badge-circle">
+                                    <span class="doted_item"></span>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="app-components.html">
+                                <div class="icon_current">
+                                    <i class="ri-layout-2-line"></i>
+                                </div>
+                                <div class="icon_active">
+                                    <i class="ri-layout-2-fill"></i>
+                                </div>
+                                <span class="title_link">Components</span>
+
+                            </a>
+                        </li>
+
+                        <label class="title__label">other</label>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="page-help.html">
+                                <div class="icon_current">
+                                    <i class="ri-questionnaire-line"></i>
+                                </div>
+                                <div class="icon_active">
+                                    <i class="ri-questionnaire-fill"></i>
+                                </div>
+                                <span class="title_link">Help Center</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="page-about.html">
+                                <div class="icon_current">
+                                    <i class="ri-file-info-line"></i>
+                                </div>
+                                <div class="icon_active">
+                                    <i class="ri-file-info-fill"></i>
+                                </div>
+                                <span class="title_link">About Unic.</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="homepage.html" class="nav-link">
+                                <div class="icon_current">
+                                    <i class="ri-logout-box-r-line"></i>
+                                </div>
+                                <div class="icon_active">
+                                    <i class="ri-logout-box-r-fill"></i>
+                                </div>
+                                <span class="title_link">Sign Out</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <div class="em_darkMode_menu">
+                        <label class="text" for="switchDark">
+                            <h3>Dark Mode</h3>
+                            <p>Browsing in night mode</p>
+                        </label>
+                        <label class="switch_toggle toggle_lg theme-switch" for="switchDark">
+                            <input type="checkbox" class="switchDarkMode theme-switch" id="switchDark"
+                                aria-describedby="switchDark">
+                            <span class="handle"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ===================================
+      START THE MODAL SIDEBAR MENU - guest
+    ==================================== -->
+    <div class="modal sidebarMenu -left -guest fade" id="mdllSidebar-guest" tabindex="-1"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="welcome_em">
+                        <h2>Welcome to Unic<span>.</span></h2>
+                        <p>
+                            Connect wallet to browse, Buy, Sell, and create NFTs items.
+                        </p>
+                        <a href="page-connect-wallet.html" class="btn btn-md-size bg-primary text-white rounded-pill">
+                            Connect wallet
+                        </a>
+                    </div>
+                    <button type="button" class="btn btnClose" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="ri-close-fill"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <ul class="nav flex-column -active-links">
+                        <li class="nav-item">
+                            <a class="nav-link" href="homepage.html">
+                                <div class="icon_current">
+                                    <i class="ri-compass-line"></i>
+                                </div>
+                                <div class="icon_active">
+                                    <i class="ri-compass-fill"></i>
+                                </div>
+                                <span class="title_link">Discover</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="app-homes.html">
+                                <div class="icon_current">
+                                    <i class="ri-home-5-line"></i>
+                                </div>
+                                <div class="icon_active">
+                                    <i class="ri-home-5-fill"></i>
+                                </div>
+                                <span class="title_link">Home Styles</span>
+
+                                <span class="xs-badge">8</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="app-pages.html">
+                                <div class="icon_current">
+                                    <i class="ri-pages-line"></i>
+                                </div>
+                                <div class="icon_active">
+                                    <i class="ri-pages-fill"></i>
+                                </div>
+                                <span class="title_link">Page Packs</span>
+
+                                <div class="badge-circle">
+                                    <span class="doted_item"></span>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="app-components.html">
+                                <div class="icon_current">
+                                    <i class="ri-layout-2-line"></i>
+                                </div>
+                                <div class="icon_active">
+                                    <i class="ri-layout-2-fill"></i>
+                                </div>
+                                <span class="title_link">Components</span>
+
+                            </a>
+                        </li>
+
+                        <label class="title__label">other</label>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="page-help.html">
+                                <div class="icon_current">
+                                    <i class="ri-questionnaire-line"></i>
+                                </div>
+                                <div class="icon_active">
+                                    <i class="ri-questionnaire-fill"></i>
+                                </div>
+                                <span class="title_link">Help Center</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="page-about.html">
+                                <div class="icon_current">
+                                    <i class="ri-file-info-line"></i>
+                                </div>
+                                <div class="icon_active">
+                                    <i class="ri-file-info-fill"></i>
+                                </div>
+                                <span class="title_link">About Unic.</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <div class="em_darkMode_menu">
+                        <label class="text" for="switchDark2">
+                            <h3>Dark Mode</h3>
+                            <p>Browsing in night mode</p>
+                        </label>
+                        <label class="switch_toggle toggle_lg theme-switch" for="switchDark2">
+                            <input type="checkbox" class="switchDarkMode theme-switch" id="switchDark2"
+                                aria-describedby="switchDark2" aria-describedby="switchDark2">
+                            <span class="handle"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ===================================
+      START THE SHARE PROFILE MODAL
+    ==================================== -->
+    <div class="modal transition-bottom screenFull defaultModal mdlladd__rate fade" id="mdllShareProfile" tabindex="-1"
+        aria-labelledby="modalShareProfile" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="item-shared">
+                        <div class="image-items">
+                            <picture>
+                                <source srcset="images/avatar/22.webp" type="image/webp">
+                                <img class="user-img" src="images/avatar/22.jpg" alt="">
+                            </picture>
+                        </div>
+                        <div class="txt">
+                            <h1>Camillo Ferrari</h1>
+                            <p>unic.com</p>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btnClose" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="ri-close-fill"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="content-share-socials">
+
+                        <div class="un-navMenu-default p-0">
+
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <button type="button" class="btn nav-link bg-snow">
+                                        <div class="item-content-link">
+                                            <h3 class="link-title">Copy</h3>
+                                        </div>
+                                        <div class="other-cc">
+                                            <span class="badge-text"></span>
+                                            <div class="icon-arrow">
+                                                <i class="ri-file-copy-2-line"></i>
+                                            </div>
+                                        </div>
+                                    </button>
+                                </li>
+                            </ul>
+
+                            <div class="sub-title-pkg">
+                                <h2>Social Networks</h2>
+                            </div>
+
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link facebook" href="javascript: void(0)">
+                                        <div class="item-content-link">
+                                            <div class="icon-svg">
+                                                <img src="images/icons/facebook.svg" alt="">
+                                            </div>
+                                            <h3 class="link-title">Facebook</h3>
+                                        </div>
+                                        <div class="other-cc">
+                                            <span class="badge-text"></span>
+                                            <div class="icon-arrow">
+                                                <i class="ri-arrow-drop-right-line"></i>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link twitter" href="javascript: void(0)">
+                                        <div class="item-content-link">
+                                            <div class="icon-svg">
+                                                <img src="images/icons/twitter.svg" alt="">
+                                            </div>
+                                            <h3 class="link-title">Twitter</h3>
+                                        </div>
+                                        <div class="other-cc">
+                                            <span class="badge-text"></span>
+                                            <div class="icon-arrow">
+                                                <i class="ri-arrow-drop-right-line"></i>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link instrgrame" href="javascript: void(0)">
+                                        <div class="item-content-link">
+                                            <div class="icon-svg">
+                                                <img src="images/icons/instagram.svg" alt="">
+                                            </div>
+                                            <h3 class="link-title">Instrgrame</h3>
+                                        </div>
+                                        <div class="other-cc">
+                                            <span class="badge-text"></span>
+                                            <div class="icon-arrow">
+                                                <i class="ri-arrow-drop-right-line"></i>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link whatsapp" href="javascript: void(0)">
+                                        <div class="item-content-link">
+                                            <div class="icon-svg">
+                                                <img src="images/icons/whatsapp.svg" alt="">
+                                            </div>
+                                            <h3 class="link-title">WhatsApp</h3>
+                                        </div>
+                                        <div class="other-cc">
+                                            <span class="badge-text"></span>
+                                            <div class="icon-arrow">
+                                                <i class="ri-arrow-drop-right-line"></i>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="modal-footer border-0">
+                    <div class="env-pb"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ===================================
+      START THE SHARE NFT MODAL
+    ==================================== -->
+    <div class="modal transition-bottom screenFull defaultModal mdlladd__rate fade" id="mdllShareCollectibles"
+        tabindex="-1" aria-labelledby="modalShareCollectibles" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="item-shared">
+                        <div class="image-items">
+                            <picture>
+                                <source srcset="images/other/1.webp" type="image/webp">
+                                <img class="user-img" src="images/other/1.jpg" alt="">
+                            </picture>
+                        </div>
+                        <div class="txt">
+                            <h1>Galaxy on Earth</h1>
+                            <p>unic.com</p>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btnClose" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="ri-close-fill"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="content-share-socials">
+
+                        <div class="un-navMenu-default p-0">
+
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <button type="button" class="btn nav-link bg-snow ">
+                                        <div class="item-content-link">
+                                            <h3 class="link-title">Copy</h3>
+                                        </div>
+                                        <div class="other-cc">
+                                            <span class="badge-text"></span>
+                                            <div class="icon-arrow">
+                                                <i class="ri-file-copy-2-line"></i>
+                                            </div>
+                                        </div>
+                                    </button>
+                                </li>
+                            </ul>
+
+                            <div class="sub-title-pkg">
+                                <h2>Social Networks</h2>
+                            </div>
+
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link facebook" href="javascript: void(0)">
+                                        <div class="item-content-link">
+                                            <div class="icon-svg">
+                                                <img src="images/icons/facebook.svg" alt="">
+                                            </div>
+                                            <h3 class="link-title">Facebook</h3>
+                                        </div>
+                                        <div class="other-cc">
+                                            <span class="badge-text"></span>
+                                            <div class="icon-arrow">
+                                                <i class="ri-arrow-drop-right-line"></i>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link twitter" href="javascript: void(0)">
+                                        <div class="item-content-link">
+                                            <div class="icon-svg">
+                                                <img src="images/icons/twitter.svg" alt="">
+                                            </div>
+                                            <h3 class="link-title">Twitter</h3>
+                                        </div>
+                                        <div class="other-cc">
+                                            <span class="badge-text"></span>
+                                            <div class="icon-arrow">
+                                                <i class="ri-arrow-drop-right-line"></i>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link instrgrame" href="javascript: void(0)">
+                                        <div class="item-content-link">
+                                            <div class="icon-svg">
+                                                <img src="images/icons/instagram.svg" alt="">
+                                            </div>
+                                            <h3 class="link-title">Instrgrame</h3>
+                                        </div>
+                                        <div class="other-cc">
+                                            <span class="badge-text"></span>
+                                            <div class="icon-arrow">
+                                                <i class="ri-arrow-drop-right-line"></i>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link whatsapp" href="javascript: void(0)">
+                                        <div class="item-content-link">
+                                            <div class="icon-svg">
+                                                <img src="images/icons/whatsapp.svg" alt="">
+                                            </div>
+                                            <h3 class="link-title">WhatsApp</h3>
+                                        </div>
+                                        <div class="other-cc">
+                                            <span class="badge-text"></span>
+                                            <div class="icon-arrow">
+                                                <i class="ri-arrow-drop-right-line"></i>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="modal-footer border-0">
+                    <div class="env-pb"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ===================================
+      START THE FILTER MODAL
+    ==================================== -->
+    <div class="modal sidebarMenu -left --fullScreen modal-filter fade" id="mdllFilter" tabindex="-1"
+        aria-labelledby="sidebarMenuLabel3" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="title-modal">Filters</h1>
+                    <button type="button" class="btn btn-clear">- Reset filter</button>
+                    <button type="button" class="btn btnClose" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="ri-close-fill"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="slider-range-price">
+                        <div class="content-slider">
+                            <div class="header">
+                                <h2>Price Range</h2>
+                                <div class="auto-price">
+                                    <div class="input-text-price min">
+                                        <input type="text" class="input-with-keypress-0" id="input-with-keypress-0">
+                                        <span>ETH</span>
+                                    </div>
+                                    <span class="mx-1 color-text">-</span>
+                                    <div class="input-text-price max">
+                                        <input type="text" class="input-with-keypress-1" id="input-with-keypress-1">
+                                        <span>ETH</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="steps-slider" id="steps-slider"></div>
+                            <div class="price-under-line">
+                                <span>0.01 ETH</span>
+                                <span>100 ETH</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-filter-checkbox">
+                        <h2 class="title-form">Categories</h2>
+                        <ul class="nav flex-column nav-checkbox">
+                            <li class="nav-item">
+                                <div class="item-checkbox-filter">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            All NFTs
+                                        </label>
+                                    </div>
+                                    <div class="number-category">
+                                        <span>(15)</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <div class="item-checkbox-filter">
+                                    <div class="form-check">
+                                        <input class="form-check-input" checked type="checkbox" value=""
+                                            id="flexCheckDefault2">
+                                        <label class="form-check-label" for="flexCheckDefault2">
+                                            Gaming
+                                        </label>
+                                    </div>
+                                    <div class="number-category">
+                                        <span>(9)</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <div class="item-checkbox-filter">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault3">
+                                        <label class="form-check-label" for="flexCheckDefault3">
+                                            Art
+                                        </label>
+                                    </div>
+                                    <div class="number-category">
+                                        <span>(6)</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <div class="item-checkbox-filter">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault4">
+                                        <label class="form-check-label" for="flexCheckDefault4">
+                                            Sport
+                                        </label>
+                                    </div>
+                                    <div class="number-category">
+                                        <span>(3)</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <div class="item-checkbox-filter">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault5">
+                                        <label class="form-check-label" for="flexCheckDefault5">
+                                            Virtual Worlds
+                                        </label>
+                                    </div>
+                                    <div class="number-category">
+                                        <span>(9)</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <div class="item-checkbox-filter">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault6">
+                                        <label class="form-check-label" for="flexCheckDefault6">
+                                            Music
+                                        </label>
+                                    </div>
+                                    <div class="number-category">
+                                        <span>(3)</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <div class="item-checkbox-filter">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault7">
+                                        <label class="form-check-label" for="flexCheckDefault7">
+                                            Collectibles
+                                        </label>
+                                    </div>
+                                    <div class="number-category">
+                                        <span>(7)</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <div class="item-checkbox-filter">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault8">
+                                        <label class="form-check-label" for="flexCheckDefault8">
+                                            Domain Names
+                                        </label>
+                                    </div>
+                                    <div class="number-category">
+                                        <span>(5)</span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="form-filter-checkbox">
+                        <h2 class="title-form">Status</h2>
+                        <ul class="nav flex-column nav-checkbox">
+                            <li class="nav-item">
+                                <div class="item-checkbox-filter">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value=""
+                                            id="statusCheckDefault">
+                                        <label class="form-check-label" for="statusCheckDefault">
+                                            Buy Now
+                                        </label>
+                                    </div>
+                                    <div class="number-category">
+                                        <span>(15)</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <div class="item-checkbox-filter">
+                                    <div class="form-check">
+                                        <input class="form-check-input" checked type="checkbox" value=""
+                                            id="statusCheckDefault2">
+                                        <label class="form-check-label" for="statusCheckDefault2">
+                                            On Auction
+                                        </label>
+                                    </div>
+                                    <div class="number-category">
+                                        <span>(9)</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <div class="item-checkbox-filter">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value=""
+                                            id="statusCheckDefault3">
+                                        <label class="form-check-label" for="statusCheckDefault3">
+                                            New
+                                        </label>
+                                    </div>
+                                    <div class="number-category">
+                                        <span>(6)</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <div class="item-checkbox-filter">
+                                    <div class="form-check">
+                                        <input class="form-check-input" checked type="checkbox" value=""
+                                            id="statusCheckDefault4">
+                                        <label class="form-check-label" for="statusCheckDefault4">
+                                            Has Offers
+                                        </label>
+                                    </div>
+                                    <div class="number-category">
+                                        <span>(3)</span>
+                                    </div>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                    <div class="form-filter-checkbox">
+                        <h2 class="title-form">Colors</h2>
+                        <ul class="nav flex-column nav-checkbox">
+                            <li class="nav-item">
+                                <div class="item-checkbox-filter">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value=""
+                                            id="colorsCheckDefault">
+                                        <label class="form-check-label" for="colorsCheckDefault">
+                                            Pink
+                                        </label>
+                                    </div>
+                                    <div class="number-category">
+                                        <span>(15)</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <div class="item-checkbox-filter">
+                                    <div class="form-check">
+                                        <input class="form-check-input" checked type="checkbox" value=""
+                                            id="colorsCheckDefault2">
+                                        <label class="form-check-label" for="colorsCheckDefault2">
+                                            Blue
+                                        </label>
+                                    </div>
+                                    <div class="number-category">
+                                        <span>(9)</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <div class="item-checkbox-filter">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value=""
+                                            id="colorsCheckDefault3">
+                                        <label class="form-check-label" for="colorsCheckDefault3">
+                                            Red
+                                        </label>
+                                    </div>
+                                    <div class="number-category">
+                                        <span>(6)</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <div class="item-checkbox-filter">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value=""
+                                            id="colorsCheckDefault4">
+                                        <label class="form-check-label" for="colorsCheckDefault4">
+                                            Orange
+                                        </label>
+                                    </div>
+                                    <div class="number-category">
+                                        <span>(3)</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <div class="item-checkbox-filter">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value=""
+                                            id="colorsCheckDefault5">
+                                        <label class="form-check-label" for="colorsCheckDefault5">
+                                            Yollow
+                                        </label>
+                                    </div>
+                                    <div class="number-category">
+                                        <span>(3)</span>
+                                    </div>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="modal-footer justify-content-center border-0 pt-2">
+                    <a href="page-search-random.html" class="btn btn-apply-filter">
+                        <p>Apply <span>(5)</span></p>
+                        <div class="ico">
+                            <i class="ri-arrow-drop-right-line"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ===================================
+      START STATUS CONNECTION
+    ==================================== -->
+    <div class="d-flex justify-content-center">
+        <div class="toast status-connection" role="alert" aria-live="assertive" aria-atomic="true"></div>
+    </div>
+
+
+
+    <!-- JS FILES -->
+    <script src="assets/vendors/zuck_stories/zuck.min.js"></script>
+    <script src="assets/vendors/smoothscroll/smoothscroll.min.js"></script>
+    <script src="assets/vendors/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendors/nouislider/nouislider.min.js"></script>
+    <script src="assets/vendors/nouislider/wNumb.min.js"></script>
+    <script src="assets/vendors/nouislider/rangeSlider.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <!-- PWA APP SERVICE REGISTRATION AND WORKS JS -->
+    <script src="assets/js/pwa-services.js"></script>
+</body>
+
+
+<!-- Mirrored from orinostudio.com/unic-webpage/preview-web/unic-template/page-search-random.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 08 Aug 2022 08:58:22 GMT -->
+</html>

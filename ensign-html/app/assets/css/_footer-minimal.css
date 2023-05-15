@@ -1,0 +1,14 @@
+/*----------------------------------------
+  Footer - Minimal
+------------------------------------------*/
+[data-footer_type="minimal"] .page-footer:not(.footer-ex){
+  /* padding-top: 0px; */
+  padding-bottom: 20px;
+}
+[data-footer_type="minimal"] .page-footer:not(.footer-ex) .footer-content .text{
+  display: none;
+}
+[data-footer_type="minimal"] .page-footer:not(.footer-ex) .footer-copyright{
+  display: none;
+  text-align: center;
+}

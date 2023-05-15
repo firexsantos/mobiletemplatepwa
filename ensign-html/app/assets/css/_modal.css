@@ -1,0 +1,95 @@
+/*----------------------------------------
+  Modal
+------------------------------------------*/
+.modal{
+	border-radius: var(--border-radius);
+}
+.modal-content {
+	border-bottom: 1px solid rgba(220, 220, 220, 0.4);
+}
+.modal.dark-text .modal-content,
+.modal.dark-text .modal-content a {
+	color: #546e7a;
+}
+.modal-footer.dark-text,
+.modal-footer.dark-text a {
+	color: #546e7a;
+}
+.modal-footer.white-text a {
+	color: #fafafa;
+}
+
+.modal-mediabox .modal-content {
+	padding: 0px;
+	border-bottom: 0px;
+	height: auto;
+}
+.modal-mediabox .modal-footer {
+	text-align: left;
+	height: auto;
+	padding: 0 15px;
+}
+
+.modal-mediabox .modal-content p {
+	margin: 0;
+}
+
+.modal.bottom-sheet{
+	max-height: 80%;
+}
+
+.modal.full{
+	height: 100% !important;
+	max-height: 100% !important;
+	width: 100%;
+	border-radius: 0px;
+	top: 0 !important;
+}
+[data-footer_menu="show"] .modal.full{
+	height: calc(100% - 60px) !important;
+	padding-top: 50px;
+}
+.modal.bottom-sheet .modal-footer {
+	border-radius: 0 0 2px 2px;
+	padding: 4px 6px;
+	height: 56px;
+	width: 100%;
+	text-align: right;
+	position: fixed;
+	bottom: 0;
+	border-top: 1px solid #eee;
+	background: rgba(233, 233, 233, .9);
+}
+
+.modal.bottom-sheet .modal-content{
+	padding-bottom: 0px;
+}
+
+body.modal-open .addbutton, body.modal-open .backtotop{
+	display: none !important;
+}
+
+[data-footer_menu="show"] .modal.bottom-sheet .modal-content{
+	padding-bottom: 80px;
+}
+
+/*----------------------------------------
+  Site - Dark Mode - Modal
+----------------------------------------*/
+[data-site_mode="dark"] .modal .modal-footer,
+[data-site_mode="dark"] .modal {
+	background-color: #37474f;
+}
+[data-site_mode="dark"] .modal-content {
+	border-bottom: 1px solid rgba(33, 33, 33, .2);
+}
+[data-site_mode="dark"] .modal.bottom-sheet .modal-footer{
+	border-color: rgba(33, 33, 33, .2);
+}
+
+[data-site_mode="dark"] .modal.primary-bg{
+	background-color: var(--primary-color);
+}
+[data-site_mode="dark"] .modal.accent-bg{
+	background-color: var(--accent-color);
+}

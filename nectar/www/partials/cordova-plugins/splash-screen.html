@@ -1,0 +1,80 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="cordova-plugins">Cordova Plugins</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="splash-screen">Splash Screen</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="splash-screen">Splash Screen</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="block">
+				<p>This plugin is used to show and hide splash screen during app launch.</p>
+			</div>
+
+			<div class="block text-align-center">
+				<div class="stepper stepper-fill stepper-init" data-autorepeat="true" data-autorepeat-dynamic="true" data-manual-input-mode="true">
+					<div class="stepper-button-minus"></div>
+					<div class="stepper-input-wrap">
+						<input type="text" value="{{duration/1000}}" min="1" step="1" readonly @input="changeSplashScreenDuration" />
+					</div>
+					<div class="stepper-button-plus"></div>
+				</div>
+			</div>
+
+			<div class="block">
+				<button type="button" class="button button-big button-fill color-green" @click="showSplashScreen">Show Splash Screen</button>
+			</div>
+
+			<div class="note note-info text-align-center">
+				<p>The splash screen will automatically hide after {{duration/1000}} second(s).</p>
+			</div>
+
+		</div>
+
+	</div>
+</template>
+
+<script>
+	return {
+		data: function() {
+			return {
+				duration: 5000
+			}
+		},
+		methods: {
+			changeSplashScreenDuration: function(event) {
+				var self = this;
+				var duration = event.target.value;
+				self.$setState({
+					duration: duration * 1000
+				});
+			},
+			showSplashScreen: function() {
+				var self = this;
+				StatusBar.hide();
+				navigator.splashscreen.show();
+				setTimeout(function() {
+					self.hideSplashScreen();
+				}, self.duration);
+			},
+			hideSplashScreen: function() {
+				var self = this;
+				navigator.splashscreen.hide();
+				StatusBar.show();
+			}
+		}
+	}
+</script>

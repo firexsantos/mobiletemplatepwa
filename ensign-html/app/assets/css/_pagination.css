@@ -1,0 +1,48 @@
+/*----------------------------------------
+  Pagination
+------------------------------------------*/
+.pagination li i{
+  line-height: 32px;
+}
+.pagination.large li {
+    height: 36px;
+    float: left;
+}
+.pagination.large li a {
+    font-size: 1.3rem;
+    padding: 0 13px;
+    line-height: 36px;
+}
+.pagination.large li i{
+  line-height: 36px;
+}
+
+.pagination.small li {
+    height: 24px;
+
+}
+.pagination.small li a {
+    font-size: 1.1rem;
+    padding: 0 8px;
+    line-height: 24px;
+}
+.pagination.small li i{
+  font-size: 1.5rem;
+  line-height: 24px;
+}
+.pagination li.active{
+  background-color: var(--primary-color);
+}
+.pagination li:hover{
+  background-color: #CFD8DC;
+}
+
+/*----------------------------------------
+  Site - Dark Mode - Pagination
+----------------------------------------*/
+[data-site_mode="dark"] .pagination li a{
+  color: #f5f5f5;
+}
+[data-site_mode="dark"] .pagination li:hover {
+  background-color: #37474F;
+}

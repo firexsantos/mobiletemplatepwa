@@ -1,0 +1,207 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="components">Components</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="datepicker">Datepicker</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="datepicker">Datepicker</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="block">
+				<p>Datepicker allows the users to select date.</p>
+			</div>
+
+			<div class="list no-hairlines">
+				<ul>
+					<li class="item-divider">Default</li>
+					<li>
+						<div class="item-content item-input">
+							<div class="item-inner">
+								<div class="item-input-wrap">
+									<input type="text" id="datepicker-default" placeholder="Your Birthday" readonly />
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="item-divider">Custom Date Format</li>
+					<li>
+						<div class="item-content item-input">
+							<div class="item-inner">
+								<div class="item-input-wrap">
+									<input type="text" id="datepicker-custom-date-format" placeholder="Select Date" readonly />
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="item-divider">Multiple Dates</li>
+					<li>
+						<div class="item-content item-input">
+							<div class="item-inner">
+								<div class="item-input-wrap">
+									<input type="text" id="datepicker-multiple-dates" placeholder="Select Dates" readonly />
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="item-divider">Date Range</li>
+					<li>
+						<div class="item-content item-input">
+							<div class="item-inner">
+								<div class="item-input-wrap">
+									<input type="text" id="datepicker-date-range" placeholder="Select Date Range" readonly />
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="item-divider">Disabled Dates</li>
+					<li>
+						<div class="item-content item-input">
+							<div class="item-inner">
+								<div class="item-input-wrap">
+									<input type="text" id="datepicker-disabled-dates" placeholder="Select Date" readonly />
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="item-divider">Open in Modal</li>
+					<li>
+						<div class="item-content item-input">
+							<div class="item-inner">
+								<div class="item-input-wrap">
+									<input type="text" id="datepicker-modal" placeholder="Select Date" readonly />
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+
+			<div class="block-title">Inline Calendar</div>
+			<div class="block block-strong no-padding">
+				<div id="calendar-inline"></div>
+			</div>
+
+		</div>
+
+	</div>
+</template>
+
+<script>
+	return {
+		methods: {
+			initializeDatepickerDefault: function() {
+				var self = this;
+				var datepicker = app.calendar.create({
+					inputEl: '#datepicker-default'
+				});
+			},
+			initializeDatepickerCustomDateFormat: function() {
+				var self = this;
+				var datepicker = app.calendar.create({
+					inputEl: '#datepicker-custom-date-format',
+					dateFormat: 'DD, MM dd, yyyy'
+				});
+			},
+			initializeDatepickerMultipleDates: function() {
+				var self = this;
+				var datepicker = app.calendar.create({
+					inputEl: '#datepicker-multiple-dates',
+					dateFormat: 'M dd yyyy',
+					multiple: true
+				});
+			},
+			initializeDatepickerDateRange: function() {
+				var self = this;
+				var datepicker = app.calendar.create({
+					inputEl: '#datepicker-date-range',
+					dateFormat: 'MM dd yyyy',
+					rangePicker: true
+				});
+			},
+			initializeDatepickerDisabledDates: function() {
+				var self = this;
+				var today = new Date();
+				var weekLater = new Date().setDate(today.getDate() + 7);
+				var datepicker = app.calendar.create({
+					inputEl: '#datepicker-disabled-dates',
+					dateFormat: 'dd MM yyyy',
+					disabled: {
+						from: today,
+						to: weekLater
+					}
+				});
+			},
+			initializeDatepickerModal: function() {
+				var self = this;
+				var datepicker = app.calendar.create({
+					inputEl: '#datepicker-modal',
+					dateFormat: 'dd MM yyyy',
+					openIn: 'customModal',
+					header: true,
+					footer: true
+				});
+			},
+			initializeCalendarInline: function() {
+				var self = this;
+				var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August' , 'September' , 'October', 'November', 'December'];
+				var calendar = app.calendar.create({
+					containerEl: '#calendar-inline',
+					value: [new Date()],
+					weekHeader: false,
+					renderToolbar: function () {
+						return	'<div class="toolbar toolbar-calendar no-shadow">' +
+											'<div class="toolbar-inner">' +
+												'<div class="left">' +
+													'<a href="#" class="link icon-only"><i class="icon icon-back ' + (app.theme === 'md' ? 'color-gray' : '') + '"></i></a>' +
+												'</div>' +
+												'<div class="center"></div>' +
+												'<div class="right">' +
+													'<a href="#" class="link icon-only"><i class="icon icon-forward ' + (app.theme === 'md' ? 'color-gray' : '') + '"></i></a>' +
+												'</div>' +
+											'</div>' +
+										'</div>';
+						},
+						on: {
+							init: function(calendar) {
+								self.$('.toolbar-calendar .center').text(months[calendar.currentMonth] +', ' + calendar.currentYear);
+								self.$('.toolbar-calendar .left .link').on('click', function() {
+									calendar.prevMonth();
+								});
+								self.$('.toolbar-calendar .right .link').on('click', function() {
+									calendar.nextMonth();
+								});
+							},
+							monthYearChangeStart: function(calendar) {
+								self.$('.toolbar-calendar .center').text(months[calendar.currentMonth] +', ' + calendar.currentYear);
+							}
+						}
+				});
+			}
+		},
+		on: {
+			pageInit: function() {
+				var self = this;
+				self.initializeDatepickerDefault();
+				self.initializeDatepickerCustomDateFormat();
+				self.initializeDatepickerMultipleDates();
+				self.initializeDatepickerDateRange();
+				self.initializeDatepickerDisabledDates();
+				self.initializeDatepickerModal();
+				self.initializeCalendarInline();
+			}
+		}
+	}
+</script>

@@ -1,0 +1,35 @@
+/* 2dp elevation modified*/
+.z-depth-1, nav, .card-panel, .card, .toast, .btn, .btn-large, .btn-small, .btn-floating, .dropdown-content, .collapsible, .sidenav, .addtocart.btn-float,
+.events .people a img, .ui-profile .primg,.ui-profile .avatar-list a img,.menu-full.menu-open .menu-close, .blogs.blog-view, .editprof-img img, .events.mini .event-item .info  {
+  -webkit-box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1), 0 3px 11px -2px rgba(0, 0, 0, 0.1), 0 1px 5px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1), 0 3px 11px -2px rgba(0, 0, 0, 0.1), 0 1px 5px 0 rgba(0, 0, 0, 0.1);
+}
+
+.z-depth-1-half, .btn:hover, .btn-large:hover, .btn-small:hover, .btn-floating:hover {
+  -webkit-box-shadow: 0 3px 23px 0 rgba(0, 0, 0, 0.14), 0 1px 27px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 3px 23px 0 rgba(0, 0, 0, 0.14), 0 1px 27px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* 6dp elevation modified*/
+.z-depth-2 {
+  -webkit-box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.1), 0 1px 20px 0 rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.1), 0 1px 20px 0 rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+}
+
+/* 12dp elevation modified*/
+.z-depth-3 {
+  -webkit-box-shadow: 0 8px 27px 2px rgba(0, 0, 0, 0.1), 0 3px 24px 2px rgba(0, 0, 0, 0.1), 0 5px 5px -3px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 8px 27px 2px rgba(0, 0, 0, 0.1), 0 3px 24px 2px rgba(0, 0, 0, 0.1), 0 5px 5px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* 16dp elevation */
+.z-depth-4 {
+  -webkit-box-shadow: 0 16px 34px 2px rgba(0, 0, 0, 0.1), 0 6px 40px 5px rgba(0, 0, 0, 0.1), 0 8px 10px -7px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 16px 34px 2px rgba(0, 0, 0, 0.1), 0 6px 40px 5px rgba(0, 0, 0, 0.1), 0 8px 10px -7px rgba(0, 0, 0, 0.1);
+}
+
+/* 24dp elevation */
+.z-depth-5, .modal {
+  -webkit-box-shadow: 0 24px 48px 3px rgba(0, 0, 0, 0.1), 0 9px 56px 8px rgba(0, 0, 0, 0.1), 0 11px 15px -7px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 24px 48px 3px rgba(0, 0, 0, 0.1), 0 9px 56px 8px rgba(0, 0, 0, 0.1), 0 11px 15px -7px rgba(0, 0, 0, 0.1);
+}

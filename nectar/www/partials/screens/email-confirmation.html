@@ -1,0 +1,68 @@
+<template>
+	<div class="page no-navbar no-toolbar no-swipeback">
+
+		<div class="page-content">
+
+			<div class="block">
+				<p>Complete your profile by confirming your email address</p>
+			</div>
+
+			<div class="block">
+				<div class="empty-state no-padding">
+					<div class="empty-state-media">
+						<img src="assets/custom/img/paper-plane.svg" alt="" />
+					</div>
+					<div class="empty-state-title no-margin-top">Check your inbox</div>
+					<div class="empty-state-text no-margin-top">
+						<p>
+							To confirm your email address, tap the confirm button in the email we sent to
+							<br />
+							<a href="#">praveen.mujawdiya@gmail.com</a>
+						</p>
+					</div>
+					<div class="empty-state-actions no-margin-top">
+						<a href="mailto:" class="button button-big button-fill button-round external">Open Mail App</a>
+						<br />
+						<a href="#" class="back">Skip, I'll confirm later</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="block">
+				<p>
+					Did not receive the email? Check your spam folder.
+					<br />
+					or
+					<br />
+					<a href="#">Resend Confirmation Mail</a>
+				</p>
+			</div>
+
+		</div>
+
+	</div>
+</template>
+
+<style scoped>
+	.page-content {
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+
+	.block:nth-child(1) {
+		font-size: 18px;
+		font-weight: bold;
+		text-align: center;
+	}
+
+	.block:nth-child(3) {
+		text-align: center;
+	}
+
+	.empty-state .empty-state-media img {
+		height: 64px;
+		width: auto;
+	}
+</style>

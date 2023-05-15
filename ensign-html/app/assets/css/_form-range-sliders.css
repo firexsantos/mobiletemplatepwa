@@ -1,0 +1,119 @@
+/*----------------------------------------
+  Form Range Sliders
+------------------------------------------*/
+
+  input[type=range]::-webkit-slider-thumb {
+    background-color: var(--primary-color);
+  }
+  input[type=range]::-moz-range-thumb {
+    background-color: var(--primary-color);
+  }
+  input[type=range]::-ms-thumb {
+    background-color: var(--primary-color);
+  }
+  input[type=range] + .thumb {
+    background-color: #dedede;
+  }
+  input[type=range] + .thumb.active .value {
+    color: var(--primary-color);
+  }
+
+  body .noUi-tooltip span{
+    top: 1px;
+    left: -1px;
+  }
+  body .noUi-horizontal .noUi-handle, body .noUi-vertical .noUi-handle,
+  body .noUi-connect,
+  body .noUi-target.noUi-horizontal .noUi-tooltip{
+      background-color: var(--primary-color) ;
+  }
+  body .noUi-horizontal.danger .noUi-handle, body .noUi-vertical.danger .noUi-handle,
+  body .danger .noUi-connect,
+  body .noUi-target.danger .noUi-tooltip{
+      background-color: rgba(229, 115, 115, 1) ;
+  }
+
+  body .noUi-horizontal.warning .noUi-handle, body .noUi-vertical.warning .noUi-handle,
+  body .warning .noUi-connect,
+  body .noUi-target.warning .noUi-tooltip{
+      background-color: rgba(255, 138, 101, 1) ;
+  }
+
+  body .noUi-horizontal.info .noUi-handle, body .noUi-vertical.info .noUi-handle,
+  body .info .noUi-connect,
+  body .noUi-target.info .noUi-tooltip{
+      background-color: rgba(0, 151, 167, 1) ;
+  }
+
+  body .noUi-horizontal.success .noUi-handle, body .noUi-vertical.success .noUi-handle,
+  body .success .noUi-connect,
+  body .noUi-target.success .noUi-tooltip{
+      background-color: rgba(129, 199, 132, 1) ;
+  }
+
+  body .noUi-horizontal.hexblue .noUi-handle, body .noUi-vertical.hexblue .noUi-handle,
+  body .hexblue .noUi-connect,
+  body .noUi-target.hexblue .noUi-tooltip{
+      background-color: rgba(92, 107, 192, 1) ;
+  }
+  .noUi-target .noUi-tooltip{
+    overflow: hidden;
+  }
+
+
+  .c-1-color {
+    background-color: rgba(229, 115, 115, 1) !important;
+  }
+
+  .c-2-color {
+    background-color: rgba(129, 199, 132, 1) !important;
+  }
+
+  .c-3-color {
+    background-color: rgba(0, 151, 167, 1) !important;
+  }
+
+  .c-4-color {
+    background-color: rgba(255, 138, 101, 1) !important;
+  }
+
+  .c-5-color {
+    background-color: rgba(149, 117, 205, 1) !important;
+  }
+
+
+
+#colorpicker #red,
+#colorpicker #green,
+#colorpicker #blue {
+    margin: 20px;
+    display: inline-block;
+    height: 200px;
+  }
+
+  #colorpicker {
+    height: 240px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 10px;
+  }
+
+  #colorpicker #result {
+    margin: 60px 0 0 10px;
+    height: 100px;
+    width: 100px;
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  #colorpicker #red .noUi-connect {
+    background: #E57373;
+  }
+
+  #colorpicker #green .noUi-connect {
+    background: #81C784;
+  }
+
+  #colorpicker #blue .noUi-connect {
+    background: #5C6BC0;
+  }

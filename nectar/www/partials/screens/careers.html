@@ -1,0 +1,511 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="back">Back</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="careers">Careers</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="careers">Careers</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="block">
+				<img class="img-center img-responsive" src="assets/custom/img/team.svg" alt="" />
+			</div>
+
+			<div class="block">
+				<p>At our company, there are always opportunities for people who can think out of the box, take initiatives and also roll up their sleeves to get the job done.</p>
+			</div>
+
+			<div class="line-divider text-uppercase">Benefits</div>
+			<div class="list media-list no-hairlines no-hairlines-between">
+				<ul>
+					<li>
+						<div class="item-content">
+							<div class="item-media">
+								<i class="fa-stack fa-lg">
+									<span class="fas fa-square fa-stack-2x text-color-blue ios-only"></span>
+									<span class="fas fa-circle fa-stack-2x text-color-blue md-only"></span>
+									<span class="far fa-clock fa-stack-1x fa-inverse"></span>
+								</i>
+							</div>
+							<div class="item-inner">
+								<div class="item-title-row">
+									<div class="item-title">Flexible Hours</div>
+								</div>
+								<div class="item-text">We value results, not face time.</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-media">
+								<i class="fa-stack fa-lg">
+									<span class="fas fa-square fa-stack-2x text-color-orange ios-only"></span>
+									<span class="fas fa-circle fa-stack-2x text-color-orange md-only"></span>
+									<span class="fas fa-carrot fa-stack-1x fa-inverse"></span>
+								</i>
+							</div>
+							<div class="item-inner">
+								<div class="item-title-row">
+									<div class="item-title">Healthy Food</div>
+								</div>
+								<div class="item-text">Enjoy healthy and delicious catered lunches plus great free snacks and drinks.</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-media">
+								<i class="fa-stack fa-lg">
+									<span class="fas fa-square fa-stack-2x text-color-yellow ios-only"></span>
+									<span class="fas fa-circle fa-stack-2x text-color-yellow md-only"></span>
+									<span class="fas fa-code fa-stack-1x fa-inverse text-color-black"></span>
+								</i>
+							</div>
+							<div class="item-inner">
+								<div class="item-title-row">
+									<div class="item-title">Hackathons</div>
+								</div>
+								<div class="item-text">Work on whatever you are most passionate about every month. Learn, build and become better.</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-media">
+								<i class="fa-stack fa-lg">
+									<span class="fas fa-square fa-stack-2x text-color-pink ios-only"></span>
+									<span class="fas fa-circle fa-stack-2x text-color-pink md-only"></span>
+									<span class="fas fa-glass-cheers fa-stack-1x fa-inverse"></span>
+								</i>
+							</div>
+							<div class="item-inner">
+								<div class="item-title-row">
+									<div class="item-title">Team Hangouts</div>
+								</div>
+								<div class="item-text">Join the team for weekly hangouts and monthly fun activities.</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-media">
+								<i class="fa-stack fa-lg">
+									<span class="fas fa-square fa-stack-2x text-color-red ios-only"></span>
+									<span class="fas fa-circle fa-stack-2x text-color-red md-only"></span>
+									<span class="fas fa-heartbeat fa-stack-1x fa-inverse"></span>
+								</i>
+							</div>
+							<div class="item-inner">
+								<div class="item-title-row">
+									<div class="item-title">Health Insurance</div>
+								</div>
+								<div class="item-text">You are covered with extensive health, dental, and vision insurance, so you can focus on your work.</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-media">
+								<i class="fa-stack fa-lg">
+									<span class="fas fa-square fa-stack-2x text-color-green ios-only"></span>
+									<span class="fas fa-circle fa-stack-2x text-color-green md-only"></span>
+									<span class="fas fa-shield-alt fa-stack-1x fa-inverse"></span>
+								</i>
+							</div>
+							<div class="item-inner">
+								<div class="item-title-row">
+									<div class="item-title">Life Insurance</div>
+								</div>
+								<div class="item-text">You and your family are safe and covered in extreme cases of emergency.</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+
+			<div class="line-divider text-uppercase">Open Positions</div>
+			<div class="list media-list no-hairlines no-hairlines-between">
+				<ul>
+					<li>
+						<div class="item-content">
+							<div class="item-inner">
+								<div class="item-title-row">
+									<div class="item-title">Account Manager</div>
+									<div class="item-after">
+										<a href="#" class="button button-fill button-small" @click="openPopup">Apply</a>
+									</div>
+								</div>
+								<div class="item-subtitle">
+									<i class="fas fa-map-marker-alt"></i>
+									<span>Bangalore, India</span>
+								</div>
+								<div class="item-text">
+									<span class="badge color-orange">Sales</span>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-inner">
+								<div class="item-title-row">
+									<div class="item-title">Backend Developer</div>
+									<div class="item-after">
+										<a href="#" class="button button-fill button-small" @click="openPopup">Apply</a>
+									</div>
+								</div>
+								<div class="item-subtitle">
+									<i class="fas fa-map-marker-alt"></i>
+									<span>California, USA</span>
+								</div>
+								<div class="item-text">
+									<span class="badge color-green">Tech</span>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-inner">
+								<div class="item-title-row">
+									<div class="item-title">Business Development Executive</div>
+									<div class="item-after">
+										<a href="#" class="button button-fill button-small" @click="openPopup">Apply</a>
+									</div>
+								</div>
+								<div class="item-subtitle">
+									<i class="fas fa-map-marker-alt"></i>
+									<span>Bangalore, India</span>
+								</div>
+								<div class="item-text">
+									<span class="badge color-orange">Sales</span>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-inner">
+								<div class="item-title-row">
+									<div class="item-title">Mobile Developer</div>
+									<div class="item-after">
+										<a href="#" class="button button-fill button-small" @click="openPopup">Apply</a>
+									</div>
+								</div>
+								<div class="item-subtitle">
+									<i class="fas fa-map-marker-alt"></i>
+									<span>California, USA</span>
+								</div>
+								<div class="item-text">
+									<span class="badge color-green">Tech</span>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-inner">
+								<div class="item-title-row">
+									<div class="item-title">Product Designer</div>
+									<div class="item-after">
+										<a href="#" class="button button-fill button-small" @click="openPopup">Apply</a>
+									</div>
+								</div>
+								<div class="item-subtitle">
+									<i class="fas fa-map-marker-alt"></i>
+									<span>Sydney, Australia</span>
+								</div>
+								<div class="item-text">
+									<span class="badge color-pink">Design</span>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-inner">
+								<div class="item-title-row">
+									<div class="item-title">Web Developer</div>
+									<div class="item-after">
+										<a href="#" class="button button-fill button-small" @click="openPopup">Apply</a>
+									</div>
+								</div>
+								<div class="item-subtitle">
+									<i class="fas fa-map-marker-alt"></i>
+									<span>Hyderabad, India</span>
+								</div>
+								<div class="item-text">
+									<span class="badge color-green">Tech</span>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+
+		</div>
+
+		<div class="popup popup-tablet-fullscreen popup-job">
+			<div class="view">
+				<div class="page">
+
+					<div class="navbar">
+						<div class="navbar-inner">
+							<div class="left ios-only">
+								<a href="#" class="link popup-close" data-popup=".popup-job">
+									<span data-i18n="cancel">Cancel</span>
+								</a>
+							</div>
+							<div class="title">Apply for Job</div>
+							<div class="right ios-only">
+								<button type="submit" class="button link" form="job" data-i18n="apply">Apply</button>
+							</div>
+							<div class="right md-only">
+								<a href="#" class="link icon-only popup-close" data-popup=".popup-job">
+									<i class="icon material-icons">close</i>
+								</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="page-content">
+
+						<div class="block-title no-margin-bottom">Job Title</div>
+						<div class="block">
+							<p>
+								<span>Web Developer</span>
+								<span>&ensp;</span>
+								<span class="badge color-green">Tech</span>
+							</p>
+						</div>
+
+						<div class="block-title no-margin-bottom">Location</div>
+						<div class="block">
+							<p>Hyderabad, India</p>
+						</div>
+
+						<div class="block-title">What you’ll do</div>
+						<div class="block">
+							<ul>
+								<li>Lorem ipsum dolor sit amet.</li>
+								<li>Ut enim ad minim veniam.</li>
+								<li>Nisi ut aliquid ex ea commodi consequatur.</li>
+								<li>Excepteur sint occaecat cupidatat non proident.</li>
+								<li>Itaque earum rerum hic tenetur a sapiente delectus.</li>
+							</ul>
+						</div>
+
+						<div class="block-title">What we’re looking for</div>
+						<div class="block">
+							<ul>
+								<li>Et harum quidem rerum facilis est et expedita distinctio.</li>
+								<li>Vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.</li>
+								<li>Quis nostrum exercitationem ullam corporis suscipit laboriosam.</li>
+								<li>Sunt in culpa qui officia deserunt mollit anim id est laborum.</li>
+								<li>Neque porro quisquam est qui dolorem ipsum.</li>
+							</ul>
+						</div>
+
+						<form id="job" name="job" action="#" method="POST" enctype="multipart/form-data">
+							<div class="list no-hairlines no-hairlines-between">
+								<ul>
+									<li>
+										<div class="item-content item-input item-input-with-info">
+											<div class="item-media">
+												<i class="icon f7-icons ios-only">person</i>
+												<i class="icon material-icons md-only">person</i>
+											</div>
+											<div class="item-inner">
+												<div class="item-title item-floating-label">Name</div>
+												<div class="item-input-wrap">
+													<input type="text" name="name" required />
+													<div class="item-input-info input-error-message"></div>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="item-content item-input item-input-with-info">
+											<div class="item-media">
+												<i class="icon f7-icons ios-only">email</i>
+												<i class="icon material-icons md-only">email</i>
+											</div>
+											<div class="item-inner">
+												<div class="item-title item-floating-label">Email</div>
+												<div class="item-input-wrap">
+													<input type="email" name="email" required />
+													<div class="item-input-info input-error-message"></div>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="item-content item-input item-input-with-info">
+											<div class="item-media">
+												<i class="icon f7-icons ios-only">phone</i>
+												<i class="icon material-icons md-only">call</i>
+											</div>
+											<div class="item-inner">
+												<div class="item-title item-floating-label">Phone</div>
+												<div class="item-input-wrap">
+													<input type="tel" name="phone" required />
+													<div class="item-input-info input-error-message"></div>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="item-content item-input item-input-with-info">
+											<div class="item-media">
+												<i class="icon fab fa-fw fa-lg fa-linkedin-in"></i>
+											</div>
+											<div class="item-inner">
+												<div class="item-title item-floating-label">LinkedIn Profile</div>
+												<div class="item-input-wrap">
+													<input type="url" name="linkedin" required />
+													<div class="item-input-info input-error-message"></div>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="item-content item-input item-input-with-info">
+											<div class="item-media">
+												<i class="icon f7-icons ios-only">favorites</i>
+												<i class="icon material-icons md-only">assignment</i>
+											</div>
+											<div class="item-inner">
+												<div class="item-input-wrap">
+													<label class="button button-small button-fill button-file display-inline-block">
+														<input type="file" name="resume" accept="application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" required>
+														<span>Upload Resume</span>
+														<i class="fas fa-check"></i>
+													</label>
+													<div class="item-input-info input-error-message"></div>
+												</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+							<div class="block md-only">
+								<button type="submit" class="button button-big button-fill" data-i18n="apply">Apply</button>
+							</div>
+						</form>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+</template>
+
+<script>
+	return {
+		data: function() {
+			return {
+				formValidator: null
+			}
+		},
+		methods: {
+			openPopup: function() {
+				var self = this;
+				var popup = app.popup.create({
+					el: '.popup-job',
+					on: {
+						opened: function() {
+							self.initializeFormValidator();
+						},
+						closed: function() {
+							self.formValidator.destroy();
+							document.querySelector('form[name=job]').reset();
+						}
+					}
+				});
+				popup.open();
+			},
+			initializeFormValidator: function() {
+				var self = this;
+				var self = this;
+				self.formValidator = jQuery('form[name=job]').validate({
+					ignore: [],
+					rules: {
+						name: {
+							required: true
+						},
+						email: {
+							required: true,
+							email: true
+						},
+						phone: {
+							required: true
+						},
+						linkedin: {
+							required: true,
+							url: true
+						},
+						resume: {
+							required: true,
+							accept: 'application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+						}
+					},
+    			messages: {
+						name: {
+							required: 'Please enter name.'
+      			},
+						email: {
+							required: 'Please enter email address.',
+							email: 'Please enter a valid email address.'
+						},
+						phone: {
+							required: 'Please enter phone number.'
+      			},
+						linkedin: {
+							required: 'Please enter LinkedIn Profile URL.',
+							url: 'Please enter a valid LinkedIn Profile URL.'
+						},
+						resume: {
+							required: 'Please upload resume in PDF or DOC format.',
+							accept: 'Please upload resume in PDF or DOC format only.'
+						}
+					},
+					errorPlacement: function(error, element) {
+						if(element.attr('name') == 'resume') {
+							error.appendTo(element.parent().siblings('.input-error-message'));
+						}
+						else {
+							error.appendTo(element.siblings('.input-error-message'));
+						}
+					},
+					submitHandler: function(form) {
+						self.submitForm(form);
+					}
+				});
+			},
+			submitForm: function(form) {
+				var self = this;
+				app.toast.show({
+					text: 'Thank you for applying. We will get back to you soon.',
+					position: 'bottom',
+					cssClass: 'toast-round bg-color-green'
+				});
+				app.popup.close('.popup-job', false);
+			}
+		}
+	}
+</script>

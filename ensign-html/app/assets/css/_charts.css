@@ -1,0 +1,10 @@
+.chart-container{
+  background: #ffffff;
+  /* border-radius: var(--border-radius); */
+  width: 100%;
+  /* margin-left: 5%; */
+  padding: 15px 0;
+}
+[data-site_mode="dark"] .chart-container{
+	background-color: #37474F;
+}

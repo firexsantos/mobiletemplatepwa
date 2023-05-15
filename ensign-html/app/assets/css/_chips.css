@@ -1,0 +1,94 @@
+/*----------------------------------------
+  Chips
+------------------------------------------*/
+.ui-chips .chip {
+	margin: 5px 8px 8px 0;
+	display: inline-block;
+}
+.chip {
+	-webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.chip i {
+	line-height: 32px;
+	height: 32px;
+	font-size: 14px;
+	/* position: relative; */
+	/* top: 1px; */
+	display: inline-block;
+	margin: 0 0px 0 4px;
+	cursor: pointer;
+}
+.chip:focus {
+	background-color: var(--primary-color);
+}
+.chip i.close:before {
+	content: "\F156";
+}
+.chip i.close:before {
+	display: inline-block;
+	font: normal normal normal 24px/1 "Material Design Icons";
+	font-size: inherit;
+	text-rendering: auto;
+	line-height: inherit;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-size: 14px;
+	visibility: visible;
+}
+.chip i.close {
+	content: "";
+	font-size: 0.1px;
+	color: transparent;
+	visibility: hidden;
+}
+.chip,
+.chip i.close:before {
+	color: #455a64;
+}
+.chip.white-text,
+.chip.white-text i.close:before {
+	color: #fafafa;
+}
+.chip:focus i.close:before {
+	color: #fafafa;
+}
+.chips.focus {
+	border-bottom: 1px solid var(--primary-color);
+	-webkit-box-shadow: 0 1px 0 0 var(--primary-color);
+	box-shadow: 0 1px 0 0 var(--primary-color);
+}
+.chips.primary .chip,
+.chips.primary .chip i:before {
+	background-color: var(--primary-color);
+	color: #ffffff;
+}
+
+.chips.input-field {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	box-shadow: none;
+	padding: 20px 10px 5px 15px;
+}
+.chips .input {
+	width: 110px !important;
+}
+
+/*----------------------------------------
+  Site - Dark Mode - Chips
+----------------------------------------*/
+[data-site_mode="dark"] .chip {
+	color: #eeeeee;
+	background-color: #455a64;
+}
+[data-site_mode="dark"] .chip i.close:before {
+	color: #eeeeee;
+}
+[data-site_mode="dark"] .chip.dark-text,
+[data-site_mode="dark"] .chip.dark-text i.close:before {
+	color: #455a64;
+}
+[data-site_mode="dark"] .chips .input {
+	color: #f5f5f5;
+}

@@ -1,0 +1,368 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="integrations">Integrations</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="gravatar">Gravatar</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="gravatar">Gravatar</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="block">
+				<p><a href="https://gravatar.com" target="_blank" class="external">Gravatar</a> — A Globally Recognized Avatar is a widely used service where you create your public profile and then it can be used anywhere via REST API just using the email address.</p>
+				<p>It is automatically included in every <a href="https://wordpress.com" target="_blank" class="external">WordPress.com</a> account.</p>
+			</div>
+
+			<form name="gravatar" action="#" method="POST" enctype="multipart/form-data">
+				<div class="list no-hairlines no-hairlines-between no-margin-bottom">
+					<ul>
+						<li>
+							<div class="item-content item-input item-input-with-info">
+								<div class="item-media">
+									<i class="icon f7-icons ios-only">email</i>
+									<i class="icon material-icons md-only">mail</i>
+								</div>
+								<div class="item-inner">
+									<div class="item-input-wrap">
+										<input type="email" name="email" placeholder="Your Gravatar Email Address" value="praveen.mujawdiya@gmail.com" required />
+										<div class="item-input-info input-error-message"></div>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="block margin-top text-align-center">
+					<button type="submit" class="button button-big button-fill">Load Profile</button>
+					<p>Don't have a Gravatar account? <a href="https://gravatar.com" target="_blank" class="external">Create</a></p>
+				</div>
+			</form>
+
+		</div>
+
+		{{#if profile}}
+		<div class="popup popup-tablet-fullscreen popup-profile">
+			<div class="view">
+				<div class="page">
+
+					<div class="navbar">
+						<div class="navbar-inner">
+							<div class="left ios-only">
+								<a href="#" class="link popup-close">
+									<span data-i18n="close">Close</span>
+								</a>
+							</div>
+							<div class="title">Gravatar Profile</div>
+							<div class="right md-only">
+								<a href="#" class="link icon-only popup-close">
+									<i class="icon material-icons">close</i>
+								</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="page-content">
+
+						<div class="profile-header" style="{{#if profile.profileBackground}} {{#if profile.profileBackground.url}} background-image: url({{profile.profileBackground.url}}); {{/if}} {{#if profile.profileBackground.color}} background-color: {{profile.profileBackground.color}}; {{/if}} {{/if}}">
+							<img class="user-avatar" src="{{profile.thumbnailUrl}}?size=128" alt="" />
+							<div class="user-name">{{profile.displayName}}</div>
+						</div>
+
+						<div class="list no-margin">
+							<ul>
+								{{#if profile.name}}
+								<li>
+									<div class="item-content">
+										<div class="item-inner">
+											<div class="item-title">Name</div>
+											<div class="item-after">{{#if profile.name.formatted}} {{profile.name.formatted}} {{else}} {{profile.name.givenName}} {{profile.name.familyName}} {{/if}}</div>
+										</div>
+									</div>
+								</li>
+								{{/if}}
+								{{#if profile.currentLocation}}
+								<li>
+									<div class="item-content">
+										<div class="item-inner">
+											<div class="item-title">Location</div>
+											<div class="item-after">{{profile.currentLocation}}</div>
+										</div>
+									</div>
+								</li>
+								{{/if}}
+							</ul>
+						</div>
+
+						{{#if profile.aboutMe}}
+						<div class="block-title margin-top">Bio</div>
+						<div class="block">
+							<p>{{profile.aboutMe}}</p>
+						</div>
+						{{/if}}
+
+						{{#if profile.phoneNumbers}}
+						<div class="block-title">Phone Numbers</div>
+						<div class="list">
+							<ul>
+							{{#each profile.phoneNumbers}}
+								<li>
+									<a href="tel:{{this.value}}" target="_blank" class="item-link external">
+										<div class="item-content">
+											<div class="item-inner">
+												<div class="item-title">{{this.type}}</div>
+												<div class="item-after">{{this.value}}</div>
+											</div>
+										</div>
+									</a>
+								</li>
+							{{/each}}
+							</ul>
+						</div>
+						{{/if}}
+
+						<div class="list">
+							<ul>
+							{{#each profile.emails}}
+								<li>
+									<a href="mailto:{{this.value}}" target="_blank" class="item-link external">
+										<div class="item-content">
+											<div class="item-inner">
+												<div class="item-title">Email</div>
+												<div class="item-after">{{this.value}}</div>
+											</div>
+										</div>
+									</a>
+								</li>
+							{{/each}}
+							{{#if profile.ims}}
+							{{#each profile.ims}}
+								{{#js_if "this.type === 'skype'"}}
+								<li>
+									<a href="{{this.type}}:{{this.value}}?chat" target="_blank" class="item-link external">
+										<div class="item-content">
+											<div class="item-inner">
+												<div class="item-title">{{this.type}}</div>
+												<div class="item-after">{{this.value}}</div>
+											</div>
+										</div>
+									</a>
+								</li>
+								{{/js_if}}
+							{{/each}}
+							{{/if}}
+							</ul>
+						</div>
+
+						{{#if profile.accounts}}
+						<div class="block-title">Social</div>
+						<div class="list">
+							<ul>
+							{{#each profile.accounts}}
+								<li>
+									<a href="{{this.url}}" target="_blank" class="item-link external">
+										<div class="item-content">
+											<div class="item-inner">
+												<div class="item-title">{{this.shortname}}</div>
+												<div class="item-after">{{this.display}}</div>
+											</div>
+										</div>
+									</a>
+								</li>
+							{{/each}}
+							</ul>
+						</div>
+						{{/if}}
+
+						{{#if profile.urls}}
+						<div class="block-title">Links</div>
+						<div class="list">
+							<ul>
+							{{#each profile.urls}}
+								<li>
+									<a href="{{this.value}}" target="_blank" class="item-link external">
+										<div class="item-content">
+											<div class="item-inner">
+												<div class="item-title">{{this.title}}</div>
+												<div class="item-after">{{this.value}}</div>
+											</div>
+										</div>
+									</a>
+								</li>
+							{{/each}}
+							</ul>
+						</div>
+						{{/if}}
+
+						{{#if profile.currency}}
+						<div class="block-title">Crypto Wallets</div>
+						<div class="list">
+							<ul>
+							{{#each profile.currency}}
+								<li>
+									<div class="item-content">
+										<div class="item-inner">
+											<div class="item-title">{{this.type}}</div>
+											<div class="item-after">{{this.value}}</div>
+										</div>
+									</div>
+								</li>
+							{{/each}}
+							</ul>
+						</div>
+						{{/if}}
+
+						{{#if profile.photos}}
+						<div class="block-title">Photos</div>
+						<div class="block">
+							<div class="photo-gallery">
+								<div class="swiper-container swiper-init" data-centered-slides="true" data-grab-cursor="true" data-loop="true" data-slides-per-view="2" data-space-between="16">
+									<div class="swiper-wrapper">
+										{{#each profile.photos}}
+										{{#js_if "this.type !== 'thumbnail'"}}
+										<div class="swiper-slide">
+											<div class="slide-media">
+												<img class="img-responsive" src="{{this.value}}?size=256" alt="" />
+											</div>
+										</div>
+										{{/js_if}}
+										{{/each}}
+									</div>
+								</div>
+							</div>
+						</div>
+						{{/if}}
+					</div>
+
+				</div>
+			</div>
+		</div>
+		{{/if}}
+
+	</div>
+</template>
+
+<style scoped>
+	{{html}} .profile-header {
+		align-items: stretch;
+		background-color: #343A40;
+		background-position: center;
+		background-size: auto 100%;
+		box-sizing: border-box;
+		color: #FFFFFF;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		padding: 32px 16px;
+		text-align: center;
+		width: 100%;
+	}
+
+	{{html}} .profile-header .user-avatar {
+		border: 4px solid #FFFFFF;
+		border-radius: 50%;
+		height: 96px;
+		margin: 0 auto;
+		width: 96px;
+	}
+
+	{{html}} .profile-header .user-name {
+		font-size: 28px;
+		letter-spacing: 0.5px;
+		margin-top: 16px;
+	}
+
+	{{html}} .popup .list .item-title {
+		text-transform: capitalize;
+	}
+</style>
+
+<script>
+	return {
+		data: function() {
+			return {
+				formValidator: null,
+				profile: null
+			}
+		},
+		methods: {
+			initializeFormValidator: function() {
+				var self = this;
+				self.formValidator = jQuery('form[name=gravatar]').validate({
+					rules: {
+						email: {
+							required: true,
+        			email:true
+      			}
+					},
+    			messages: {
+						email: {
+							required: 'Please enter email address.',
+        			email: 'Please enter a valid email address.'
+      			}
+					},
+					submitHandler: function(form) {
+						self.submitForm(form);
+					}
+				});
+			},
+			submitForm: function(form) {
+				var self = this;
+				var emailHash = CryptoJS.MD5(form.elements.namedItem('email').value).toString();
+				self.loadProfile(emailHash);
+			},
+			loadProfile: function(emailHash) {
+				var self = this;
+				var url = 'https://gravatar.com/' + emailHash + '.json' + '?callback=1';
+				app.preloader.show();
+				app.request({
+					url: url,
+					method: 'GET',
+					dataType: 'json',
+					success: function(data) {
+						app.preloader.hide();
+						console.log(data.entry[0]);
+						self.$setState({
+							profile: data.entry[0]
+						});
+						var popup = app.popup.create({
+							el: '.popup-profile',
+							on: {
+								closed: function() {
+									self.$setState({
+										profile: null
+									});
+								}
+							}
+						});
+						popup.open();
+					},
+					error: function() {
+						app.preloader.hide();
+						app.toast.show({
+							text: 'Could not load profile. Please make sure you have account on Gravatar.',
+							cssClass: 'toast-round bg-color-red'
+						});
+					}
+				});
+			}
+		},
+		on: {
+			pageInit: function() {
+				var self = this;
+				self.initializeFormValidator();
+			}
+		}
+	}
+</script>

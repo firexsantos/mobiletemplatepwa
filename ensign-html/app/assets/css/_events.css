@@ -1,0 +1,163 @@
+/*----------------------------------------
+  Events
+------------------------------------------*/
+.events{
+	margin-top: 0px;
+}
+.events .event-item {
+	background-color: #ffffff;
+	position: relative;
+	margin: 0 0 30px 0;
+	border-radius: var(--border-radius);
+}
+.events.js-flickity .event-item {
+	background-color: transparent;
+	margin-bottom: 0;
+}
+.events.js-flickity .flickity-slider{
+	top: 0;
+}
+
+.events .event-item .info{
+	position: relative;
+	padding: 15px 15px 25px 15px;
+}
+.events .event-item .image{
+	border-radius: var(--border-radius) var(--border-radius) 0 0;
+	vertical-align: top;
+}
+.events .title {
+	font-weight: 500;
+	font-size: 21px;
+	color: #455a64;
+  margin: 0;
+	/* text-transform: uppercase; */
+}
+.events .time {
+	margin: 10px 0 0 0;
+	font-size: 90%;
+	opacity: 0.8;
+}
+.events .location {
+	font-size: 90%;
+	opacity: 0.8;
+	margin: 5px 0 0 0;
+}
+.events .actions {
+	position: absolute;
+	right: 15px;
+	top: 95px;
+}
+.events .actions a i {
+	color: #455a64;
+	font-size: 20px;
+	margin: 0 0 0 10px;
+}
+
+.events .badge {
+	position: absolute;
+	top: 25px;
+	right: 15px;
+}
+.event-item .view-btn{
+	margin-right: 10px;
+}
+.events .actions a{
+	text-align: center;
+	margin-left: 5px;
+}
+
+.events .actions a i{
+	margin-left: 0px;
+	font-size: 18px;
+	background: var(--primary-color);
+	border-radius: var(--border-radius-50percent);
+	height: 32px;
+	width: 32px;
+	color: #ffffff;
+	line-height: 32px;
+	display: inline-block;
+}
+
+.events .user-actions{
+	position: relative;
+	top: 7px;
+	white-space: nowrap;
+}
+
+.events.mini .col .user-actions a:last-child{
+	display: none;
+}
+
+.container.category-carousel .flickity-viewport{
+	background: transparent;
+	min-height: 120px;
+}
+.container.category-carousel .setting-box{
+	position: relative;
+	padding: 0;
+	margin-bottom: 0;
+}
+.container.category-carousel h6{
+	position: absolute;
+	width: 100%;
+	padding: 0;
+	text-align: center;
+	transform: translateY(-50%);
+	top: 50%;
+	color: #ffffff;
+}
+.carousel-events .carousel{
+	min-height: 470px;
+	/* padding: 0 12px; */
+	margin: 0 0 0 -10px;
+	width: calc(100% + 12px);
+	left: 0px;
+}
+.carousel-events .carousel .flickity-viewport{
+	min-height: 470px;
+}
+.carousel-events .carousel.events .event-item{
+	padding: 0 .75rem;
+    background: transparent;
+    margin: 10px 0px 0 0px;
+}
+.events.mini .title,
+.carousel-events .events .title{
+	font-size: 19px;
+	line-height: 29px;
+}
+.category-carousel .flickity-slider .gallery-cell{
+	margin-bottom: 0;
+}
+
+.events.mini .event-item{
+	padding: 12px;
+	display: inline-block;
+	background: transparent;
+	margin-bottom: 0;
+}
+.events.mini .event-item .item-wrap{
+	margin: 0;
+	border-radius: var(--border-radius);
+}
+.events.mini .event-item .info{
+	padding: 15px;
+	background-color: #ffffff;
+	border-radius: var(--border-radius);
+}
+/*----------------------------------------
+  Site - Dark Mode - Events
+----------------------------------------*/
+[data-site_mode="dark"] .events:not(.js-flickity) .event-item {
+	background-color: #37474f;
+}
+[data-site_mode="dark"] .events.mini:not(.js-flickity) .event-item {
+	background-color: transparent;
+}
+[data-site_mode="dark"] .events .actions a i {
+	color: #f5f5f5;
+}
+[data-site_mode="dark"] .events .title{
+	color: #f5f5f5;
+}

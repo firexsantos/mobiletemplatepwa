@@ -1,0 +1,41 @@
+{
+	"current_balance": "500.00 USD",
+	"transactions": [
+		{
+			"remarks": "Electricity Bill",
+			"amount": "100.00",
+			"type": "debit",
+			"date": "15 June"
+		},
+		{
+			"remarks": "Mobile Recharge",
+			"amount": "25.00",
+			"type": "debit",
+			"date": "5 June"
+		},
+		{
+			"remarks": "Grocery",
+			"amount": "200.00",
+			"type": "debit",
+			"date": "31 May"
+		},
+		{
+			"remarks": "Deposit",
+			"amount": "1000.00",
+			"type": "credit",
+			"date": "20 May"
+		},
+		{
+			"remarks": "House Rent",
+			"amount": "750.00",
+			"type": "debit",
+			"date": "15 May"
+		},
+		{
+			"remarks": "Deposit",
+			"amount": "1500.00",
+			"type": "credit",
+			"date": "01 May"
+		}
+	]
+}

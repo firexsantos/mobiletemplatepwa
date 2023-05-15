@@ -1,0 +1,188 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="web-apis">Web APIs</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="web-share-api">Web Share API</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="web-share-api">Web Share API</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			{{#if isApiSupported}}
+			<div class="empty-state">
+				<div class="empty-state-media">
+					<img src="assets/custom/img/share.svg" alt="" />
+				</div>
+				<div class="empty-state-title">Yaay!</div>
+				<div class="empty-state-text">This browser supports Web Share API.</div>
+				<div class="empty-state-actions">
+					<button type="button" class="button button-big button-fill button-round" @click="explore" data-i18n="explore">Explore</button>
+				</div>
+			</div>
+			{{else}}
+			<div class="empty-state">
+				<div class="empty-state-media">
+					<img class="filter-grayscale" src="assets/custom/img/share.svg" alt="" />
+				</div>
+				<div class="empty-state-title">Oops!</div>
+				<div class="empty-state-text">This browser does not support Web Share API.</div>
+				<div class="empty-state-actions">
+					<a href="https://caniuse.com/web-share" target="_blank" class="button button-big button-fill button-round external" data-i18n="supported-browsers">Supported Browsers</a>
+				</div>
+			</div>
+			{{/if}}
+
+		</div>
+
+		{{#if isApiSupported}}
+		<div class="popup popup-tablet-fullscreen popup-explore">
+			<div class="view">
+				<div class="page">
+
+					<div class="navbar">
+						<div class="navbar-inner">
+							<div class="left ios-only">
+								<a href="#" class="link popup-close">
+									<span data-i18n="close">Close</span>
+								</a>
+							</div>
+							<div class="title" data-i18n="web-share-api">Web Share API</div>
+							<div class="right md-only">
+								<a href="#" class="link icon-only popup-close">
+									<i class="icon material-icons">close</i>
+								</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="page-content">
+
+						<div class="block">
+							<p>Web Share API allows to implement sharing functionality into the app using the device's native sharing capabilities instead of having to resort to scripts from the individual social platforms.</p>
+							<p>At present, the Web Share API supports sharing text and URL only.</p>
+						</div>
+
+						<form>
+							<div class="list no-hairlines no-hairlines-between">
+								<ul>
+									<li>
+										<div class="item-content item-input item-input-with-clear-button">
+											<div class="item-inner">
+												<div class="item-title item-label">Title</div>
+												<div class="item-input-wrap">
+													<input type="text" name="title" value="{{$root.config.app.title}}" />
+													<span class="input-clear-button"></span>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="item-content item-input item-input-with-clear-button">
+											<div class="item-inner">
+												<div class="item-title item-label">Text</div>
+												<div class="item-input-wrap">
+													<textarea class="resizable" name="text">{{$root.config.app.title}} - {{$root.config.app.tagline}}</textarea>
+													<span class="input-clear-button"></span>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="item-content item-input item-input-with-clear-button">
+											<div class="item-inner">
+												<div class="item-title item-label">URL</div>
+												<div class="item-input-wrap">
+													<input type="url" name="url" value="{{$root.config.envato.itemUrl}}" />
+													<span class="input-clear-button"></span>
+												</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+							<div class="block">
+								<button type="submit" class="button button-big button-fill">Share</button>
+							</div>
+						</form>
+
+						<div class="note note-warning text-align-center">
+							<p>If you leave all the fields blank, then URL of the current page will be shared.</p>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+		{{/if}}
+
+	</div>
+</template>
+
+<script>
+	return {
+		data: function() {
+			return {
+				isApiSupported: (function() {
+					return app.support.webApi.webShare;
+				})()
+			}
+		},
+		methods: {
+			explore: function() {
+				var self = this;
+				var popup = app.popup.create({
+					el: '.popup-explore',
+					on: {
+						opened: function() {
+							self.$('form').on('submit', self.onFormSubmit);
+						},
+						closed: function() {
+							self.$('form').off('submit', self.onFormSubmit);
+						}
+					}
+				});
+				popup.open();
+			},
+			onFormSubmit: function(event) {
+				var self = this;
+				event.preventDefault();
+				self.share(app.form.convertToData(event.target));
+			},
+			share: function(data) {
+				var self = this;
+				navigator.share({
+					title: data.title,
+					text: data.text,
+					url: data.url
+				})
+				.then(function() {
+					app.toast.show({
+						text: 'Shared Successfully',
+						position: 'bottom',
+						cssClass: 'toast-round bg-color-green'
+					});
+				})
+				.catch(function(error) {
+					app.toast.show({
+						text: error.message,
+						position: 'bottom',
+						cssClass: 'toast-round bg-color-red'
+					});
+				});
+			}
+		}
+	}
+</script>

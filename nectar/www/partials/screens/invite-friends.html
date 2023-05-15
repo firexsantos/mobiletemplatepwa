@@ -1,0 +1,105 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="back">Back</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="invite-friends">Invite Friends</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="invite-friends">Invite Friends</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="block text-align-center">
+				<img class="img-center img-responsive" src="assets/custom/img/friends.svg" height="256" alt="" />
+				<p class="invite-message">Invite your friends and earn 50 reward points for each when they sign up on Nectar.</p>
+				<a href="#">Terms &amp; Conditions</a>
+			</div>
+
+			<div class="block">
+				<div class="invite-code">{{inviteCode}}</div>
+				<button type="button" class="button button-big button-fill button-invite" data-i18n="invite" @click="invite">Invite</button>
+			</div>
+
+		</div>
+
+	</div>
+</template>
+
+<style scoped>
+	.invite-message {
+		font-size: 18px;
+	}
+
+	.invite-code {
+		background-color: var(--oc-color-gray-0);
+		border: 2px dashed var(--oc-color-gray-4);
+		border-radius: 4px;
+		box-sizing: border-box;
+		color: #000000;
+		font-size: 24px;
+		font-weight: bold;
+		letter-spacing: 2px;
+		margin: 0 auto;
+		padding: 8px 16px;
+		text-align: center;
+		width: 192px;
+	}
+
+	.theme-dark {{this}} .invite-code {
+		background-color: var(--oc-color-gray-9);
+		border-color: var(--oc-color-gray-7);
+		color: #FFFFFF;
+	}
+
+	.button-invite {
+		margin: 0 auto;
+		margin-top: 16px;
+		width: 192px;
+	}
+</style>
+
+<script>
+	return {
+		data: function() {
+			return {
+				inviteCode: 'PMSGZ'
+			}
+		},
+		methods: {
+			invite: function() {
+				var self = this;
+				if (app.support.webApi.webShare) {
+					navigator.share({
+						title: 'Nectar',
+						text: 'Hey there, use the invite code ' + self.inviteCode + ' when signing up on Nectar.'
+					})
+					.then(function() {
+						app.toast.show({
+							text: 'Invited Successfully',
+							position: 'bottom',
+							cssClass: 'toast-round bg-color-green'
+						});
+					})
+					.catch(function(error) {
+						app.toast.show({
+							text: 'An error occured.',
+							position: 'bottom',
+							cssClass: 'toast-round bg-color-red'
+						});
+					});
+				}
+			}
+		}
+	}
+</script>

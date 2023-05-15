@@ -1,0 +1,150 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="home">Home</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="utilities">Utilities</div>
+				<div class="right">
+					<a href="#" class="link icon-only searchbar-enable" data-searchbar=".searchbar">
+						<i class="icon f7-icons ios-only">search</i>
+						<i class="icon material-icons md-only">search</i>
+					</a>
+				</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="utilities">Utilities</div>
+					</div>
+				</div>
+				<form class="searchbar searchbar-expandable searchbar-init" data-search-container=".search-list" data-search-item="li" data-search-in=".item-title">
+					<div class="searchbar-inner">
+						<div class="searchbar-input-wrap">
+							<input type="search" placeholder="Search" data-i18n="[placeholder]search" />
+							<i class="searchbar-icon"></i>
+							<span class="input-clear-button"></span>
+						</div>
+						<span class="searchbar-disable-button" data-i18n="cancel">Cancel</span>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="searchbar-hide-on-search">
+				<div class="block">
+					<p>{{$root.config.app.title}} provides CSS and JS utilities which can be used to do one-off things.</p>
+				</div>
+			</div>
+
+			<div class="searchbar-not-found">
+				<div class="empty-state">
+					<div class="empty-state-media">
+						<img src="assets/custom/img/no-search.svg" alt="" />
+					</div>
+					<div class="empty-state-title" data-i18n="no-search-results">No Search Results</div>
+					<div class="empty-state-actions">
+						<button type="button" class="button button-big button-fill button-round" data-i18n="try-again" @click="refreshSearchbar">Try Again</button>
+					</div>
+				</div>
+			</div>
+
+			<div class="searchbar-found">
+				<div class="list search-list">
+					<ul>
+						<li>
+							<a href="/utilities/brand-icons" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="brand-icons">Brand Icons</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/utilities/colors" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="colors">Colors</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/utilities/country-selector" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="country-selector">Country Selector</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/utilities/dropcaps" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="dropcaps">Dropcaps</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/utilities/elevation" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="elevation">Elevation</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/utilities/embeds" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="embeds">Embeds</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/utilities/kenburn-effect" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="kenburn-effect">Kenburn Effect</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/utilities/line-dividers" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="line-dividers">Line Dividers</div>
+									</div>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+</template>
+
+<script>
+	return {
+		methods: {
+			refreshSearchbar: function() {
+				var self = this;
+				app.searchbar.clear('.searchbar');
+			}
+		}
+	}
+</script>

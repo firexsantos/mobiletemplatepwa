@@ -1,0 +1,47 @@
+
+/*----------------------------------------
+  Edit Profile
+----------------------------------------*/
+.editprof-img{
+  text-align: center;
+  position: relative;
+}
+.editprof-img .img-wrap{
+  text-align: center;
+  display: inline-block;
+  width: auto;
+  position: relative;
+  margin: -75px auto 15px auto;
+  background-color: #ffffff;
+}
+.editprof-img img{
+  width: 120px;
+  height: 120px;
+  border-radius: var(--border-radius-50percent);
+  /* border: 1px solid #e0e0e0; */
+  padding: 0px;
+  cursor: pointer;
+}
+.editprof-img i{
+  position: absolute;
+  right: 15px;
+  background-color: #ffffff;
+  border-radius: var(--border-radius);
+  height: 40px;
+  width: 40px;
+  line-height: 40px;
+  cursor: pointer;
+  display: none;
+}
+
+/*----------------------------------------
+  Site - Dark Mode - Edit Profile
+----------------------------------------*/
+[data-site_mode="dark"] .editprof-img .img-wrap,
+[data-site_mode="dark"] .editprof-img i{
+    background-color: #455A64;
+    border: none;
+}
+[data-site_mode="dark"] .editprof-img img{
+  /* border: 1px solid #455A64; */
+}

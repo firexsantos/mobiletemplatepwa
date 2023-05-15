@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from orinostudio.com/unic-webpage/preview-web/unic-template/component-toasts.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 02 Aug 2022 10:17:14 GMT -->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=5, viewport-fit=cover" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="format-detection" content="telephone=no">
+    <!-- <meta name="theme-color" content="#ffffff"> -->
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#222032" media="(prefers-color-scheme: dark)">
+    <title>Unic – NFT Marketplace PWA Mobile Template</title>
+    <meta name="description" content="Unic – NFT Marketplace PWA Mobile Template">
+    <meta name="keywords"
+        content="bootstrap 5, mobile template, wallet, crypto, currency, about, blog, cordova, phonegap, mobile, html, nft, store, marketplace, pwa" />
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" href="images/favicon/icon-32x32.png" sizes="32x32">
+    <!-- IOS SUPPORT -->
+    <link rel="apple-touch-icon" href="images/favicon/icon-96x96.png">
+    <!-- CSS FILES -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/remixicon.min.css">
+    <link rel="stylesheet" href="assets/vendors/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/vendors/zuck_stories/zuck.min.css">
+    <link rel="manifest" href="_manifest.json" />
+
+</head>
+
+<body class="bg-snow">
+    <!-- ===================================
+      START LODAER PAGE
+    ==================================== -->
+    <section class="loader-page" id="loaderPage">
+        <div class="spinner_flash"></div>
+    </section>
+    <!-- START WRAPPER -->
+    <div id="wrapper">
+        <!-- START CONTENT -->
+        <div id="content">
+            <!-- ===================================
+              START THE HEADER
+            ==================================== -->
+            <header class="default heade-sticky">
+                <div class="un-title-page go-back">
+                    <a href="app-components.html" class="icon">
+                        <i class="ri-arrow-drop-left-line"></i>
+                    </a>
+                </div>
+            </header>
+            <!-- ===================================
+              START THE SPACE STICKY
+            ==================================== -->
+            <div class="space-sticky"></div>
+            <!-- ===================================
+               START THE CONTENT
+            ==================================== -->
+            <section class="un-page-components">
+                <div class="un-title-default">
+                    <div class="text">
+                        <h2>Toasts</h2>
+                        <p>
+                            Push notifications to your visitors with a toast, a lightweight and easily customizable
+                            alert message.
+                            <code class="d-block">data-bs-delay="5000"</code>
+                            Delay hiding the toast (ms)
+                        </p>
+                    </div>
+                </div>
+                <div class="content-comp p-0 mb-4">
+                    <div class="space-items"></div>
+                    <!-- un-title-default -->
+                    <div class="un-title-default py-3">
+                        <div class="text">
+                            <h2 class="m-0 size-15 weight-500">Toast Container with icon</h2>
+                        </div>
+                        <div class="un-block-right">
+                            <button type="button" class="btn btn-md-size bg-primary text-white rounded-pill"
+                                id="btnToastOne">
+                                Top
+                            </button>
+                        </div>
+                    </div>
+                    <div class="space-items"></div>
+                    <!-- un-title-default -->
+                    <div class="un-title-default py-3">
+                        <div class="text">
+                            <h2 class="m-0 size-15 weight-500">Toast Full with icon <code>-full</code></h2>
+                        </div>
+                        <div class="un-block-right">
+                            <button type="button" class="btn btn-md-size bg-primary text-white rounded-pill"
+                                id="btnToastTwo">
+                                Top
+                            </button>
+                        </div>
+                    </div>
+                    <div class="space-items"></div>
+                    <!-- un-title-default -->
+                    <div class="un-title-default py-3">
+                        <div class="text">
+                            <h2 class="m-0 size-15 weight-500">
+                                Hide the toast manually
+                                <code class="d-block">data-bs-autohide="false"</code>
+                            </h2>
+                        </div>
+                        <div class="un-block-right">
+                            <button type="button" class="btn btn-md-size bg-primary text-white rounded-pill"
+                                id="btnToastThree">
+                                Top
+                            </button>
+                        </div>
+                    </div>
+                    <div class="space-items"></div>
+                    <!-- un-title-default -->
+                    <div class="un-title-default py-3">
+                        <div class="text">
+                            <h2 class="m-0 size-15 weight-500">Full Shadow Toast <br>
+                                <span class="size-13 color-text">add <code>.--shadowfull</code> to
+                                    <code>.toast</code></span>
+                            </h2>
+                        </div>
+                        <div class="un-block-right">
+                            <button type="button" class="btn btn-md-size bg-primary text-white rounded-pill"
+                                id="btnToastFour">
+                                Top
+                            </button>
+                        </div>
+                    </div>
+                    <div class="space-items"></div>
+                    <!-- un-title-default -->
+                    <div class="un-title-default py-3">
+                        <div class="text pe-2">
+                            <h2 class="m-0 size-15 weight-500">Background color orange<br>
+                                <span class="size-13 color-text">Change <code>.bg-orange</code> to </span>
+                                <code>.bg-red</code> <code>.bg-blue</code> <code>.bg-dark</code> <code>.bg-pink</code>
+                                <code>.bg-yellow</code>
+                            </h2>
+                        </div>
+                        <div class="un-block-right">
+                            <button type="button" class="btn btn-md-size bg-primary text-white rounded-pill"
+                                id="btnToastFive">
+                                Top
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="space-items"></div>
+                    <!-- un-title-default -->
+                    <div class="un-title-default py-3">
+                        <div class="text">
+                            <h2 class="m-0 size-15 weight-500">Position : bottom<br>
+                                <span class="size-13 color-text"><code>.place__bottom</code>
+                            </h2>
+                        </div>
+                        <div class="un-block-right">
+                            <button type="button" class="btn btn-md-size bg-primary text-white rounded-pill"
+                                id="btnToastSix">
+                                Bottom
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="space-items"></div>
+                    <!-- un-title-default -->
+                    <div class="un-title-default py-3">
+                        <div class="text">
+                            <h2 class="m-0 size-15 weight-500">Position : bottom Full Width<br>
+                                <span class="size-13 color-text"><code>.place__bottom, .-full</code> <br>
+                                    add class <code>.fullscreen, .env-pb</code> to <code>.toast</code>
+                            </h2>
+                        </div>
+                        <div class="un-block-right">
+                            <button type="button" class="btn btn-md-size bg-primary text-white rounded-pill"
+                                id="btnToastSeven">
+                                Bottom
+                            </button>
+                        </div>
+                    </div>
+
+
+                    <div class="space-items"></div>
+                    <!-- un-title-default -->
+                    <div class="un-title-default py-3">
+                        <div class="text">
+                            <h2 class="m-0 size-15 weight-500">Position : Center<br>
+                                <span class="size-13 color-text"><code>.place__center</code> <br>
+                            </h2>
+                        </div>
+                        <div class="un-block-right">
+                            <button type="button" class="btn btn-md-size bg-primary text-white rounded-pill"
+                                id="btnToastEight">
+                                Center
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="space-items"></div>
+                    <!-- un-title-default -->
+                    <div class="un-title-default py-3">
+                        <div class="text">
+                            <h2 class="m-0 size-15 weight-500">Position : Center Auto Width<br>
+                                <span class="size-13 color-text">add class <code>.w-auto</code> to <code>.toast</code>
+                                    <br>
+                            </h2>
+                        </div>
+                        <div class="un-block-right">
+                            <button type="button" class="btn btn-md-size bg-primary text-white rounded-pill"
+                                id="btnToastTen">
+                                Center
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- End.content-comp -->
+            </section>
+        </div>
+    </div>
+
+    <!-- ===================================
+      START THE TOASTS
+    ==================================== -->
+    <div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center place__top w-100">
+        <div id="liveToastOne" class="toast --shadow" role="alert" aria-live="assertive" aria-atomic="true"
+            data-bs-autohide="true" data-bs-delay="3000">
+            <div class="toast-body">
+                <div class="icon color-blue">
+                    <i class="ri-information-fill"></i>
+                </div>
+                <div class="content">
+                    <div class="display__text">
+                        <p>Update your profile.
+                        </p>
+                        <a href="page-edit-profile.html" class="display-link color-blue">Go to Settings</a>
+                    </div>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close">
+                    <i class="ri-close-fill"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center place__top -full w-100">
+        <div id="liveToastTwo" class="toast --shadow fullscreen" role="alert" aria-live="assertive" aria-atomic="true"
+            data-bs-autohide="true" data-bs-delay="5000">
+            <div class="toast-body">
+                <div class="icon color-orange">
+                    <i class="ri-alert-fill"></i>
+                </div>
+                <div class="content">
+                    <div class="display__text">
+                        <p>Complete your profile.
+                        </p>
+                        <a href="page-edit-profile.html" class="display-link color-orange">Go to Settings</a>
+                    </div>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close">
+                    <i class="ri-close-fill"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center place__top -full w-100">
+        <div id="liveToastThree" class="toast --shadow fullscreen" role="alert" aria-live="assertive" aria-atomic="true"
+            data-bs-autohide="false">
+            <div class="toast-body">
+                <div class="icon color-green">
+                    <i class="ri-shield-check-fill"></i>
+                </div>
+                <div class="content">
+                    <div class="display__text">
+                        <p>Payment completed successfully.</p>
+                        <a href="page-edit-profile.html" class="display-link color-green">Go to Settings</a>
+                    </div>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close">
+                    <i class="ri-close-fill"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center place__top w-100">
+        <div id="liveToastFour" class="toast --shadowfull" role="alert" aria-live="assertive" aria-atomic="true"
+            data-bs-autohide="true" data-bs-delay="3000">
+            <div class="toast-body">
+                <div class="icon color-red">
+                    <i class="ri-error-warning-fill"></i>
+                </div>
+                <div class="content">
+                    <div class="display__text">
+                        <p>The operation failed.
+                        </p>
+                        <a href="page-edit-profile.html" class="display-link color-red">Update Payment Method</a>
+                    </div>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close">
+                    <i class="ri-close-fill"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center place__top w-100">
+        <div id="liveToastFive" class="toast bg-orange" role="alert" aria-live="assertive" aria-atomic="true"
+            data-bs-autohide="true" data-bs-delay="3000">
+            <div class="toast-body">
+                <div class="icon color-red">
+                    <i class="ri-error-warning-fill"></i>
+                </div>
+                <div class="content">
+                    <div class="display__text">
+                        <p>The operation failed.</p>
+                    </div>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close">
+                    <i class="ri-close-fill"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center place__bottom w-100">
+        <div id="liveToastSix" class="toast --shadowfull" role="alert" aria-live="assertive" aria-atomic="true"
+            data-bs-autohide="true" data-bs-delay="3000">
+            <div class="toast-body">
+                <div class="icon color-red">
+                    <i class="ri-error-warning-fill"></i>
+                </div>
+                <div class="content">
+                    <div class="display__text">
+                        <p>The operation failed.
+                        </p>
+                        <a href="page-edit-profile.html" class="display-link color-red">Update Payment Method</a>
+                    </div>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close">
+                    <i class="ri-close-fill"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center place__bottom -full w-100">
+        <div id="liveToastSeven" class="toast --shadowfull fullscreen env-pb" role="alert" aria-live="assertive"
+            aria-atomic="true" data-bs-autohide="true" data-bs-delay="5000">
+            <div class="toast-body">
+                <div class="icon color-green">
+                    <i class="ri-checkbox-circle-fill"></i>
+                </div>
+                <div class="content">
+                    <div class="display__text">
+                        <p>The operation failed.
+                        </p>
+                        <a href="page-edit-profile.html" class="display-link color-green">Update Payment Method</a>
+                    </div>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close">
+                    <i class="ri-close-fill"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center place__center w-100">
+        <div id="liveToastEight" class="toast bg-dark" role="alert" aria-live="assertive" aria-atomic="true"
+            data-bs-autohide="true" data-bs-delay="5000">
+            <div class="toast-body">
+                <div class="icon color-green">
+                    <i class="ri-checkbox-circle-fill"></i>
+                </div>
+                <div class="content">
+                    <div class="display__text">
+                        <p>Added successfully</p>
+                        <a href="page-edit-profile.html" class="display-link color-green">Update Payment Method</a>
+                    </div>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close">
+                    <i class="ri-close-fill"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center place__center w-100">
+        <div id="liveToastTen" class="toast bg-dark w-auto" role="alert" aria-live="assertive" aria-atomic="true"
+            data-bs-autohide="true" data-bs-delay="1000">
+            <div class="toast-body">
+                <div class="content">
+                    <div class="display__text">
+                        <p>Added successfully</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================================
+      START THE SIDEBAR MENU - CONNECTED MODAL
+    ==================================== -->
+    <div class="modal sidebarMenu -left fade" id="mdllSidebar-connected" tabindex="-1"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header d-block pb-1">
+
+                    <!-- un-user-profile -->
+                    <div class="un-user-profile">
+                        <div class="image_user">
+                            <picture>
+                                <source srcset="images/avatar/11.webp" type="image/webp">
+                                <img src="images/avatar/11.jpg" alt="image">
+                            </picture>
+                        </div>
+                        <div class="text-user">
+                            <h3>Rocco Gavin</h3>
+                            <p>0xe3oowe0b88...E162</p>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn btnClose" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="ri-close-fill"></i>
+                    </button>
+
+                    <!-- cover-balance -->
+                    <div class="cover-balance">
+                        <div class="un-balance">
+                            <div class="content-balance">
+                                <div class="head-balance">
+                                    <h4>My Balance</h4>
+                                    <a class="btn link-addBalance" data-bs-toggle="modal" data-bs-dismiss="modal"
+                                        data-bs-target="#mdllAddETH">
+                                        <i class="ri-add-fill"></i>
+                                    </a>
+                                </div>
+                                <p class="no-balance">3,650 ETH</p>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-sm-size bg-white text-dark rounded-pill"
+                            data-bs-toggle="modal" data-bs-dismiss="modal" data-bs-target="#mdllUploadItem">
+                            Create
+                        </button>
+                    </div>
+
+
+                </div>
+                <div class="modal-body">
+                    <ul class="nav flex-column -active-links">
+                        <li class="nav-item">
+                            <a class="nav-link" href="homepage.html">
+                                <div class="icon_current">
+                                    <i class="ri-compass-line"></i>
+                                </div>
+                                <div class="icon_active">
+                                    <i class="ri-compass-fill"></i>
+                                </div>
+                                <span class="title_link">Discover</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="app-homes.html">
+                                <div class="icon_current">
+                                    <i class="ri-home-5-line"></i>
+                                </div>
+                                <div class="icon_active">
+                                    <i class="ri-home-5-fill"></i>
+                                </div>
+                                <span class="title_link">Home Styles</span>
+
+                                <span class="xs-badge">8</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="app-pages.html">
+                                <div class="icon_current">
+                                    <i class="ri-pages-line"></i>
+                                </div>
+                                <div class="icon_active">
+                                    <i class="ri-pages-fill"></i>
+                                </div>
+                                <span class="title_link">Page Packs</span>
+
+                                <div class="badge-circle">
+                                    <span class="doted_item"></span>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="app-components.html">
+                                <div class="icon_current">
+                                    <i class="ri-layout-2-line"></i>
+                                </div>
+                                <div class="icon_active">
+                                    <i class="ri-layout-2-fill"></i>
+                                </div>
+                                <span class="title_link">Components</span>
+
+                            </a>
+                        </li>
+
+                        <label class="title__label">other</label>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="page-help.html">
+                                <div class="icon_current">
+                                    <i class="ri-questionnaire-line"></i>
+                                </div>
+                                <div class="icon_active">
+                                    <i class="ri-questionnaire-fill"></i>
+                                </div>
+                                <span class="title_link">Help Center</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="page-about.html">
+                                <div class="icon_current">
+                                    <i class="ri-file-info-line"></i>
+                                </div>
+                                <div class="icon_active">
+                                    <i class="ri-file-info-fill"></i>
+                                </div>
+                                <span class="title_link">About Unic.</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="homepage.html" class="nav-link">
+                                <div class="icon_current">
+                                    <i class="ri-logout-box-r-line"></i>
+                                </div>
+                                <div class="icon_active">
+                                    <i class="ri-logout-box-r-fill"></i>
+                                </div>
+                                <span class="title_link">Sign Out</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <div class="em_darkMode_menu">
+                        <label class="text" for="switchDark">
+                            <h3>Dark Mode</h3>
+                            <p>Browsing in night mode</p>
+                        </label>
+                        <label class="switch_toggle toggle_lg theme-switch" for="switchDark">
+                            <input type="checkbox" class="switchDarkMode theme-switch" id="switchDark"
+                                aria-describedby="switchDark">
+                            <span class="handle"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ===================================
+      START THE SIDEBAR MENU - guest MODAL
+    ==================================== -->
+    <div class="modal sidebarMenu -left -guest fade" id="mdllSidebar-guest" tabindex="-1"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="welcome_em">
+                        <h2>Welcome to Unic<span>.</span></h2>
+                        <p>
+                            Connect wallet to browse, Buy, Sell, and create NFTs items.
+                        </p>
+                        <a href="page-connect-wallet.html" class="btn btn-md-size bg-primary text-white rounded-pill">
+                            Connect wallet
+                        </a>
+                    </div>
+                    <button type="button" class="btn btnClose" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="ri-close-fill"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <ul class="nav flex-column -active-links">
+                        <li class="nav-item">
+                            <a class="nav-link" href="homepage.html">
+                                <div class="icon_current">
+                                    <i class="ri-compass-line"></i>
+                                </div>
+                                <div class="icon_active">
+                                    <i class="ri-compass-fill"></i>
+                                </div>
+                                <span class="title_link">Discover</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="app-homes.html">
+                                <div class="icon_current">
+                                    <i class="ri-home-5-line"></i>
+                                </div>
+                                <div class="icon_active">
+                                    <i class="ri-home-5-fill"></i>
+                                </div>
+                                <span class="title_link">Home Styles</span>
+
+                                <span class="xs-badge">8</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="app-pages.html">
+                                <div class="icon_current">
+                                    <i class="ri-pages-line"></i>
+                                </div>
+                                <div class="icon_active">
+                                    <i class="ri-pages-fill"></i>
+                                </div>
+                                <span class="title_link">Page Packs</span>
+
+                                <div class="badge-circle">
+                                    <span class="doted_item"></span>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="app-components.html">
+                                <div class="icon_current">
+                                    <i class="ri-layout-2-line"></i>
+                                </div>
+                                <div class="icon_active">
+                                    <i class="ri-layout-2-fill"></i>
+                                </div>
+                                <span class="title_link">Components</span>
+
+                            </a>
+                        </li>
+
+                        <label class="title__label">other</label>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="page-help.html">
+                                <div class="icon_current">
+                                    <i class="ri-questionnaire-line"></i>
+                                </div>
+                                <div class="icon_active">
+                                    <i class="ri-questionnaire-fill"></i>
+                                </div>
+                                <span class="title_link">Help Center</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="page-about.html">
+                                <div class="icon_current">
+                                    <i class="ri-file-info-line"></i>
+                                </div>
+                                <div class="icon_active">
+                                    <i class="ri-file-info-fill"></i>
+                                </div>
+                                <span class="title_link">About Unic.</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <div class="em_darkMode_menu">
+                        <label class="text" for="switchDark2">
+                            <h3>Dark Mode</h3>
+                            <p>Browsing in night mode</p>
+                        </label>
+                        <label class="switch_toggle toggle_lg theme-switch" for="switchDark2">
+                            <input type="checkbox" class="switchDarkMode theme-switch" id="switchDark2"
+                                aria-describedby="switchDark2" aria-describedby="switchDark2">
+                            <span class="handle"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ===================================
+      START STATUS CONNECTION
+    ==================================== -->
+    <div class="d-flex justify-content-center">
+        <div class="toast status-connection" role="alert" aria-live="assertive" aria-atomic="true"></div>
+    </div>
+
+
+
+    <!-- JS FILES -->
+    <script src="assets/vendors/zuck_stories/zuck.min.js"></script>
+    <script src="assets/vendors/smoothscroll/smoothscroll.min.js"></script>
+    <script src="assets/vendors/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendors/nouislider/nouislider.min.js"></script>
+    <script src="assets/vendors/nouislider/wNumb.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <!-- PWA APP SERVICE REGISTRATION AND WORKS JS -->
+    <script src="assets/js/pwa-services.js"></script>
+
+    <script>
+
+        document.getElementById("btnToastOne").onclick = function () {
+            var toastElList = [].slice.call(document.querySelectorAll('#liveToastOne'))
+            var toastList = toastElList.map(function (toastEl) {
+                return new bootstrap.Toast(toastEl)
+            });
+            toastList.forEach(toast => toast.show());
+        };
+
+        document.getElementById("btnToastTwo").onclick = function () {
+            var toastElList = [].slice.call(document.querySelectorAll('#liveToastTwo'))
+            var toastList = toastElList.map(function (toastEl) {
+                return new bootstrap.Toast(toastEl)
+            });
+            toastList.forEach(toast => toast.show());
+        };
+
+        document.getElementById("btnToastThree").onclick = function () {
+            var toastElList = [].slice.call(document.querySelectorAll('#liveToastThree'))
+            var toastList = toastElList.map(function (toastEl) {
+                return new bootstrap.Toast(toastEl)
+            });
+            toastList.forEach(toast => toast.show());
+        };
+
+        document.getElementById("btnToastFour").onclick = function () {
+            var toastElList = [].slice.call(document.querySelectorAll('#liveToastFour'))
+            var toastList = toastElList.map(function (toastEl) {
+                return new bootstrap.Toast(toastEl)
+            });
+            toastList.forEach(toast => toast.show());
+        };
+
+        document.getElementById("btnToastFive").onclick = function () {
+            var toastElList = [].slice.call(document.querySelectorAll('#liveToastFive'))
+            var toastList = toastElList.map(function (toastEl) {
+                return new bootstrap.Toast(toastEl)
+            });
+            toastList.forEach(toast => toast.show());
+        };
+
+        document.getElementById("btnToastSix").onclick = function () {
+            var toastElList = [].slice.call(document.querySelectorAll('#liveToastSix'))
+            var toastList = toastElList.map(function (toastEl) {
+                return new bootstrap.Toast(toastEl)
+            });
+            toastList.forEach(toast => toast.show());
+        };
+
+        document.getElementById("btnToastSeven").onclick = function () {
+            var toastElList = [].slice.call(document.querySelectorAll('#liveToastSeven'))
+            var toastList = toastElList.map(function (toastEl) {
+                return new bootstrap.Toast(toastEl)
+            });
+            toastList.forEach(toast => toast.show());
+        };
+
+        document.getElementById("btnToastEight").onclick = function () {
+            var toastElList = [].slice.call(document.querySelectorAll('#liveToastEight'))
+            var toastList = toastElList.map(function (toastEl) {
+                return new bootstrap.Toast(toastEl)
+            });
+            toastList.forEach(toast => toast.show());
+        };
+
+        document.getElementById("btnToastTen").onclick = function () {
+            var toastElList = [].slice.call(document.querySelectorAll('#liveToastTen'))
+            var toastList = toastElList.map(function (toastEl) {
+                return new bootstrap.Toast(toastEl)
+            });
+            toastList.forEach(toast => toast.show());
+        };
+
+    </script>
+</body>
+
+
+<!-- Mirrored from orinostudio.com/unic-webpage/preview-web/unic-template/component-toasts.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 02 Aug 2022 10:17:14 GMT -->
+</html>

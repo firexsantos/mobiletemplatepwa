@@ -1,0 +1,128 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="cordova-plugins">Cordova Plugins</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="social-sharing">Social Sharing</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="social-sharing">Social Sharing</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="block">
+				<p>This plugin allows to implement sharing functionality into the app using the device's native sharing capabilities.</p>
+			</div>
+
+			<form>
+				<div class="list no-hairlines no-hairlines-between">
+					<ul>
+						<li>
+							<div class="item-content item-input item-input-with-clear-button">
+								<div class="item-inner">
+									<div class="item-title item-label">Subject</div>
+									<div class="item-input-wrap">
+										<input type="text" name="subject" value="{{$root.config.app.title}}" />
+										<span class="input-clear-button"></span>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="item-content item-input item-input-with-clear-button">
+								<div class="item-inner">
+									<div class="item-title item-label">Message</div>
+									<div class="item-input-wrap">
+										<textarea class="resizable" name="message">{{$root.config.app.title}} - {{$root.config.app.tagline}}</textarea>
+										<span class="input-clear-button"></span>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="item-content item-input item-input-with-clear-button">
+								<div class="item-inner">
+									<div class="item-title item-label">URL</div>
+									<div class="item-input-wrap">
+										<input type="url" name="url" value="{{$root.config.envato.itemUrl}}" />
+										<span class="input-clear-button"></span>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="block">
+					<button type="submit" class="button button-big button-fill">Share</button>
+				</div>
+			</form>
+
+		</div>
+
+	</div>
+</template>
+
+<script>
+	return {
+		methods: {
+			onFormSubmit: function(event) {
+				var self = this;
+				event.preventDefault();
+				self.share(app.form.convertToData(event.target));
+			},
+			share: function(data) {
+				var self = this;
+				var shareData = {};
+				shareData.subject = data.subject;
+				shareData.message = data.message;
+				shareData.url = data.url;
+				window.plugins.socialsharing.shareWithOptions(
+					shareData,
+					function(result) {
+						if (result.completed) {
+							app.toast.show({
+								text: 'Shared Successfully',
+								position: 'bottom',
+								cssClass: 'toast-round bg-color-green'
+							});
+						}
+						else {
+							app.toast.show({
+								text: 'Sharing Cancelled',
+								position: 'bottom',
+								cssClass: 'toast-round bg-color-orange'
+							});
+						}
+					},
+					function(error) {
+						app.toast.show({
+							text: error,
+							position: 'bottom',
+							cssClass: 'toast-round bg-color-red'
+						});
+					}
+				);
+			}
+		},
+		on: {
+			pageInit: function() {
+				var self = this;
+				self.$('form').on('submit', self.onFormSubmit);
+			},
+			pageBeforeRemove: function() {
+				var self = this;
+				self.$('form').off('submit', self.onFormSubmit);
+			}
+		}
+	}
+</script>

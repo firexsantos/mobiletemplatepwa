@@ -1,0 +1,485 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				{{#js_if "app.data.config.theme.navigation == 'hamburger'"}}
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="home">Home</span>
+					</a>
+				</div>
+				{{/js_if}}
+				<div class="title md-only" data-i18n="screens">Screens</div>
+				<div class="right">
+					<a href="#" class="link icon-only searchbar-enable" data-searchbar=".searchbar">
+						<i class="icon f7-icons ios-only">search</i>
+						<i class="icon material-icons md-only">search</i>
+					</a>
+				</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="screens">Screens</div>
+					</div>
+				</div>
+				<form class="searchbar searchbar-expandable searchbar-init" data-search-container=".search-list" data-search-item="li" data-search-in=".item-title">
+					<div class="searchbar-inner">
+						<div class="searchbar-input-wrap">
+							<input type="search" placeholder="Search" data-i18n="[placeholder]search" />
+							<i class="searchbar-icon"></i>
+							<span class="input-clear-button"></span>
+						</div>
+						<span class="searchbar-disable-button" data-i18n="cancel">Cancel</span>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="searchbar-hide-on-search">
+				<div class="block">
+					<p>Nectar provides ready-to-use screens for building beautiful and intuitive user interfaces.</p>
+				</div>
+			</div>
+
+			<div class="searchbar-not-found">
+				<div class="empty-state">
+					<div class="empty-state-media">
+						<img src="assets/custom/img/no-search.svg" alt="" />
+					</div>
+					<div class="empty-state-title" data-i18n="no-search-results">No Search Results</div>
+					<div class="empty-state-actions">
+						<button type="button" class="button button-big button-fill button-round" data-i18n="try-again" @click="refreshSearchbar">Try Again</button>
+					</div>
+				</div>
+			</div>
+
+			<div class="searchbar-found">
+				<div class="list search-list">
+					<ul>
+						<li>
+							<a href="/screens/404" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="404">404</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/screens/about" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="about">About</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/screens/activity-feed" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="activity-feed">Activity Feed</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/screens/articles-list" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="articles-list">Articles - List</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/screens/articles-single" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="articles-single">Articles - Single</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/screens/business-profile" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="business-profile">Business Profile</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/screens/careers" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="careers">Careers</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/screens/cart" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="cart">Cart</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/screens/chat" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="chat">Chat</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/screens/checkout" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="checkout">Checkout</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/screens/coming-soon" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="coming-soon">Coming Soon</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/screens/contact-us" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="contact-us">Contact Us</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/screens/contacts-list" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="contacts-list">Contacts List</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/screens/cookies" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="cookie-policy">Cookie Policy</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/screens/dashboard" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="dashboard">Dashboard</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/screens/email-confirmation" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="email-confirmation">Email Confirmation</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/screens/event" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="event">Event</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/screens/events-calendar" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="events-calendar">Events Calendar</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/screens/faq" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="faq">FAQ</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/screens/feedback" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="feedback">Feedback</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/screens/forgot-password" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="forgot-password">Forgot Password?</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/screens/home" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="home">Home</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/screens/invite-friends" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="invite-friends">Invite Friends</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/screens/leaderboard" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="leaderboard">Leaderboard</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/screens/login" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="login">Log In</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/screens/notifications" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="notifications">Notifications</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/screens/otp-verification" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="otp-verification">OTP Verification</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/screens/pattern-lock" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="pattern-lock">Pattern Lock</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/screens/poll" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="poll">Poll</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/screens/pricing-plans" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="pricing-plans">Pricing Plans</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/screens/privacy" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="privacy-policy">Privacy Policy</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/screens/products-list" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="products-list">Products - List</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/screens/products-single" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="products-single">Products - Single</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/screens/profile-setup" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="profile-setup">Profile Setup</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/screens/recipe" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="recipe">Recipe</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/screens/settings" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="settings">Settings</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/screens/signup" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="signup">Sign Up</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/screens/splash" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="splash">Splash</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/screens/team" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="team">Team</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/screens/terms" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="terms-of-use">Terms of Use</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/screens/testimonials" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="testimonials">Testimonials</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/screens/under-maintenance" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="under-maintenance">Under Maintenance</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/screens/user-profile" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="user-profile">User Profile</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/screens/walkthrough" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="walkthrough">Walkthrough</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/screens/wallet" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="wallet">Wallet</div>
+									</div>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+</template>
+
+<script>
+	return {
+		methods: {
+			refreshSearchbar: function() {
+				var self = this;
+				app.searchbar.clear('.searchbar');
+			}
+		}
+	}
+</script>

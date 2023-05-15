@@ -1,0 +1,105 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="components">Components</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="virtual-list">Virtual List</div>
+				<div class="right">
+					<a href="#" class="link icon-only searchbar-enable" data-searchbar="#searchbar-virtual-list">
+						<i class="icon f7-icons ios-only">search</i>
+						<i class="icon material-icons md-only">search</i>
+					</a>
+				</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="virtual-list">Virtual List</div>
+					</div>
+				</div>
+				<form id="searchbar-virtual-list" class="searchbar searchbar-expandable searchbar-init" data-search-container=".virtual-list" data-search-item="li" data-search-in=".item-title">
+					<div class="searchbar-inner">
+						<div class="searchbar-input-wrap">
+							<input type="search" placeholder="Search" data-i18n="[placeholder]search" />
+							<i class="searchbar-icon"></i>
+							<span class="input-clear-button"></span>
+						</div>
+						<span class="searchbar-disable-button" data-i18n="cancel">Cancel</span>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="searchbar-hide-on-search">
+				<div class="block">
+					<p>Virtual List allows to render list with huge number of items without any loss of performance.</p>
+					<p>It is compatible with components such as Infinite Scroll, Pull to Refresh, Search Bar, Sortable and Swipeout.</p>
+				</div>
+			</div>
+
+			<div class="searchbar-not-found">
+				<div class="empty-state">
+					<div class="empty-state-media">
+						<img src="assets/custom/img/no-search.svg" alt="" />
+					</div>
+					<div class="empty-state-title" data-i18n="no-search-results">No Search Results</div>
+				</div>
+			</div>
+
+			<div class="searchbar-found">
+				<div class="list virtual-list"></div>
+			</div>
+
+		</div>
+
+	</div>
+</template>
+
+<script>
+	return {
+		methods: {
+			initializeVirtualList: function() {
+				var self = this;
+				var items = [];
+				for (var i = 1; i <= 10000; i++) {
+					items.push({
+						title: 'Item ' + i
+					});
+				}
+				var virtualList = app.virtualList.create({
+					el: '.virtual-list',
+					items: items,
+					searchAll: function(query, items) {
+						var found = [];
+						for (var i = 0; i < items.length; i++) {
+							if (items[i].title.toLowerCase().indexOf(query.toLowerCase()) >= 0 || query.trim() == '') {
+								found.push(i);
+							}
+						}
+						return found;
+					},
+					itemTemplate:
+						'<li>' +
+							'<div class="item-content">' +
+								'<div class="item-inner">' +
+									'<div class="item-title">{{title}}</div>' +
+								'</div>' +
+							'</div>' +
+						'</li>'
+				});
+			}
+		},
+		on: {
+			pageInit: function() {
+				var self = this;
+				self.initializeVirtualList();
+			}
+		}
+	}
+</script>

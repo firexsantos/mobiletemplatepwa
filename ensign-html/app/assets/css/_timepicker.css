@@ -1,0 +1,47 @@
+
+
+/*----------------------------------------
+  Time picker
+------------------------------------------*/
+.timepicker-display-am-pm{
+    font-size: 1.0rem;
+    right: 0px;
+    bottom: 0;
+}
+.timepicker-span-hours, .timepicker-span-minutes, .timepicker-span-am-pm div{
+    display: inline;
+    margin-right: 5px;
+}
+.timepicker-digital-display{
+    background-color: var(--primary-color);
+}
+.timepicker-close {
+    color: var(--primary-color);
+} 
+.timepicker-canvas-bg {
+    fill: var(--primary-color);
+}
+.timepicker-canvas-bearing {
+    fill: var(--primary-color);
+}
+.timepicker-canvas line {
+    stroke: var(--primary-color);
+}
+.timepicker-tick.active, .timepicker-tick:hover {
+    background-color: rgba(var(--primary-rgb), 0.4);
+}
+
+
+/*----------------------------------------
+  Site - Dark Mode - Timepicker
+----------------------------------------*/
+[data-site_mode="dark"] .timepicker-plate{
+  background-color: #455A64;
+}
+[data-site_mode="dark"] .timepicker-tick{
+  color: #CFD8DC;
+}
+[data-site_mode="dark"] .timepicker-tick.active, 
+[data-site_mode="dark"] .timepicker-tick:hover {
+  background-color: #37474F;
+}

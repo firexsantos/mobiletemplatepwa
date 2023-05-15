@@ -1,0 +1,47 @@
+/*
+|------------------------------------------------------------------------------
+| Scroll Bar
+|------------------------------------------------------------------------------
+*/
+
+*::-webkit-scrollbar {
+	height: 2px;
+	width: 3px;
+}
+
+*::-webkit-scrollbar-button {
+	height: 0px;
+	width: 0px;
+}
+
+*::-webkit-scrollbar-thumb {
+	background: #868E96;
+	border: 0px none #FFFFFF;
+	border-radius: 0;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+	background: #495057;
+}
+
+*::-webkit-scrollbar-thumb:active {
+	background: #343A40;
+}
+
+*::-webkit-scrollbar-track {
+	background: #F1F3F5;
+	border: 0px none transparent;
+	border-radius: 50px;
+}
+
+*::-webkit-scrollbar-track:hover {
+	background: #EEEEEE;
+}
+
+*::-webkit-scrollbar-track:active {
+	background: #EEEEEE;
+}
+
+*::-webkit-scrollbar-corner {
+	background: transparent;
+}

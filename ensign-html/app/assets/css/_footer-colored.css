@@ -1,0 +1,23 @@
+
+/*----------------------------------------
+  Footer - Colored Style
+------------------------------------------*/
+[data-footer="colored"] .page-footer{
+  background: var(--primary-color);
+}
+[data-footer="colored"] .page-footer .logo:after{
+  background-color: #ffffff;
+}
+[data-footer="colored"] .page-footer .logo{
+  color: #ffffff;
+}
+[data-footer="colored"] .page-footer .text,
+[data-footer="colored"] .page-footer li a,
+[data-footer="colored"] .page-footer .social a i,
+[data-footer="colored"] .page-footer .footer-copyright .container, 
+[data-footer="colored"] .page-footer .footer-copyright .container a {
+  color: #eeeeee;  
+}
+[data-footer="colored"] .page-footer .footer-copyright {
+    background: rgba(33,33,33,0.2);
+}

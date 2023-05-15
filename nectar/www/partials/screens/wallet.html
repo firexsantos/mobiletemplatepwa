@@ -1,0 +1,139 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="back">Back</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="wallet">Wallet</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="wallet">Wallet</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			{{#if wallet}}
+			<div class="card card-outline">
+				<div class="card-content card-content-padding">
+					<div class="wallet-balance">
+						<img src="assets/custom/img/wallet.svg" height="72" alt="" />
+						<div class="current-balance">{{wallet.current_balance}}</div>
+						<button type="button" class="button button-big button-fill button-round color-green">Add Money</button>
+					</div>
+				</div>
+			</div>
+
+			{{#if wallet.transactions}}
+			<div class="block-title display-flex justify-content-space-between">
+				<span>Transactions History</span>
+				<a href="#">View All</a>
+			</div>
+			<div class="card card-outline">
+				<div class="card-content">
+					<div class="list media-list">
+						<ul>
+							{{#each wallet.transactions}}
+							<li>
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title-row">
+											<div class="item-title">{{this.remarks}}</div>
+											{{#js_if "this.type == 'credit'"}}
+											<div class="item-after credit">+ {{this.amount}}</div>
+											{{/js_if}}
+											{{#js_if "this.type == 'debit'"}}
+											<div class="item-after debit">- {{this.amount}}</div>
+											{{/js_if}}
+										</div>
+										<div class="item-text">{{this.date}}</div>
+									</div>
+								</div>
+							</li>
+							{{/each}}
+						</ul>
+					</div>
+				</div>
+			</div>
+			{{else}}
+			<div class="block">
+				<div class="empty-state">
+					<div class="empty-state-media">
+						<img class="filter-grayscale" src="assets/custom/img/invoice.svg" alt="" />
+					</div>
+					<div class="empty-state-text">Your transactions history will appear here.</div>
+				</div>
+			</div>
+			{{/if}}
+			{{/if}}
+
+		</div>
+
+	</div>
+</template>
+
+<style scoped>
+	.wallet-balance {
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		text-align: center;
+	}
+
+	.current-balance {
+		font-size: 42px;
+		font-weight: bold;
+		margin: 16px 0;
+	}
+
+	.item-after.credit {
+		color: var(--oc-color-green-6);
+	}
+
+	.item-after.debit {
+		color: var(--oc-color-red-6);
+	}
+
+	.empty-state-media img {
+		height: 72px;
+	}
+</style>
+
+<script>
+	return {
+		data: function() {
+			return {
+				wallet: null
+			}
+		},
+		methods: {
+			loadData: function() {
+				var self = this;
+				app.request.json(
+					'assets/custom/dataset/wallet.json',
+					function(data) {
+						if (data) {
+							self.$setState({
+								wallet: data
+							});
+						}
+					}
+				);
+			}
+		},
+		on: {
+			pageInit: function() {
+				var self = this;
+				self.loadData();
+			}
+		}
+	}
+</script>

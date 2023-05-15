@@ -1,0 +1,154 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="components">Components</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="grid">Grid</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="grid">Grid</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="block">
+				<p>Grid displays content in two-dimensional scrollable area consisting rows and columns.</p>
+			</div>
+
+			<div class="block-title">Equal Width</div>
+			<div class="block">
+				<div class="row">
+					<div class="col">50%</div>
+					<div class="col">50%</div>
+				</div>
+				<div class="row">
+					<div class="col">33%</div>
+					<div class="col">33%</div>
+					<div class="col">33%</div>
+				</div>
+				<div class="row">
+					<div class="col">25%</div>
+					<div class="col">25%</div>
+					<div class="col">25%</div>
+					<div class="col">25%</div>
+				</div>
+				<div class="row">
+					<div class="col">20%</div>
+					<div class="col">20%</div>
+					<div class="col">20%</div>
+					<div class="col">20%</div>
+					<div class="col">20%</div>
+				</div>
+			</div>
+
+			<div class="block-title">Unequal Width</div>
+			<div class="block">
+				<div class="row">
+					<div class="col-25">25%</div>
+					<div class="col-75">75%</div>
+				</div>
+				<div class="row">
+					<div class="col-20">20%</div>
+					<div class="col-40">40%</div>
+					<div class="col-40">40%</div>
+				</div>
+				<div class="row">
+					<div class="col-10">10%</div>
+					<div class="col-20">20%</div>
+					<div class="col-30">30%</div>
+					<div class="col-40">40%</div>
+				</div>
+				<div class="row">
+					<div class="col-5">5%</div>
+					<div class="col-10">10%</div>
+					<div class="col-15">15%</div>
+					<div class="col-30">30%</div>
+					<div class="col-40">40%</div>
+				</div>
+			</div>
+
+			<div class="block-title">No Gap</div>
+			<div class="block">
+				<div class="row no-gap">
+					<div class="col">50%</div>
+					<div class="col">50%</div>
+				</div>
+				<div class="row no-gap">
+					<div class="col-25">25%</div>
+					<div class="col-75">75%</div>
+				</div>
+				<div class="row no-gap">
+					<div class="col-10">10%</div>
+					<div class="col-20">20%</div>
+					<div class="col-30">30%</div>
+					<div class="col-40">40%</div>
+				</div>
+				<div class="row no-gap">
+					<div class="col">20%</div>
+					<div class="col">20%</div>
+					<div class="col">20%</div>
+					<div class="col">20%</div>
+					<div class="col">20%</div>
+				</div>
+			</div>
+
+			<div class="block-title">Nested</div>
+			<div class="block">
+				<div class="row">
+					<div class="col">50%
+						<div class="row">
+							<div class="col">50%</div>
+							<div class="col">50%</div>
+						</div>
+					</div>
+					<div class="col">50%
+						<div class="row">
+							<div class="col-25">25%</div>
+							<div class="col-75">75%</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="block-title">Responsive</div>
+			<div class="block">
+				<p>Responsive Grid adapts to different sizes according to device resolution.</p>
+			</div>
+			<div class="block">
+				<div class="row">
+					<div class="col-100 tablet-50 desktop-25"></div>
+    			<div class="col-100 tablet-50 desktop-25"></div>
+					<div class="col-100 tablet-50 desktop-25"></div>
+    			<div class="col-100 tablet-50 desktop-25"></div>
+				</div>
+				<div class="row">
+					<div class="col-50 tablet-25 desktop-35"></div>
+    			<div class="col-50 tablet-75 desktop-65"></div>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+</template>
+
+<style scoped>
+	[class*=col] {
+		background: #F8F9FA;
+		border: 1px solid #E9ECEF;
+		color: #212529;
+		font-size: 12px;
+		margin-bottom: 16px;
+		padding: 8px;
+		text-align: center;
+	}
+</style>

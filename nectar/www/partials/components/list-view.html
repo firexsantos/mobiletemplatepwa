@@ -1,0 +1,455 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="components">Components</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="list-view">List View</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="list-view">List View</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="block">
+				<p>List View can be used to present data in a scrollable list of multiple rows that may be divided into groups or sections.</p>
+			</div>
+
+			<div class="block-title">Simple List</div>
+			<div class="list simple-list">
+				<ul>
+					<li>Item 1</li>
+					<li>Item 2</li>
+					<li>Item 3</li>
+				</ul>
+			</div>
+
+			<div class="block-title">Links List</div>
+			<div class="list links-list">
+				<ul>
+					<li>
+						<a href="#">Link 1</a>
+					</li>
+					<li>
+						<a href="#">Link 2</a>
+					</li>
+					<li>
+						<a href="#">Link 3</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="block-title">List with Icons and Links</div>
+			<div class="list">
+				<ul>
+					<li>
+						<div class="item-content">
+							<div class="item-media">
+								<img class="img-circle" src="https://randomuser.me/api/portraits/women/79.jpg" width="32" alt="" />
+							</div>
+							<div class="item-inner">
+								<div class="item-title">Line Rolland</div>
+								<div class="item-after">CEO</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<a href="https://tumblr.com" target="_blank" class="item-link external">
+							<div class="item-content">
+								<div class="item-media">
+									<i class="fa-stack">
+										<span class="fas fa-square fa-stack-2x brand-color-tumblr ios-only"></span>
+										<span class="fas fa-circle fa-stack-2x brand-color-tumblr md-only"></span>
+										<span class="fab fa-tumblr fa-stack-1x fa-inverse"></span>
+									</i>
+								</div>
+								<div class="item-inner">
+									<div class="item-title">Tumblr</div>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-media">
+								<i class="fa-stack">
+									<span class="fas fa-square fa-stack-2x text-color-blue ios-only"></span>
+									<span class="fas fa-circle fa-stack-2x text-color-blue md-only"></span>
+									<span class="far fa-comment fa-stack-1x fa-inverse"></span>
+								</i>
+							</div>
+							<div class="item-inner">
+								<div class="item-title">Messages</div>
+								<div class="item-after">
+									<span class="badge bg-color-pink-5">25</span>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+
+			<div class="block-title">List with Header and Footer</div>
+			<div class="list">
+				<ul>
+					<li>
+						<div class="item-content">
+							<div class="item-media">
+								<img class="img-circle" src="https://randomuser.me/api/portraits/men/97.jpg" width="32" alt="" />
+							</div>
+							<div class="item-inner">
+								<div class="item-title">
+									<div class="item-header">Name</div>
+									<span>Veeti Seppanen</span>
+								</div>
+								<div class="item-after">CEO</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<a href="tel:+1234567890" target="_blank" class="item-link external">
+							<div class="item-content">
+								<div class="item-media">
+									<i class="fa-stack">
+										<span class="fas fa-square fa-stack-2x text-color-green ios-only"></span>
+										<span class="fas fa-circle fa-stack-2x text-color-green md-only"></span>
+										<span class="fas fa-phone fa-stack-1x fa-inverse"></span>
+									</i>
+								</div>
+								<div class="item-inner">
+									<div class="item-title">
+										<div class="item-header">Phone</div>
+										<span>+1-234567890</span>
+										<div class="item-header">Home</div>
+									</div>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="tel:+9876543210" target="_blank" class="item-link external">
+							<div class="item-content">
+								<div class="item-media">
+									<i class="fa-stack">
+										<span class="fas fa-square fa-stack-2x text-color-green ios-only"></span>
+										<span class="fas fa-circle fa-stack-2x text-color-green md-only"></span>
+										<span class="fas fa-phone fa-stack-1x fa-inverse"></span>
+									</i>
+								</div>
+								<div class="item-inner">
+									<div class="item-title">
+										<div class="item-header">Phone</div>
+										<span>+9-876543210</span>
+										<div class="item-header">Work</div>
+									</div>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="mailto:info@example.com" target="_blank" class="item-link external">
+							<div class="item-content">
+								<div class="item-media">
+									<i class="fa-stack">
+										<span class="fas fa-square fa-stack-2x text-color-orange ios-only"></span>
+										<span class="fas fa-circle fa-stack-2x text-color-orange md-only"></span>
+										<span class="far fa-envelope fa-stack-1x fa-inverse"></span>
+									</i>
+								</div>
+								<div class="item-inner">
+									<div class="item-title">
+										<div class="item-header">Email</div>
+										<span>info@example.com</span>
+									</div>
+								</div>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="block-title">Grouped List with Sticky Title</div>
+			<div class="list">
+				<div class="list-group">
+					<ul>
+						<li class="list-group-title">A</li>
+						<li>
+							<div class="item-content">
+								<div class="item-inner">
+									<div class="item-title">Aaron Swartz</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="item-content">
+								<div class="item-inner">
+									<div class="item-title">Alan Turing</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="list-group">
+					<ul>
+						<li class="list-group-title">B</li>
+						<li>
+							<div class="item-content">
+								<div class="item-inner">
+									<div class="item-title">Bob Kahn</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="item-content">
+								<div class="item-inner">
+									<div class="item-title">Bob Taylor</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="list-group">
+					<ul>
+						<li class="list-group-title">B</li>
+						<li>
+							<div class="item-content">
+								<div class="item-inner">
+									<div class="item-title">Bob Kahn</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="item-content">
+								<div class="item-inner">
+									<div class="item-title">Bob Taylor</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="list-group">
+					<ul>
+						<li class="list-group-title">D</li>
+						<li>
+							<div class="item-content">
+								<div class="item-inner">
+									<div class="item-title">David Clark</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="item-content">
+								<div class="item-inner">
+									<div class="item-title">Dennis Ritchie</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="item-content">
+								<div class="item-inner">
+									<div class="item-title">Douglas Crockford</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="block-title">Nested List</div>
+			<div class="list">
+				<ul>
+					<li>
+						<div class="item-content">
+							<div class="item-media">
+								<i class="fa-stack">
+									<span class="fas fa-square fa-stack-2x text-color-blue ios-only"></span>
+									<span class="fas fa-circle fa-stack-2x text-color-blue md-only"></span>
+									<span class="fas fa-bell fa-stack-1x fa-inverse"></span>
+								</i>
+							</div>
+							<div class="item-inner">
+								<div class="item-title">Notifications</div>
+							</div>
+						</div>
+						<ul>
+							<li>
+								<div class="item-content">
+									<div class="item-media">
+										<i class="fa-stack">
+											<span class="fas fa-square fa-stack-2x text-color-blue ios-only"></span>
+											<span class="fas fa-circle fa-stack-2x text-color-blue md-only"></span>
+											<span class="far fa-comment fa-stack-1x fa-inverse"></span>
+										</i>
+									</div>
+									<div class="item-inner">
+										<div class="item-title">SMS</div>
+										<div class="item-after">
+											<label class="toggle toggle-init color-blue">
+												<input type="checkbox" />
+												<span class="toggle-icon"></span>
+											</label>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="item-content">
+									<div class="item-media">
+										<i class="fa-stack">
+											<span class="fas fa-square fa-stack-2x text-color-blue ios-only"></span>
+											<span class="fas fa-circle fa-stack-2x text-color-blue md-only"></span>
+											<span class="far fa-envelope fa-stack-1x fa-inverse"></span>
+										</i>
+									</div>
+									<div class="item-inner">
+										<div class="item-title">Email</div>
+										<div class="item-after">
+											<label class="toggle toggle-init color-blue">
+												<input type="checkbox" checked />
+												<span class="toggle-icon"></span>
+											</label>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+
+			<div class="block-title">Media List</div>
+			<div class="list media-list">
+				<ul>
+					<li>
+						<a href="#" class="item-link item-content">
+							<div class="item-media">
+								<img src="http://lorempixel.com/88/88/fashion/4" width="44" alt="" />
+							</div>
+							<div class="item-inner">
+								<div class="item-title-row">
+									<div class="item-title">Yellow Submarine</div>
+								</div>
+								<div class="item-subtitle">Beatles</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="#" class="item-link item-content">
+							<div class="item-media">
+								<img src="http://lorempixel.com/88/88/fashion/3" width="44" alt="" />
+							</div>
+							<div class="item-inner">
+								<div class="item-title-row">
+									<div class="item-title">Don't Stop Me Now</div>
+								</div>
+								<div class="item-subtitle">Queen</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="#" class="item-link item-content">
+							<div class="item-media">
+								<img src="http://lorempixel.com/88/88/fashion/6" width="44" alt="" />
+							</div>
+							<div class="item-inner">
+								<div class="item-title-row">
+									<div class="item-title">Billie Jean</div>
+								</div>
+								<div class="item-subtitle">Michael Jackson</div>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="block-title">List Buttons</div>
+			<div class="list inset">
+				<ul>
+					<li>
+						<a href="#" class="item-link list-button">Button 1</a>
+					</li>
+					<li>
+						<a href="#" class="item-link list-button">Button 2</a>
+					</li>
+					<li>
+						<a href="#" class="item-link list-button">Button 3</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="block-title">List with Custom Layout</div>
+			<div class="list custom-list">
+				<ul>
+					<li>
+						<div class="item-content">
+							<div class="item-inner item-cell">
+								<div class="item-row bg-color-red-1">
+									<div class="item-cell">Cell 1-1</div>
+									<div class="item-cell">Cell 1-2</div>
+									<div class="item-cell">Cell 1-3</div>
+								</div>
+								<div class="item-row bg-color-green-1">
+									<div class="item-cell">Cell 2-1</div>
+									<div class="item-cell">Cell 2-2</div>
+								</div>
+								<div class="item-row bg-color-blue-1">
+									<div class="item-cell">Cell 3-1</div>
+									<div class="item-cell">
+										<div class="item-row">Cell 3-2</div>
+										<div class="item-row">Cell 3-3</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-inner item-cell">
+								<div class="item-row bg-color-blue-1">
+									<div class="item-cell">Cell 1-1</div>
+									<div class="item-cell">Cell 1-2</div>
+									<div class="item-cell">Cell 1-3</div>
+								</div>
+								<div class="item-row bg-color-green-1">
+									<div class="item-cell">Cell 2-1</div>
+									<div class="item-cell">Cell 2-2</div>
+								</div>
+								<div class="item-row bg-color-red-1">
+									<div class="item-cell">Cell 3-1</div>
+									<div class="item-cell">
+										<div class="item-row">Cell 3-2</div>
+										<div class="item-row">Cell 3-3</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+
+		</div>
+
+	</div>
+</template>
+
+<style scoped>
+	.fa-stack {
+		width: 2em;
+	}
+
+	.custom-list .item-row .item-cell {
+		box-sizing: border-box;
+		color: #000;
+		padding: 4px;
+		text-align: center;
+	}
+</style>

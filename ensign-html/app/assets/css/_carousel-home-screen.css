@@ -1,0 +1,70 @@
+
+/*----------------------------------------
+  Carousel Home Screen
+------------------------------------------*/
+.fullfixed{
+  position: relative;
+  z-index: 1;
+}
+.welcome-logo.index-welcome{
+  position: absolute;
+  z-index: 2;
+  margin-top: 0;
+  /* transform: translateX(50%) translateY(50%); */
+  /* height: 70vh; */
+  margin-top: 100px;
+  width: 100%;
+}
+.index-start{
+  text-align: center;
+  width: 100%;
+  display: inline-block;
+  position: absolute;
+  z-index: 2;
+  bottom: 0px;
+  padding-bottom: 50px;
+}
+.index-start .btn-large{
+  width: 80%;
+  margin: 0 10%;
+  z-index: 2;
+  position: relative;
+}
+.fullfixed.index-carousel .carousel.carousel-fullscreen .indicators{
+  bottom: 10px;
+}
+
+.index-carousel .carousel.carousel-fullscreen .carousel-item .item-content {
+  /* transform: translateX(0px) translateY(0%); */
+  opacity: 1;
+  /* top: 360px; */
+  bottom: 110px;
+  /* left: 0; */
+  position: absolute;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.wave-bg {
+    position: absolute;
+    bottom: 0px;
+    opacity: 0.7;
+    z-index: 1;
+    max-width: 100%;
+    width: 100%;
+    overflow: hidden;
+    height: 300px;
+}
+.wave-bg svg{
+  width: 100%;
+  vertical-align: top;
+}
+.wave-bg path{
+  fill: var(--primary-color);
+}
+.wave-bg div{
+  background: var(--primary-color);
+  width: 100%;
+  height: 100%;
+  vertical-align: top;
+}

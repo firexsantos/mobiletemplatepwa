@@ -1,0 +1,196 @@
+<template>
+	<div class="page no-navbar no-toolbar no-swipeback">
+
+		<div class="page-content">
+
+			<div class="block">
+				<p class="coming-soon-title">Coming Soon</p>
+			</div>
+
+			<div class="block">
+				<div class="countdown">
+					<div class="countdown-days">
+						<div class="countdown-value">{{countdown.days}}</div>
+						<div class="countdown-label">DAYS</div>
+					</div>
+					<div class="countdown-hours">
+						<div class="countdown-value">{{countdown.hours}}</div>
+						<div class="countdown-label">HOURS</div>
+					</div>
+					<div class="countdown-minutes">
+						<div class="countdown-value">{{countdown.minutes}}</div>
+						<div class="countdown-label">MINUTES</div>
+					</div>
+					<div class="countdown-seconds">
+						<div class="countdown-value">{{countdown.seconds}}</div>
+						<div class="countdown-label">SECONDS</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="block">
+				<button type="button" class="button button-big button-fill button-round" @click="subscribe">Notify Me</button>
+			</div>
+
+			<div class="block">
+				<a href="https://behance.com" target="_blank" class="external">
+					<i class="fa-stack">
+						<span class="fas fa-circle fa-stack-2x brand-color-behance"></span>
+						<span class="fab fa-behance fa-stack-1x fa-inverse"></span>
+					</i>
+				</a>
+				<a href="https://dribbble.com" target="_blank" class="external">
+					<i class="fa-stack">
+						<span class="fas fa-circle fa-stack-2x brand-color-dribbble"></span>
+						<span class="fab fa-dribbble fa-stack-1x fa-inverse"></span>
+					</i>
+				</a>
+				<a href="https://facebook.com" target="_blank" class="external">
+					<i class="fa-stack">
+						<span class="fas fa-circle fa-stack-2x brand-color-facebook"></span>
+						<span class="fab fa-facebook-f fa-stack-1x fa-inverse"></span>
+					</i>
+				</a>
+				<a href="https://github.com" target="_blank" class="external">
+					<i class="fa-stack">
+						<span class="fas fa-circle fa-stack-2x brand-color-github"></span>
+						<span class="fab fa-github fa-stack-1x fa-inverse"></span>
+					</i>
+				</a>
+				<a href="https://linkedin.com" target="_blank" class="external">
+					<i class="fa-stack">
+						<span class="fas fa-circle fa-stack-2x brand-color-linkedin"></span>
+						<span class="fab fa-linkedin-in fa-stack-1x fa-inverse"></span>
+					</i>
+				</a>
+				<a href="https://twitter.com" target="_blank" class="external">
+					<i class="fa-stack">
+						<span class="fas fa-circle fa-stack-2x brand-color-twitter"></span>
+						<span class="fab fa-twitter fa-stack-1x fa-inverse"></span>
+					</i>
+				</a>
+				<a href="https://youtube.com" target="_blank" class="external">
+					<i class="fa-stack">
+						<span class="fas fa-circle fa-stack-2x brand-color-youtube"></span>
+						<span class="fab fa-youtube fa-stack-1x fa-inverse"></span>
+					</i>
+				</a>
+			</div>
+
+		</div>
+
+	</div>
+</template>
+
+<style scoped>
+	.page-content {
+		align-items: stretch;
+		background-color: var(--oc-color-gray-9);
+		background-image: url('https://www.dropbox.com/s/5ichwg42h10bkye/HkUSY1pE.jpg?raw=1');
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		justify-content: flex-start;
+		text-align: center;
+	}
+
+	.page-content > :last-child {
+		margin-top: auto;
+	}
+
+	.block {
+		color: #FFFFFF !important;
+	}
+
+	.coming-soon-title {
+		font-size: 36px;
+		font-weight: bold;
+		text-align: center;
+	}
+
+	.countdown {
+		display: flex;
+		justify-content: space-around;
+		margin: 0 auto;
+		max-width: 640px;
+		text-align: center;
+	}
+
+	.countdown-value {
+		font-size: 36px;
+		font-weight: bold;
+	}
+
+	.countdown-label {
+		font-size: 12px;
+	}
+
+	.button {
+		margin: 0 auto;
+		width: 256px;
+	}
+</style>
+
+<script>
+	return {
+		data: function() {
+			return {
+				endDate: new Date(2019, 11, 22),
+				timerId: null,
+				countdown: {
+					days: null,
+					hours: null,
+					minutes: null,
+					seconds: null
+				}
+			}
+		},
+		methods: {
+			initializeCountdown: function() {
+				var self = this;
+				self.timerId = countdown(self.endDate, function(timespan) { self.updateCountdown(timespan); }, countdown.DAYS|countdown.HOURS|countdown.MINUTES|countdown.SECONDS);
+			},
+			updateCountdown: function(timespan) {
+				var self = this;
+				var countdownData = {
+					days: timespan.days,
+					hours: timespan.hours,
+					minutes: timespan.minutes,
+					seconds: timespan.seconds
+				};
+				self.$setState({
+					countdown: countdownData
+				});
+			},
+			subscribe: function() {
+				var self = this;
+				app.dialog.prompt(
+					'Please enter you email address.',
+					'Subscribe',
+					function(value) {
+						if (value != '') {
+							app.toast.show({
+								text: 'Thank you for subscribing us.',
+								position:'bottom',
+								cssClass: 'toast-round bg-color-green'
+							});
+						}
+					}
+				);
+			}
+		},
+		on: {
+			pageInit: function() {
+				var self = this;
+				self.initializeCountdown();
+			},
+			pageBeforeRemove: function() {
+				var self = this;
+				window.clearInterval(self.timerId);
+			}
+		}
+	}
+</script>

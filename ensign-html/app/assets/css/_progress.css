@@ -1,0 +1,18 @@
+/*----------------------------------------
+  Progress Bars
+------------------------------------------*/
+.progress-md{
+  height: 8px;
+}
+.progress-large{
+  height: 12px;
+}
+.progress{
+  background-color: rgba(var(--primary-rgb), 0.4);
+}
+.progress .determinate{
+  background-color: var(--primary-color);
+}
+.progress .indeterminate{
+  background-color: var(--primary-color);
+}

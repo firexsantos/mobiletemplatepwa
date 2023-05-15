@@ -1,0 +1,250 @@
+
+/*----------------------------------------
+  Carousel
+------------------------------------------*/
+.carousel.carousel-fullscreen{
+  position: relative;
+  top: 0px;
+  z-index: 997;
+}
+.fullfixed .carousel.carousel-fullscreen{
+  position: fixed;
+}
+.carousel.carousel-fullscreen .carousel-item .bg{
+  height: 100%;
+  width: 100%;
+  display: inline-block;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+}
+.carousel.carousel-fullscreen .carousel-item .item-content{
+  position: relative;
+  z-index: 2;
+  padding: 15%;
+  transition: 800ms;
+  transform: translateX(-100px);
+  opacity: 0;
+}
+.carousel.carousel-fullscreen .carousel-item.active .item-content{
+  transform: translateX(0px) translateY(0px);
+  opacity: 1;
+}
+.carousel.carousel-fullscreen .indicators{
+  position: absolute;
+  bottom: 60px;
+}
+[data-footer_menu="hide"] .carousel.carousel-fullscreen .indicators{
+  bottom: 40px;
+}
+.carousel .indicators .indicator-item{
+  height: 2px;
+  width: 36px;
+  margin: 4px;
+  border: 1px solid rgba(230,230,230,0.8);
+  background-color: transparent;
+  box-shadow: 2px 2px 2px rgba(33,33,33,.1);
+  border-radius: 2px;
+  opacity: 0.5;
+}
+.carousel .indicators .indicator-item.active{
+  background-color: rgba(230,230,230,0.8);
+  border: none;
+  opacity: 1;
+}
+.carousel.carousel-slider .carousel-item p {
+    font-size: 16px;
+    line-height: 26px;
+}
+.carousel .item-content{
+  z-index: 2;
+  position: relative;
+}
+
+/*----------------------------------------
+  Carousel - Basics
+------------------------------------------*/
+
+.carousel-basic{
+  height: 250px;
+}
+.carousel-basic .carousel-item{
+  height: 100%;
+  overflow: hidden;
+}
+.carousel-basic .indicators{
+  bottom: 15px;
+}
+.carousel .indicators{
+  bottom: 15px;
+}
+.carousel-full{
+  height: 230px;
+}
+.container .carousel .indicators{
+  bottom: 45px;
+}
+
+.carousel.carousel-h100 .carousel-item>img {
+  width: auto;
+  height: 100%;
+}
+
+.carousel.carousel-h100 .carousel-item{
+  height: 100%;
+  overflow: hidden;
+}
+
+.carousel.carousel-fullscreen.carousel-dashboard-home,
+.carousel.carousel-fullscreen.carousel-dashboard-aboutus{
+  background-color: rgba(0,0,0,.7);
+}
+
+
+/*----------------------------------------
+  Flickity Carousel
+------------------------------------------*/
+
+/* .gallery-cell { */
+  /* width: 36%; */
+  /* height: 200px; */
+  /* margin-right: 10px; */
+  /* background: #8C8; */
+  /* counter-increment: gallery-cell; */
+/* } */
+
+/* cell number */
+/* .gallery-cell:before {
+  display: block;
+  text-align: center;
+  content: counter(gallery-cell);
+  line-height: 200px;
+  font-size: 80px;
+  color: white;
+} */
+
+
+.flickity-slider{
+  top: -10px;
+}
+
+.flickity-slider .gallery-cell{
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+.row.ui-mediabox.prods.gallery,
+.row.ui-mediabox.blogs.gallery{
+  margin-bottom: 50px;
+}
+.row.ui-mediabox.blogs.gallery.js-flickity,
+.row.ui-mediabox.prods.gallery.js-flickity{
+  margin-bottom: 0;
+}
+
+.collection.activity.gallery .collection-item{
+  width: 70%;
+  margin-right: 15px;
+}
+
+.container.full ul.collection.activity.gallery{
+  margin-left: -5px;
+}
+
+.activity .flickity-slider{
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+
+/*-----------------------------------------------------
+  Horizontal Carousel of Collection Avatar list
+------------------------------------------------------*/
+
+.collection.gallery.horizontal .collection-item.avatar{
+  width: 220px;
+  padding-top: 15px;
+  position: relative;
+}
+
+.collection.gallery.horizontal .collection-item.avatar:not(:last-child):after{
+  content: "";
+  position: absolute;
+  height: 50px;
+  width: 1px;
+  background: #eeeeee;
+  top: 30px;
+  right: 10px;
+}
+
+.collection.gallery.horizontal .collection-item.avatar .chatlink{
+  padding-right: 10px;
+}
+
+
+.collection.gallery.vertical .collection-item.avatar{
+  width: 150px;
+  padding-top: 0px;
+  position: relative;
+  margin: 0;
+}
+.collection.gallery.vertical .collection-item.avatar .chatlink{
+  /* padding-right: 10px; */
+  padding: 5px 5px 15px 5px ;
+  height: auto;
+  max-height: none;
+  overflow: visible;
+  text-align: center;
+}
+
+.collection.gallery.vertical .collection-item.avatar :not(.circle-clipper) > .circle,
+.collection.gallery.vertical .collection-item.avatar a img{
+  height: 80px;
+  width: 80px;
+  position: relative;
+  left: auto;
+  margin: 15px 0;
+}
+
+.collection.gallery.vertical .collection-item.avatar .status:after{
+    top: 25px;
+    left: 108px;
+}
+
+.collection.gallery.vertical .collection-item.avatar:not(:last-child):after{
+  content: "";
+  position: absolute;
+  height: 130px;
+  width: 1px;
+  background: #eeeeee;
+  top: 20px;
+  right: 0px;
+}
+
+.container-carousel{
+  overflow: hidden;
+}
+/* .container-carousel .carousel.carousel-slider .carousel-item{
+  min-height: 350px;
+} */
+.carousel-dashboard-aboutus,
+.carousel-dashboard-home{
+  height: 400px !important;
+}
+
+.carousel-events-home{
+  height: 400px !important;
+}
+
+.carousel-products-home{
+  height: 400px !important;
+}
+
+.friends-carousel.home-carousel{
+  margin-top: -60px;
+}
+
+[data-site_mode="dark"] .collection.gallery.vertical .collection-item.avatar:not(:last-child):after{
+  background: rgba(0,0,0,.2);  
+  border: none;
+}

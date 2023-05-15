@@ -1,0 +1,471 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="components">Components</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="autocomplete">Autocomplete</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="autocomplete">Autocomplete</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<form class="searchbar searchbar-autocomplete">
+				<div class="searchbar-inner">
+					<div class="searchbar-input-wrap">
+						<input type="search" placeholder="Search" data-i18n="[placeholder]search" />
+						<i class="searchbar-icon"></i>
+						<span class="input-clear-button"></span>
+					</div>
+					<span class="searchbar-disable-button" data-i18n="cancel">Cancel</span>
+				</div>
+			</form>
+
+			<div class="block">
+				<p>Autocomplete provides suggestions while typing into the field.</p>
+				<p>It can be used as a dropdown or in standalone mode.</p>
+			</div>
+
+			<div class="block-title">Dropdown Autocomplete</div>
+			<div class="list no-hairlines">
+				<ul>
+					<li class="item-divider">Simple</li>
+					<li>
+						<div class="item-content item-input inline-label">
+							<div class="item-inner">
+								<div class="item-title item-label">Country</div>
+								<div class="item-input-wrap">
+									<input type="text" class="autocomplete-dropdown-simple" placeholder="Type Here" />
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="item-divider">Expanded Input</li>
+					<li>
+						<div class="item-content item-input inline-label">
+							<div class="item-inner">
+								<div class="item-title item-label">Country</div>
+								<div class="item-input-wrap">
+									<input type="text" class="autocomplete-dropdown-expanded-input" placeholder="Type Here" />
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="item-divider">AJAX</li>
+					<li>
+						<div class="item-content item-input inline-label">
+							<div class="item-inner">
+								<div class="item-title item-label">Country</div>
+								<div class="item-input-wrap">
+									<input type="text" class="autocomplete-dropdown-ajax" placeholder="Type Here" />
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="item-divider">Typeahead</li>
+					<li>
+						<div class="item-content item-input inline-label">
+							<div class="item-inner">
+								<div class="item-title item-label">Country</div>
+								<div class="item-input-wrap">
+									<input type="text" class="autocomplete-dropdown-typeahead" placeholder="Type Here" />
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="item-divider">AJAX + Typeahead</li>
+					<li>
+						<div class="item-content item-input inline-label">
+							<div class="item-inner">
+								<div class="item-title item-label">Country</div>
+								<div class="item-input-wrap">
+									<input type="text" class="autocomplete-dropdown-ajax-typeahead" placeholder="Type Here" />
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+
+			<div class="block-title">Standalone Autocomplete</div>
+			<div class="list no-hairlines-between">
+				<ul>
+					<li class="item-divider">Page</li>
+					<li>
+						<a href="#" id="autocomplete-standalone-page" class="item-link">
+							<div class="item-content">
+								<input type="hidden" />
+								<div class="item-inner">
+									<div class="item-title">Country</div>
+									<div class="item-after"></div>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li class="item-divider">Popup</li>
+					<li>
+						<a href="#" id="autocomplete-standalone-popup" class="item-link">
+							<div class="item-content">
+								<input type="hidden" />
+								<div class="item-inner">
+									<div class="item-title">Country</div>
+									<div class="item-after"></div>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li class="item-divider">Multiple Values</li>
+					<li>
+						<a href="#" id="autocomplete-standalone-multiple-values" class="item-link">
+							<div class="item-content">
+								<input type="hidden" />
+								<div class="item-inner">
+									<div class="item-title">Countries</div>
+									<div class="item-after"></div>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li class="item-divider">AJAX</li>
+					<li>
+						<a href="#" id="autocomplete-standalone-ajax" class="item-link">
+							<div class="item-content">
+								<input type="hidden" />
+								<div class="item-inner">
+									<div class="item-title">Country</div>
+									<div class="item-after"></div>
+								</div>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+
+		</div>
+
+	</div>
+</template>
+
+<script>
+	return {
+		data: function() {
+			return {
+				countries: null
+			}
+		},
+		methods: {
+			loadJson: function() {
+				var self = this;
+				app.request.json(
+					'assets/custom/dataset/countries.json',
+					function(data) {
+						self.$setState({
+							countries: data
+						});
+					}
+				);
+			},
+			initializeAutocompleteSearchbar: function() {
+				var self = this;
+				var searchbar = app.searchbar.create({
+					el: '.searchbar-autocomplete',
+					customSearch: true
+				});
+				var autocompleteSearchbar = app.autocomplete.create({
+					inputEl: '.searchbar-autocomplete input[type=search]',
+					openIn: 'dropdown',
+					dropdownPlaceholderText: 'Type Country Name',
+					source: function(query, render) {
+						var results = [];
+						if (query.length == 0) {
+							render(results);
+							return;
+						}
+						for (var i = 0; i < self.countries.length; i++) {
+							if (app.utils.removeDiacritics(self.countries[i].name).toLowerCase().indexOf(query.toLowerCase()) >= 0) {
+								results.push(self.countries[i].name);
+							}
+						}
+						render(results);
+					}
+				});
+			},
+			initializeAutocompleteDropdownSimple: function() {
+				var self = this;
+				var autocompleteDropdownSimple = app.autocomplete.create({
+					inputEl: '.autocomplete-dropdown-simple',
+					openIn: 'dropdown',
+					dropdownPlaceholderText: 'Type Country Name',
+					source: function(query, render) {
+						var results = [];
+						if (query.length == 0) {
+							render(results);
+							return;
+						}
+						for (var i = 0; i < self.countries.length; i++) {
+							if (app.utils.removeDiacritics(self.countries[i].name).toLowerCase().indexOf(query.toLowerCase()) >= 0) {
+								results.push(self.countries[i].name);
+							}
+						}
+						render(results);
+					}
+				});
+			},
+			initializeAutocompleteDropdownExpandedInput: function() {
+				var self = this;
+				var autocompleteDropdownExpandedInput = app.autocomplete.create({
+					inputEl: '.autocomplete-dropdown-expanded-input',
+					openIn: 'dropdown',
+					dropdownPlaceholderText: 'Type Country Name',
+					expandInput: true,
+					source: function(query, render) {
+						var results = [];
+						if (query.length == 0) {
+							render(results);
+							return;
+						}
+						for (var i = 0; i < self.countries.length; i++) {
+							if (app.utils.removeDiacritics(self.countries[i].name).toLowerCase().indexOf(query.toLowerCase()) >= 0) {
+								results.push(self.countries[i].name);
+							}
+						}
+						render(results);
+					}
+				});
+			},
+			initializeAutocompleteDropdownAjax: function() {
+				var self = this;
+				var autocompleteDropdownAjax = app.autocomplete.create({
+					inputEl: '.autocomplete-dropdown-ajax',
+					openIn: 'dropdown',
+					dropdownPlaceholderText: 'Type Country Name',
+					valueProperty: 'name',
+					textProperty: 'name',
+					source: function(query, render) {
+						var autocomplete = this;
+						var results = [];
+						if (query.length == 0) {
+							render(results);
+							return;
+						}
+						autocomplete.preloaderShow();
+						app.request.json(
+							'assets/custom/dataset/countries.json',
+							function(data) {
+								for (var i = 0; i < data.length; i++) {
+									if (app.utils.removeDiacritics(data[i].name).toLowerCase().indexOf(query.toLowerCase()) >= 0) {
+										results.push(data[i]);
+        					}
+								}
+								autocomplete.preloaderHide();
+								render(results);
+							}
+						);
+					}
+				});
+			},
+			initializeAutocompleteDropdownTypeahead: function() {
+				var self = this;
+				var autocompleteDropdownTypeahead = app.autocomplete.create({
+					inputEl: '.autocomplete-dropdown-typeahead',
+					openIn: 'dropdown',
+					dropdownPlaceholderText: 'Type Country Name',
+					typeahead: true,
+					source: function(query, render) {
+						var results = [];
+						if (query.length == 0) {
+							render(results);
+							return;
+						}
+						for (var i = 0; i < self.countries.length; i++) {
+							if (app.utils.removeDiacritics(self.countries[i].name).toLowerCase().indexOf(query.toLowerCase()) == 0) {
+								results.push(self.countries[i].name);
+							}
+						}
+						render(results);
+					}
+				});
+			},
+			initializeAutocompleteDropdownAjaxTypeahead: function() {
+				var self = this;
+				var autocompleteDropdownAjaxTypeahead = app.autocomplete.create({
+					inputEl: '.autocomplete-dropdown-ajax-typeahead',
+					openIn: 'dropdown',
+					dropdownPlaceholderText: 'Type Country Name',
+					valueProperty: 'name',
+					textProperty: 'name',
+					typeahead: true,
+					source: function(query, render) {
+						var autocomplete = this;
+						var results = [];
+						if (query.length == 0) {
+							render(results);
+							return;
+						}
+						autocomplete.preloaderShow();
+						app.request.json(
+							'assets/custom/dataset/countries.json',
+							function(data) {
+								for (var i = 0; i < data.length; i++) {
+									if (app.utils.removeDiacritics(data[i].name).toLowerCase().indexOf(query.toLowerCase()) == 0) {
+										results.push(data[i]);
+        					}
+								}
+								autocomplete.preloaderHide();
+								render(results);
+							}
+						);
+					}
+				});
+			},
+			initializeAutocompleteStandalonePage: function() {
+				var self = this;
+				var autocompleteStandalonePage = app.autocomplete.create({
+					openerEl: '#autocomplete-standalone-page',
+					openIn: 'page',
+					source: function(query, render) {
+						var results = [];
+						if (query.length == 0) {
+							render(results);
+							return;
+						}
+						for (var i = 0; i < self.countries.length; i++) {
+							if (app.utils.removeDiacritics(self.countries[i].name).toLowerCase().indexOf(query.toLowerCase()) >= 0) {
+								results.push(self.countries[i].name);
+							}
+						}
+						render(results);
+					},
+					on: {
+						change: function(value) {
+							self.$('#autocomplete-standalone-page').find('input').val(value[0]);
+							self.$('#autocomplete-standalone-page').find('.item-after').text(value[0]);
+						}
+					}
+				});
+			},
+			initializeAutocompleteStandalonePopup: function() {
+				var self = this;
+				var autocompleteStandalonePopup = app.autocomplete.create({
+					openerEl: '#autocomplete-standalone-popup',
+					openIn: 'popup',
+					source: function(query, render) {
+						var results = [];
+						if (query.length == 0) {
+							render(results);
+							return;
+						}
+						for (var i = 0; i < self.countries.length; i++) {
+							if (app.utils.removeDiacritics(self.countries[i].name).toLowerCase().indexOf(query.toLowerCase()) >= 0) {
+								results.push(self.countries[i].name);
+							}
+						}
+						render(results);
+					},
+					on: {
+						change: function(value) {
+							self.$('#autocomplete-standalone-popup').find('input').val(value[0]);
+							self.$('#autocomplete-standalone-popup').find('.item-after').text(value[0]);
+						}
+					}
+				});
+			},
+			initializeAutocompleteStandaloneMultipleValues: function() {
+				var self = this;
+				var autocompleteStandaloneMultipleValues = app.autocomplete.create({
+					openerEl: '#autocomplete-standalone-multiple-values',
+					openIn: 'popup',
+					multiple: true,
+					source: function(query, render) {
+						var results = [];
+						if (query.length == 0) {
+							render(results);
+							return;
+						}
+						for (var i = 0; i < self.countries.length; i++) {
+							if (app.utils.removeDiacritics(self.countries[i].name).toLowerCase().indexOf(query.toLowerCase()) >= 0) {
+								results.push(self.countries[i].name);
+							}
+						}
+						render(results);
+					},
+					on: {
+						change: function(value) {
+							self.$('#autocomplete-standalone-multiple-values').find('input').val(value.join(', '));
+							self.$('#autocomplete-standalone-multiple-values').find('.item-after').text(value.join(', '));
+						}
+					}
+				});
+			},
+			initializeAutocompleteStandaloneAjax: function() {
+				var self = this;
+				var autocompleteStandaloneAjax = app.autocomplete.create({
+					openerEl: '#autocomplete-standalone-ajax',
+					openIn: 'popup',
+					multiple: true,
+					valueProperty: 'id',
+					textProperty: 'name',
+					source: function(query, render) {
+						var autocomplete = this;
+						var results = [];
+						if (query.length == 0) {
+							render(results);
+							return;
+						}
+						autocomplete.preloaderShow();
+						app.request.json(
+							'assets/custom/dataset/countries.json',
+							function(data) {
+								for (var i = 0; i < data.length; i++) {
+									if (app.utils.removeDiacritics(data[i].name).toLowerCase().indexOf(query.toLowerCase()) >= 0) {
+										results.push(data[i]);
+        					}
+								}
+								autocomplete.preloaderHide();
+								render(results);
+							}
+						);
+					},
+					on: {
+						change: function(value) {
+							var inputValue = [];
+							var itemText = [];
+							for (var i = 0; i < value.length; i++) {
+								inputValue.push(value[i].id);
+								itemText.push(value[i].name);
+							}
+							self.$('#autocomplete-standalone-ajax').find('input').val(inputValue.join(', '));
+							self.$('#autocomplete-standalone-ajax').find('.item-after').text(itemText.join(', '));
+						}
+					}
+				});
+			}
+		},
+		on: {
+			pageInit: function() {
+				var self = this;
+				self.loadJson();
+				self.initializeAutocompleteSearchbar();
+				self.initializeAutocompleteDropdownSimple();
+				self.initializeAutocompleteDropdownExpandedInput();
+				self.initializeAutocompleteDropdownAjax();
+				self.initializeAutocompleteDropdownTypeahead();
+				self.initializeAutocompleteDropdownAjaxTypeahead();
+				self.initializeAutocompleteStandalonePage();
+				self.initializeAutocompleteStandalonePopup();
+				self.initializeAutocompleteStandaloneMultipleValues();
+				self.initializeAutocompleteStandaloneAjax();
+			}
+		}
+	}
+</script>

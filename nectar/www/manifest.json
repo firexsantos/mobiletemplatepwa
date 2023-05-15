@@ -1,0 +1,22 @@
+{
+	"name": "Nectar Lite",
+	"short_name": "Nectar Lite",
+	"description": "Mobile Web App Kit",
+	"start_url": ".",
+	"display": "standalone",
+	"orientation": "portrait",
+	"theme_color": "#343A40",
+	"background_color": "#343A40",
+	"icons": [
+		{
+			"src": "assets/custom/favicon/android-chrome-icon-192x192.png",
+			"sizes": "192x192",
+			"type": "image/png"
+		},
+		{
+			"src": "assets/custom/favicon/android-chrome-icon-512x512.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		}
+	]
+}

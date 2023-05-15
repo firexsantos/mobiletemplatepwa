@@ -1,0 +1,269 @@
+<template>
+	<div class="page no-navbar no-toolbar no-swipeback">
+
+		<div class="page-content">
+
+			<div class="block">
+				<p>Please enter the OTP we have sent on your mobile number.</p>
+			</div>
+
+			<div class="block">{{renderDigitsContainer()}}</div>
+
+			<form name="otp-verification" action="#" method="POST" enctype="multipart/form-data">
+      	<input type="hidden" name="otp" />
+    	</form>
+
+			<div class="block align-self-center">
+				<p>Didn't receive the OTP?</p>
+				<a href="#" class="button button-big button-fill button-round" data-i18n="resend" @click="resendOtp">Resend</a>
+			</div>
+
+     	<div class="numpad"></div>
+
+		</div>
+
+	</div>
+</template>
+
+<style scoped>
+	.page-content {
+		align-items: stretch;
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		justify-content: flex-start;
+		text-align: center;
+	}
+
+	.numpad {
+		margin: 0 auto;
+		margin-top: auto;
+		max-width: 640px;
+		width: 100%;
+	}
+
+	.otp-digit {
+		align-items: center;
+		background-color: #F5F5F5;
+		color: #222222;
+		border-radius: 50%;
+		display: inline-flex;
+		font-size: 24px;
+		font-weight: bold;
+		height: 32px;
+		justify-content: center;
+		margin: 0 4px;
+		padding: 8px;
+		vertical-align: top;
+		width: 32px;
+	}
+
+	.otp-digit.filled {
+		color: #FFFFFF;
+	}
+
+	.ios {{this}} .otp-digit.filled {
+		background-color: var(--ios-color-blue);
+	}
+
+	.ios .color-theme-red {{this}} .otp-digit.filled {
+		background-color: var(--ios-color-red);
+	}
+
+	.ios .color-theme-green {{this}} .otp-digit.filled {
+		background-color: var(--ios-color-green);
+	}
+
+	.ios .color-theme-blue {{this}} .otp-digit.filled {
+		background-color: var(--ios-color-blue);
+	}
+
+	.ios .color-theme-pink {{this}} .otp-digit.filled {
+		background-color: var(--ios-color-pink);
+	}
+
+	.ios .color-theme-yellow {{this}} .otp-digit.filled {
+		background-color: var(--ios-color-yellow);
+	}
+
+	.ios .color-theme-orange {{this}} .otp-digit.filled {
+		background-color: var(--ios-color-orange);
+	}
+
+	.ios .color-theme-gray {{this}} .otp-digit.filled {
+		background-color: var(--ios-color-gray);
+	}
+
+	.ios .color-theme-black {{this}} .otp-digit.filled {
+		background-color: var(--ios-color-black);
+	}
+
+	.md {{this}} .otp-digit.filled {
+		background-color: var(--md-color-blue);
+	}
+
+	.md .color-theme-red {{this}} .otp-digit.filled {
+		background-color: var(--md-color-red);
+	}
+
+	.md .color-theme-green {{this}} .otp-digit.filled {
+		background-color: var(--md-color-green);
+	}
+
+	.md .color-theme-blue {{this}} .otp-digit.filled {
+		background-color: var(--md-color-blue);
+	}
+
+	.md .color-theme-pink {{this}} .otp-digit.filled {
+		background-color: var(--md-color-pink);
+	}
+
+	.md .color-theme-yellow {{this}} .otp-digit.filled {
+		background-color: var(--md-color-yellow);
+	}
+
+	.md .color-theme-orange {{this}} .otp-digit.filled {
+		background-color: var(--md-color-orange);
+	}
+
+	.md .color-theme-gray {{this}} .otp-digit.filled {
+		background-color: var(--md-color-gray);
+	}
+
+	.md .color-theme-black {{this}} .otp-digit.filled {
+		background-color: var(--md-color-black);
+	}
+
+	.theme-dark {{this}} .keypad-buttons {
+		color: #FFFFFF;
+	}
+
+	.keypad-button {
+		background-color: transparent;
+	}
+
+	.keypad-button:before {
+		display: none;
+	}
+
+	.keypad-button:after {
+		display: none;
+	}
+
+	.keypad-button-letters {
+		display: none;
+	}
+
+	.theme-dark {{this}} .keypad-button:not(.keypad-dummy-button).active-state {
+		background-color: #292929;
+	}
+
+	.theme-dark {{this}} i.icon-keypad-delete {
+		background-image: url("data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 16'><path d='M18,0h-8C8.9,0,7.9,0.5,7.1,1.2c0,0,0,0,0,0L1,7.2C0.6,7.7,0.6,8.4,1,8.8l4.9,4.7L7,14.6c0,0,0,0,0,0c0.7,0.9,1.8,1.4,3,1.4 h8c2.2,0,4-1.8,4-4V4C22,1.8,20.2,0,18,0z M17.3,11.2l-0.7,0.7l-3.2-3.2l-3.2,3.2l-0.7-0.7L12.8,8L9.6,4.8l0.7-0.7l3.2,3.2l3.2-3.2 l0.7,0.7L14.2,8L17.3,11.2z' fill='%23FFFFFF'/></svg>");
+	}
+</style>
+
+<script>
+	return {
+		data: function() {
+			return {
+				digitsLength: 4,
+				nextScreen: '/home',
+				notification: null,
+				numpadEl: null,
+				validOtp: null,
+			}
+		},
+		methods: {
+			renderDigitsContainer: function() {
+				var self = this;
+				var container = '';
+				for (var i = 1; i <= self.digitsLength; i++) {
+					container += '<span class="otp-digit"></span>';
+				}
+				return container;
+			},
+			initializeNumpad: function() {
+				var self = this;
+				self.numpadEl = app.keypad.create({
+					containerEl: '.numpad',
+					dotButton: false,
+					inputEl: 'input[name=otp]',
+					toolbar: false,
+					valueMaxLength: self.digitsLength,
+					on: {
+						change: function(keypad, value) {
+							self.validateOtp(value);
+						}
+					}
+				});
+			},
+			validateOtp: function(value) {
+				var self = this;
+				var value = value.toString();
+				var length = value.length;
+				self.$('.otp-digit').text('');
+				self.$('.otp-digit').removeClass('filled');
+
+				if (length >= 1 && length <= self.digitsLength) {
+					for (var i = 1; i <= length; i++) {
+						self.$('.otp-digit:nth-child(' + i + ')').text(value.charAt(i-1));
+						self.$('.otp-digit:nth-child(' + i + ')').addClass('filled');
+					}
+				}
+
+				if (length == self.digitsLength) {
+					if (value == self.validOtp) {
+						app.toast.show({
+							text: 'OTP has been verified.',
+							position: 'bottom',
+							cssClass: 'toast-round bg-color-green'
+						});
+						app.views.current.router.navigate(self.nextScreen);
+					}
+					else {
+						app.toast.show({
+							text: 'OTP is invalid.',
+							position: 'bottom',
+							cssClass: 'toast-round bg-color-red'
+						});
+					}
+					self.numpadEl.setValue('');
+				}
+			},
+			resendOtp: function() {
+				var self = this;
+				self.numpadEl.setValue('');
+				self.generateOtp(self.digitsLength);
+				self.showOtpNotification();
+			},
+			generateOtp: function(length) {
+				var self = this;
+				self.$setState({
+					validOtp: Math.floor(Math.pow(10, length-1) + Math.random() * (Math.pow(10, length) - Math.pow(10, length-1) - 1))
+				});
+			},
+			showOtpNotification: function() {
+				var self = this;
+				self.notification = app.notification.create({
+					text: 'Your OTP is ' + self.validOtp,
+					closeTimeout: 5000,
+					closeButton: true
+				});
+				self.notification.open();
+			}
+		},
+		on: {
+			pageInit: function() {
+				var self = this;
+				self.generateOtp(self.digitsLength);
+				self.showOtpNotification();
+				self.initializeNumpad();
+			},
+			pageBeforeRemove: function() {
+				var self = this;
+				self.notification.destroy();
+			}
+		}
+	}
+</script>

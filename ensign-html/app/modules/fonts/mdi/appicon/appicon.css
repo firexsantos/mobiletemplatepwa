@@ -1,0 +1,213 @@
+@font-face {
+  font-family: 'appicon';
+  src:  url('appicon8a13.eot?hmcgh6');
+  src:  url('appicon8a13.eot?hmcgh6#iefix') format('embedded-opentype'),
+    url('appicon8a13.ttf?hmcgh6') format('truetype'),
+    url('appicon8a13.woff?hmcgh6') format('woff'),
+    url('appicon8a13.svg?hmcgh6#appicon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="app-icon-"], [class*=" app-icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'appicon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app-icon-equalizer:before {
+  content: "\e921";
+}
+.app-icon-settings:before {
+  content: "\e921";
+}
+.app-icon-options:before {
+  content: "\e921";
+}
+.app-icon-wrench:before {
+  content: "\e922";
+}
+.app-icon-settings2:before {
+  content: "\e922";
+}
+.app-icon-options1:before {
+  content: "\e922";
+}
+.app-icon-preferences:before {
+  content: "\e922";
+}
+.app-icon-cog2:before {
+  content: "\e923";
+}
+.app-icon-gear:before {
+  content: "\e923";
+}
+.app-icon-settings3:before {
+  content: "\e923";
+}
+.app-icon-generate:before {
+  content: "\e923";
+}
+.app-icon-make:before {
+  content: "\e923";
+}
+.app-icon-options2:before {
+  content: "\e923";
+}
+.app-icon-icon1:before {
+  content: "\e920";
+}
+.app-icon-wrench1:before {
+  content: "\e991";
+}
+.app-icon-equalizer3:before {
+  content: "\e992";
+}
+.app-icon-equalizer2:before {
+  content: "\e993";
+}
+.app-icon-cog4:before {
+  content: "\e994";
+}
+.app-icon-cogs:before {
+  content: "\e995";
+}
+.app-icon-magic-wand:before {
+  content: "\e997";
+}
+.app-icon-contrast:before {
+  content: "\e9d5";
+}
+.app-icon-brightness-contrast:before {
+  content: "\e9d6";
+}
+.app-icon-arrow-left2:before {
+  content: "\ea40";
+}
+.app-icon-equalizer1:before {
+  content: "\e924";
+}
+.app-icon-settings1:before {
+  content: "\e924";
+}
+.app-icon-adjust:before {
+  content: "\e924";
+}
+.app-icon-tools-2:before {
+  content: "\e91d";
+}
+.app-icon-settings442:before {
+  content: "\e91e";
+}
+.app-icon-settings11:before {
+  content: "\e91f";
+}
+.app-icon-cog3:before {
+  content: "\e91f";
+}
+.app-icon-preferences1:before {
+  content: "\e91f";
+}
+.app-icon-cog:before {
+  content: "\e925";
+}
+.app-icon-keyboard_arrow_left:before {
+  content: "\e900";
+}
+.app-icon-arrow-thin-left:before {
+  content: "\e901";
+}
+.app-icon-setting1:before {
+  content: "\e903";
+}
+.app-icon-setting2:before {
+  content: "\e904";
+}
+.app-icon-setting32:before {
+  content: "\e905";
+}
+.app-icon-setting42:before {
+  content: "\e906";
+}
+.app-icon-setting52:before {
+  content: "\e907";
+}
+.app-icon-setting71:before {
+  content: "\e908";
+}
+.app-icon-setting8:before {
+  content: "\e909";
+}
+.app-icon-setting9:before {
+  content: "\e90a";
+}
+.app-icon-chevron-left-outline:before {
+  content: "\e902";
+}
+.app-icon-mode41:before {
+  content: "\e90b";
+}
+.app-icon-mode51:before {
+  content: "\e90c";
+}
+.app-icon-mode11:before {
+  content: "\e90d";
+}
+.app-icon-mode21:before {
+  content: "\e90e";
+}
+.app-icon-mode31:before {
+  content: "\e90f";
+}
+.app-icon-menu1:before {
+  content: "\e910";
+}
+.app-icon-menu13:before {
+  content: "\e911";
+}
+.app-icon-menu2:before {
+  content: "\e912";
+}
+.app-icon-menu23:before {
+  content: "\e913";
+}
+.app-icon-menu3:before {
+  content: "\e914";
+}
+.app-icon-menu4:before {
+  content: "\e915";
+}
+.app-icon-menu43:before {
+  content: "\e916";
+}
+.app-icon-menu5:before {
+  content: "\e917";
+}
+.app-icon-menu53:before {
+  content: "\e918";
+}
+.app-icon-menu6:before {
+  content: "\e919";
+}
+.app-icon-menu61:before {
+  content: "\e91a";
+}
+.app-icon-menu7:before {
+  content: "\e91b";
+}
+.app-icon-menu72:before {
+  content: "\e91c";
+}
+.app-icon-cog1:before {
+  content: "\e926";
+}

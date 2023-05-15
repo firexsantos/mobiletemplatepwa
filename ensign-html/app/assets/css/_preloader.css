@@ -1,0 +1,66 @@
+
+/*----------------------------------------
+  Preloader
+------------------------------------------*/
+
+
+/*----------------------------------------
+  type 2
+------------------------------------------*/
+
+@keyframes configure-clockwise {
+  0% {
+    transform: rotate(0);
+  }
+  25% {
+    transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(270deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes configure-xclockwise {
+  0% {
+    transform: rotate(45deg);
+  }
+  25% {
+    transform: rotate(-45deg);
+  }
+  50% {
+    transform: rotate(-135deg);
+  }
+  75% {
+    transform: rotate(-225deg);
+  }
+  100% {
+    transform: rotate(-315deg);
+  }
+}
+
+.preloader-wrapper .configure-border-1 {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  border: 2px solid var(--primary-color);
+  animation: configure-clockwise 3s ease-in-out 0s infinite alternate;
+  border-radius: var(--border-radius);
+}
+
+.preloader-wrapper .configure-border-2 {
+  width: 50px;
+  height: 50px;
+  border: 2px solid var(--accent-color);
+  transform: rotate(45deg);
+  animation: configure-xclockwise 3s ease-in-out 0s infinite alternate;
+  border-radius: var(--border-radius);
+}
+
+
+

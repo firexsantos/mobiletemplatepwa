@@ -1,0 +1,254 @@
+/*----------------------------------------
+  Icon Boxes
+------------------------------------------*/
+.icon-block {
+  padding: 0 0px;
+  margin-bottom: 15px;
+  display: inline-block;
+}
+.icon-block i {
+  font-size: 48px;
+}
+
+.icon-block.circular i {
+  /* border-radius: var(--border-radius-50percent); */
+  border-radius: 50%;
+  height: 70px;
+  width: 70px;
+  display: inline-block;
+  line-height: 70px;
+  font-size: 32px;
+  background-color: #ffffff;
+}
+
+.icon-block.boxed i {
+  border-radius: 0%;
+  height: 70px;
+  width: 70px;
+  display: inline-block;
+  line-height: 70px;
+  font-size: 32px;
+  background-color: #ffffff;
+}
+
+.icon-block.bordered i {
+  border-radius: 0%;
+  border: 2px dashed rgba(var(--primary-rgb), 0.4);
+  height: 70px;
+  width: 70px;
+  display: inline-block;
+  line-height: 70px;
+  font-size: 32px;
+}
+
+/*Blocks card style*/
+.icon-block.block {
+  text-align: center;
+  background: #ffffff;
+  padding: 15px;
+  border-radius: var(--border-radius);
+  margin-bottom: 24px;
+  width: 100%;
+}
+.icon-block.block.left {
+  text-align: left;
+}
+
+/*Overlay style*/
+
+.icon-block.overlay .icon-area{
+  margin-bottom: 25px;
+}
+
+.icon-block.overlay {
+  text-align: center;
+  background: #ffffff;
+  padding: 15px;
+  border-radius: var(--border-radius);
+  margin-bottom: 80px;
+  position: relative;
+  width: 100%;
+}
+
+.icon-block.overlay i {
+  position: absolute;
+  margin-left: -35px;
+  top: -40px;
+  border-radius: var(--border-radius-50percent);
+  height: 70px;
+  width: 70px;
+  display: inline-block;
+  line-height: 70px;
+  font-size: 42px;
+  background-color: #ffffff;
+}
+
+.icon-block.overlay.primary-icon i{
+  background-color: var(--primary-color);
+  color: #f5f5f5;
+  height: 60px;
+  width: 60px;
+  line-height: 60px;
+  font-size: 36px;
+  margin-left: -30px;
+}
+
+.icon-block.overlay.primary-icon{
+  top: 40px;
+  margin-bottom: 70px;
+  padding: 5px;
+}
+.icon-block.overlay.primary-icon .title-area{
+  margin-top: 27px;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+.icon-block.overlay.primary-icon .text-area{
+  margin-top: 0;
+  font-size: 14px;
+}
+
+.contain-hc.social-home .container .icon-block.overlay{
+  top: 40px;
+  margin-bottom: 70px;
+}
+
+/*small block*/
+.icon-block.block-small {
+  text-align: left;
+  background: #ffffff;
+  padding: 10px;
+  border-radius: var(--border-radius);
+  margin-bottom: 15px;
+  position: relative;
+  width: 100%;
+}
+.icon-block.block-small .icon {
+  float: left;
+  height: 36px;
+  width: 36px;
+  margin: 5px 12px 0 0;
+}
+.icon-block.block-small i {
+  font-size: 36px;
+  line-height: 36px;
+  margin: 0;
+  height: 36px;
+  width: 36px;
+  display: inline-block;
+}
+.icon-block.block-small .tagline {
+  font-size: 12px;
+  opacity: 0.8;
+}
+.icon-block.block-small .title,
+.icon-block.block-small .tagline {
+  white-space: nowrap;
+}
+
+.icon-block.block-small.center{
+  text-align: center;
+}
+.icon-block.block-small.center .icon {
+  float: none;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.icon-block.block-small.circle .icon {
+  height: 40px;
+  width: 40px;
+  margin-top: 3px;
+}       
+.icon-block.block-small.center.circle .icon {
+  width: 100%;
+}
+
+.icon-block.block-small.circle i{
+  line-height: 40px;
+  border-radius: var(--border-radius-50percent);
+  background: var(--primary-color);
+  color: #ffffff;
+  font-size: 22px;
+  text-align: center;
+  height: 40px;
+  width: 40px;
+}
+
+
+.col.s12.m12.l3:last-child .icon-block.overlay {
+  margin-bottom: 20px;
+}
+.icon-block.block-small{
+  overflow: hidden;
+}
+
+.icon-block .title-area{
+  white-space: nowrap;
+}
+.icon-block .text-area{
+  max-height: 125px;
+  overflow: hidden;
+}
+
+/*----------------------------------------
+  App Settings
+----------------------------------------*/
+.settings-row{
+  margin: 0 -15px;
+}
+.setting-box{
+  background-color: #ffffff;
+  padding: 0 15px 15px 15px;
+  margin-bottom: 65px;
+  border-radius: var(--border-radius);
+}
+.setting-box i{
+    font-size: 32px;
+    margin: -40px 0 10px 0;
+    line-height: 60px;
+    display: inline-block;
+    border-radius: var(--border-radius-50percent);
+    background: var(--primary-color);
+    color: #ffffff;
+    height: 60px;
+    width: 60px;
+}
+.setting-box h6{
+  margin: 0px;
+    color: #455A64;
+    font-size: 18px;
+    white-space: nowrap;
+}
+.setting-box:hover{
+  background-color: #f5f5f5;
+}
+
+
+/*----------------------------------------
+  Site - Dark Mode - Iconboxes
+----------------------------------------*/
+[data-site_mode='dark'] .setting-box:hover,
+[data-site_mode='dark'] .icon-block.block-small,
+[data-site_mode='dark'] .icon-block.block,
+[data-site_mode='dark'] .icon-block.overlay {
+  background-color: #455A64;
+  color: #f5f5f5;
+}
+[data-site_mode='dark'] .icon-block.overlay i,
+[data-site_mode='dark'] .icon-block.boxed i,
+[data-site_mode='dark'] .icon-block.circular i{
+  background-color: var(--primary-color);  
+  color: #f5f5f5;
+}
+[data-site_mode='dark'] .icon-block i,
+[data-site_mode='dark'] .icon-block.block-small i{
+  color: #f5f5f5;
+}
+/* [data-site_mode='dark'] .icon-block.circle i {
+  color: #455A64;
+} */
+
+[data-site_mode='dark'].contain-hc.social-home .container .icon-block.overlay{
+  background-color: #455A64;
+}

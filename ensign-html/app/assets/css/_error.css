@@ -1,0 +1,38 @@
+
+/*----------------------------------------
+  Error Pages 
+----------------------------------------*/
+.error-code{
+  font-size: 140px;
+  margin-bottom: 30px;
+}
+.login-area.error-page{
+  padding: 0px 15px 0 15px;
+  position: absolute;
+  transform: translate(0%, 50%);
+  width: 100%;
+}
+.error-page h3{
+  font-size: 22px;
+}
+.error-page h6{
+  font-size: 15px;
+}
+.error-page.offline .error-code{
+  font-size: 90px;
+}
+
+/*-----------------------------
+  Error Code Style
+-----------------------------*/
+.error-code{
+  color: #fcedd8;
+  text-shadow: 5px 5px 0px rgba(var(--primary-rgb),1), 
+              10px 10px 0px rgba(var(--primary-rgb),0.8), 
+              15px 15px 0px rgba(var(--primary-rgb),0.5), 
+              20px 20px 0px rgba(var(--primary-rgb),0.2);
+  /* text-shadow: 5px 5px 0px rgba(55,55,55,0.8), 
+              10px 10px 0px rgba(55,55,55,0.6), 
+              15px 15px 0px rgba(55,55,55,0.3), 
+              20px 20px 0px rgba(55,55,55,0.1); */
+}

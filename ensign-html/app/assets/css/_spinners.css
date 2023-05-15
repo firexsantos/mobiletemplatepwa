@@ -1,0 +1,27 @@
+/*----------------------------------------
+  Spineers / preloaders
+------------------------------------------*/
+.spinner-layer.thin .circle-clipper .circle {
+  border-width: 1px;
+}
+.spinner-layer.thick .circle-clipper .circle {
+  border-width: 6px;
+}
+.preloaders .card-panel{
+  margin: 0 15px;
+}
+.center .preloader-wrapper{
+  margin: auto;
+}
+.spinner-green, .spinner-green-only {
+    border-color: #81C784;
+}
+.spinner-blue, .spinner-blue-only {
+    border-color: #64B5F6;
+}
+.spinner-red, .spinner-red-only {
+    border-color: #E57373;
+}
+.spinner-yellow, .spinner-yellow-only {
+    border-color: #ffc107;
+}

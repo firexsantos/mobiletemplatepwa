@@ -1,0 +1,389 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="home">Home</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="web-apis">Web APIs</div>
+				<div class="right">
+					<a href="#" class="link icon-only searchbar-enable" data-searchbar=".searchbar">
+						<i class="icon f7-icons ios-only">search</i>
+						<i class="icon material-icons md-only">search</i>
+					</a>
+				</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="web-apis">Web APIs</div>
+					</div>
+				</div>
+				<form class="searchbar searchbar-expandable searchbar-init" data-search-container=".search-list" data-search-item="li" data-search-in=".item-title">
+					<div class="searchbar-inner">
+						<div class="searchbar-input-wrap">
+							<input type="search" placeholder="Search" data-i18n="[placeholder]search" />
+							<i class="searchbar-icon"></i>
+							<span class="input-clear-button"></span>
+						</div>
+						<span class="searchbar-disable-button" data-i18n="cancel">Cancel</span>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="searchbar-hide-on-search">
+				<div class="block">
+					<p>Web APIs are the fundamental part of HTML5 based application development and are especially useful to mobile web apps.</p>
+					<p>These APIs provide access to native device and platform functionalities to the web apps via JavaScript.</p>
+				</div>
+			</div>
+
+			<div class="searchbar-not-found">
+				<div class="empty-state">
+					<div class="empty-state-media">
+						<img src="assets/custom/img/no-search.svg" alt="" />
+					</div>
+					<div class="empty-state-title" data-i18n="no-search-results">No Search Results</div>
+					<div class="empty-state-actions">
+						<button type="button" class="button button-big button-fill button-round" data-i18n="try-again" @click="refreshSearchbar">Try Again</button>
+					</div>
+				</div>
+			</div>
+
+			<div class="searchbar-found">
+				<div class="list search-list">
+					<ul>
+						<li>
+							<a href="/web-apis/battery-status" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="battery-status-api">Battery Status API</div>
+										<div class="item-after">
+											{{#if isApiSupported.batteryStatus}}
+											<span class="badge color-green" data-i18n="supported">Supported</span>
+											{{else}}
+											<span class="badge color-red" data-i18n="not-supported">Not Supported</span>
+											{{/if}}
+										</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/web-apis/clipboard" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="clipboard-api">Clipboard API</div>
+										<div class="item-after">
+											{{#if isApiSupported.clipboard}}
+											<span class="badge color-green" data-i18n="supported">Supported</span>
+											{{else}}
+											<span class="badge color-red" data-i18n="not-supported">Not Supported</span>
+											{{/if}}
+										</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/web-apis/device-memory" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="device-memory-api">Device Memory API</div>
+										<div class="item-after">
+											{{#if isApiSupported.deviceMemory}}
+											<span class="badge color-green" data-i18n="supported">Supported</span>
+											{{else}}
+											<span class="badge color-red" data-i18n="not-supported">Not Supported</span>
+											{{/if}}
+										</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/web-apis/device-orientation" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="device-orientation-api">Device Orientation API</div>
+										<div class="item-after">
+											{{#if isApiSupported.deviceOrientation}}
+											<span class="badge color-green" data-i18n="supported">Supported</span>
+											{{else}}
+											<span class="badge color-red" data-i18n="not-supported">Not Supported</span>
+											{{/if}}
+										</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/web-apis/file" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="file-api">File API</div>
+										<div class="item-after">
+											{{#if isApiSupported.file}}
+											<span class="badge color-green" data-i18n="supported">Supported</span>
+											{{else}}
+											<span class="badge color-red" data-i18n="not-supported">Not Supported</span>
+											{{/if}}
+										</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/web-apis/fullscreen" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="fullscreen-api">Fullscreen API</div>
+										<div class="item-after">
+											{{#if isApiSupported.fullscreen}}
+											<span class="badge color-green" data-i18n="supported">Supported</span>
+											{{else}}
+											<span class="badge color-red" data-i18n="not-supported">Not Supported</span>
+											{{/if}}
+										</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/web-apis/geolocation" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="geolocation-api">Geolocation API</div>
+										<div class="item-after">
+											{{#if isApiSupported.geolocation}}
+											<span class="badge color-green" data-i18n="supported">Supported</span>
+											{{else}}
+											<span class="badge color-red" data-i18n="not-supported">Not Supported</span>
+											{{/if}}
+										</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/web-apis/network-information" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="network-information-api">Network Information API</div>
+										<div class="item-after">
+											{{#if isApiSupported.networkInformation}}
+											<span class="badge color-green" data-i18n="supported">Supported</span>
+											{{else}}
+											<span class="badge color-red" data-i18n="not-supported">Not Supported</span>
+											{{/if}}
+										</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/web-apis/online-offline-status" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="online-offline-status-api">Online/Offline Status API</div>
+										<div class="item-after">
+											{{#if isApiSupported.onlineOfflineStatus}}
+											<span class="badge color-green" data-i18n="supported">Supported</span>
+											{{else}}
+											<span class="badge color-red" data-i18n="not-supported">Not Supported</span>
+											{{/if}}
+										</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/web-apis/page-visibility" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="page-visibility-api">Page Visibility API</div>
+										<div class="item-after">
+											{{#if isApiSupported.pageVisibility}}
+											<span class="badge color-green" data-i18n="supported">Supported</span>
+											{{else}}
+											<span class="badge color-red" data-i18n="not-supported">Not Supported</span>
+											{{/if}}
+										</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/web-apis/permissions" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="permissions-api">Permissions API</div>
+										<div class="item-after">
+											{{#if isApiSupported.permissions}}
+											<span class="badge color-green" data-i18n="supported">Supported</span>
+											{{else}}
+											<span class="badge color-red" data-i18n="not-supported">Not Supported</span>
+											{{/if}}
+										</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/web-apis/quota-estimation" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="quota-estimation-api">Quota Estimation API</div>
+										<div class="item-after">
+											{{#if isApiSupported.quotaEstimation}}
+											<span class="badge color-green" data-i18n="supported">Supported</span>
+											{{else}}
+											<span class="badge color-red" data-i18n="not-supported">Not Supported</span>
+											{{/if}}
+										</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/web-apis/screen-orientation" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="screen-orientation-api">Screen Orientation API</div>
+										<div class="item-after">
+											{{#if isApiSupported.screenOrientation}}
+											<span class="badge color-green" data-i18n="supported">Supported</span>
+											{{else}}
+											<span class="badge color-red" data-i18n="not-supported">Not Supported</span>
+											{{/if}}
+										</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/web-apis/server-sent-events" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="server-sent-events-api">Server-Sent Events API</div>
+										<div class="item-after">
+											{{#if isApiSupported.serverSentEvents}}
+											<span class="badge color-green" data-i18n="supported">Supported</span>
+											{{else}}
+											<span class="badge color-red" data-i18n="not-supported">Not Supported</span>
+											{{/if}}
+										</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/web-apis/vibration" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="vibration-api">Vibration API</div>
+										<div class="item-after">
+											{{#if isApiSupported.vibration}}
+											<span class="badge color-green" data-i18n="supported">Supported</span>
+											{{else}}
+											<span class="badge color-red" data-i18n="not-supported">Not Supported</span>
+											{{/if}}
+										</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/web-apis/web-share" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="web-share-api">Web Share API</div>
+										<div class="item-after">
+											{{#if isApiSupported.webShare}}
+											<span class="badge color-green" data-i18n="supported">Supported</span>
+											{{else}}
+											<span class="badge color-red" data-i18n="not-supported">Not Supported</span>
+											{{/if}}
+										</div>
+									</div>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+</template>
+
+<script>
+	return {
+		data: function() {
+			return {
+				isApiSupported: {
+					batteryStatus: function() {
+						return app.support.webApi.batteryStatus;
+					},
+					clipboard: function() {
+						return app.support.webApi.clipboard;
+					},
+					deviceMemory: function() {
+						return app.support.webApi.deviceMemory;
+					},
+					deviceOrientation: function() {
+						return app.support.webApi.deviceOrientation;
+					},
+					file: function() {
+						return app.support.webApi.file;
+					},
+					fullscreen: function() {
+						return app.support.webApi.fullscreen;
+					},
+					geolocation: function() {
+						return app.support.webApi.geolocation;
+					},
+					networkInformation: function() {
+						return app.support.webApi.networkInformation;
+					},
+					onlineOfflineStatus: function() {
+						return app.support.webApi.onlineOfflineStatus;
+					},
+					pageVisibility: function() {
+						return app.support.webApi.pageVisibility;
+					},
+					permissions: function() {
+						return app.support.webApi.permissions;
+					},
+					quotaEstimation: function() {
+						return app.support.webApi.quotaEstimation;
+					},
+					screenOrientation: function() {
+						return app.support.webApi.screenOrientation;
+					},
+					serverSentEvents: function() {
+						return app.support.webApi.serverSentEvents;
+					},
+					vibration: function() {
+						return app.support.webApi.vibration;
+					},
+					webShare: function() {
+						return app.support.webApi.webShare;
+					}
+				}
+			}
+		},
+		methods: {
+			refreshSearchbar: function() {
+				var self = this;
+				app.searchbar.clear('.searchbar');
+			}
+		}
+	}
+</script>

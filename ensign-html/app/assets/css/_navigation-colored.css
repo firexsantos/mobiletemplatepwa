@@ -1,0 +1,53 @@
+/*----------------------------------------
+  Navigation Menu - Colored Style
+------------------------------------------*/
+[data-menu="colored"] .sidenav{
+  background-color: var(--primary-color);
+}
+[data-menu="colored"] .sidenav .subheader{
+  color: #eeeeee;
+}
+[data-menu="colored"] .sidenav .collection li.collection-item a, [data-menu="colored"] .sidenav .collection li.collection-item a:hover, [data-menu="colored"] .sidenav .collection li.collection-item a:hover i,
+[data-menu="colored"] .sidenav li a, [data-menu="colored"] .sidenav li a:hover, [data-menu="colored"] .sidenav li a:hover i{
+  color: #f5f5f5;
+}
+[data-menu="colored"] .sidenav li.lvl1 .waves-effect.active,
+[data-menu="colored"] .sidenav li.lvl1 .waves-effect:hover{
+	border-left-color: rgba(33,33,33,.50);
+  background-color: rgba(33,33,33,.15); 
+}
+[data-menu="colored"] .sidenav .badge.blue-grey{
+  background-color: rgba(33,33,33,.4) !important; 
+}
+[data-menu="colored"] .sidenav .divider{
+  background-color: rgba(33,33,33,.2); 
+}
+[data-menu="colored"] .sidenav .copyright{
+  color: #eeeeee;
+}
+[data-menu="colored"] .menu-close i{
+  color: var(--primary-color);
+}
+
+[data-menu="colored"] .collection .collection-item.avatar:not(:last-child):after{
+  border-bottom: none;
+}
+
+[data-menu="colored"].menu-full.menu-open .menu-close{
+  background-color: #f5f5f5;
+}
+
+[data-site_mode="dark"][data-menu="colored"].menu-full.menu-open .menu-close{
+  background-color: #455A64;
+}
+[data-site_mode="dark"][data-menu="colored"] .menu-close i{
+  color: #f5f5f5;
+}
+[data-menu="colored"] .sidenav span.badge{
+  background-color: #f5f5f5;
+  color: var(--primary-color);
+}
+[data-site_mode="dark"][data-menu="colored"] .sidenav span.badge{
+  background-color: #455A64;
+  color: #f5f5f5;
+}

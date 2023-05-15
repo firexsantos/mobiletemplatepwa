@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+	<head>
+
+		<!-- Begin: Basic Meta Tags -->
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+		<meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-eval' data: blob: filesystem: ws: gap: gap://ready cdvfile: file://* https://ssl.gstatic.com *; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'; img-src * data: 'unsafe-inline'; connect-src * 'unsafe-inline'; child-src *; media-src *;" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, minimal-ui, viewport-fit=cover" />
+		<!-- End: Basic Meta Tags -->
+
+		<!-- Begin: Android Meta Tags -->
+		<meta name="mobile-web-app-capable" content="yes" />
+		<meta name="theme-color" content="#343A40" />
+		<link rel="manifest" href="manifest.json" />
+		<!-- End: Android Meta Tags -->
+
+		<!-- Begin: Apple Meta Tags -->
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-title" content="Nectar Lite" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="format-detection" content="telephone=no" />
+		<link rel="apple-touch-icon" sizes="180x180" href="assets/custom/favicon/apple-touch-icon-180x180.png" /> <!-- iPhone -->
+		<link rel="apple-touch-icon" sizes="167x167" href="assets/custom/favicon/apple-touch-icon-167x167.png" /> <!-- iPad Pro -->
+		<link rel="apple-touch-icon" sizes="152x152" href="assets/custom/favicon/apple-touch-icon-152x152.png" /> <!-- iPad, iPad Air & iPad Mini -->
+		<link rel="mask-icon" href="assets/custom/favicon/safari-pinned-tab-icon.svg" color="#FFD43B" /> <!-- MacOS Safari -->
+		<link rel="apple-touch-startup-image" href="assets/custom/favicon/apple-touch-startup-image-iphone-5-5s-se.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" /> <!-- iPhone 5, iPhone 5s & iPhone SE -->
+		<link rel="apple-touch-startup-image" href="assets/custom/favicon/apple-touch-startup-image-iphone-6-6s-7-8.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" /> <!-- iPhone 6, iPhone 6s, iPhone 7 & iPhone 8 -->
+		<link rel="apple-touch-startup-image" href="assets/custom/favicon/apple-touch-startup-image-iphone-plus.png" media="(device-width: 621px) and (device-height: 1104px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" /> <!-- iPhone 6s Plus, iPhone 7 Plus & iPhone 8 Plus -->
+		<link rel="apple-touch-startup-image" href="assets/custom/favicon/apple-touch-startup-image-iphone-x-xs.png" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" /> <!-- iPhone X & iPhone XS -->
+		<link rel="apple-touch-startup-image" href="assets/custom/favicon/apple-touch-startup-image-iphone-xr.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" /> <!-- iPhone XR -->
+		<link rel="apple-touch-startup-image" href="assets/custom/favicon/apple-touch-startup-image-iphone-xs-max.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" /> <!-- iPhone XS Max -->
+		<link rel="apple-touch-startup-image" href="assets/custom/favicon/apple-touch-startup-image-ipad-ipad-mini.png" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" /> <!-- 7.9" iPad Mini 4 & 9.7" iPad -->
+		<link rel="apple-touch-startup-image" href="assets/custom/favicon/apple-touch-startup-image-ipad-pro-10-5.png" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" /> <!-- 10.5" iPad Pro -->
+		<link rel="apple-touch-startup-image" href="assets/custom/favicon/apple-touch-startup-image-ipad-pro-11.png" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" /> <!-- 11" iPad Pro -->
+		<link rel="apple-touch-startup-image" href="assets/custom/favicon/apple-touch-startup-image-ipad-pro-12-9.png" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" /> <!-- 12.9" iPad Pro -->
+		<!-- End: Apple Meta Tags -->
+
+		<!-- Begin: Windows Meta Tags -->
+		<meta name="application-name" content="Nectar Lite" />
+		<meta name="msapplication-navbutton-color" content="#343A40" />
+		<meta name="msapplication-TileColor" content="#343A40" />
+		<meta name="msapplication-TileImage" content="assets/custom/favicon/mstile-144x144.png" />
+		<meta name="msapplication-config" content="browserconfig.xml" />
+		<!-- End: Windows Meta Tags -->
+
+		<!-- Begin: Favicons -->
+		<link rel="icon" type="image/png" sizes="32x32" href="assets/custom/favicon/favicon-32x32.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="assets/custom/favicon/favicon-16x16.png" />
+		<link rel="shortcut icon" type="image/x-icon" href="assets/custom/favicon/favicon.ico" /> <!-- 16x16 32x32 48x48 -->
+		<!-- End: Favicons -->
+
+		<!-- Begin: Stylesheets -->
+    <link class="f7" rel="stylesheet" href="assets/vendor/framework7/css/framework7.min.css" />
+
+		<link rel="stylesheet" href="assets/vendor/chart/chart.min.css" />
+		<link rel="stylesheet" href="assets/vendor/font-awesome/css/all.css" />
+		<link rel="stylesheet" href="assets/vendor/framework7-icons/css/framework7-icons.css" />
+		<link rel="stylesheet" href="assets/vendor/framework7-plugins/keypad/framework7.keypad.min.css" />
+		<link rel="stylesheet" href="assets/vendor/hamburgers/hamburgers.min.css" />
+		<link rel="stylesheet" href="assets/vendor/material-icons/material-icons.css" />
+		<link rel="stylesheet" href="assets/vendor/rateyo/jquery.rateyo.min.css" />
+		<link rel="stylesheet" href="assets/vendor/timedropper/timedropper.min.css" />
+
+		<link rel="stylesheet" href="assets/vendor/nectar/nectar.css" />
+
+		<link rel="stylesheet" href="assets/custom/css/custom.css" />
+		<!-- End: Stylesheets -->
+
+		<title>Nectar</title>
+
+		<style scoped>
+			.panel-header {
+				align-items: center;
+				background-image: linear-gradient(-20deg, var(--oc-color-yellow-5) 0%, var(--oc-color-yellow-8) 100%);
+				box-sizing: border-box;
+				display: flex;
+				flex-direction: column;
+				height: 144px;
+				justify-content: center;
+				padding: 16px;
+				text-align: center;
+				width: 100%;
+			}
+		</style>
+
+	</head>
+
+	<body id="app">
+
+		<div class="statusbar"></div>
+
+		<div class="panel panel-right panel-cover">
+			<div class="panel-header">
+				<img src="assets/custom/img/logo-text-white.svg" height="32" alt="" />
+			</div>
+		</div>
+
+		<div class="panel panel-left panel-cover">
+			<div class="panel-header">
+				<img src="assets/custom/img/logo-white.svg" width="84" alt="" />
+			</div>
+			<div class="list no-chevron no-hairlines no-hairlines-between">
+				<ul>
+					<li>
+						<a href="#" class="item-link panel-close">
+							<div class="item-content">
+								<div class="item-media">
+									<i class="fa-stack">
+										<span class="fas fa-square fa-stack-2x color-cyan-5 ios-only"></span>
+										<span class="fas fa-circle fa-stack-2x color-cyan-5 md-only"></span>
+										<span class="fas fa-home fa-stack-1x fa-inverse"></span>
+									</i>
+								</div>
+								<div class="item-inner">
+									<div class="item-title" data-i18n="home">Home</div>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="/components" class="item-link panel-close">
+							<div class="item-content">
+								<div class="item-media">
+									<i class="fa-stack">
+										<span class="fas fa-square fa-stack-2x color-purple-5 ios-only"></span>
+										<span class="fas fa-circle fa-stack-2x color-purple-5 md-only"></span>
+										<span class="fas fa-puzzle-piece fa-stack-1x fa-inverse"></span>
+									</i>
+								</div>
+								<div class="item-inner">
+									<div class="item-title" data-i18n="components">Components</div>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="/screens" class="item-link panel-close">
+							<div class="item-content">
+								<div class="item-media">
+									<i class="fa-stack">
+										<span class="fas fa-square fa-stack-2x color-teal-5 ios-only"></span>
+										<span class="fas fa-circle fa-stack-2x color-teal-5 md-only"></span>
+										<span class="fas fa-clone fa-stack-1x fa-inverse"></span>
+									</i>
+								</div>
+								<div class="item-inner">
+									<div class="item-title" data-i18n="screens">Screens</div>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="/themes" class="item-link panel-close">
+							<div class="item-content">
+								<div class="item-media">
+									<i class="fa-stack">
+										<span class="fas fa-square fa-stack-2x color-pink-5 ios-only"></span>
+										<span class="fas fa-circle fa-stack-2x color-pink-5 md-only"></span>
+										<span class="fas fa-palette fa-stack-1x fa-inverse"></span>
+									</i>
+								</div>
+								<div class="item-inner">
+									<div class="item-title" data-i18n="themes">Themes</div>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="/web-apis" class="item-link panel-close">
+							<div class="item-content">
+								<div class="item-media">
+									<i class="fa-stack">
+										<span class="fas fa-square fa-stack-2x color-yellow-5 ios-only"></span>
+										<span class="fas fa-circle fa-stack-2x color-yellow-5 md-only"></span>
+										<span class="fas fa-code fa-stack-1x fa-inverse"></span>
+									</i>
+								</div>
+								<div class="item-inner">
+									<div class="item-title" data-i18n="web-apis">Web APIs</div>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="/cordova-plugins" class="item-link panel-close">
+							<div class="item-content">
+								<div class="item-media">
+									<i class="fa-stack">
+										<span class="fas fa-square fa-stack-2x color-violet-5 ios-only"></span>
+										<span class="fas fa-circle fa-stack-2x color-violet-5 md-only"></span>
+										<span class="fas fa-mobile-alt fa-stack-1x fa-inverse"></span>
+									</i>
+								</div>
+								<div class="item-inner">
+									<div class="item-title" data-i18n="cordova-plugins">Cordova Plugins</div>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="/integrations" class="item-link panel-close">
+							<div class="item-content">
+								<div class="item-media">
+									<i class="fa-stack">
+										<span class="fas fa-square fa-stack-2x color-red-5 ios-only"></span>
+										<span class="fas fa-circle fa-stack-2x color-red-5 md-only"></span>
+										<span class="fas fa-fire fa-stack-1x fa-inverse"></span>
+									</i>
+								</div>
+								<div class="item-inner">
+									<div class="item-title" data-i18n="integrations">Integrations</div>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="/utilities" class="item-link panel-close">
+							<div class="item-content">
+								<div class="item-media">
+									<i class="fa-stack">
+										<span class="fas fa-square fa-stack-2x color-orange-5 ios-only"></span>
+										<span class="fas fa-circle fa-stack-2x color-orange-5 md-only"></span>
+										<span class="fas fa-pencil-ruler fa-stack-1x fa-inverse"></span>
+									</i>
+								</div>
+								<div class="item-inner">
+									<div class="item-title" data-i18n="utilities">Utilities</div>
+								</div>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+    <!-- Begin: Hamburger Navigation -->
+		<div class="views ios-edges">
+		  <div class="view view-main"></div>
+    </div>
+    <!-- End: Hamburger Navigation -->
+
+    <!-- Begin: Tab Bar Navigation -->
+		<!--
+		<div class="views tabs ios-edges">
+			<div class="toolbar toolbar-bottom-md tabbar tabbar-labels">
+				<div class="toolbar-inner">
+					<a href="#tab-home" class="tab-link tab-link-active">
+						<i class="icon f7-icons ios-only">home</i>
+						<i class="icon material-icons md-only">home</i>
+						<span class="tabbar-label">Home</span>
+					</a>
+					<a href="#tab-components" class="tab-link">
+						<i class="icon f7-icons ios-only">data</i>
+						<i class="icon material-icons md-only">widgets</i>
+						<span class="tabbar-label">Components</span>
+					</a>
+					<a href="#tab-screens" class="tab-link">
+						<i class="icon f7-icons ios-only">collection</i>
+						<i class="icon material-icons md-only">view_carousel</i>
+						<span class="tabbar-label">Screens</span>
+					</a>
+					<a href="#tab-more" class="tab-link">
+						<i class="icon f7-icons ios-only">more_vertical</i>
+						<i class="icon material-icons md-only">more_vert</i>
+						<span class="tabbar-label">More</span>
+					</a>
+				</div>
+			</div>
+			<div id="tab-home" class="view view-main tab tab-active"></div>
+			<div id="tab-components" class="view view-components tab"></div>
+			<div id="tab-screens" class="view view-screens tab"></div>
+			<div id="tab-more" class="view view-more tab"></div>
+    </div>
+		-->
+    <!-- End: Tab Bar Navigation -->
+
+		<!-- Begin: Scripts -->
+		<script src="cordova.js"></script>
+
+		<script src="assets/vendor/framework7/js/framework7.min.js"></script>
+		<script src="assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+		<script src="assets/vendor/lazyload/lazyload.min.js"></script>
+
+		<script src="assets/vendor/i18next/i18next.min.js"></script>
+		<script src="assets/vendor/i18next/i18nextXHRBackend.min.js"></script>
+		<script src="assets/vendor/i18next/loc-i18next.min.js"></script>
+
+		<script src="assets/vendor/anime/anime.min.js"></script>
+		<script src="assets/vendor/chart/chart.min.js"></script>
+		<script src="assets/vendor/countdown/countdown.min.js"></script>
+		<script src="assets/vendor/crypto/crypto-js.min.js"></script>
+		<script src="assets/vendor/framework7-plugins/keypad/framework7.keypad.min.js"></script>
+		<script src="assets/vendor/jquery-validation/jquery.validate.min.js"></script>
+		<script src="assets/vendor/jquery-validation/additional-methods.min.js"></script>
+		<script src="assets/vendor/rateyo/jquery.rateyo.min.js"></script>
+		<script src="assets/vendor/timedropper/timedropper.min.js"></script>
+
+		<script src="assets/vendor/nectar/nectar.js"></script>
+
+		<script src="assets/custom/js/config.js"></script>
+		<script src="assets/custom/js/routes.js"></script>
+		<script src="assets/custom/js/init.js"></script>
+		<script src="assets/custom/js/custom.js"></script>
+
+		<script>
+			(function() {
+				app.init();
+			})();
+		</script>
+		<!-- End: Scripts -->
+
+	</body>
+
+</html>

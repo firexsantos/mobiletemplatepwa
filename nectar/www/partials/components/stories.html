@@ -1,0 +1,73 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="components">Components</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="stories">Stories</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="stories">Stories</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="block text-align-center">
+				<div id="stories"></div>
+			</div>
+
+		</div>
+
+	</div>
+</template>
+
+<style scoped>
+
+</style>
+
+<script>
+	return {
+		methods: {
+			loadData: function() {
+				var self = this;
+				app.request.json(
+					'assets/custom/dataset/stories.json',
+					function(data) {
+						if (data) {
+							self.initializeStories(data);
+						}
+					}
+				);
+			},
+			initializeStories: function(data) {
+				var self = this;
+				var stories = new Zuck('stories', {
+					skin: 'facesnap',
+					avatars: true,
+					list: false,
+					openEffect: true,
+					cubeEffect: false,
+					autoFullScreen: true,
+					backButton: true,
+					backNative: false,
+					previousTap: true,
+					stories: data
+				});
+			}
+		},
+		on: {
+			pageInit: function() {
+				var self = this;
+				self.loadData();
+			}
+		}
+	}
+</script>

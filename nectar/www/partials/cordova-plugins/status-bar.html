@@ -1,0 +1,163 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="cordova-plugins">Cordova Plugins</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="status-bar">Status Bar</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="status-bar">Status Bar</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="block">
+				<p>This plugin allows to control the device status bar.</p>
+			</div>
+
+			<div class="block">
+				{{#if isStatusBarVisible}}
+				<p><button type="button" class="button button-big button-fill color-red" @click="hideStatusBar">Hide Status Bar</button></p>
+				{{else}}
+				<p><button type="button" class="button button-big button-fill color-green" @click="showStatusBar">Show Status Bar</button></p>
+				{{/if}}
+				<p><button type="button" class="button button-big button-fill" @click="openColorSelector">Set Status Bar Color</button></p>
+				<p><button type="button" class="button button-big button-fill" @click="openStyleSelector">Set Status Bar Style</button></p>
+			</div>
+
+		</div>
+
+		<div class="dialog dialog-color-selector">
+			<div class="dialog-inner">
+				{{#if $app.device.android}}
+					<div class="dialog-title text-align-center">Choose color</div>
+				{{/if}}
+				{{#if $app.device.ios}}
+					<div class="dialog-text">Please enter the HEX color value</div>
+				{{/if}}
+				<div class="dialog-input-field item-input">
+					<div class="item-input-wrap">
+						<input type="color" name="color" class="dialog-input" required />
+					</div>
+				</div>
+			</div>
+			<div class="dialog-buttons">
+				<span class="dialog-button" @click="closeDialog">Cancel</span>
+				<span class="dialog-button dialog-button-bold" @click="setStatusBarColor">OK</span>
+			</div>
+		</div>
+
+	</div>
+</template>
+
+<script>
+	return {
+		data: function() {
+			return {
+				isStatusBarVisible: (function() {
+					return StatusBar.isVisible;
+				})()
+			}
+		},
+		methods: {
+			onStatusBarTap: function() {
+				var self = this;
+				app.toast.show({
+					text: 'You have tapped the status bar.',
+					position: 'bottom',
+					cssClass: 'toast-round bg-color-blue'
+				});
+			},
+			showStatusBar: function() {
+				var self = this;
+				StatusBar.show();
+				self.$setState({
+					isStatusBarVisible: true
+				});
+			},
+			hideStatusBar: function() {
+				var self = this;
+				StatusBar.hide();
+				self.$setState({
+					isStatusBarVisible: false
+				});
+			},
+			setStatusBarColor: function() {
+				var self = this;
+				var color = self.$('input[name=color]').val();
+				StatusBar.backgroundColorByHexString(color);
+				self.closeDialog();
+			},
+			openColorSelector: function() {
+				var self = this;
+				var dialog = app.dialog.create({
+					el: '.dialog-color-selector'
+				});
+				dialog.open();
+			},
+			openStyleSelector: function() {
+				var self = this;
+				var actions = app.actions.create({
+					buttons: [
+						[
+							{
+								text: 'Default',
+								onClick: function() {
+									StatusBar.styleDefault();
+								}
+							},
+							{
+								text: 'Light Content',
+								onClick: function() {
+									StatusBar.styleLightContent();
+								}
+							},
+							{
+								text: 'Black Translucent',
+								onClick: function() {
+									StatusBar.styleBlackTranslucent();
+								}
+							},
+							{
+								text: 'Black Opaque',
+								onClick: function() {
+									StatusBar.styleBlackOpaque();
+								}
+							}
+						],
+						[
+							{
+								text: 'Cancel',
+								color: 'red'
+							}
+						]
+					]
+				});
+				actions.open();
+			},
+			closeDialog: function() {
+				var self = this;
+				app.dialog.close();
+			}
+		},
+		on: {
+			pageInit: function() {
+				var self = this;
+				window.addEventListener('statusTap', onStatusBarTap);
+			},
+			pageBeforeRemove: function() {
+				var self = this;
+				window.removeEventListener('statusTap', onStatusBarTap);
+			}
+		}
+	}
+</script>

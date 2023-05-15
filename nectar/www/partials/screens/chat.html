@@ -1,0 +1,321 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="back">Back</span>
+					</a>
+				</div>
+				<div class="title">
+					<span data-i18n="chat">Chat</span>
+				</div>
+				<div class="subnavbar">
+					<div class="subnavbar-inner">
+						<div class="title">
+							<img class="img-circle" src="https://randomuser.me/api/portraits/women/44.jpg" width="40" alt="" />
+							<span>&nbsp;</span>
+							<span>Jane Zhu</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="toolbar messagebar">
+			<div class="toolbar-inner">
+				<a href="#" class="link" @click="openAttachmentActions">
+					<i class="icon f7-icons ios-only">attachment</i>
+					<i class="icon material-icons md-only">attach_file</i>
+				</a>
+				<div class="messagebar-area">
+					<textarea placeholder="Message"></textarea>
+				</div>
+				<a href="#" class="link" @click="sendMessage">
+					<i class="icon f7-icons ios-only">paper_plane</i>
+					<i class="icon material-icons md-only">send</i>
+				</a>
+			</div>
+		</div>
+
+		<div class="page-content messages-content">
+			<div class="messages">
+
+				<div class="messages-title">2 January 2019</div>
+        <div class="message message-sent">
+          <div class="message-content">
+            <div class="message-bubble">
+              <div class="message-text">Hi, Jane</div>
+							<div class="message-text-footer">1:00 PM</div>
+            </div>
+          </div>
+        </div>
+        <div class="message message-sent">
+          <div class="message-content">
+            <div class="message-bubble">
+              <div class="message-text">How are you?</div>
+							<div class="message-text-footer">1:01 PM</div>
+            </div>
+          </div>
+        </div>
+        <div class="message message-received">
+          <div class="message-content">
+            <div class="message-bubble">
+              <div class="message-text">Hi, I am fine.</div>
+							<div class="message-text-footer">3:14 PM</div>
+            </div>
+          </div>
+        </div>
+				<div class="message message-received">
+          <div class="message-content">
+            <div class="message-bubble">
+              <div class="message-text">How are you?</div>
+							<div class="message-text-footer">3:15 PM</div>
+            </div>
+          </div>
+        </div>
+        <div class="message message-sent">
+          <div class="message-content">
+            <div class="message-bubble">
+              <div class="message-text">I am fine too.</div>
+							<div class="message-text-footer">5:47 PM</div>
+            </div>
+          </div>
+        </div>
+
+				<div class="messages-title">Yesterday</div>
+				<div class="message message-sent">
+          <div class="message-content">
+            <div class="message-bubble">
+              <div class="message-text">Look at this cutest puppy ever!</div>
+							<div class="message-text-footer">7:15 AM</div>
+            </div>
+          </div>
+        </div>
+        <div class="message message-sent">
+          <div class="message-content">
+            <div class="message-bubble">
+              <div class="message-image">
+                <img class="img-responsive" src="https://source.unsplash.com/-Go4DH2pZbc" alt="" />
+              </div>
+							<div class="message-text-footer">7:15 AM</div>
+            </div>
+          </div>
+        </div>
+
+				<div class="messages-title">Today</div>
+				<div class="message message-received">
+          <div class="message-content">
+            <div class="message-bubble">
+              <div class="message-text">That's beautiful</div>
+							<div class="message-text-footer">6:05 AM</div>
+            </div>
+          </div>
+        </div>
+
+			</div>
+		</div>
+
+	</div>
+</template>
+
+<style scoped>
+	html {{this}} .subnavbar .title:first-child {
+		margin-left: 0;
+	}
+
+	html[dir=rtl] {{this}} .subnavbar .title:first-child {
+		margin-right: 0;
+	}
+
+	html {{this}} .subnavbar .title img {
+		float: left;
+		margin-top: 4px;
+	}
+
+	html[dir=rtl] {{this}} .subnavbar .title img {
+		float: right;
+	}
+
+	.messages-content {
+		background: #FFFFFF;
+	}
+
+	.messages {
+		background: #FFFFFF;
+	}
+
+	.message-received .message-bubble {
+		background: #F8F9FA;
+	}
+
+	.message-received.message-tail .message-bubble:before {
+		border-bottom-color: #F8F9FA;
+	}
+
+	.md {{this}} .message-sent .message-bubble {
+		color: #FFFFFF;
+		background: #FAB005;
+	}
+
+	.md {{this}} .message-sent.message-tail .message-bubble:before {
+		border-bottom-color: #FAB005;
+	}
+
+	.md {{this}} .message-sent .message-text-header {
+		color: #FFFFFF;
+	}
+
+	.md {{this}} .message-sent .message-text-footer {
+		color: #FFFFFF;
+	}
+
+	.ios .theme-dark {{this}} .message-received .message-bubble {
+		background-color: #292929;
+	}
+</style>
+
+<script>
+	return {
+		data: function() {
+			return {
+				messagebar: null,
+				messages: null
+			}
+		},
+		methods: {
+			initializeMessagebar: function() {
+				var self = this;
+				self.messagebar = app.messagebar.create({
+					el: '.messagebar',
+					textareaEl: '.messagebar textarea'
+				});
+			},
+			initializeMessages: function() {
+				var self = this;
+				self.messages = app.messages.create({
+					el: '.messages',
+					scrollMessages: true,
+					scrollMessagesOnEdge: false,
+					firstMessageRule: function (message, previousMessage, nextMessage) {
+						if (message.isTitle) {
+							return false;
+						}
+						if (!previousMessage || previousMessage.type !== message.type || previousMessage.name !== message.name) {
+							return true;
+						}
+						return false;
+					},
+					lastMessageRule: function (message, previousMessage, nextMessage) {
+						if (message.isTitle) {
+							return false;
+						}
+						if (!nextMessage || nextMessage.type !== message.type || nextMessage.name !== message.name) {
+							return true;
+						}
+						return false;
+					},
+					tailMessageRule: function (message, previousMessage, nextMessage) {
+						if (message.isTitle) {
+							return false;
+						}
+						if (!nextMessage || nextMessage.type !== message.type || nextMessage.name !== message.name) {
+							return true;
+						}
+						return false;
+					}
+				});
+			},
+			sendMessage: function() {
+				var self = this;
+				var text = self.messagebar.getValue().replace(/\n/g, '<br/>').trim();
+				if (text.length) {
+					self.messages.addMessage({
+    				text: text,
+						textFooter: self.getCurrentTime(),
+						type: 'sent'
+  				});
+					self.messagebar.clear();
+					self.messagebar.focus();
+					self.receiveMessage();
+				}
+			},
+			receiveMessage: function() {
+				var self = this;
+				var replies = ['Amazing', 'Are you sure?', 'I am not sure.', 'I need to think about it.', 'Of course', 'What?'];
+				var reply = replies[Math.floor(Math.random() * replies.length)];
+				setTimeout(function() {
+					self.messages.showTyping();
+					setTimeout(function() {
+						self.messages.addMessage({
+							text: reply,
+							textFooter: self.getCurrentTime(),
+							type: 'received'
+						});
+						self.messages.hideTyping();
+					}, 3000);
+				}, 2000);
+			},
+			getCurrentTime: function() {
+				var self = this;
+				var now = new Date();
+				var hours = now.getHours();
+				var minutes = now.getMinutes();
+				var meridian = hours >= 12 ? 'PM' : 'AM';
+				hours = hours % 12;
+				hours = hours ? hours : 12;
+				minutes = minutes < 10 ? '0' + minutes : minutes;
+				var currentTime = hours + ':' + minutes + ' ' + meridian;
+				return currentTime;
+			},
+			openAttachmentActions: function() {
+				var self = this;
+				var actions = app.actions.create({
+					grid: true,
+					buttons: [
+						[
+							{
+								icon: '<i class="fa-stack fa-lg"><span class="fas fa-circle fa-stack-2x color-pink-6"></span><span class="fas fa-camera fa-stack-1x fa-inverse"></span></i>',
+								text: 'Photo'
+							},
+							{
+								icon: '<i class="fa-stack fa-lg"><span class="fas fa-circle fa-stack-2x color-teal-6"></span><span class="fas fa-video fa-stack-1x fa-inverse"></span></i>',
+								text: 'Video'
+							},
+							{
+								icon: '<i class="fa-stack fa-lg"><span class="fas fa-circle fa-stack-2x color-violet-6"></span><span class="fas fa-microphone fa-stack-1x fa-inverse"></span></i>',
+								text: 'Audio'
+							},
+							{
+								icon: '<i class="fa-stack fa-lg"><span class="fas fa-circle fa-stack-2x color-lime-6"></span><span class="fas fa-map-marker-alt fa-stack-1x fa-inverse"></span></i>',
+								text: 'Location'
+							},
+							{
+								icon: '<i class="fa-stack fa-lg"><span class="fas fa-circle fa-stack-2x color-cyan-6"></span><span class="fas fa-address-card fa-stack-1x fa-inverse"></span></i>',
+								text: 'Contact'
+							},
+							{
+								icon: '<i class="fa-stack fa-lg"><span class="fas fa-circle fa-stack-2x color-orange-6"></span><span class="fas fa-file-alt fa-stack-1x fa-inverse"></span></i>',
+								text: 'Document'
+							}
+						]
+					]
+				});
+				actions.open();
+			}
+		},
+		on: {
+			pageInit: function() {
+				var self = this;
+				self.initializeMessagebar();
+				self.initializeMessages();
+			},
+			pageBeforeRemove: function() {
+				var self = this;
+				self.messagebar.destroy();
+			}
+		}
+	}
+</script>

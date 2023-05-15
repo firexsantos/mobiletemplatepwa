@@ -1,0 +1,147 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="integrations">Integrations</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="rss-feed">RSS Feed</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="rss-feed">RSS Feed</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="block">
+				<p>Display up-to-date RSS feeds in your app.</p>
+			</div>
+
+			<form name="feed" action="#" method="GET" enctype="application/x-www-form-urlencoded">
+				<div class="list no-hairlines no-hairlines-between no-margin-bottom">
+					<ul>
+						<li>
+							<div class="item-content item-input item-input-with-info">
+								<div class="item-inner">
+									<div class="item-title item-floating-label">Enter the Feed URL</div>
+									<div class="item-input-wrap">
+										<input type="url" name="url" value="https://www.nasa.gov/rss/dyn/breaking_news.rss" required />
+										<div class="item-input-info input-error-message"></div>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="block margin-top text-align-center">
+					<button type="submit" class="button button-big button-fill">Load</button>
+				</div>
+			</form>
+
+			{{#if feed}}
+			<div class="list media-list feed-list">
+				<ul>
+					{{#each feed.items}}
+					<li>
+						<a href="{{this.link}}" target="_blank" class="item-link external">
+							<div class="item-content">
+								<div class="item-media">
+									<img src="{{this.enclosure.url}}" alt="" />
+								</div>
+								<div class="item-inner">
+									<div class="item-title-row">
+										<div class="item-title">{{this.title}}</div>
+									</div>
+									<div class="item-text">{{this.pubDate}}</div>
+								</div>
+							</div>
+						</a>
+					</li>
+					{{/each}}
+				</ul>
+			</div>
+			{{/if}}
+
+		</div>
+
+	</div>
+</template>
+
+<style scoped>
+	.feed-list .item-media img {
+		border-radius: 3px;
+		height: auto;
+		width: 96px;
+	}
+
+	.feed-list .item-text {
+		font-size: 12px;
+	}
+</style>
+
+<script>
+	return {
+		data: function() {
+			return {
+				formValidator: null,
+				feed: null
+			}
+		},
+		methods: {
+			initializeFormValidator: function() {
+				var self = this;
+				self.formValidator = jQuery('form[name=feed]').validate({
+					rules: {
+						url: {
+							required: true,
+							url: true
+						}
+					},
+					messages: {
+						url: {
+							required: 'Please enter URL.',
+							url: 'Please enter a valid URL.'
+						}
+					},
+					submitHandler: function(form) {
+						self.loadFeed(form.elements.namedItem('url').value);
+					}
+				});
+			},
+			loadFeed: function(url) {
+				var self = this;
+				var CORS_PROXY = 'https://cors-anywhere.herokuapp.com/';
+				var parser = new RSSParser();
+				app.preloader.show();
+				parser.parseURL(CORS_PROXY + url, function(error, feed) {
+					if (feed) {
+						self.$setState({
+							feed: feed
+						});
+						console.log(feed);
+					}
+					if (error) {
+						app.toast.show({
+							text: error,
+							cssClass: 'bg-color-red'
+						});
+					}
+					app.preloader.hide();
+				});
+			}
+		},
+		on: {
+			pageInit: function() {
+				var self = this;
+				self.initializeFormValidator();
+			}
+		}
+	}
+</script>

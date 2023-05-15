@@ -1,0 +1,162 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="components">Components</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="form-validator">Form Validator</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="form-validator">Form Validator</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+      <div class="block">
+        <p>Form Validator makes it easy to validate user input.</p>
+      </div>
+
+      <form name="validation" action="#" method="POST" enctype="multipart/form-data">
+        <div class="list no-hairlines no-hairlines-between">
+          <ul>
+            <li class="item-content item-input item-input-with-info">
+              <div class="item-inner">
+                <div class="item-title item-floating-label">Name</div>
+                <div class="item-input-wrap">
+                  <input type="text" name="name" />
+                  <span class="input-clear-button"></span>
+                  <div class="item-input-info input-error-message"></div>
+                </div>
+              </div>
+            </li>
+            <li class="item-content item-input item-input-with-info">
+              <div class="item-inner">
+                <div class="item-title item-floating-label">Age</div>
+                <div class="item-input-wrap">
+                  <input type="number" name="age" step="1" min="13" max="100" />
+                  <span class="input-clear-button"></span>
+                  <div class="item-input-info input-error-message"></div>
+                </div>
+              </div>
+            </li>
+            <li class="item-content item-input item-input-with-info">
+              <div class="item-inner">
+                <div class="item-title item-floating-label">Email</div>
+                <div class="item-input-wrap">
+                  <input type="email" name="email" />
+                  <span class="input-clear-button"></span>
+                  <div class="item-input-info input-error-message"></div>
+                </div>
+              </div>
+            </li>
+            <li class="item-content item-input item-input-with-info">
+              <div class="item-inner">
+                <div class="item-title item-floating-label">URL</div>
+                <div class="item-input-wrap">
+                  <input type="url" name="url" />
+                  <span class="input-clear-button"></span>
+                  <div class="item-input-info input-error-message"></div>
+                </div>
+              </div>
+            </li>
+            <li class="item-content item-input item-input-with-info">
+              <div class="item-inner">
+                <div class="item-title item-floating-label">Decimal Number</div>
+                <div class="item-input-wrap">
+                  <input type="number" name="decimal" />
+                  <span class="input-clear-button"></span>
+                  <div class="item-input-info input-error-message"></div>
+                </div>
+              </div>
+            </li>
+            <li class="item-content item-input item-input-with-info">
+              <div class="item-inner">
+                <div class="item-title item-floating-label">US Phone Number</div>
+                <div class="item-input-wrap">
+                  <input type="tel" name="phone" />
+                  <span class="input-clear-button"></span>
+                  <div class="item-input-info input-error-message"></div>
+                </div>
+              </div>
+            </li>
+            <li class="item-content item-input item-input-with-info">
+              <div class="item-inner">
+                <div class="item-title item-floating-label">Credit Card Number</div>
+                <div class="item-input-wrap">
+                  <input type="number" name="credit_card" />
+                  <span class="input-clear-button"></span>
+                  <div class="item-input-info input-error-message"></div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="block">
+          <button type="submit" class="button button-big button-fill">Validate</button>
+        </div>
+      </form>
+
+		</div>
+
+	</div>
+</template>
+
+<script>
+  return {
+    data: function() {
+      return {
+        formValidator: null
+      }
+    },
+    methods: {
+      initializeFormValidator: function() {
+        var self = this;
+        self.formValidator = jQuery('form[name=validation]').validate({
+					rules: {
+						name: {
+							required: true
+      			},
+            age: {
+							required: true,
+              range: [13, 100]
+      			},
+						email: {
+							required: true,
+              email: true
+      			},
+      			url: {
+							required: true,
+              url: true
+						},
+            decimal: {
+							required: true,
+              number: true
+      			},
+            phone: {
+							required: true,
+              phoneUS: true
+      			},
+            credit_card: {
+							required: true,
+              creditcard: true
+      			}
+					}
+				});
+      }
+    },
+    on: {
+      pageInit: function() {
+        var self = this;
+        self.initializeFormValidator();
+      }
+    }
+  }
+</script>

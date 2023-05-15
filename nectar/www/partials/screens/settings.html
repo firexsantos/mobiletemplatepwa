@@ -1,0 +1,354 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="back">Back</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="settings">Settings</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="settings">Settings</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="block-title" data-i18n="account">Account</div>
+			<div class="list inset">
+				<ul>
+					<li>
+						<a href="#" class="item-link">
+							<div class="item-content">
+								<div class="item-media">
+									<i class="fa-stack">
+										<span class="fas fa-square fa-stack-2x text-color-blue ios-only"></span>
+										<span class="fas fa-circle fa-stack-2x text-color-blue md-only"></span>
+										<span class="fas fa-user fa-stack-1x fa-inverse"></span>
+									</i>
+								</div>
+								<div class="item-inner">
+									<div class="item-title" data-i18n="profile">Profile</div>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="#" class="item-link">
+							<div class="item-content">
+								<div class="item-media">
+									<i class="fa-stack">
+										<span class="fas fa-square fa-stack-2x text-color-green ios-only"></span>
+										<span class="fas fa-circle fa-stack-2x text-color-green md-only"></span>
+										<span class="fas fa-credit-card fa-stack-1x fa-inverse"></span>
+									</i>
+								</div>
+								<div class="item-inner">
+									<div class="item-title" data-i18n="payment">Payment</div>
+								</div>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="block-title">Connected Accounts</div>
+			<div class="list inset">
+				<ul>
+					<li>
+						<div class="item-content">
+							<div class="item-media">
+								<i class="fa-stack">
+									<span class="fas fa-square fa-stack-2x brand-color-dribbble ios-only"></span>
+									<span class="fas fa-circle fa-stack-2x brand-color-dribbble md-only"></span>
+									<span class="fab fa-dribbble fa-stack-1x fa-inverse"></span>
+								</i>
+							</div>
+							<div class="item-inner">
+								<div class="item-title">Dribbble</div>
+								<div class="item-after">
+									<label class="toggle toggle-init">
+										<input type="checkbox" checked />
+										<span class="toggle-icon"></span>
+									</label>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-media">
+								<i class="fa-stack">
+									<span class="fas fa-square fa-stack-2x brand-color-facebook ios-only"></span>
+									<span class="fas fa-circle fa-stack-2x brand-color-facebook md-only"></span>
+									<span class="fab fa-facebook-f fa-stack-1x fa-inverse"></span>
+								</i>
+							</div>
+							<div class="item-inner">
+								<div class="item-title">Facebook</div>
+								<div class="item-after">
+									<label class="toggle toggle-init">
+										<input type="checkbox" />
+										<span class="toggle-icon"></span>
+									</label>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-media">
+								<i class="fa-stack">
+									<span class="fas fa-square fa-stack-2x brand-color-google ios-only"></span>
+									<span class="fas fa-circle fa-stack-2x brand-color-google md-only"></span>
+									<span class="fab fa-google fa-stack-1x fa-inverse"></span>
+								</i>
+							</div>
+							<div class="item-inner">
+								<div class="item-title">Google</div>
+								<div class="item-after">
+									<label class="toggle toggle-init">
+										<input type="checkbox" checked />
+										<span class="toggle-icon"></span>
+									</label>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+
+			<div class="block-title" data-i18n="app-title">{{$root.config.app.title}}</div>
+			<div class="list inset">
+				<ul>
+					<li>
+						<div class="item-content">
+							<div class="item-media">
+								<i class="fa-stack">
+									<span class="fas fa-square fa-stack-2x text-color-blue ios-only"></span>
+									<span class="fas fa-circle fa-stack-2x text-color-blue md-only"></span>
+									<span class="fas fa-info fa-stack-1x fa-inverse"></span>
+								</i>
+							</div>
+							<div class="item-inner">
+								<div class="item-title" data-i18n="version">Version</div>
+								<div class="item-after">{{appVersion}}</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<a href="#" class="item-link">
+							<div class="item-content">
+								<div class="item-media">
+									<i class="fa-stack">
+										<span class="fas fa-square fa-stack-2x text-color-yellow ios-only"></span>
+										<span class="fas fa-circle fa-stack-2x text-color-yellow md-only"></span>
+										<span class="fas fa-star fa-stack-1x fa-inverse"></span>
+									</i>
+								</div>
+								<div class="item-inner">
+									<div class="item-title" data-i18n="rate-app">Rate App</div>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="#" class="item-link">
+							<div class="item-content">
+								<div class="item-media">
+									<i class="fa-stack">
+										<span class="fas fa-square fa-stack-2x text-color-green ios-only"></span>
+										<span class="fas fa-circle fa-stack-2x text-color-green md-only"></span>
+										<span class="fas fa-share-alt fa-stack-1x fa-inverse"></span>
+									</i>
+								</div>
+								<div class="item-inner">
+									<div class="item-title" data-i18n="share-app">Share App</div>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="/screens/feedback" class="item-link">
+							<div class="item-content">
+								<div class="item-media">
+									<i class="fa-stack">
+										<span class="fas fa-square fa-stack-2x text-color-pink ios-only"></span>
+										<span class="fas fa-circle fa-stack-2x text-color-pink md-only"></span>
+										<span class="fas fa-comment-dots fa-stack-1x fa-inverse"></span>
+									</i>
+								</div>
+								<div class="item-inner">
+									<div class="item-title">Leave Feedback</div>
+								</div>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="block-title" data-i18n="social">Social</div>
+			<div class="list inset">
+				<ul>
+					<li>
+						<a href="https://facebook.com" target="_blank" class="item-link external">
+							<div class="item-content">
+								<div class="item-media">
+									<i class="fa-stack">
+										<span class="fas fa-square fa-stack-2x brand-color-facebook ios-only"></span>
+										<span class="fas fa-circle fa-stack-2x brand-color-facebook md-only"></span>
+										<span class="fab fa-facebook-f fa-stack-1x fa-inverse"></span>
+									</i>
+								</div>
+								<div class="item-inner">
+									<div class="item-title">Like us on Facebook</div>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="https://twitter.com" target="_blank" class="item-link external">
+							<div class="item-content">
+								<div class="item-media">
+									<i class="fa-stack">
+										<span class="fas fa-square fa-stack-2x brand-color-twitter ios-only"></span>
+										<span class="fas fa-circle fa-stack-2x brand-color-twitter md-only"></span>
+										<span class="fab fa-twitter fa-stack-1x fa-inverse"></span>
+									</i>
+								</div>
+								<div class="item-inner">
+									<div class="item-title">Follow us on Twitter</div>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="https://youtube.com" target="_blank" class="item-link external">
+							<div class="item-content">
+								<div class="item-media">
+									<i class="fa-stack">
+										<span class="fas fa-square fa-stack-2x brand-color-youtube ios-only"></span>
+										<span class="fas fa-circle fa-stack-2x brand-color-youtube md-only"></span>
+										<span class="fab fa-youtube fa-stack-1x fa-inverse"></span>
+									</i>
+								</div>
+								<div class="item-inner">
+									<div class="item-title">Subscribe us on YouTube</div>
+								</div>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="block-title" data-i18n="help">Help</div>
+			<div class="list inset">
+				<ul>
+					<li>
+						<a href="/screens/about" class="item-link">
+							<div class="item-content">
+								<div class="item-inner">
+									<div class="item-title" data-i18n="about">About</div>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="/screens/faq" class="item-link">
+							<div class="item-content">
+								<div class="item-inner">
+									<div class="item-title" data-i18n="faq">FAQ</div>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="/screens/careers" class="item-link">
+							<div class="item-content">
+								<div class="item-inner">
+									<div class="item-title" data-i18n="careers">Careers</div>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="/screens/contact-us" class="item-link">
+							<div class="item-content">
+								<div class="item-inner">
+									<div class="item-title" data-i18n="contact-us">Contact Us</div>
+								</div>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="block-title" data-i18n="legal">Legal</div>
+			<div class="list inset">
+				<ul>
+					<li>
+						<a href="/screens/terms" class="item-link">
+							<div class="item-content">
+								<div class="item-inner">
+									<div class="item-title" data-i18n="terms-of-use">Terms of Use</div>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="/screens/privacy" class="item-link">
+							<div class="item-content">
+								<div class="item-inner">
+									<div class="item-title" data-i18n="privacy-policy">Privacy Policy</div>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="/screens/cookies" class="item-link">
+							<div class="item-content">
+								<div class="item-inner">
+									<div class="item-title" data-i18n="cookie-policy">Cookie Policy</div>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="#" class="item-link">
+							<div class="item-content">
+								<div class="item-inner">
+									<div class="item-title" data-i18n="acknowledgements">Acknowledgements</div>
+								</div>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+
+		</div>
+
+	</div>
+</template>
+
+<script>
+	return {
+		data: function() {
+			return {
+				appVersion: (function() {
+					if (app.device.cordova && BuildInfo) {
+						return BuildInfo.version;
+					}
+					else {
+						return app.version;
+					}
+				})()
+			}
+		}
+	}
+</script>

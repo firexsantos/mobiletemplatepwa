@@ -1,0 +1,77 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="back">Back</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="filter">Filter</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="filter">Filter</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="list">
+				<ul>
+					<li class="list-group-title display-flex justify-content-space-between">
+						<span>Dual Range</span>
+						<span>${{dualRangeValueLow}} &ndash; ${{dualRangeValueHigh}}</span>
+					</li>
+					<li>
+						<div class="item-cell width-auto">
+							<i class="icon f7-icons ios-only">money_dollar</i>
+							<i class="icon material-icons md-only">attach_money</i>
+						</div>
+						<div class="item-cell">
+							<div class="range-slider range-slider-init" data-dual="true" data-label="true" data-min="0" data-max="5000" data-step="50" data-value-left="{{dualRangeValueLow}}" data-value-right="{{dualRangeValueHigh}}" @range:change="updateDualRangeDisplayValues"></div>
+						</div>
+						<div class="item-cell width-auto">
+							<i class="icon f7-icons ios-only">money_dollar_round_fill</i>
+							<i class="icon material-icons md-only">monetization_on</i>
+						</div>
+					</li>
+				</ul>
+			</div>
+
+		</div>
+
+	</div>
+</template>
+
+<style scoped>
+
+</style>
+
+<script>
+	return {
+		data: function() {
+			return {
+				filter: {
+					price: {
+						min: null,
+						max: null
+					}
+				},
+				sort: {
+					by: null,
+					order: null
+				}
+			}
+		},
+		on: {
+			pageInit: function() {
+				var self = this;
+				self.initializePriceFilter();
+			}
+		}
+	}
+</script>

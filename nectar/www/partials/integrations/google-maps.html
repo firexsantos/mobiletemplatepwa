@@ -1,0 +1,89 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="integrations">Integrations</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="google-maps">Google Maps</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="google-maps">Google Maps</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="block">
+				<p><a href="https://cloud.google.com/maps-platform" target="_blank" class="external">Google Maps</a> is a mapping service which helps you seamlessly integrate satellite imagery, street maps, 360&deg; panoramic views of geographical regions and sites around the world.</p>
+			</div>
+
+			<div class="block-title">Places Autocomplete</div>
+			<div class="list no-hairlines no-hairlines-between">
+				<ul>
+					<li>
+						<div class="item-content item-input item-input-with-clear-button">
+							<div class="item-inner">
+								<div class="item-input-wrap">
+									<input type="text" id="input-places-autocomplete" placeholder="Where are we going?" />
+									<span class="input-clear-button"></span>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+
+			<div class="block-title">Area Map</div>
+			<div class="block block-strong">
+				<div class="embed">
+					<iframe class="embed-content" frameborder="0" allowfullscreen src="https://www.google.com/maps/embed/v1/place?key={{$root.config.googleMaps.apiKey}}&q=27.171582,78.041883"></iframe>
+				</div>
+			</div>
+
+			<div class="block-title">Route Map</div>
+			<div class="block block-strong">
+				<div class="embed">
+					<iframe class="embed-content" frameborder="0" allowfullscreen src="https://www.google.com/maps/embed/v1/directions?key={{$root.config.googleMaps.apiKey}}&origin=place_id:ChIJEcHIDqKw2YgRZU-t3XHylv8&destination=place_id:ChIJ0X31pIK3voARo3mz1ebVzDo"></iframe>
+				</div>
+			</div>
+
+			<div class="block-title">Street View Panorama</div>
+			<div class="block block-strong">
+				<div class="embed">
+					<iframe class="embed-content" frameborder="0" allowfullscreen src="https://www.google.com/maps/embed/v1/streetview?key={{$root.config.googleMaps.apiKey}}&location=46.7363,10.8487"></iframe>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+</template>
+
+<script>
+	return {
+		methods: {
+			initializePlacesAutocomplete: function() {
+				var self = this;
+				var placesAutocomplete = new google.maps.places.Autocomplete(
+					document.getElementById('input-places-autocomplete'),
+					{
+						types: ['geocode']
+					}
+				);
+			}
+		},
+		on: {
+			pageInit: function() {
+				var self = this;
+				self.initializePlacesAutocomplete();
+			}
+		}
+	}
+</script>

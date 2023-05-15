@@ -1,0 +1,188 @@
+/*----------------------------------------
+  Profile Page
+------------------------------------------*/
+
+.ui-profile{
+  background: var(--primary-color);
+  position: relative;
+  vertical-align: top;
+  padding-bottom: 115px;
+}
+.ui-profile .primg{
+  background-image: url("../images/profile.jpg");
+  background-size: cover;
+  height: 100px;
+  width: 100px;
+  margin: 70px 0 10px -50px;
+  display: inline-block;
+  position: relative;
+  left: 50%;
+  border-radius: var(--border-radius-50percent);
+}
+.profile-card .ui-profile{
+  padding-bottom: 30px;
+}
+.profile-card .ui-profile .primg
+{
+  margin-top: 45px;
+}
+.profile-card{
+  border-radius: var(--border-radius);
+  padding-bottom: 0px !important;
+}
+
+.ui-profile .primg img{
+  width: 100%;
+  z-index: 2;
+}
+.ui-profile .prinfo{
+  position: relative;
+  width: 100%;
+  padding: 5px 15px;  
+  margin: 0px;
+  display: inline-block;
+  z-index: 4;
+  text-align: center;
+  background: transparent;
+  box-shadow: none !important;
+  color: #ffffff;
+}
+.ui-profile .pos{
+  font-size: 85%;
+}
+.ui-profile .prinfo .count{
+  float: left; 
+  width: 33%;
+  text-align: center;
+  display: inline-block;
+  position: relative;
+}
+.ui-profile .profile-btn{
+  margin-bottom: 10px;
+}
+.ui-profile .prinfo .num, .ui-profile .prinfo .tit{ 
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin: 0px 0px 0px 0px;
+}
+.ui-profile .prinfo .tit{
+  font-size: 80%;
+}
+.ui-profile .prname{
+  margin-bottom: 15px;
+    position: relative;
+    /* margin: -170px 10% 70px 10%; */
+    z-index: 3;
+}
+.ui-profile .prname .name{
+  margin-bottom: 5px;
+  margin-top: 0;
+}
+.ui-profile .prname p{
+  margin-top: 15px;
+}
+.ui-profile .carousel-basic{
+  height: 200px;
+  /* margin-left: -70px; */
+  width: 100%;
+  overflow: visible;
+}
+.ui-profile .carousel-basic .carousel-item{
+  height: 167px;
+}
+.ui-profile .carousel-basic .indicators{
+  bottom: 20px;
+}
+.ui-profile .pr-ctit{
+    margin-top: -85px;
+    z-index: 2;
+    padding: 0px 0px 0px 15px;
+    position: relative;
+}
+.ui-profile .pr-ctit h6{
+  margin-bottom: 0px;
+}
+.primg{
+  display: inline-block;
+  position: relative;
+}
+.primg:after{
+  content: " ";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: block;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+  border-radius: var(--border-radius-50percent);
+}
+
+.ui-profile .prinfo .count:after{
+	content: "";
+	position: absolute;
+	width: 1px;
+	height: 30px;
+	background-color: rgba(255, 255, 255, 0.5);
+	right: 0px;
+	top: 10px;
+}
+
+.ui-profile .prinfo .count:last-child:after{
+	display: none;
+}
+.contain-hc.profile-page .container.full ul.collection.activity{
+  margin-top: -100px;
+}
+
+.contain-hc .container .overlay{
+  background: #ffffff;
+  padding: 0 0 0px 0px;
+  position: relative;
+  top: -100px;
+  border-radius: var(--border-radius);
+  margin-bottom: -100px;
+}
+
+.contain-hc .container .overlay .gallery{
+  margin: 0;
+}
+.contain-hc .container .flickity-slider{
+  top: auto;
+  min-height: 250px;
+}
+.contain-hc .container .portfolio .gallery-cell{
+  padding: 0 0 0 15px;
+}
+
+.contain-hc .container .flickity-page-dots{
+  display: none;
+}
+.contain-hc .container .flickity-viewport{
+  background: #ffffff;
+  min-height: 220px;
+  border-radius: var(--border-radius);
+}
+.contain-hc .container.friends-carousel{
+  min-height: 240px;
+}
+.contain-hc .container .friends-wrap{
+  background: #ffffff;
+  width: 100%;
+  display: inline-block;
+  border-radius: var(--border-radius);
+}
+
+.contain-hc .container .friends-wrap .friends{
+  box-shadow: none !important;
+  border: none !important;
+}
+.contain-hc .container .friends-wrap .sec-tit{
+  padding-left: 24px;
+  margin-bottom: 15px;
+}
+
+[data-site_mode="dark"].contain-hc .container .flickity-viewport{
+  background-color: #37474F;
+}

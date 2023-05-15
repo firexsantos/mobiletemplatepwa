@@ -1,0 +1,155 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="components">Components</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="range-slider">Range Slider</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="range-slider">Range Slider</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="block">
+				<p>Range Slider allows to select a range of values by moving the slider thumb.</p>
+			</div>
+
+			<div class="list simple-list">
+				<div class="list-group">
+					<ul>
+						<li class="list-group-title">Single Range</li>
+						<li>
+							<div class="item-cell width-auto">
+								<i class="icon f7-icons ios-only">volume_mute_fill</i>
+								<i class="icon material-icons md-only">volume_mute</i>
+							</div>
+							<div class="item-cell">
+								<div class="range-slider range-slider-init" data-label="true">
+									<input type="range" min="0" max="100" step="1" value="25" />
+								</div>
+							</div>
+							<div class="item-cell width-auto">
+								<i class="icon f7-icons ios-only">volume_fill</i>
+								<i class="icon material-icons md-only">volume_up</i>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="list-group">
+					<ul>
+						<li class="list-group-title display-flex justify-content-space-between">
+							<span>Dual Range</span>
+							<span>${{dualRangeValueLow}} &ndash; ${{dualRangeValueHigh}}</span>
+						</li>
+						<li>
+							<div class="item-cell width-auto">
+								<i class="icon f7-icons ios-only">money_dollar</i>
+								<i class="icon material-icons md-only">attach_money</i>
+							</div>
+							<div class="item-cell">
+								<div class="range-slider range-slider-init" data-dual="true" data-label="true" data-min="0" data-max="5000" data-step="50" data-value-left="{{dualRangeValueLow}}" data-value-right="{{dualRangeValueHigh}}" @range:change="updateDualRangeDisplayValues"></div>
+							</div>
+							<div class="item-cell width-auto">
+								<i class="icon f7-icons ios-only">money_dollar_round_fill</i>
+								<i class="icon material-icons md-only">monetization_on</i>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="list-group">
+					<ul>
+						<li class="list-group-title">Colored</li>
+						<li>
+							<div class="item-cell">
+								<div class="range-slider range-slider-init color-red" data-label="true">
+									<input type="range" min="0" max="100" step="1" value="5" />
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="item-cell">
+								<div class="range-slider range-slider-init color-green" data-label="true">
+									<input type="range" min="0" max="100" step="1" value="10" />
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="item-cell">
+								<div class="range-slider range-slider-init color-blue" data-label="true">
+									<input type="range" min="0" max="100" step="1" value="15" />
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="item-cell">
+								<div class="range-slider range-slider-init color-pink" data-label="true">
+									<input type="range" min="0" max="100" step="1" value="20" />
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="item-cell">
+								<div class="range-slider range-slider-init color-yellow" data-label="true">
+									<input type="range" min="0" max="100" step="1" value="25" />
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="item-cell">
+								<div class="range-slider range-slider-init color-orange" data-label="true">
+									<input type="range" min="0" max="100" step="1" value="30" />
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="item-cell">
+								<div class="range-slider range-slider-init color-gray" data-label="true">
+									<input type="range" min="0" max="100" step="1" value="35" />
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="item-cell">
+								<div class="range-slider range-slider-init color-black" data-label="true">
+									<input type="range" min="0" max="100" step="1" value="40" />
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+</template>
+
+<script>
+	return {
+		data: function() {
+			return {
+				dualRangeValueLow: 250,
+				dualRangeValueHigh: 1500
+			}
+		},
+		methods: {
+			updateDualRangeDisplayValues: function(event, range) {
+				var self = this;
+				self.$setState({
+					dualRangeValueLow: range.value[0],
+					dualRangeValueHigh: range.value[1]
+				});
+			}
+		}
+	}
+</script>

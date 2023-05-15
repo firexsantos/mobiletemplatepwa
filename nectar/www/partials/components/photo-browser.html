@@ -1,0 +1,71 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="components">Components</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="photo-browser">Photo Browser</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="photo-browser">Photo Browser</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="block">
+				<p>Photo Browser is a component to display collection of photos or videos in a slide view.</p>
+			</div>
+
+			<div class="block">
+				<button class="button button-big button-fill" @click="openPhotoBrowser">Open Photo Browser</button>
+			</div>
+
+		</div>
+
+	</div>
+</template>
+
+<script>
+	return {
+		methods: {
+			openPhotoBrowser: function() {
+				var self = this;
+				var photos = [
+					{
+						url: 'https://source.unsplash.com/Qo51KwK1dKg',
+						caption: 'Santorini, Greece'
+					},
+					{
+						url: 'https://source.unsplash.com/ZyotUjWek9g',
+						caption: 'Venice, Italy'
+					},
+					{
+						html: '<iframe src="https://www.youtube.com/embed/jNQXAC9IVRw"></iframe>',
+						caption: 'Me at the Zoo - The First Youtube Video'
+					},
+					{
+						url: 'https://source.unsplash.com/hgyWonRntB8',
+						caption: 'Amsterdam, Netherlands'
+					},
+					{
+						url: 'https://source.unsplash.com/XkHK1VWIIx4',
+						caption: 'Antelope Canyon, Arizona, USA'
+					}
+				];
+				var photoBrowser = app.photoBrowser.create({
+					photos: photos,
+					theme: app.utils.theme.getLayout()
+				});
+				photoBrowser.open();
+			}
+		}
+	}
+</script>

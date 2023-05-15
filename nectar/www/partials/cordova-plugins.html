@@ -1,0 +1,202 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="home">Home</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="cordova-plugins">Cordova Plugins</div>
+				<div class="right">
+					<a href="#" class="link icon-only searchbar-enable" data-searchbar=".searchbar">
+						<i class="icon f7-icons ios-only">search</i>
+						<i class="icon material-icons md-only">search</i>
+					</a>
+				</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="cordova-plugins">Cordova Plugins</div>
+					</div>
+				</div>
+				<form class="searchbar searchbar-expandable searchbar-init" data-search-container=".search-list" data-search-item="li" data-search-in=".item-title">
+					<div class="searchbar-inner">
+						<div class="searchbar-input-wrap">
+							<input type="search" placeholder="Search" data-i18n="[placeholder]search" />
+							<i class="searchbar-icon"></i>
+							<span class="input-clear-button"></span>
+						</div>
+						<span class="searchbar-disable-button" data-i18n="cancel">Cancel</span>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="searchbar-hide-on-search">
+				<div class="block">
+					<p>Cordova Plugins provide access to device and platform functionalities that are generally unavailable to web apps.</p>
+					{{#if $app.device.cordova}}
+					{{else}}
+					<div class="note note-warning">
+						<p>Test these plugins inside Cordova/PhoneGap only.</p>
+					</div>
+					{{/if}}
+				</div>
+
+			</div>
+
+			<div class="searchbar-not-found">
+				<div class="empty-state">
+					<div class="empty-state-media">
+						<img src="assets/custom/img/no-search.svg" alt="" />
+					</div>
+					<div class="empty-state-title" data-i18n="no-search-results">No Search Results</div>
+					<div class="empty-state-actions">
+						<button type="button" class="button button-big button-fill button-round" data-i18n="try-again" @click="refreshSearchbar">Try Again</button>
+					</div>
+				</div>
+			</div>
+
+			<div class="searchbar-found">
+				<div class="list search-list">
+					<ul>
+						<li>
+							<a href="/cordova-plugins/battery-status" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="battery-status">Battery Status</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/cordova-plugins/build-info" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="build-info">Build Info</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/cordova-plugins/device" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="device">Device</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/cordova-plugins/dialogs" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="dialogs">Dialogs</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/cordova-plugins/fingerprint-authentication" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="fingerprint-authentication">Fingerprint Authentication</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/cordova-plugins/geolocation" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="geolocation">Geolocation</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/cordova-plugins/inappbrowser" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="in-app-browser">In-App Browser</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/cordova-plugins/local-notification" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="local-notification">Local Notification</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/cordova-plugins/network-information" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="network-information">Network Information</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/cordova-plugins/social-sharing" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="social-sharing">Social Sharing</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/cordova-plugins/splash-screen" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="splash-screen">Splash Screen</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/cordova-plugins/status-bar" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="status-bar">Status Bar</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/cordova-plugins/vibration" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="vibration">Vibration</div>
+									</div>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+</template>
+
+<script>
+	return {
+		methods: {
+			refreshSearchbar: function() {
+				var self = this;
+				app.searchbar.clear('.searchbar');
+			}
+		}
+	}
+</script>

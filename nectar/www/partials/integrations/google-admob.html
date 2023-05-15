@@ -1,0 +1,151 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="integrations">Integrations</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="google-admob">Google AdMob</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="google-admob">Google AdMob</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="block">
+				<p>Earn revenue from your mobile app by using <a href="https://admob-plus.github.io" target="_blank" class="external">Google AdMob</a>.</p>
+			</div>
+
+			<div class="block-title">Banner Ads</div>
+			<div class="block block-strong">
+				{{#if isBannerAdShown}}
+				<p><button type="button" class="button button-big button-fill" @click="hideBannerAd">Hide Banner Ad</button></p>
+				{{else}}
+				<p><button type="button" class="button button-big button-fill" data-position="top" @click="showBannerAd">Show Top Banner Ad</button></p>
+				<p><button type="button" class="button button-big button-fill" data-position="bottom" @click="showBannerAd">Show Bottom Banner Ad</button></p>
+				{{/if}}
+			</div>
+
+			<div class="block-title">Interstitial Ads</div>
+			<div class="block block-strong">
+				<p><button type="button" class="button button-big button-fill" @click="showInterstitialAd">Show Interstitial Ad</button></p>
+			</div>
+
+			<div class="block-title">Rewarded Video Ads</div>
+			<div class="block block-strong">
+				<p><button type="button" class="button button-big button-fill" @click="showRewardedVideoAd">Show Rewarded Video Ad</button></p>
+			</div>
+
+		</div>
+
+	</div>
+</template>
+
+<script>
+	return {
+		data: function() {
+			return {
+				isBannerAdShown: false
+			}
+		},
+		methods: {
+			showBannerAd: function(event) {
+				var self = this;
+				var position = event.target.dataset.position;
+				admob.banner.show({
+					id: {
+						android: app.data.config.admob.bannerId,
+						ios: app.data.config.admob.bannerId
+					},
+					position: position
+				});
+				document.addEventListener('admob.banner.load', function() {
+					self.$setState({
+						isBannerAdShown: true
+					});
+				});
+				document.addEventListener('admob.banner.load_fail', function() {
+					app.toast.show({
+						text: 'Failed to load Banner Ad.',
+						cssClass: 'bg-color-red'
+					});
+				});
+			},
+			hideBannerAd: function() {
+				var self = this;
+				admob.banner.hide(app.data.config.admob.bannerId)
+				.then(function() {
+					self.$setState({
+						isBannerAdShown: false
+					});
+				});
+			},
+			showInterstitialAd: function() {
+				var self = this;
+				admob.interstitial.load({
+					id: {
+						android: app.data.config.admob.interstitialId,
+						ios: app.data.config.admob.interstitialId
+					}
+				})
+				.then(function() {
+					admob.interstitial.show();
+				});
+				document.addEventListener('admob.interstitial.load_fail', function() {
+					app.toast.show({
+						text: 'Failed to load Interstitial Ad.',
+						cssClass: 'bg-color-red'
+					});
+				});
+			},
+			showRewardedVideoAd: function() {
+				var self = this;
+				admob.rewardVideo.load({
+					id: {
+						android: app.data.config.admob.rewardedVideoId,
+						ios: app.data.config.admob.rewardedVideoId
+					}
+				})
+				.then(function() {
+					admob.rewardVideo.show();
+				});
+				document.addEventListener('admob.reward_video.load_fail', function() {
+					app.toast.show({
+						text: 'Failed to load Rewarded Video Ad.',
+						cssClass: 'bg-color-red'
+					});
+				});
+				document.addEventListener('admob.reward_video.complete', function() {
+					app.toast.show({
+						text: 'Thank you for watching the video.',
+						cssClass: 'bg-color-green'
+					});
+				});
+				document.addEventListener('admob.reward_video.reward', function() {
+					app.toast.show({
+						text: 'You have been rewarded for watching the video.',
+						cssClass: 'bg-color-green'
+					});
+				});
+			}
+		},
+		on: {
+			pageInit: function() {
+				var self = this;
+				admob.setDevMode(true);
+			},
+			pageBeforeRemove: function() {
+				var self = this;
+				self.hideBannerAd();
+			}
+		}
+	}
+</script>

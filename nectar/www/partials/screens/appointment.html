@@ -1,0 +1,311 @@
+<template>
+	<div class="page no-navbar no-swipeback">
+
+		<div class="page-content">
+
+			<form name="appointment" method="POST" action="#" enctype="multipart/form-data">
+
+				<div class="swiper-container">
+
+					<div class="swiper-wrapper">
+
+						<div class="swiper-slide">
+							<div class="slide-navigation">
+								<a href="#" class="link back">
+									<i class="fa-stack fa-2x">
+										<span class="fas fa-stack-2x fa-circle"></span>
+										<span class="fas fa-stack-1x fa-arrow-{{arrowDirection}} fa-inverse"></span>
+									</i>
+								</a>
+							</div>
+							<div class="slide-title">Select service</div>
+							<div class="slide-content">
+								<div class="services-container">
+									<label>
+										<input type="checkbox" name="service" value="consultation" />
+										<i class="icon f7-icons color-green">check_round_fill</i>
+										<figure>
+											<img src="assets/custom/img/dentist-consult.svg" alt="" />
+											<figcaption>Consultation</figcaption>
+										</figure>
+									</label>
+									<label>
+										<input type="checkbox" name="service" value="pain" />
+										<i class="icon f7-icons color-green">check_round_fill</i>
+										<figure>
+											<img src="assets/custom/img/dentist-pain.svg" alt="" />
+											<figcaption>Tooth Pain</figcaption>
+										</figure>
+									</label>
+									<label>
+										<input type="checkbox" name="service" value="cleaning" />
+										<i class="icon f7-icons color-green">check_round_fill</i>
+										<figure>
+											<img src="assets/custom/img/dentist-clean.svg" alt="" />
+											<figcaption>Cleaning</figcaption>
+										</figure>
+									</label>
+									<label>
+										<input type="checkbox" name="service" value="braces" />
+										<i class="icon f7-icons color-green">check_round_fill</i>
+										<figure>
+											<img src="assets/custom/img/dentist-braces.svg" alt="" />
+											<figcaption>Braces</figcaption>
+										</figure>
+									</label>
+									<label>
+										<input type="checkbox" name="service" value="implant" />
+										<i class="icon f7-icons color-green">check_round_fill</i>
+										<figure>
+											<img src="assets/custom/img/dentist-implant.svg" alt="" />
+											<figcaption>Dental Implant</figcaption>
+										</figure>
+									</label>
+								</div>
+							</div>
+							<div class="slide-actions">
+								<button type="button" class="button button-big button-fill button-round" @click="validateServices">Next</button>
+							</div>
+						</div>
+
+						<div class="swiper-slide">
+							<div class="slide-navigation">
+								<a href="#" class="link" @click="previousSlide">
+									<i class="fa-stack fa-2x">
+										<span class="fas fa-stack-2x fa-circle"></span>
+										<span class="fas fa-stack-1x fa-arrow-{{arrowDirection}} fa-inverse"></span>
+									</i>
+								</a>
+							</div>
+							<div class="slide-title">Select date and time</div>
+							<div class="slide-content">
+								<div id="datepicker"></div>
+								<input type="text" name="date" />
+							</div>
+						</div>
+
+					</div>
+
+					<div class="swiper-pagination"></div>
+
+				</div>
+
+			</form>
+
+		</div>
+
+	</div>
+</template>
+
+<style scoped>
+	form {
+		height: 100%;
+	}
+
+	.swiper-container {
+		height: 100%;
+	}
+
+	.swiper-wrapper {
+		height: 100%;
+	}
+
+	.swiper-slide {
+		align-items: stretch;
+		box-sizing: border-box;
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		justify-content: flex-start;
+		padding: 32px 16px;
+		text-align: center;
+	}
+
+	.slide-navigation {
+		align-self: flex-start;
+	}
+
+	.slide-navigation a .fa-stack {
+		width: 2em;
+	}
+
+	.slide-navigation a .fa-stack-1x {
+		margin-left: 0 !important;
+	}
+
+	.slide-title {
+		align-self: flex-start;
+		font-size: 28px;
+		font-weight: bold;
+		margin-top: 8px;
+	}
+
+	.slide-content {
+		overflow-y: scroll;
+	}
+
+	.slide-content::-webkit-scrollbar {
+		display: none;
+	}
+
+	.slide-actions {
+		margin-top: auto;
+	}
+
+	.input-valid {
+		color: var(--oc-color-green-8) !important;
+	}
+
+	.input-invalid {
+		color: var(--oc-color-red-8) !important;
+	}
+
+	.services-container {
+		margin: 0 auto;
+		margin-top: 16px;
+		max-width: 768px;
+		text-align: center;
+	}
+
+	.services-container label {
+		box-sizing: border-box;
+		display: inline-block;
+		margin: 8px 6px;
+		overflow: hidden;
+		position: relative;
+		vertical-align: top;
+		width: 128px;
+	}
+
+	.services-container label input[type=radio],
+	.services-container label input[type=checkbox] {
+		display: none;
+	}
+
+	.services-container label i {
+		display: none;
+		font-size: 24px;
+		position: absolute;
+		right: 6px;
+		top: 6px;
+	}
+
+	.services-container label input:checked + i {
+		display: block;
+	}
+
+	.services-container label figure {
+		background-color: #F5F5F7;
+		border-radius: 3px;
+		margin: 0;
+		padding: 16px 4px;
+	}
+
+	.theme-dark {{this}} .services-container label figure {
+		background-color: #292929;
+	}
+
+	.services-container label figure img {
+		height: 56px;
+		width: auto;
+	}
+
+	.services-container label figure figcaption {
+		font-size: 14px;
+	}
+
+	input[name=date] {
+		display: none;
+	}
+</style>
+
+<script>
+	return {
+		data: function() {
+			return {
+				slider: null,
+				arrowDirection: (function() {
+					if (app.params.rtl) {
+						return 'right';
+					}
+					else {
+						return 'left';
+					}
+				})()
+			}
+		},
+		methods: {
+			initializeSlider: function() {
+				var self = this;
+				self.slider = app.swiper.create('.swiper-container', {
+					allowTouchMove: false,
+					pagination: {
+						el: '.swiper-pagination',
+						type: 'progressbar'
+					}
+				});
+			},
+			initializeDatepicker: function() {
+				var self = this;
+				var today = new Date();
+				var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August' , 'September' , 'October', 'November', 'December'];
+				var calendar = app.calendar.create({
+					containerEl: '#datepicker',
+					inputEl: 'input[name=date]',
+					value: [new Date().setDate(today.getDate() + 1)],
+					minDate: new Date().setDate(today.getDate() + 1),
+					dateFormat: 'yyyy-mm-dd',
+					weekHeader: true,
+					renderToolbar: function () {
+						return	'<div class="toolbar toolbar-calendar no-shadow">' +
+											'<div class="toolbar-inner">' +
+												'<div class="left">' +
+													'<a href="#" class="link icon-only"><i class="icon icon-back ' + (app.theme === 'md' ? 'color-gray' : '') + '"></i></a>' +
+												'</div>' +
+												'<div class="center"></div>' +
+												'<div class="right">' +
+													'<a href="#" class="link icon-only"><i class="icon icon-forward ' + (app.theme === 'md' ? 'color-gray' : '') + '"></i></a>' +
+												'</div>' +
+											'</div>' +
+										'</div>';
+						},
+						on: {
+							init: function(calendar) {
+								self.$('.toolbar-calendar .center').text(months[calendar.currentMonth] +', ' + calendar.currentYear);
+								self.$('.toolbar-calendar .left .link').on('click', function() {
+									calendar.prevMonth();
+								});
+								self.$('.toolbar-calendar .right .link').on('click', function() {
+									calendar.nextMonth();
+								});
+							},
+							monthYearChangeStart: function(calendar) {
+								self.$('.toolbar-calendar .center').text(months[calendar.currentMonth] +', ' + calendar.currentYear);
+							}
+						}
+				});
+			},
+			previousSlide: function() {
+				var self = this;
+				self.slider.slidePrev();
+			},
+			validateServices: function() {
+				var self = this;
+				if (self.$('input[name=service]:checked').length >= 1) {
+					self.$('input[name=service]').parents('.swiper-slide').find('.slide-title').removeClass('input-invalid').addClass('input-valid');
+					self.slider.slideNext();
+				}
+				else {
+					self.$('input[name=service]').parents('.swiper-slide').find('.slide-title').removeClass('input-valid').addClass('input-invalid');
+				}
+			}
+		},
+		on: {
+			pageInit: function() {
+				var self = this;
+				self.initializeSlider();
+				self.initializeDatepicker();
+			}
+		}
+	}
+</script>

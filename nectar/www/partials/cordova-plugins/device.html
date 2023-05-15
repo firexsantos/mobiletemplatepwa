@@ -1,0 +1,129 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="cordova-plugins">Cordova Plugins</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="device">Device</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="device">Device</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="block">
+				<p>This plugin provides information about the device's hardware and software.</p>
+			</div>
+
+			{{#if device}}
+			<div class="list">
+				<ul>
+					<li>
+						<div class="item-content">
+							<div class="item-inner">
+								<div class="item-title">Cordova Version</div>
+								<div class="item-after">{{device.cordova}}</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-inner">
+								<div class="item-title">Device Model</div>
+								<div class="item-after">{{device.model}}</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-inner">
+								<div class="item-title">Device Manufacturer</div>
+								<div class="item-after">{{device.manufacturer}}</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-inner">
+								<div class="item-title">Device OS</div>
+								<div class="item-after">{{device.platform}}</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-inner">
+								<div class="item-title">OS Version</div>
+								<div class="item-after">{{device.version}}</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-inner">
+								<div class="item-title">Device UUID</div>
+								<div class="item-after">{{device.uuid}}</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-inner">
+								<div class="item-title">Device Serial</div>
+								<div class="item-after">{{device.serial}}</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-inner">
+								<div class="item-title">Is Device Virtual</div>
+								<div class="item-after">{{#if device.isVirtual}}Yes{{else}}No{{/if}}</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			{{else}}
+			<div class="block text-align-center">
+				<span class="preloader color-multi"></span>
+			</div>
+			{{/if}}
+
+		</div>
+
+	</div>
+</template>
+
+<script>
+	return {
+		data: function() {
+			return {
+				device: null
+			}
+		},
+		methods: {
+			getDeviceInfo: function() {
+				var self = this;
+				self.$setState({
+					device: device
+				});
+			}
+		},
+		on: {
+			pageInit: function() {
+				var self = this;
+				self.getDeviceInfo();
+			}
+		}
+	}
+</script>

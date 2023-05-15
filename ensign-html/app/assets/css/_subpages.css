@@ -1,0 +1,87 @@
+/*----------------------------------------
+  Sub pages - Inner Menu Links
+------------------------------------------*/
+
+.subpages.collection {
+	margin-top: 0px;
+	border: 0px solid transparent;
+	/* -webkit-box-shadow: none;
+	box-shadow: none; */
+}
+.container.full ul.subpages.collection{
+	margin-bottom: 24px;
+	padding-bottom: 15px;
+}
+.subpages .collection-item {
+	padding: 0px 0px 0 0px;
+	background: #ffffff;
+	/* background: transparent; */
+}
+.subpages .collection-item.subtit h5{
+	/* padding-left: 0px; */
+	margin: 10px 0 16px 24px;
+}
+.subpages .collection-item.subtit .row{
+	margin-bottom: 0px;
+}
+.subpages .collection-item.subtit:hover{
+	background: #ffffff;
+}
+
+.subpages .collection-item a {
+	display: block;
+	padding: 10px 20px;
+	color: #546e7a;
+	line-height: 28px;
+	/* text-transform: uppercase; */
+	padding-left: 0px;
+	border-left: 5px solid transparent;
+	padding: 10px 15px 10px 15px;
+}
+.subpages .collection-item a:hover {
+	border-left-color: var(--primary-color);
+	color: #455a64;
+	background: rgba(var(--primary-rgb),.15);;
+}
+.subpages .collection-item a i {
+	position: relative;
+	top: 1px;
+	font-size: 20px;
+	margin-right: 8px;
+	height: 30px;
+	width: 30px;
+	display: inline-block;
+	text-align: center;
+	line-height: 30px;
+}
+.subpages .collection-item a i.arrow {
+	position: absolute;
+	right: 15px;
+	top: 11px;
+	margin: 0px;
+	opacity: 0.55;
+	background: transparent;
+	height: auto;
+	width: auto;
+	color: inherit;
+	font-size: 15px;
+	display: none;
+}
+.subpages .collection-item a span {
+	font-weight: 400;
+	font-size: 16px;
+  margin-left: 0px;
+}
+.subpages.collection{
+	background: #ffffff;
+}
+.subpages .collection-item{
+	background: transparent;
+}
+.subpages .collection-item:hover {
+	background: transparent;
+}
+.collection-img{
+	padding: 0px;
+}
+

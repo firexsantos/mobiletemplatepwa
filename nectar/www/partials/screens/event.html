@@ -1,0 +1,369 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="back">Back</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="event">Event</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="event">Event</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="event-header" style="background-image: url('https://www.dropbox.com/s/wl0w9djet2e0wgt/tomorrowland.jpg?raw=1');">
+				<img class="img-responsive" src="https://www.dropbox.com/s/yw3zi2la58jmnfd/tomorrowland.png?raw=1" width="196" alt="" />
+				<span class="badge bg-color-yellow-4 text-color-black">Music</span>
+			</div>
+
+			<div class="block margin-vertical">
+				<div class="event-title">Tomorrowland Music Festival</div>
+			</div>
+
+			<div class="toolbar tabbar tabbar-scrollable tabbar-sticky">
+				<div class="toolbar-inner">
+					<a href="#tab-overview" class="tab-link tab-link-active">Overview</a>
+					<a href="#tab-tickets" class="tab-link">Tickets</a>
+					<a href="#tab-faq" class="tab-link">FAQ</a>
+				</div>
+			</div>
+
+			<div class="tabs">
+
+				<div id="tab-overview" class="tab tab-active">
+					<div class="list no-hairlines-between margin-vertical">
+						<ul>
+							<li>
+								<div class="item-content">
+									<div class="item-media">
+										<i class="fa-stack">
+											<span class="fas fa-square fa-stack-2x color-cyan-5 ios-only"></span>
+											<span class="fas fa-circle fa-stack-2x color-cyan-5 md-only"></span>
+											<span class="far fa-calendar-alt fa-stack-1x fa-inverse"></span>
+										</i>
+									</div>
+									<div class="item-inner">
+										<div class="item-title">
+											<div class="item-header">Date</div>
+											<div class="item-footer">Friday, July 19, 2019 — Sunday, July 21, 2019</div>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="item-content">
+									<div class="item-media">
+										<i class="fa-stack">
+											<span class="fas fa-square fa-stack-2x color-lime-5 ios-only"></span>
+											<span class="fas fa-circle fa-stack-2x color-lime-5 md-only"></span>
+											<span class="far fa-clock fa-stack-1x fa-inverse"></span>
+										</i>
+									</div>
+									<div class="item-inner">
+										<div class="item-title">
+											<div class="item-header">Time</div>
+											<div class="item-footer">18:00 hrs — 06:00 hrs GMT</div>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="item-content">
+									<div class="item-media">
+										<i class="fa-stack">
+											<span class="fas fa-square fa-stack-2x color-yellow-5 ios-only"></span>
+											<span class="fas fa-circle fa-stack-2x color-yellow-5 md-only"></span>
+											<span class="fas fa-map-marker-alt fa-stack-1x fa-inverse"></span>
+										</i>
+									</div>
+									<div class="item-inner">
+										<div class="item-title">
+											<div class="item-header">Location</div>
+											<div class="item-footer">PRC de Schorre, Schommelei, 2850 Boom, Belgium</div>
+										</div>
+										<div class="item-after">
+											<a href="https://maps.google.com/?q=51.088731,4.377535" target="_blank" class="external">View Map</a>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="item-content">
+									<div class="item-media">
+										<i class="fa-stack">
+											<span class="fas fa-square fa-stack-2x color-red-5 ios-only"></span>
+											<span class="fas fa-circle fa-stack-2x color-red-5 md-only"></span>
+											<span class="fas fa-globe fa-stack-1x fa-inverse"></span>
+										</i>
+									</div>
+									<div class="item-inner">
+										<div class="item-title">
+											<div class="item-header">Website</div>
+											<div class="item-footer">https://tomorrowland.com</div>
+										</div>
+										<div class="item-after">
+											<a href="https://tomorrowland.com" target="_blank" class="external">Visit</a>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="block-title">About</div>
+					<div class="block">
+						<p>Tomorrowland is the world's biggest dance music festival, bringing an A-list lineup of DJs from across the dance music spectrum to Boom in Belgium each summer. That means whether you're into EDM, house, techno, hardstyle, or all of the above, you'll be surrounded by only the best.</p>
+						<p>Throw in its incredible stage design, production and quirky surprises, and it's easy to see why Tomorrowland's tickets sell out in record time each year. Now regarded as a mecca for all dance music fans, immersing yourself into this mythological wonderland has to be high up on every music fan's bucket list.</p>
+					</div>
+					<div class="block-title">Photos</div>
+					<div class="block">
+						<div class="photo-gallery">
+							<div class="swiper-container">
+								<div class="swiper-wrapper">
+									{{#each photos}}
+									<div class="swiper-slide">
+										<div class="slide-media">
+											<img class="img-responsive" src="{{this.url}}" alt="" />
+										</div>
+									</div>
+									{{/each}}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div id="tab-tickets" class="tab">
+
+					<div class="block-title margin-vertical">Buy your tickets now!</div>
+					<div class="list cards-list">
+						<div class="list-group">
+							<ul>
+								<li class="list-group-title">Full Madness Pass</li>
+								<li class="card">
+									<div class="card-header justify-content-space-between">
+										<span>Regular</span>
+										<a href="https://www.tomorrowland.com" target="_blank" class="button button-fill button-small bg-color-teal-5 external">Buy</a>
+									</div>
+									<div class="card-content card-content-padding">
+										<div class="ticket-price">249 EUR</div>
+									</div>
+								</li>
+								<li class="card">
+									<div class="card-header justify-content-space-between">
+										<span>Comfort</span>
+										<a href="https://www.tomorrowland.com" target="_blank" class="button button-fill button-small bg-color-teal-5 external">Buy</a>
+									</div>
+									<div class="card-content card-content-padding">
+										<div class="ticket-price">440 EUR</div>
+									</div>
+									<div class="card-footer">
+										<p>General access to Tomorrowland + access to the comfort (VIP) zone at the Mainstage and 4 other stages for 1 weekend.</p>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<div class="list-group">
+							<ul>
+								<li class="list-group-title">Day Pass</li>
+								<li class="card">
+									<div class="card-header justify-content-space-between">
+										<span>Regular</span>
+										<a href="https://www.tomorrowland.com" target="_blank" class="button button-fill button-small bg-color-pink-5 external">Buy</a>
+									</div>
+									<div class="card-content card-content-padding">
+										<div class="ticket-price">109 EUR</div>
+									</div>
+								</li>
+								<li class="card">
+									<div class="card-header justify-content-space-between">
+										<span>Pleasure</span>
+										<a href="https://www.tomorrowland.com" target="_blank" class="button button-fill button-small bg-color-pink-5 external">Buy</a>
+									</div>
+									<div class="card-content card-content-padding">
+										<div class="ticket-price">170 EUR</div>
+									</div>
+									<div class="card-footer">
+										<p>General access to Tomorrowland + access to 3 different comfort zones for 1 day. No access to the comfort zone at the Mainstage.</p>
+									</div>
+								</li>
+								<li class="card">
+									<div class="card-header justify-content-space-between">
+										<span>Comfort</span>
+										<a href="https://www.tomorrowland.com" target="_blank" class="button button-fill button-small bg-color-pink-5 external">Buy</a>
+									</div>
+									<div class="card-content card-content-padding">
+										<div class="ticket-price">200 EUR</div>
+									</div>
+									<div class="card-footer">
+										<p>General access to Tomorrowland + access to the comfort (VIP) zone at the Mainstage and 4 other stages for 1 day.</p>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+				</div>
+
+				<div id="tab-faq" class="tab">
+					<div class="list accordion-list inset no-hairlines no-hairlines-between margin-vertical">
+						<ul>
+							{{#each faq}}
+							<li class="accordion-item">
+								<a href="#" class="item-link">
+									<div class="item-content">
+										<div class="item-inner">
+											<div class="item-title">{{this.question}}</div>
+										</div>
+									</div>
+								</a>
+								<div class="accordion-item-content">
+									<div class="block">
+										<p>{{this.answer}}</p>
+									</div>
+								</div>
+							</li>
+							{{/each}}
+						</ul>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+</template>
+
+<style scoped>
+	.event-header {
+		align-items: center;
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		box-sizing: border-box;
+		color: #FFFFFF;
+		display: flex;
+		flex-direction: column;
+		height: 42vh;
+		justify-content: flex-end;
+		padding: 16px;
+		text-align: center;
+		width: 100%;
+	}
+
+	.event-header .badge {
+		align-self: flex-start;
+		border-radius: 0;
+		font-size: 16px;
+	}
+
+	.event-title {
+		font-size: 20px;
+		font-weight: bold;
+	}
+
+	.ticket-price {
+		font-size: 24px;
+		font-weight: bold;
+	}
+</style>
+
+<script>
+	return {
+		data: function() {
+			return {
+				photos: [
+					{
+						url: 'https://www.tomorrowland.com/src/Frontend/Themes/tomorrowland/Core/Layout/images/timeline/2018-1.jpg',
+						caption: '2018 — The Story of Planaxis'
+					},
+					{
+						url: 'https://www.tomorrowland.com/src/Frontend/Themes/tomorrowland/Core/Layout/images/timeline/2017-1.jpg',
+						caption: '2017 — Amicorum Spectaculum'
+					},
+					{
+						url: 'https://www.tomorrowland.com/src/Frontend/Themes/tomorrowland/Core/Layout/images/timeline/2016-2.jpg',
+						caption: '2016 — The Elixir of Life'
+					},
+					{
+						url: 'https://www.tomorrowland.com/src/Frontend/Themes/tomorrowland/Core/Layout/images/timeline/2015-3.jpg',
+						caption: '2015 — The Secret Kingdom of Melodia'
+					},
+					{
+						url: 'https://www.tomorrowland.com/src/Frontend/Themes/tomorrowland/Core/Layout/images/timeline/2014-5.jpg',
+						caption: '2014 — The Key to Happiness'
+					},
+					{
+						url: 'https://www.tomorrowland.com/src/Frontend/Themes/tomorrowland/Core/Layout/images/timeline/2013-1.jpg',
+						caption: '2013 — The Arising of Life'
+					},
+					{
+						url: 'https://www.tomorrowland.com/src/Frontend/Themes/tomorrowland/Core/Layout/images/timeline/2012-3.jpg',
+						caption: '2012 — The Book of Wisdom'
+					},
+					{
+						url: 'https://www.tomorrowland.com/src/Frontend/Themes/tomorrowland/Core/Layout/images/timeline/2011-3.jpg',
+						caption: '2011 — The Tree of Life'
+					}
+				],
+				faq: [
+					{
+						"question": "What is Lorem Ipsum?",
+						"answer": "Lorem Ipsum is simply a dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+					},
+					{
+						"question": "Where does it come from?",
+						"answer": "Lorem Ipsum has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. It comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance."
+					},
+					{
+						"question": "Why do we use it?",
+						"answer": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English."
+					},
+					{
+						"question": "Where can I get some?",
+						"answer": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable."
+					}
+				]
+			}
+		},
+		methods: {
+			initializePhotoSlider: function() {
+				var self = this;
+				app.swiper.create('.photo-gallery .swiper-container', {
+					centeredSlides: true,
+					grabCursor: true,
+					initialSlide: 3,
+					loop: true,
+					slidesPerView: 2,
+					spaceBetween: 16
+				});
+				self.$('.photo-gallery .slide-media img').on('click', function() {
+					var currentSlide = self.$('.photo-gallery .slide-media img').parent().parent('.swiper-slide-active').data('swiper-slide-index');
+					var photoBrowser = app.photoBrowser.create({
+						photos: self.photos,
+						swiper: {
+							initialSlide: currentSlide
+						},
+						theme: app.utils.theme.getLayout()
+					});
+					photoBrowser.open();
+				});
+			}
+		},
+		on: {
+			pageInit: function() {
+				var self = this;
+				self.initializePhotoSlider();
+			}
+		}
+	}
+</script>

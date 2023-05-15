@@ -1,0 +1,124 @@
+
+/*----------------------------------------
+  Switches
+------------------------------------------*/
+.switch.large label .lever{
+    width: 59px;
+    height: 22px;
+}
+.switch.large label .lever:before, .switch.large label .lever:after{
+    width: 28px;
+    height: 28px;
+}
+.switch.large label input[type=checkbox]:checked+.lever:before, .switch.large label input[type=checkbox]:checked+.lever:after{
+  left: 32px;
+}
+
+.switch.medium label .lever{
+    width: 42px;
+    height: 18px;
+}
+.switch.medium label .lever:before, .switch.medium label .lever:after{
+    width: 22px;
+    height: 22px;
+}
+.switch.medium label input[type=checkbox]:checked+.lever:before, .switch.medium label input[type=checkbox]:checked+.lever:after{
+  left: 21px;
+}
+.switch.medium label .lever:before, .switch.medium label .lever:after{
+  top: -2px;
+}
+
+.switch label input[type=checkbox]:checked+.lever {
+    background-color: rgba(var(--primary-rgb), 0.4);
+}
+.switch label .lever:before {
+    background-color: rgba(var(--primary-rgb), 0.4);
+}
+.switch label input[type=checkbox]:checked+.lever:after {
+    background-color: var(--primary-color);
+}
+input[type=checkbox]:checked:not(:disabled) ~ .lever:active::before, input[type=checkbox]:checked:not(:disabled).tabbed:focus ~ .lever::before {
+    background-color: rgba(var(--primary-rgb), 0.3);
+    opacity: 0.6;
+}
+
+/*danger switch*/
+.switch.danger label input[type=checkbox]:checked+.lever {
+    background-color: #FFCDD2;
+}
+.switch.danger label .lever:before {
+    background-color: #FFCDD2;
+}
+.switch.danger label input[type=checkbox]:checked+.lever:after {
+    background-color: #E57373;
+}
+.switch.danger input[type=checkbox]:checked:not(:disabled) ~ .lever:active::before, .switch.danger input[type=checkbox]:checked:not(:disabled).tabbed:focus ~ .lever::before {
+    background-color: #FFEBEE;
+    opacity: 0.8;
+}
+
+/*info switch*/
+.switch.info label input[type=checkbox]:checked+.lever {
+    background-color: #B2EBF2;
+}
+.switch.info label .lever:before {
+    background-color: #B2EBF2;
+}
+.switch.info label input[type=checkbox]:checked+.lever:after {
+    background-color: #0097A7;
+}
+.switch.info input[type=checkbox]:checked:not(:disabled) ~ .lever:active::before, .switch.info input[type=checkbox]:checked:not(:disabled).tabbed:focus ~ .lever::before {
+    background-color: #E0F7FA;
+    opacity: 0.6;
+}
+
+
+/*warning switch*/
+.switch.warning label input[type=checkbox]:checked+.lever {
+    background-color: #FFCCBC;
+}
+.switch.warning label .lever:before {
+    background-color: #FFCCBC;
+}
+.switch.warning label input[type=checkbox]:checked+.lever:after {
+    background-color: #FF8A65;
+}
+.switch.warning input[type=checkbox]:checked:not(:disabled) ~ .lever:active::before, .switch.warning input[type=checkbox]:checked:not(:disabled).tabbed:focus ~ .lever::before {
+    background-color: #FBE9E7;
+    opacity: 0.8;
+}
+
+
+/*success switch*/
+.switch.success label input[type=checkbox]:checked+.lever {
+    background-color: #DCEDC8;
+}
+.switch.success label .lever:before {
+    background-color: #DCEDC8;
+}
+.switch.success label input[type=checkbox]:checked+.lever:after {
+    background-color: #AED581;
+}
+.switch.success input[type=checkbox]:checked:not(:disabled) ~ .lever:active::before, .switch.success input[type=checkbox]:checked:not(:disabled).tabbed:focus ~ .lever::before {
+    background-color: #F1F8E9;
+    opacity: 0.6;
+}
+
+/*----------------------------------------
+  Site - Dark Mode - Switches
+----------------------------------------*/
+[data-site_mode="dark"] .switch label .lever{
+   background-color: #455A64;
+}
+[data-site_mode="dark"] .switch label .lever:after{
+   background-color: #B0BEC5;
+}
+
+/* [data-site_mode="dark"] .switch input[type=checkbox][disabled]+.lever{
+   background-color: #37474F;
+} */
+[data-site_mode="dark"] .switch label input[type=checkbox][disabled]+.lever:after, 
+[data-site_mode="dark"] .switch label input[type=checkbox][disabled]:checked+.lever:after{
+   background-color: #455A64;
+}

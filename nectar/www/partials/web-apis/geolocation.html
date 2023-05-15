@@ -1,0 +1,243 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="web-apis">Web APIs</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="geolocation-api">Geolocation API</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="geolocation-api">Geolocation API</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			{{#if isApiSupported}}
+			<div class="empty-state">
+				<div class="empty-state-media">
+					<img src="assets/custom/img/location.svg" alt="" />
+				</div>
+				<div class="empty-state-title">Yaay!</div>
+				<div class="empty-state-text">This browser supports Geolocation API.</div>
+				<div class="empty-state-actions">
+					<button type="button" class="button button-big button-fill button-round" @click="explore" data-i18n="explore">Explore</button>
+				</div>
+			</div>
+			{{else}}
+			<div class="empty-state">
+				<div class="empty-state-media">
+					<img class="filter-grayscale" src="assets/custom/img/location.svg" alt="" />
+				</div>
+				<div class="empty-state-title">Oops!</div>
+				<div class="empty-state-text">This browser does not support Geolocation API.</div>
+				<div class="empty-state-actions">
+					<a href="https://caniuse.com/geolocation" target="_blank" class="button button-big button-fill button-round external" data-i18n="supported-browsers">Supported Browsers</a>
+				</div>
+			</div>
+			{{/if}}
+
+		</div>
+
+		{{#if isApiSupported}}
+		<div class="popup popup-tablet-fullscreen popup-explore">
+			<div class="view">
+				<div class="page">
+
+					<div class="navbar">
+						<div class="navbar-inner">
+							<div class="left ios-only">
+								<a href="#" class="link popup-close">
+									<span data-i18n="close">Close</span>
+								</a>
+							</div>
+							<div class="title" data-i18n="geolocation-api">Geolocation API</div>
+							<div class="right md-only">
+								<a href="#" class="link icon-only popup-close">
+									<i class="icon material-icons">close</i>
+								</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="page-content">
+
+						<div class="block">
+							<p>Geolocation API allows to access user's geographical location - using either GPS or network environment.</p>
+						</div>
+
+						{{#if hasGeolocationInfo}}
+						<div class="list">
+							<ul>
+								<li>
+									<div class="item-content">
+										<div class="item-inner">
+											<div class="item-title">Latitude</div>
+											<div class="item-after">{{position.latitude}}</div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="item-content">
+										<div class="item-inner">
+											<div class="item-title">Location</div>
+											<div class="item-after">{{position.longitude}}</div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="item-content">
+										<div class="item-inner">
+											<div class="item-title">Location Accuracy</div>
+											<div class="item-after">{{position.accuracy}}</div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="item-content">
+										<div class="item-inner">
+											<div class="item-title">Altitude</div>
+											<div class="item-after">{{position.altitude}}</div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="item-content">
+										<div class="item-inner">
+											<div class="item-title">Altitude Accuracy</div>
+											<div class="item-after">{{position.altitudeAccuracy}}</div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="item-content">
+										<div class="item-inner">
+											<div class="item-title">Heading</div>
+											<div class="item-after">{{position.heading}}</div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="item-content">
+										<div class="item-inner">
+											<div class="item-title">Speed</div>
+											<div class="item-after">{{position.speed}}</div>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+
+						{{#if watchId}}
+						<div class="block">
+							<button class="button button-big button-fill color-red" @click="stopTracking">Stop Tracking</button>
+						</div>
+						<div class="note note-info text-align-center">
+							<p>The geolocation information will change when you move your device from one location to another.</p>
+						</div>
+						{{else}}
+						<div class="block">
+							<button class="button button-big button-fill color-green" @click="startTracking">Start Tracking</button>
+						</div>
+						{{/if}}
+						{{else}}
+						<div class="block">
+							<button class="button button-big button-fill color-green" @click="getGeolocationInfo">Get Geolocation Info</button>
+						</div>
+						{{/if}}
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+		{{/if}}
+
+	</div>
+</template>
+
+<script>
+	return {
+		data: function() {
+			return {
+				isApiSupported: (function() {
+					return app.support.webApi.geolocation;
+				})(),
+				hasGeolocationInfo: false,
+				watchId: null,
+				position: {
+					latitude: null,
+					longitude: null,
+					accuracy: null,
+					altitude: null,
+					altitudeAccuracy: null,
+					heading: null,
+					speed: null
+				}
+			}
+		},
+		methods: {
+			explore: function() {
+				var self = this;
+				var popup = app.popup.create({
+					el: '.popup-explore',
+					on: {
+						closed: function() {
+							self.stopTracking();
+						}
+					}
+				});
+				popup.open();
+			},
+			getGeolocationInfo: function() {
+				var self = this;
+				navigator.geolocation.getCurrentPosition(self.onGeolocationSuccess, self.onGeolocationError);
+			},
+			onGeolocationSuccess: function(position) {
+				var self = this;
+				self.updateGeolocationInfo(position);
+			},
+			onGeolocationError: function(error) {
+				var self = this;
+				app.toast.show({
+					text: error.message,
+					position: 'bottom',
+					cssClass: 'toast-round bg-color-red'
+				});
+			},
+			updateGeolocationInfo: function(position) {
+				var self = this;
+				var positionData = {};
+				positionData.latitude = position.coords.latitude ? position.coords.latitude + ' deg' : 'Not Available';
+				positionData.longitude = position.coords.longitude ? position.coords.longitude + ' deg' : 'Not Available';
+				positionData.accuracy = position.coords.accuracy ? position.coords.accuracy + ' m' : 'Not Available';
+				positionData.altitude = position.coords.altitude ? position.coords.altitude + ' m' : 'Not Available';
+				positionData.altitudeAccuracy = position.coords.altitudeAccuracy ? position.coords.altitudeAccuracy + ' m' : 'Not Available';
+				positionData.heading = position.coords.heading ? position.coords.heading + ' deg' : 'Not Available';
+				positionData.speed = position.coords.speed ? position.coords.speed + ' m/s' : 'Not Available';
+				self.$setState({
+					hasGeolocationInfo: true,
+					position: positionData
+				});
+			},
+			startTracking: function() {
+				var self = this;
+				self.watchId = navigator.geolocation.watchPosition(self.onGeolocationSuccess, self.onGeolocationError);
+			},
+			stopTracking: function() {
+				var self = this;
+				navigator.geolocation.clearWatch(self.watchId);
+				self.$setState({
+					watchId: null
+				});
+			}
+		}
+	}
+</script>

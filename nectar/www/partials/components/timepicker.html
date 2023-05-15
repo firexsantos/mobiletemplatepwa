@@ -1,0 +1,85 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="components">Components</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="timepicker">Timepicker</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="timepicker">Timepicker</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="block">
+				<p>Timepicker allows the users to select time.</p>
+			</div>
+
+			<div class="list no-hairlines">
+				<ul>
+					<li class="item-divider">12-Hours Format</li>
+					<li class="item-content item-input">
+						<div class="item-inner">
+							<div class="item-input-wrap">
+								<input type="text" id="timepicker-12" placeholder="Select" readonly />
+							</div>
+						</div>
+					</li>
+					<li class="item-divider">24-Hours Format</li>
+					<li class="item-content item-input">
+						<div class="item-inner">
+							<div class="item-input-wrap">
+								<input type="text" id="timepicker-24" placeholder="Select" readonly />
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+
+		</div>
+
+	</div>
+</template>
+
+<script>
+	return {
+		methods: {
+			initializeTimepicker12: function() {
+				var self = this;
+				jQuery('#timepicker-12').timeDropper({
+					autoswitch: true,
+					format: 'hh:mm A',
+					init_animation: 'dropDown',
+					meridians: true,
+					setCurrentTime: true
+				});
+			},
+			initializeTimepicker24: function() {
+				var self = this;
+				jQuery('#timepicker-24').timeDropper({
+					autoswitch: true,
+					format: 'HH:mm',
+					init_animation: 'dropDown',
+					meridians: false,
+					setCurrentTime: true
+				});
+			}
+		},
+		on: {
+			pageInit: function() {
+				var self = this;
+				self.initializeTimepicker12();
+				self.initializeTimepicker24();
+			}
+		}
+	}
+</script>

@@ -1,0 +1,50 @@
+/*----------------------------------------
+  Search Page 
+----------------------------------------*/
+.search-page .search-results{
+  display: inline-block;
+  width: 100%;
+  padding: 15px 5px;
+}
+.search-page .search-results.posts{
+  padding: 15px 5px;
+}
+.search-page .search-bar{
+  padding: 5px;
+}
+.search-page .search-bar nav{
+  background: #f5f5f5;
+}
+.search-page .search-bar nav label i,
+.search-page .search-bar nav input{
+  color: #757575;
+}
+.search-page .tab-content{
+    display: inline-block;
+    background: #fff;
+    width: 100%;
+    max-width: 1280px;
+    padding: 24px 5%;
+}
+@media only screen and (min-width: 601px){
+  .search-page .tab-content{
+    padding: 24px 7%;
+  }
+}
+.search-page .tabs-padding{
+  padding: 0 24px;
+}
+
+/*----------------------------------------
+  Site - Dark Mode - Search
+----------------------------------------*/
+[data-site_mode="dark"] .search-page .search-bar nav{
+  background-color: #455A64;
+}
+[data-site_mode="dark"] .search-page .search-bar nav label i, 
+[data-site_mode="dark"] .search-page .search-bar nav input{
+  color: #f5f5f5;
+}
+[data-site_mode="dark"] .search-page .tab-content{
+	background-color: #455A64;
+}

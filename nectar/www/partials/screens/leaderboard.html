@@ -1,0 +1,208 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="back">Back</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="leaderboard">Leaderboard</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="leaderboard">Leaderboard</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="block text-align-center">
+				<img class="img-center" src="assets/custom/img/trophy.svg" height="128" alt="" />
+			</div>
+
+			{{#if leaderboard}}
+			<div class="block">
+				<div class="segmented segmented-round">
+					<a href="#tab-this-week" class="button button-big button-outline button-round tab-link tab-link-active">This Week</a>
+					<a href="#tab-all-time" class="button button-big button-outline button-round tab-link">All Time</a>
+				</div>
+			</div>
+
+			<div class="tabs">
+				<div class="tab tab-active" id="tab-this-week">
+					<div class="block">
+						<div class="card card-you">
+							<div class="card-content">
+								<div class="list">
+									<ul>
+										<li>
+											<div class="item-content">
+												<div class="item-inner item-cell">
+													<div class="item-row">
+														<div class="item-cell item-cell-rank flex-shrink-0">{{leaderboard.this_week.you.rank}}</div>
+														<div class="item-cell item-cell-avatar flex-shrink-0 width-auto">
+															<img class="img-circle" src="{{leaderboard.this_week.you.avatar}}" height="40" alt="" /></div>
+														<div class="item-cell item-cell-name flex-shrink-4">You</div>
+														<div class="item-cell item-cell-points width-auto flex-shrink-0">{{leaderboard.this_week.you.points}}</div>
+													</div>
+												</div>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="card card-users margin-top">
+							<div class="card-content">
+								<div class="list no-hairlines-between">
+									<ul>
+										{{#each leaderboard.this_week.users}}
+										<li>
+											<div class="item-content">
+												<div class="item-inner item-cell">
+													<div class="item-row">
+														<div class="item-cell item-cell-rank flex-shrink-0">{{this.rank}}</div>
+														<div class="item-cell item-cell-avatar flex-shrink-0 width-auto">
+															<img class="img-circle" src="{{this.avatar}}" height="40" alt="" /></div>
+														<div class="item-cell item-cell-name flex-shrink-4">{{this.name}}</div>
+														<div class="item-cell item-cell-points width-auto flex-shrink-0">{{this.points}}</div>
+													</div>
+												</div>
+											</div>
+										</li>
+										{{/each}}
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="tab" id="tab-all-time">
+					<div class="block">
+						<div class="card card-you">
+							<div class="card-content">
+								<div class="list">
+									<ul>
+										<li>
+											<div class="item-content">
+												<div class="item-inner item-cell">
+													<div class="item-row">
+														<div class="item-cell item-cell-rank flex-shrink-0">{{leaderboard.all_time.you.rank}}</div>
+														<div class="item-cell item-cell-avatar flex-shrink-0 width-auto">
+															<img class="img-circle" src="{{leaderboard.all_time.you.avatar}}" height="40" alt="" /></div>
+														<div class="item-cell item-cell-name flex-shrink-4">You</div>
+														<div class="item-cell item-cell-points width-auto flex-shrink-0">{{leaderboard.all_time.you.points}}</div>
+													</div>
+												</div>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="card card-users margin-top">
+							<div class="card-content">
+								<div class="list no-hairlines-between">
+									<ul>
+										{{#each leaderboard.all_time.users}}
+										<li>
+											<div class="item-content">
+												<div class="item-inner item-cell">
+													<div class="item-row">
+														<div class="item-cell item-cell-rank flex-shrink-0">{{this.rank}}</div>
+														<div class="item-cell item-cell-avatar flex-shrink-0 width-auto">
+															<img class="img-circle" src="{{this.avatar}}" height="40" alt="" /></div>
+														<div class="item-cell item-cell-name flex-shrink-4">{{this.name}}</div>
+														<div class="item-cell item-cell-points width-auto flex-shrink-0">{{this.points}}</div>
+													</div>
+												</div>
+											</div>
+										</li>
+										{{/each}}
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			{{/if}}
+
+		</div>
+
+	</div>
+</template>
+
+<style scoped>
+	.block > .card {
+		border: none;
+		box-shadow: none;
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	.card-you {
+		background-image: linear-gradient(135deg, #FC6076 0%, #FF9A44 100%);
+		color: #FFFFFF;
+	}
+
+	.card-users {
+		background-image: linear-gradient(135deg, #F5F5F5 0%, #F7F7F7 100%);
+	}
+
+	{{html}} .theme-dark .card-users {
+		background-image: linear-gradient(135deg, #212121 0%, #313131 100%);
+	}
+
+	.item-cell-rank {
+		font-size: 20px;
+		width: 24px !important;
+	}
+
+	.card-you .item-cell-name {
+		font-size: 20px;
+	}
+
+	.item-cell-avatar img {
+		vertical-align: middle;
+	}
+
+	.item-cell-points {
+		font-size: 30px;
+	}
+</style>
+
+<script>
+	return {
+		data: function() {
+			return {
+				leaderboard: null
+			}
+		},
+		methods: {
+			loadData: function() {
+				var self = this;
+				app.request.json(
+					'assets/custom/dataset/leaderboard.json',
+					function(data) {
+						if (data) {
+							self.$setState({
+								leaderboard: data
+							});
+						}
+					}
+				);
+			}
+		},
+		on: {
+			pageInit: function() {
+				var self = this;
+				self.loadData();
+			}
+		}
+	}
+</script>

@@ -1,0 +1,52 @@
+[
+	{
+		"name": "Nutella - Hazelnut Spread",
+		"image": "https://www.dropbox.com/s/vbhftd8khm9yu6x/nutella.png?raw=1",
+		"pack": "250g",
+		"type": "veg",
+		"price": {
+			"original": "₹350",
+			"final": "₹325"
+		}
+	},
+	{
+		"name": "Ferrero Rocher",
+		"image": "https://www.dropbox.com/s/z794i3pyr5i708n/ferrero-rocher.png?raw=1",
+		"pack": "30g",
+		"type": "veg",
+		"price": {
+			"original": "₹100",
+			"final": "₹100"
+		}
+	},
+	{
+		"name": "Eggs",
+		"image": "https://www.dropbox.com/s/65ie57dqned6ny0/eggs.png?raw=1",
+		"pack": "1Dz",
+		"type": "nonveg",
+		"price": {
+			"original": "₹120",
+			"final": "₹100"
+		}
+	},
+	{
+		"name": "M&M Candy",
+		"image": "https://www.dropbox.com/s/o184mmdl9h6ll2e/mm-candy.png?raw=1",
+		"pack": "47.9g",
+		"type": "veg",
+		"price": {
+			"original": "₹25",
+			"final": "₹25"
+		}
+	},
+	{
+		"name": "Hershey's Chocolate Syrup",
+		"image": "https://www.dropbox.com/s/v2hl31ea7rlc90e/hersheys-chocolate-syrup.png?raw=1",
+		"pack": "500ml",
+		"type": "veg",
+		"price": {
+			"original": "₹225",
+			"final": "₹200"
+		}
+	}
+]

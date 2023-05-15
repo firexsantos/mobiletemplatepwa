@@ -1,0 +1,116 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="cordova-plugins">Cordova Plugins</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="network-information">Network Information</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="network-information">Network Information</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="block">
+				<p>This plugin allows to access information about the network connection in use by the device.</p>
+				<p>This can be used to serve high definition content or low definition content based on the network connection.</p>
+			</div>
+
+			<div class="list">
+				<ul>
+					<li>
+						<div class="item-content">
+							<div class="item-inner">
+								<div class="item-title">Connection Status</div>
+								<div class="item-after">{{connectionStatus}}</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-inner">
+								<div class="item-title">Connection Type</div>
+								<div class="item-after">{{connectionType}}</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+
+			<div class="note note-info text-align-center">
+				<p>Try switching between Cellular and Wi-Fi network.</p>
+			</div>
+
+		</div>
+
+	</div>
+</template>
+
+<script>
+	return {
+		data: function() {
+			return {
+				connectionStatus: null,
+				connectionType: null
+			}
+		},
+		methods: {
+			onOnline: function() {
+				var self = this;
+				self.updateConnectionInfo();
+			},
+			onOffline: function() {
+				var self = this;
+				self.updateConnectionInfo();
+			},
+			updateConnectionInfo: function() {
+				var self = this;
+				var connectionType = navigator.connection.type;
+				var connectionTypes = {};
+				connectionTypes[Connection.UNKNOWN] = 'Unknown';
+				connectionTypes[Connection.ETHERNET] = 'Ethernet';
+				connectionTypes[Connection.WIFI] = 'Wi-Fi';
+				connectionTypes[Connection.CELL_2G] = 'Cellular 2G';
+				connectionTypes[Connection.CELL_3G] = 'Cellular 3G';
+    		connectionTypes[Connection.CELL_4G] = 'Cellular 4G';
+    		connectionTypes[Connection.CELL] = 'Cellular';
+    		connectionTypes[Connection.NONE] = 'No Connection';
+				self.$setState({
+					connectionType: connectionTypes[connectionType]
+				});
+				if (connectionType == Connection.NONE) {
+					self.$setState({
+						connectionStatus: 'Offline'
+					});
+				}
+				else {
+					self.$setState({
+						connectionStatus: 'Online'
+					});
+				}
+			}
+		},
+		on: {
+			pageInit: function() {
+				var self = this;
+				self.updateConnectionInfo();
+				window.addEventListener('online', self.onOnline);
+				window.addEventListener('offline', self.onOffline);
+			},
+			pageBeforeRemove: function() {
+				var self = this;
+				window.removeEventListener('online', self.onOnline);
+				window.removeEventListener('offline', self.onOffline);
+			}
+		}
+	}
+</script>

@@ -1,0 +1,104 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="integrations">Integrations</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="qr-code">QR Code</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="qr-code">QR Code</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<form name="qrcode" action="#" method="GET" enctype="application/x-www-form-urlencoded">
+				<div class="list no-hairlines no-hairlines-between">
+					<ul>
+						<li>
+							<div class="item-content item-input item-input-with-info">
+								<div class="item-media">
+									<i class="icon f7-icons">qrcode</i>
+								</div>
+								<div class="item-inner">
+									<div class="item-title item-label">Enter Text or URL</div>
+									<div class="item-input-wrap">
+										<input type="text" name="content" required />
+										<div class="item-input-info input-error-message"></div>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="block">
+					<button type="submit" class="button button-big button-fill">Generate QR Code</button>
+				</div>
+			</form>
+
+			<div class="block">
+				<div class="qrcode text-align-center"></div>
+			</div>
+
+		</div>
+
+	</div>
+</template>
+
+<script>
+	return {
+		data: function() {
+			return {
+				formValidator: null
+			}
+		},
+		methods: {
+			initializeFormValidator: function() {
+				var self = this;
+				self.formValidator = jQuery('form[name=qrcode]').validate({
+					ignore: [],
+					rules: {
+						content: {
+							required: true
+						}
+					},
+    			messages: {
+						content: {
+							required: 'Please enter Text or URL.'
+      			}
+					},
+					submitHandler: function(form) {
+						self.submitForm(form);
+					}
+				});
+			},
+			submitForm: function(form) {
+				var self = this;
+				self.generateQRCode(form.content.value);
+			},
+			generateQRCode: function(content) {
+				var self = this;
+				var typeNumber = 0;
+				var errorCorrectionLevel = 'L';
+				var qr = qrcode(typeNumber, errorCorrectionLevel);
+				qr.addData(content);
+				qr.make();
+				document.querySelector('.qrcode').innerHTML = qr.createSvgTag(10);
+			}
+		},
+		on: {
+			pageInit: function() {
+				var self = this;
+				self.initializeFormValidator();
+			}
+		}
+	}
+</script>

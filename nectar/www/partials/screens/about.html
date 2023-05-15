@@ -1,0 +1,148 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="back">Back</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="about">About</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="about">About</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="block no-margin-bottom">
+				<img class="app-logo theme-light-only" src="{{$root.config.app.logo}}" alt="" />
+				<img class="app-logo theme-dark-only" src="assets/custom/img/logo-white.svg" alt="" />
+				<div class="app-title">{{$root.config.app.title}}</div>
+				<div class="app-tagline">{{$root.config.app.tagline}}</div>
+				<div class="app-version">{{appVersion}}</div>
+			</div>
+
+			<div class="block no-margin-bottom">
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+			</div>
+
+			<div class="block no-margin-bottom">
+				<a href="https://behance.com" target="_blank" class="external">
+					<i class="fa-stack">
+						<span class="fas fa-circle fa-stack-2x brand-color-behance"></span>
+						<span class="fab fa-behance fa-stack-1x fa-inverse"></span>
+					</i>
+				</a>
+				<a href="https://dribbble.com" target="_blank" class="external">
+					<i class="fa-stack">
+						<span class="fas fa-circle fa-stack-2x brand-color-dribbble"></span>
+						<span class="fab fa-dribbble fa-stack-1x fa-inverse"></span>
+					</i>
+				</a>
+				<a href="https://facebook.com" target="_blank" class="external">
+					<i class="fa-stack">
+						<span class="fas fa-circle fa-stack-2x brand-color-facebook"></span>
+						<span class="fab fa-facebook-f fa-stack-1x fa-inverse"></span>
+					</i>
+				</a>
+				<a href="https://github.com" target="_blank" class="external">
+					<i class="fa-stack">
+						<span class="fas fa-circle fa-stack-2x brand-color-github"></span>
+						<span class="fab fa-github fa-stack-1x fa-inverse"></span>
+					</i>
+				</a>
+				<a href="https://linkedin.com" target="_blank" class="external">
+					<i class="fa-stack">
+						<span class="fas fa-circle fa-stack-2x brand-color-linkedin"></span>
+						<span class="fab fa-linkedin-in fa-stack-1x fa-inverse"></span>
+					</i>
+				</a>
+				<a href="https://twitter.com" target="_blank" class="external">
+					<i class="fa-stack">
+						<span class="fas fa-circle fa-stack-2x brand-color-twitter"></span>
+						<span class="fab fa-twitter fa-stack-1x fa-inverse"></span>
+					</i>
+				</a>
+				<a href="https://youtube.com" target="_blank" class="external">
+					<i class="fa-stack">
+						<span class="fas fa-circle fa-stack-2x brand-color-youtube"></span>
+						<span class="fab fa-youtube fa-stack-1x fa-inverse"></span>
+					</i>
+				</a>
+			</div>
+
+			<div class="block">
+				<div class="app-developer">Made with <i class="fas fa-coffee"></i> and <i class="fas fa-heart"></i> in India</div>
+			</div>
+
+		</div>
+
+	</div>
+</template>
+
+<style scoped>
+	.page-content {
+		align-items: stretch;
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		justify-content: flex-start;
+		text-align: center;
+	}
+
+	.page-content > :last-child {
+		margin-top: auto;
+	}
+
+	.app-logo {
+		height: 128px;
+		width: auto;
+	}
+
+	.app-title {
+		font-size: 17px;
+	}
+
+	.app-tagline {
+		font-size: 14px;
+	}
+
+	.app-version {
+		font-size: 12px;
+	}
+
+	.app-developer {
+		font-size: 11px;
+	}
+
+	.fa-coffee {
+		color: #964B00;
+	}
+
+	.fa-heart {
+		color: #FA5252;
+	}
+</style>
+
+<script>
+	return {
+		data: function() {
+			return {
+				appVersion: (function() {
+					if (app.device.cordova && BuildInfo) {
+						return BuildInfo.version;
+					}
+					else {
+						return app.version;
+					}
+				})()
+			}
+		}
+	}
+</script>

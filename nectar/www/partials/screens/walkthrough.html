@@ -1,0 +1,386 @@
+<template>
+	<div class="page no-navbar no-toolbar no-swipeback">
+
+		<div class="page-content">
+
+			<div class="walkthrough">
+				<div class="swiper-container walkthrough-container">
+
+					<div class="swiper-wrapper walkthrough-wrapper">
+
+						<div class="swiper-slide walkthrough-slide">
+							<div class="slide-title">Welcome to Nectar</div>
+							<div class="slide-media">
+								<img class="theme-light-only" src="{{$root.config.app.logo}}" width="128" alt="" />
+								<img class="theme-dark-only" src="assets/custom/img/logo-white.svg" width="128" alt="" />
+							</div>
+							<div class="slide-text">Mobile Web App Kit</div>
+							<div class="slide-actions">
+								<button class="button button-big button-fill button-round" data-i18n="next" @click="openSlideLanguage">Next</button>
+							</div>
+						</div>
+
+						<div class="swiper-slide walkthrough-slide">
+							<div class="slide-title">Choose your Language</div>
+							<div class="slide-media">
+								<ul class="flags-wrapper">
+									<li>
+										<label>
+											<input type="radio" name="language" value="en" data-dir="ltr" />
+											<img src="assets/custom/img/flag-united-kingdom.svg" alt="" />
+											<span data-i18n="english">English</span>
+										</label>
+									</li>
+									<li>
+										<label>
+											<input type="radio" name="language" value="hi" data-dir="ltr" />
+											<img src="assets/custom/img/flag-india.svg" alt="" />
+											<span data-i18n="hindi">Hindi</span>
+										</label>
+									</li>
+									<li>
+										<label>
+											<input type="radio" name="language" value="ar" data-dir="rtl" />
+											<img src="assets/custom/img/flag-saudi-arabia.svg" alt="" />
+											<span data-i18n="arabic">Arabic</span>
+										</label>
+									</li>
+								</ul>
+							</div>
+							<div class="slide-actions">
+								<button class="button button-big button-fill button-round" data-i18n="next" @click="openSlideTheme">Next</button>
+							</div>
+						</div>
+
+						<div class="swiper-slide walkthrough-slide">
+							<div class="slide-title">Choose your Theme</div>
+							<div class="slide-media">
+								<ul class="colors-wrapper">
+									<li>
+										<label>
+											<input type="radio" name="theme-color" value="red" />
+											<i class="fa-stack fa-2x">
+												<span class="fas fa-circle fa-stack-2x text-color-red"></span>
+												<span class="fas fa-check fa-stack-1x fa-inverse"></span>
+											</i>
+											<span class="text-color-red" data-i18n="red">Red</span>
+										</label>
+									</li>
+									<li>
+										<label>
+											<input type="radio" name="theme-color" value="green" />
+											<i class="fa-stack fa-2x">
+												<span class="fas fa-circle fa-stack-2x text-color-green"></span>
+												<span class="fas fa-check fa-stack-1x fa-inverse"></span>
+											</i>
+											<span class="text-color-green" data-i18n="green">Green</span>
+										</label>
+									</li>
+									<li>
+										<label>
+											<input type="radio" name="theme-color" value="blue" />
+											<i class="fa-stack fa-2x">
+												<span class="fas fa-circle fa-stack-2x text-color-blue"></span>
+												<span class="fas fa-check fa-stack-1x fa-inverse"></span>
+											</i>
+											<span class="text-color-blue" data-i18n="blue">Blue</span>
+										</label>
+									</li>
+									<li>
+										<label>
+											<input type="radio" name="theme-color" value="pink" />
+											<i class="fa-stack fa-2x">
+												<span class="fas fa-circle fa-stack-2x text-color-pink"></span>
+												<span class="fas fa-check fa-stack-1x fa-inverse"></span>
+											</i>
+											<span class="text-color-pink" data-i18n="pink">Pink</span>
+										</label>
+									</li>
+									<li>
+										<label>
+											<input type="radio" name="theme-color" value="yellow" />
+											<i class="fa-stack fa-2x">
+												<span class="fas fa-circle fa-stack-2x text-color-yellow"></span>
+												<span class="fas fa-check fa-stack-1x fa-inverse"></span>
+											</i>
+											<span class="text-color-yellow" data-i18n="yellow">Yellow</span>
+										</label>
+									</li>
+									<li>
+										<label>
+											<input type="radio" name="theme-color" value="orange" />
+											<i class="fa-stack fa-2x">
+												<span class="fas fa-circle fa-stack-2x text-color-orange"></span>
+												<span class="fas fa-check fa-stack-1x fa-inverse"></span>
+											</i>
+											<span class="text-color-orange" data-i18n="orange">Orange</span>
+										</label>
+									</li>
+									<li>
+										<label>
+											<input type="radio" name="theme-color" value="gray" />
+											<i class="fa-stack fa-2x">
+												<span class="fas fa-circle fa-stack-2x text-color-gray"></span>
+												<span class="fas fa-check fa-stack-1x fa-inverse"></span>
+											</i>
+											<span class="text-color-gray" data-i18n="gray">Gray</span>
+										</label>
+									</li>
+									<li>
+										<label>
+											<input type="radio" name="theme-color" value="black" />
+											<i class="fa-stack fa-2x">
+												<span class="fas fa-circle fa-stack-2x text-color-black"></span>
+												<span class="fas fa-check fa-stack-1x fa-inverse"></span>
+											</i>
+											<span class="text-color-black" data-i18n="black">Black</span>
+										</label>
+									</li>
+								</ul>
+							</div>
+							<div class="slide-actions">
+								<button class="button button-big button-fill button-round" data-i18n="next" @click="openSlideExplore">Next</button>
+							</div>
+						</div>
+
+						<div class="swiper-slide walkthrough-slide">
+							<div class="slide-title">Explore Nectar</div>
+							<div class="slide-media">
+								<img src="assets/custom/img/rocket.svg" width="128" alt="" />
+							</div>
+							<div class="slide-text">You're all set!</div>
+							<div class="slide-actions">
+								<button class="button button-big button-fill button-round" @click="loadNextScreen">Get Started</button>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="swiper-pagination walkthrough-pagination"></div>
+
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+</template>
+
+<style scoped>
+	.walkthrough {
+		height: 100%;
+	}
+
+	.walkthrough-container {
+		height: 100%;
+	}
+
+	.walkthrough-wrapper {
+		height: 100%;
+	}
+
+	.walkthrough-slide {
+		align-items: stretch;
+		box-sizing: border-box;
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		justify-content: flex-start;
+		text-align: center;
+	}
+
+	.ios {{this}} .walkthrough-slide {
+		padding: 35px 15px;
+	}
+
+	.md {{this}} .walkthrough-slide {
+		padding: 32px 16px;
+	}
+
+	.walkthrough-slide .slide-title {
+		font-size: 26px;
+	}
+
+	.ios {{this}} .walkthrough-slide .slide-media {
+		margin: 35px 0;
+	}
+
+	.md {{this}} .walkthrough-slide .slide-media {
+		margin: 32px 0;
+	}
+
+	.walkthrough-slide .slide-text {
+		font-size: 16px;
+	}
+
+	.ios {{this}} .walkthrough-slide .slide-text {
+		margin-bottom: 35px;
+	}
+
+	.md {{this}} .walkthrough-slide .slide-text {
+		margin-bottom: 32px;
+	}
+
+	.walkthrough-slide .slide-actions {
+		margin-top: auto;
+	}
+
+	.walkthrough-actions {
+		bottom: 0;
+		box-sizing: border-box;
+		left: 0;
+		position: absolute;
+		width: 100%;
+		z-index: 50;
+	}
+
+	.ios {{this}} .walkthrough-actions {
+		margin-bottom: 35px;
+		padding: 0 15px;
+	}
+
+	.md {{this}} .walkthrough-actions {
+		margin-bottom: 32px;
+		padding: 0 16px;
+	}
+
+	.walkthrough-pagination {
+		bottom: 80px;
+	}
+
+	.flags-wrapper {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		text-align: center;
+	}
+
+	.flags-wrapper li {
+		display: inline-block;
+		margin: 6px 12px;
+	}
+
+	.flags-wrapper li label input {
+		display: none;
+	}
+
+	.flags-wrapper li label img {
+		filter: grayscale(100%);
+		height: auto;
+		width: 72px;
+	}
+
+	.flags-wrapper label span {
+		display: block;
+		margin: 16px 0;
+	}
+
+	.flags-wrapper li label input:checked ~ img {
+		filter: grayscale(0);
+	}
+
+	.flags-wrapper li label input:checked ~ span {
+		font-weight: bold;
+	}
+
+	.colors-wrapper {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		text-align: center;
+	}
+
+	.colors-wrapper li {
+		display: inline-block;
+		margin: 4px;
+	}
+
+	.colors-wrapper li label {
+		display: block;
+	}
+
+	.colors-wrapper li label input {
+		display: none;
+	}
+
+	.colors-wrapper li label i .fa-check {
+		display: none;
+	}
+
+	.colors-wrapper li label > span {
+		display: block;
+		margin: 16px 0;
+	}
+
+	.colors-wrapper li label input:checked ~ i .fa-check {
+		display: block;
+	}
+
+	.colors-wrapper li label input:checked ~ span {
+		font-weight: bold;
+	}
+</style>
+
+<script>
+	return {
+		data: function() {
+			return {
+				nextScreen: '/home',
+				walkthrough: null
+			}
+		},
+		methods: {
+			checkmarkCurrentLanguage: function() {
+				var self = this;
+				var currentLanguage = app.utils.i18n.getLanguage();
+				self.$('[name=language][value=' + currentLanguage.lang + ']').prop('checked', true);
+			},
+			checkmarkCurrentTheme: function() {
+				var self = this;
+				var currentThemeColor = app.utils.theme.getColor();
+				self.$('[name=theme-color][value=' + currentThemeColor + ']').prop('checked', true);
+			},
+			initializeWalkthrough: function() {
+				var self = this;
+				self.walkthrough = app.swiper.create('.walkthrough-container', {
+					allowTouchMove: false,
+					pagination: {
+						el: '.walkthrough-pagination',
+						type: 'progressbar'
+					}
+				});
+			},
+			openSlideLanguage: function() {
+				var self = this;
+				self.walkthrough.slideNext();
+				self.$('[name=language]').on('change', function() {
+					app.utils.i18n.setLanguage({lang: this.value, dir: this.dataset.dir});
+				});
+			},
+			openSlideTheme: function() {
+				var self = this;
+				self.walkthrough.slideNext();
+				self.$('[name=theme-color]').on('change', function() {
+					app.utils.theme.setColor(this.value);
+				});
+			},
+			openSlideExplore: function() {
+				var self = this;
+				self.walkthrough.slideNext();
+			},
+			loadNextScreen: function() {
+				var self = this;
+				localStorage.setItem('Nectar_OldUser', 'true');
+				app.views.current.router.navigate(self.nextScreen);
+			}
+		},
+		on: {
+			pageInit: function() {
+				var self = this;
+				self.checkmarkCurrentLanguage();
+				self.checkmarkCurrentTheme();
+				self.initializeWalkthrough();
+			}
+		}
+	}
+</script>

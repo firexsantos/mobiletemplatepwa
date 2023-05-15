@@ -1,0 +1,89 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="back">Back</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="poll">Poll</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="poll">Poll</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="block text-align-center">
+				<p class="question">Where is the United Nations headquarters located?</p>
+			</div>
+
+			<div class="block">
+				<div class="row">
+					<div class="col-100 tablet-50">
+						<label class="chip-selectable">
+							<input type="radio" name="answer" value="A" />
+							<div class="chip">
+								<div class="chip-label">Geneva, Switzerland</div>
+							</div>
+						</label>
+					</div>
+					<div class="col-100 tablet-50">
+						<label class="chip-selectable">
+							<input type="radio" name="answer" value="B" />
+							<div class="chip">
+								<div class="chip-label">Hague, the Netherlands</div>
+							</div>
+						</label>
+					</div>
+					<div class="col-100 tablet-50">
+						<label class="chip-selectable">
+							<input type="radio" name="answer" value="C" />
+							<div class="chip">
+								<div class="chip-label">New York City, USA</div>
+							</div>
+						</label>
+					</div>
+					<div class="col-100 tablet-50">
+						<label class="chip-selectable">
+							<input type="radio" name="answer" value="D" />
+							<div class="chip">
+								<div class="chip-label">Vienna, Austria</div>
+							</div>
+						</label>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+</template>
+
+<style scoped>
+	.question {
+		font-size: 32px;
+		font-weight: bold;
+	}
+
+	.chip-selectable {
+		display: flex;
+		margin-top: 8px;
+	}
+
+	.chip-selectable > .chip {
+		border-radius: 24px;
+		display: flex;
+		font-size: 18px;
+		height: 48px;
+		line-height: 48px;
+		padding: 0 24px;
+		width: 100%;
+	}
+</style>

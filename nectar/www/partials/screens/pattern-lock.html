@@ -1,0 +1,150 @@
+<template>
+	<div class="page no-navbar no-toolbar no-swipeback">
+
+		<div class="page-content">
+
+			<div class="block">
+				<div class="time">9:15 AM</div>
+				<div class="day">Sunday</div>
+				<div class="date">December 22, 1991</div>
+			</div>
+
+			<div class="block no-margin-bottom">
+				<div class="text">
+					<div>Draw the pattern to unlock</div>
+					<div>Make 'N' shape beginning from bottom left.</div>
+				</div>
+				<div class="pattern-container"></div>
+			</div>
+
+		</div>
+
+	</div>
+</template>
+
+<style scoped>
+	.page-content {
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		text-align: center;
+	}
+
+	.page-content {
+		background-color: #343A40;
+		background-image: url(https://source.unsplash.com/A-11N8ItHZo);
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		color: #FFFFFF;
+	}
+
+	.block {
+		color: #FFFFFF;
+	}
+
+	.time {
+		font-size: 32px;
+	}
+
+	.day {
+		font-size: 28px;
+	}
+
+	.date {
+		font-size: 24px;
+	}
+
+	.text {
+		font-size: 16px;
+	}
+
+	.patt-holder {
+		background: transparent;
+	}
+
+	.patt-holder .patt-dots {
+		background: #F5F5F7;
+	}
+
+	.patt-holder .patt-circ.hovered {
+		border-color: #F5F5F7;
+	}
+
+	.patt-holder.patt-success .patt-circ.hovered {
+		border-color: #74B816;
+	}
+
+	.patt-holder.patt-error .patt-circ.hovered {
+		border-color: #F03E3E;
+	}
+</style>
+
+<script>
+	return {
+		data: function() {
+			return {
+				pattern: '7415963',
+				lock: null
+			}
+		},
+		methods: {
+			initializePatternLock: function() {
+				var self = this;
+				self.lock = new PatternLock('.pattern-container', {
+					matrix: [3,3],
+					lineOnMove: true,
+					patternVisible: true
+				});
+				self.lock.checkForPattern(
+					self.pattern,
+					function() {
+						self.$('.patt-holder').addClass('patt-success');
+						self.lock.reset();
+						app.views.current.router.navigate('/home');
+						app.toast.show({
+							text: 'Welcome to Nectar',
+							cssClass: 'toast-round bg-color-green'
+						});
+					},
+					function() {
+						self.lock.error();
+						navigator.vibrate(500);
+						anime({
+							targets: '.patt-holder',
+							easing: 'linear',
+							duration: 350,
+							translateX: [
+								{
+									value: -12,
+								},
+								{
+									value: 12,
+								},
+								{
+									value: -4,
+								},
+								{
+									value: 4,
+								},
+								{
+									value: 0,
+								}
+							],
+						});
+						setTimeout(function() {
+							self.lock.reset();
+						}, 500);
+					}
+				);
+			}
+		},
+		on: {
+			pageInit: function() {
+				var self = this;
+				self.initializePatternLock();
+			}
+		}
+	}
+</script>

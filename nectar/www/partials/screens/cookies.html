@@ -1,0 +1,93 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="back">Back</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="cookie-policy">Cookie Policy</div>
+				{{#if cookiesAccepted}}
+				{{else}}
+				<div class="right ios-only">
+					<a href="#" class="link" data-i18n="accept" @click="acceptCookies">Accept</a>
+				</div>
+				{{/if}}
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="cookie-policy">Cookie Policy</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="note note-info">
+				<p>This cookie policy was last updated on {{lastUpdated}}.</p>
+			</div>
+
+			<div class="block">
+				<p>When you visit a website that uses cookies, these cookies will get placed on your device. Cookies can contain information about actions you take on the page. The information is specific to you and the website you visited.</p>
+				<p>When you visit the website again, the site automatically looks for the cookie on your device and reads its contents to tailor your browsing experience based on how you interacted with the website in the past.</p>
+				<p>The benefit of cookies is a more personalized and often faster browsing experience. However, some consumers may not want you to track their browsing behaviors. Therefore, some privacy laws require you to disclose and explain your cookie policy to your site visitors. The strictest laws require you to get informed consent from users before using cookies.</p>
+			</div>
+
+		</div>
+
+		{{#if cookiesAccepted}}
+		{{else}}
+		<div class="fab fab-extended fab-center-bottom color-green md-only">
+			<a href="#" @click="acceptCookies">
+				<div class="fab-text" data-i18n="accept">Accept</div>
+			</a>
+		</div>
+		{{/if}}
+
+	</div>
+</template>
+
+<script>
+	return {
+		data: function() {
+			return {
+				lastUpdated: (function() {
+					var date = new Date('2018-12-31');
+					var options = {
+						year: 'numeric',
+						month: 'long',
+						day: 'numeric',
+						weekday: 'long'
+					};
+					return date.toLocaleDateString('en-us', options);
+				})(),
+				cookiesAccepted: (function() {
+					if (localStorage.getItem('Nectar_CookiesAccepted')) {
+						return true;
+					}
+					else {
+						return false;
+					}
+				})()
+			}
+		},
+		methods: {
+			acceptCookies: function() {
+				var self = this;
+				localStorage.setItem('Nectar_CookiesAccepted', 'true');
+				self.$setState({
+					cookiesAccepted: true
+				});
+				app.toast.show({
+					icon: '<i class="fas fa-fw fa-cookie-bite"></i>',
+					text: 'Thank you for accepting cookies.',
+					position: 'bottom',
+					cssClass: 'toast-round bg-color-yellow text-color-black'
+				});
+			}
+		}
+	}
+</script>

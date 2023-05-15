@@ -1,0 +1,706 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="back">Back</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="products-single">Products - Single</div>
+				<div class="right">
+					<a href="/screens/cart" class="link icon-only">
+						<i class="icon f7-icons ios-only">bag</i>
+						<i class="icon material-icons md-only">shopping_cart</i>
+					</a>
+				</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="products-single">Products - Single</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<img src="https://www.dropbox.com/s/5t6xrzwx72zppnb/iphone-7-plus-black.png?raw=1" alt="Apple iPhone 7 Plus (Black)" />
+					</div>
+					<div class="swiper-slide">
+						<img src="https://www.dropbox.com/s/1jnxwokdz2jiw4k/iphone-7-plus-gold.png?raw=1" alt="Apple iPhone 7 Plus (Gold)" />
+					</div>
+					<div class="swiper-slide">
+						<img src="https://www.dropbox.com/s/ro5iwcmp8v9dosa/iphone-7-plus-jet-black.png?raw=1" alt="Apple iPhone 7 Plus (Jet Black)" />
+					</div>
+					<div class="swiper-slide">
+						<img src="https://www.dropbox.com/s/jd9zwl1cim3yrzc/iphone-7-plus-rose-gold.png?raw=1" alt="Apple iPhone 7 Plus (Rose Gold)" />
+					</div>
+					<div class="swiper-slide">
+						<img src="https://www.dropbox.com/s/dp4nhv91zbz2600/iphone-7-plus-silver.png?raw=1" alt="Apple iPhone 7 Plus (Silver)" />
+					</div>
+				</div>
+				<div class="swiper-button-prev color-gray"></div>
+				<div class="swiper-button-next color-gray"></div>
+			</div>
+
+			<div class="card">
+				<div class="card-content card-content-padding">
+					<button class="button button-big button-fill color-green" @click="addToCart">Add to Cart</button>
+				</div>
+			</div>
+
+			<div class="card">
+				<div class="card-content card-content-padding">
+					<div class="product-name">Apple iPhone 7 Plus (Black, 128 GB)</div>
+					<div class="product-price">
+						<span class="price-original text-color-gray">₹75,000</span>
+						<span>&nbsp;</span>
+						<span class="price-final">₹70,000</span>
+					</div>
+				</div>
+			</div>
+			<div class="card">
+				<div class="card-content card-content-padding">
+					<div>Available Colors</div>
+					<div>
+						<i class="icon material-icons tooltip-init" style="color: #313131;" data-tooltip="Black">lens</i>
+						<i class="icon material-icons tooltip-init" style="color: #E9DDCC;" data-tooltip="Gold">lens</i>
+						<i class="icon material-icons tooltip-init" style="color: #191919;" data-tooltip="Jet Black">lens</i>
+						<i class="icon material-icons tooltip-init" style="color: #F7D0CB;" data-tooltip="Rose Gold">lens</i>
+						<i class="icon material-icons tooltip-init" style="color: #E3E4E6;" data-tooltip="Silver">lens</i>
+					</div>
+				</div>
+			</div>
+			<div class="card">
+				<div class="card-content card-content-padding">
+					<div>Available Storage</div>
+					<div>
+						<span>128 GB</span>
+						<span>&amp;</span>
+						<span>256 GB</span>
+					</div>
+				</div>
+			</div>
+
+			<div class="toolbar tabbar tabbar-scrollable tabbar-sticky">
+				<div class="toolbar-inner">
+					<a href="#tab-description" class="tab-link tab-link-active">Description</a>
+					<a href="#tab-specifications" class="tab-link">Specifications</a>
+					<a href="#tab-reviews" class="tab-link">Reviews</a>
+				</div>
+			</div>
+
+			<div class="tabs">
+
+				<div id="tab-description" class="tab tab-active">
+					<div class="block">
+						<p>iPhone 7 Plus dramatically improves the most important aspects of the iPhone experience and it looks every bit as powerful as it is.</p>
+					</div>
+					<ul>
+						<li>High Resolution Dual 12 MP Cameras</li>
+						<li>A Display Like Never Before</li>
+						<li>Most Powerful Chip in a Smartphone</li>
+						<li>Dust, Water and Splash Resistant</li>
+						<li>Enjoy 7MP Front Camera</li>
+						<li>The Brand New Home Button</li>
+						<li>Stereo Speakers for Great Audio Output</li>
+						<li>The Latest iOS</li>
+					</ul>
+				</div>
+
+				<div id="tab-specifications" class="tab">
+					<div class="data-table card">
+						<div class="card-header">
+							<div class="data-table-title">Body</div>
+						</div>
+						<div class="card-content">
+							<table>
+								<tbody>
+									<tr>
+										<td class="label-cell">Dimensions</td>
+										<td class="label-cell">6.23 x 3.07 x 0.29 in</td>
+									</tr>
+									<tr>
+										<td class="label-cell">Weight</td>
+										<td class="label-cell">188 g</td>
+									</tr>
+									<tr>
+										<td class="label-cell">SIM</td>
+										<td class="label-cell">Nano-SIM</td>
+									</tr>
+									<tr>
+										<td class="label-cell">Battery</td>
+										<td class="label-cell">Non-removable Li-Ion 2900 mAh Battery (11.1 Wh)</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div class="data-table card">
+						<div class="card-header">
+							<div class="data-table-title">Display</div>
+						</div>
+						<div class="card-content">
+							<table>
+								<tbody>
+									<tr>
+										<td class="label-cell">Type</td>
+										<td class="label-cell">LED-Backlit IPS LCD, Capacitive Touchscreen, 16M Colors</td>
+									</tr>
+									<tr>
+										<td class="label-cell">Size</td>
+										<td class="label-cell">5.5 inches (~67.7% Screen-to-Body Ratio)</td>
+									</tr>
+									<tr>
+										<td class="label-cell">Resolution</td>
+										<td class="label-cell">1080 x 1920 Pixels (~401 PPI Pixel Density)</td>
+									</tr>
+									<tr>
+										<td class="label-cell">Multitouch</td>
+										<td class="label-cell">Yes</td>
+									</tr>
+									<tr>
+										<td class="label-cell">Protection</td>
+										<td class="label-cell">Ion-Strengthened Glass, Oleophobic Coating</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div class="data-table card">
+						<div class="card-header">
+							<div class="data-table-title">Platform</div>
+						</div>
+						<div class="card-content">
+							<table>
+								<tbody>
+									<tr>
+										<td class="label-cell">Operating System</td>
+										<td class="label-cell">iOS 10.0.1, Upgradable to iOS 10.3.2</td>
+									</tr>
+									<tr>
+										<td class="label-cell">Chipset</td>
+										<td class="label-cell">Apple A10 Fusion</td>
+									</tr>
+									<tr>
+										<td class="label-cell">CPU</td>
+										<td class="label-cell">Quad-core 2.34 GHz (2x Hurricane + 2x Zephyr)</td>
+									</tr>
+									<tr>
+										<td class="label-cell">GPU</td>
+										<td class="label-cell">PowerVR Series7XT Plus (Six-core Graphics)</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div class="data-table card">
+						<div class="card-header">
+							<div class="data-table-title">Memory</div>
+						</div>
+						<div class="card-content">
+							<table>
+								<tbody>
+									<tr>
+										<td class="label-cell">ROM</td>
+										<td class="label-cell">128 GB</td>
+									</tr>
+									<tr>
+										<td class="label-cell">RAM</td>
+										<td class="label-cell">3 GB</td>
+									</tr>
+									<tr>
+										<td class="label-cell">Card Slot</td>
+										<td class="label-cell">No</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div class="data-table card">
+						<div class="card-header">
+							<div class="data-table-title">Camera</div>
+						</div>
+						<div class="card-content">
+							<table>
+								<tbody>
+									<tr>
+										<td class="label-cell">Primary</td>
+										<td class="label-cell">Dual 12 MP, Quad-LED (Dual Tone) Flash,</td>
+									</tr>
+									<tr>
+										<td class="label-cell">Secondary</td>
+										<td class="label-cell">7 MP</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div class="data-table card">
+						<div class="card-header">
+							<div class="data-table-title">Communication</div>
+						</div>
+						<div class="card-content">
+							<table>
+								<tbody>
+									<tr>
+										<td class="label-cell">Network</td>
+										<td class="label-cell">GSM / CDMA / HSPA / EVDO / LTE</td>
+									</tr>
+									<tr>
+										<td class="label-cell">WLAN</td>
+										<td class="label-cell">Wi-Fi 802.11 a/b/g/n/ac, Dual-Band, Hotspot</td>
+									</tr>
+									<tr>
+										<td class="label-cell">Bluetooth</td>
+										<td class="label-cell">4.2, A2DP, LE</td>
+									</tr>
+									<tr>
+										<td class="label-cell">GPS</td>
+										<td class="label-cell">Yes, with A-GPS, GLONASS</td>
+									</tr>
+									<tr>
+										<td class="label-cell">NFC</td>
+										<td class="label-cell">Yes (Apple Pay only)</td>
+									</tr>
+									<tr>
+										<td class="label-cell">Radio</td>
+										<td class="label-cell">No</td>
+									</tr>
+									<tr>
+										<td class="label-cell">USB</td>
+										<td class="label-cell">2.0, Reversible Connector</td>
+									</tr>
+									<tr>
+										<td class="label-cell">Sensors</td>
+										<td class="label-cell">Fingerprint (Front-Mounted), Accelerometer, Gyro, Proximity, Compass, Barometer</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+
+				<div id="tab-reviews" class="tab">
+					<div class="card">
+						<div class="card-content card-content-padding">
+							<div class="list no-hairlines no-hairlines-between">
+								<ul>
+									<li>
+										<div class="item-content">
+											<div class="item-inner">
+												<div class="item-title">Average Rating</div>
+												<div class="item-after">
+													<span class="badge color-green average-rating">4.46</span>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="item-content">
+											<div class="item-inner">
+												<div class="item-title">Total Ratings</div>
+												<div class="item-after">100</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="item-content">
+											<div class="item-inner">
+												<div class="item-title">Total Reviews</div>
+												<div class="item-after">45</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="card">
+						<div class="card-content card-content-padding">
+							<div class="list no-hairlines no-hairlines-between">
+								<ul>
+									<li>
+										<div class="item-content">
+											<div class="item-inner">
+												<div class="item-title">
+													<i class="fas fa-lg fa-star text-color-green"></i>
+													<i class="fas fa-lg fa-star text-color-green"></i>
+													<i class="fas fa-lg fa-star text-color-green"></i>
+													<i class="fas fa-lg fa-star text-color-green"></i>
+													<i class="fas fa-lg fa-star text-color-green"></i>
+												</div>
+												<div class="item-after">72</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="item-content">
+											<div class="item-inner">
+												<div class="item-title">
+													<i class="fas fa-lg fa-star text-color-green"></i>
+													<i class="fas fa-lg fa-star text-color-green"></i>
+													<i class="fas fa-lg fa-star text-color-green"></i>
+													<i class="fas fa-lg fa-star text-color-green"></i>
+												</div>
+												<div class="item-after">13</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="item-content">
+											<div class="item-inner">
+												<div class="item-title">
+													<i class="fas fa-lg fa-star text-color-orange"></i>
+													<i class="fas fa-lg fa-star text-color-orange"></i>
+													<i class="fas fa-lg fa-star text-color-orange"></i>
+												</div>
+												<div class="item-after">7</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="item-content">
+											<div class="item-inner">
+												<div class="item-title">
+													<i class="fas fa-lg fa-star text-color-orange"></i>
+													<i class="fas fa-lg fa-star text-color-orange"></i>
+												</div>
+												<div class="item-after">5</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="item-content">
+											<div class="item-inner">
+												<div class="item-title">
+													<i class="fas fa-lg fa-star text-color-red"></i>
+												</div>
+												<div class="item-after">3</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="card">
+						<div class="card-content card-content-padding">
+							<div class="list media-list no-hairlines no-hairlines-between">
+								<ul>
+									<li>
+										<div class="item-content">
+											<div class="item-media">
+												<img class="img-circle" src="https://randomuser.me/api/portraits/women/44.jpg" width="48" alt="" />
+											</div>
+											<div class="item-inner">
+												<div class="item-title-row">
+													<div class="item-title">Jane Zhu</div>
+													<div class="item-after">
+														<span class="badge color-yellow text-color-black">5 <i class="fas fa-fw fa-star"></i></span>
+													</div>
+												</div>
+												<div class="item-subtitle">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet.</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="item-content">
+											<div class="item-media">
+												<img class="img-circle" src="https://randomuser.me/api/portraits/men/97.jpg" width="48" alt="" />
+											</div>
+											<div class="item-inner">
+												<div class="item-title-row">
+													<div class="item-title">Veeti Seppanen</div>
+													<div class="item-after">
+														<span class="badge color-yellow text-color-black">3 <i class="fas fa-fw fa-star"></i></span>
+													</div>
+												</div>
+												<div class="item-subtitle">Et harum quidem rerum facilis est et expedita distinctio.</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="item-content">
+											<div class="item-media">
+												<img class="img-circle" src="https://randomuser.me/api/portraits/women/79.jpg" width="48" alt="" />
+											</div>
+											<div class="item-inner">
+												<div class="item-title-row">
+													<div class="item-title">Line Rolland</div>
+													<div class="item-after">
+														<span class="badge color-yellow text-color-black">4 <i class="fas fa-fw fa-star"></i></span>
+													</div>
+												</div>
+												<div class="item-subtitle">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="card-footer justify-content-center">
+							<a href="#" class="link popup-open" data-popup=".popup-review">Write a Review</a>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="popup popup-tablet-fullscreen popup-review">
+			<div class="view">
+				<div class="page">
+
+					<div class="navbar">
+						<div class="navbar-inner">
+							<div class="left ios-only">
+								<a href="#" class="link popup-close" data-popup=".popup-review">
+									<span data-i18n="cancel">Cancel</span>
+								</a>
+							</div>
+							<div class="title">Write a Review</div>
+							<div class="right ios-only">
+								<button type="submit" class="button link" form="review" data-i18n="submit">Submit</button>
+							</div>
+							<div class="right md-only">
+								<a href="#" class="link icon-only popup-close" data-popup=".popup-review">
+									<i class="icon material-icons">close</i>
+								</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="page-content">
+
+						<form id="review" name="review" action="#" method="POST" enctype="multipart/form-data">
+							<div class="list no-hairlines no-hairlines-between">
+								<ul>
+									<li>
+										<div class="item-content item-input item-input-with-info">
+											<div class="item-media">
+												<i class="icon f7-icons ios-only">person</i>
+												<i class="icon material-icons md-only">person</i>
+											</div>
+											<div class="item-inner">
+												<div class="item-title item-floating-label">Name</div>
+												<div class="item-input-wrap">
+													<input type="text" name="name" required />
+													<div class="item-input-info input-error-message"></div>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="item-content item-input item-input-with-info">
+											<div class="item-media">
+												<i class="icon f7-icons ios-only">email</i>
+												<i class="icon material-icons md-only">email</i>
+											</div>
+											<div class="item-inner">
+												<div class="item-title item-floating-label">Email</div>
+												<div class="item-input-wrap">
+													<input type="email" name="email" required />
+													<div class="item-input-info input-error-message"></div>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="item-content item-input item-input-with-info">
+											<div class="item-media">
+												<i class="icon f7-icons ios-only">star</i>
+												<i class="icon material-icons md-only">stars</i>
+											</div>
+											<div class="item-inner">
+												<input type="hidden" name="rating" required />
+												<div class="rating"></div>
+												<div class="item-input-info input-error-message"></div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="item-content item-input item-input-with-info">
+											<div class="item-media">
+												<i class="icon f7-icons ios-only">message</i>
+												<i class="icon material-icons md-only">message</i>
+											</div>
+											<div class="item-inner">
+												<div class="item-title item-floating-label">Comment</div>
+												<div class="item-input-wrap">
+													<textarea name="comment" class="resizable" required></textarea>
+													<div class="item-input-info input-error-message"></div>
+												</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+							<div class="block md-only">
+								<button type="submit" class="button button-big button-fill" data-i18n="submit">Submit</button>
+							</div>
+						</form>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+</template>
+
+<style scoped>
+	.swiper-slide {
+		box-sizing: border-box;
+		padding: 32px 16px;
+		text-align: center;
+	}
+
+	.swiper-slide img {
+		display: block;
+		height: 192px;
+		margin: 0 auto;
+		width: auto;
+	}
+
+	.product-name {
+		font-size: 18px;
+	}
+
+	.product-price {
+		font-size: 18px;
+	}
+
+	.product-price .price-original {
+		text-decoration: line-through;
+	}
+
+	.average-rating {
+		font-size: 14px;
+	}
+</style>
+
+<script>
+	return {
+		data: function() {
+			return {
+				formValidatorReview: null
+			}
+		},
+		methods: {
+			initializeProductSlider: function() {
+				var self = this;
+				app.swiper.create('.swiper-container', {
+					direction: 'horizontal',
+					grabCursor: true,
+					navigation: {
+						nextEl: '.swiper-button-next',
+						prevEl: '.swiper-button-prev'
+					},
+					spaceBetween: 16
+				});
+				self.$('.swiper-slide img').on('click', function() {
+					var currentSlide = self.$(this).parent().index();
+					var photos = [];
+					self.$('.swiper-slide img').each(function() {
+						photos.push({
+							url: self.$(this).attr('src'),
+							caption: self.$(this).attr('alt')
+						});
+					});
+					var photoBrowser = app.photoBrowser.create({
+						photos: photos,
+						swiper: {
+							initialSlide: currentSlide
+						},
+						theme: app.utils.theme.getLayout()
+					});
+					photoBrowser.open();
+				});
+			},
+			initializeReviewForm: function() {
+				var self = this;
+				jQuery('form[name=review] .rating').rateYo({
+					halfStar: true,
+					normalFill: '#FFF9DB',
+					ratedFill: '#FFD43B',
+					spacing: '2px',
+					starWidth: '32px'
+				})
+				.on('rateyo.set', function(e, data) {
+					jQuery('form[name=review] input[name=rating]').val(data.rating);
+					jQuery('form[name=review]').validate().element('input[name=rating]');
+				});
+				self.formValidatorReview = jQuery('form[name=review]').validate({
+					ignore: [],
+					rules: {
+						name: {
+							required: true
+						},
+						email: {
+							required: true,
+							email: true
+						},
+						rating: {
+							required: true,
+							min: 1,
+							max: 5
+      			},
+						comment: {
+							required: true
+						}
+					},
+    			messages: {
+						name: {
+							required: 'Please enter name.'
+      			},
+						email: {
+							required: 'Please enter email address.',
+							email: 'Please enter a valid email address.'
+						},
+						rating: {
+							required: 'Please select rating.',
+							min: 'Please select rating between 1 and 5.',
+							max: 'Please select rating between 1 and 5.'
+      			},
+						comment: {
+							required: 'Please enter comment.'
+						}
+					},
+					submitHandler: function(form) {
+						app.toast.show({
+							text: 'Thank you for the review.',
+							position: 'bottom',
+							cssClass: 'toast-round bg-color-green'
+						});
+						document.querySelector('form[name=review]').reset();
+						app.popup.close('.popup-review', false);
+					}
+				});
+			},
+			addToCart: function() {
+				var self = this;
+				app.toast.show({
+					icon: '<i class="fas fa-fw fa-lg fa-cart-plus"></i>',
+					text: 'Added to Cart',
+					position: 'bottom',
+					cssClass: 'toast-round bg-color-green'
+				});
+			}
+		},
+		on: {
+			pageInit: function() {
+				var self = this;
+				self.initializeProductSlider();
+				self.initializeReviewForm();
+			}
+		}
+	}
+</script>

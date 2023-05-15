@@ -1,0 +1,117 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="utilities">Utilities</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="country-selector">Country Selector</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="country-selector">Country Selector</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			{{#if countries}}
+			<div class="list no-hairlines-between no-margin-top">
+				<ul>
+					<li class="item-divider">Country Selector</li>
+					<li>
+						<a href="#" class="item-link smart-select smart-select-init" data-close-on-select="true" data-searchbar="true" data-append-searchbar-not-found="No Search Results">
+							<select name="country">
+								{{#each countries}}
+								<option value="{{this.alpha2Code}}" data-option-image="{{this.flag}}">{{this.name}}</option>
+								{{/each}}
+							</select>
+							<div class="item-content">
+								<div class="item-media">
+									<i class="fa-stack">
+										<span class="fas fa-stack-2x fa-circle text-color-blue"></span>
+										<span class="fas fa-stack-1x fa-inverse fa-globe"></span>
+									</i>
+								</div>
+								<div class="item-inner">
+									<div class="item-title">Country</div>
+									<div class="item-after">Select</div>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li class="item-divider">Calling Code Selector</li>
+					<li>
+						<a href="#" class="item-link smart-select smart-select-init" data-close-on-select="true" data-searchbar="true" data-append-searchbar-not-found="No Search Results">
+							<select name="calling-code">
+								{{#each countries}}
+								<option value="{{this.callingCodes[0]}}" data-option-image="{{this.flag}}" data-display-as="+{{this.callingCodes[0]}}">{{this.name}} (+{{this.callingCodes[0]}})</option>
+								{{/each}}
+							</select>
+							<div class="item-content">
+								<div class="item-media">
+									<i class="fa-stack">
+										<span class="fas fa-stack-2x fa-circle text-color-green"></span>
+										<span class="fas fa-stack-1x fa-inverse fa-phone"></span>
+									</i>
+								</div>
+								<div class="item-inner">
+									<div class="item-title">Calling Code</div>
+									<div class="item-after">Select</div>
+								</div>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+			{{/if}}
+
+		</div>
+
+	</div>
+</template>
+
+<style scoped>
+	{{html}} .smart-select-page .item-media img {
+		width: 32px;
+	}
+</style>
+
+<script>
+	return {
+		data: function() {
+			return {
+				countries: null
+			}
+		},
+		methods: {
+			loadCountries: function() {
+				var self = this;
+				app.request.json(
+					'https://restcountries.eu/rest/v2/all?fields=name;alpha2Code;flag;callingCodes',
+					function(data) {
+						self.$setState({
+							countries: data
+						});
+					},
+					function() {
+						app.toast.show({
+							text: 'An error occured while fetching countries.'
+						});
+					}
+				);
+			}
+		},
+		on: {
+			pageInit: function() {
+				var self = this;
+				self.loadCountries();
+			}
+		}
+	}
+</script>

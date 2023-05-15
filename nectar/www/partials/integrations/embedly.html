@@ -1,0 +1,118 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="integrations">Integrations</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="embedly">Embedly</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="embedly">Embedly</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="block">
+				<p><a href="https://embed.ly" target="_blank" class="external">Embedly</a> provides an easy way to embed content, videos and rich media from third party websites.</p>
+				<p>It supports embedding content from <a href="https://embed.ly/providers" target="_blank" class="external">650+</a> providers.</p>
+			</div>
+
+			<div class="block-title">ThemeForest</div>
+			<div class="block block-strong">
+				<a class="embedly-card" target="_blank" href="https://themeforest.net/item/nectar-mobile-web-app-kit/20466093" data-card-controls="0" data-card-theme="{{themeLayout}}"></a>
+			</div>
+
+			<div class="block-title">Facebook Photo</div>
+			<div class="block block-strong">
+				<a class="embedly-card" target="_blank" href="https://www.facebook.com/Beckham/photos/a.10150609698041571/10153150845606571" data-card-controls="0" data-card-theme="{{themeLayout}}"></a>
+			</div>
+
+			<div class="block-title">Facebook Video</div>
+			<div class="block block-strong">
+				<a class="embedly-card" target="_blank" href="https://www.facebook.com/unitednations/videos/1063392697156201" data-card-controls="0" data-card-theme="{{themeLayout}}"></a>
+			</div>
+
+			<div class="block-title">Flickr</div>
+			<div class="block block-strong">
+				<a class="embedly-card" target="_blank" href="https://www.flickr.com/photos/94444743@N04/9519038413/in/gallery-flickr-72157693718156901" data-card-controls="0" data-card-theme="{{themeLayout}}"></a>
+			</div>
+
+			<div class="block-title">Futurism</div>
+			<div class="block block-strong">
+				<a class="embedly-card" target="_blank" href="https://futurism.com/maching-learning-california-fight-wildfires" data-card-controls="0" data-card-theme="{{themeLayout}}"></a>
+			</div>
+
+			<div class="block-title">Giphy</div>
+			<div class="block block-strong">
+				<a class="embedly-card" target="_blank" href="https://gph.is/1c23xHx" data-card-controls="0" data-card-theme="{{themeLayout}}"></a>
+			</div>
+
+			<div class="block-title">Google Map</div>
+			<div class="block block-strong">
+				<a class="embedly-card" target="_blank" href="https://www.google.com/maps/@24.1874916,75.6382656,15z" data-card-controls="0" data-card-theme="{{themeLayout}}"></a>
+			</div>
+
+			<div class="block-title">Imgur</div>
+			<div class="block block-strong">
+				<a class="embedly-card" target="_blank" href="https://imgur.com/r/Spiderman/n0zTEeq" data-card-controls="0" data-card-theme="{{themeLayout}}"></a>
+			</div>
+
+			<div class="block-title">Instagram Photo</div>
+			<div class="block block-strong">
+				<a class="embedly-card" target="_blank" href="https://www.instagram.com/p/BnTosJJARmt" data-card-controls="0" data-card-theme="{{themeLayout}}"></a>
+			</div>
+
+			<div class="block-title">Instagram Video</div>
+			<div class="block block-strong">
+				<a class="embedly-card" target="_blank" href="https://www.instagram.com/p/BfYW_v1ABKR" data-card-controls="0" data-card-theme="{{themeLayout}}"></a>
+			</div>
+
+			<div class="block-title">Instagram Carousel</div>
+			<div class="block block-strong">
+				<a class="embedly-card" target="_blank" href="https://www.instagram.com/p/BmTXop7A1Nl" data-card-controls="0" data-card-theme="{{themeLayout}}"></a>
+			</div>
+
+			<div class="block-title">SoundCloud</div>
+			<div class="block block-strong">
+				<a class="embedly-card" target="_blank" href="https://soundcloud.com/davidguetta/david-guetta-martin-garrix-brooks-like-i-do" data-card-controls="0" data-card-theme="{{themeLayout}}"></a>
+			</div>
+
+			<div class="block-title">Twitter</div>
+			<div class="block block-strong">
+				<a class="embedly-card" target="_blank" href="https://twitter.com/UNESCO/status/1062692877371916288" data-card-controls="0" data-card-theme="{{themeLayout}}"></a>
+			</div>
+
+			<div class="block-title">Wikipedia</div>
+			<div class="block block-strong">
+				<a class="embedly-card" target="_blank" href="https://en.wikipedia.org/wiki/India" data-card-controls="0" data-card-theme="{{themeLayout}}"></a>
+			</div>
+
+			<div class="block-title">YouTube</div>
+			<div class="block block-strong">
+				<a class="embedly-card" target="_blank" href="https://www.youtube.com/watch?v=O-RgquKVTPE" data-card-controls="0" data-card-theme="{{themeLayout}}"></a>
+			</div>
+
+		</div>
+
+	</div>
+</template>
+
+<script>
+	return {
+		data: function() {
+			return {
+				themeLayout: (function() {
+					return app.utils.theme.getLayout();
+				})()
+			}
+		}
+	}
+</script>

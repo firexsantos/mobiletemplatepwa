@@ -1,0 +1,12 @@
+/*----------------------------------------
+  Blockquote
+------------------------------------------*/
+
+blockquote{
+  border-color: var(--primary-color);
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+blockquote.accent{
+  border-color: var(--accent-color);
+}

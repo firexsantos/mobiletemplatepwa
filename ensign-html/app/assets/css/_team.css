@@ -1,0 +1,53 @@
+.team-member .name{
+  padding: 5px 15px;
+}
+.team-member span{
+  padding: 5px 15px;
+  font-size: 90%;
+  font-style: italic;
+}
+.team-member .brief{
+  padding: 5px 15px;
+}
+.team-member .social{
+  padding: 15px 15px 0 15px;
+}
+.team-member .social a{
+  display: inline-block;
+  margin: 0 5px 0 0;
+}
+.team-member .social a i{
+  margin: 0px;
+    font-size: 18px;
+    border-radius: var(--border-radius-50percent);
+    background: rgba(0,0,0,0.2);
+    color: #ffffff;
+    height: 34px;
+    width: 34px;
+    display: inline-block;
+    text-align: center;
+    line-height: 34px;
+}
+.team-member .img-wrap:after,
+.team-member .img-wrap img{
+  border-radius: var(--border-radius) var(--border-radius) 0 0;;  
+}
+
+.team-member .social a i.mdi-google-plus{
+  background: var(--brand-google-plus-color);
+}
+.team-member .social a i.mdi-linkedin{
+  background: var(--brand-linkedin-color);
+}
+.team-member .social a i.mdi-facebook{
+  background: var(--brand-facebook-color);
+}
+.team-member .social a i.mdi-twitter{
+  background: var(--brand-twitter-color);
+}
+.team-member .social a i.mdi-dribbble{
+  background: var(--brand-dribbble-color);
+}
+.team-member .social a i.mdi-pinterest{
+  background: var(--brand-pinterest-color);
+}

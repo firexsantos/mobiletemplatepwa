@@ -1,0 +1,22 @@
+
+/*----------------------------------------
+  Settings
+------------------------------------------*/
+
+/*menu icons off*/
+body[data-menu_icons="off"] .subpages .collection-item a i:nth-child(1),
+body[data-menu_icons="off"] .sidenav li a i{
+  display: none;
+}
+body[data-menu_icons="off"] .sidenav .active a span{
+  text-decoration: underline;
+}
+/*menu icons colored*/
+body[data-menu_icons="colored"] .subpages .collection-item a i:nth-child(1),
+body[data-menu_icons="colored"] .sidenav li a i{
+  color: var(--primary-color);
+}
+body[data-menu_icons="colored"][data-menu="colored"] .subpages .collection-item a i:nth-child(1),
+body[data-menu_icons="colored"][data-menu="colored"] .sidenav li a i{
+  color: #f5f5f5;
+}

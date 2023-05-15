@@ -1,0 +1,116 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="cordova-plugins">Cordova Plugins</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="battery-status">Battery Status</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="battery-status">Battery Status</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="block">
+				<p>This plugin allows to get information about the device's battery charge level and charging status.</p>
+				<p>This can be used to adjust app's resource usage to reduce battery drain when the battery is low, or to save changes before the battery runs out in order to prevent data loss.</p>
+			</div>
+
+			<div class="list">
+				<ul>
+					<li>
+						<div class="item-content">
+							<div class="item-inner">
+								<div class="item-title">Battery Status</div>
+								<div class="item-after">{{battery.status}}</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-inner">
+								<div class="item-title">Battery Level</div>
+								<div class="item-after">{{battery.level}}</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+
+			<div class="note note-info text-align-center">
+				<p>Try plugging and unplugging the charger.</p>
+			</div>
+
+		</div>
+
+	</div>
+</template>
+
+<script>
+	return {
+		data: function() {
+			return {
+				battery: {
+					status: null,
+					level: null
+				}
+			}
+		},
+		methods: {
+			onBatteryStatus: function(battery) {
+				var self = this;
+				self.updateBatteryInfo(battery);
+			},
+			onBatteryLow: function(battery) {
+				var self = this;
+				self.updateBatteryInfo(battery);
+				app.toast.show({
+					text: 'Battery is low. Please charge soon.',
+					position: 'bottom',
+					cssClass: 'toast-round bg-color-orange'
+				});
+			},
+			onBatteryCritical: function(battery) {
+				var self = this;
+				self.updateBatteryInfo(battery);
+				app.toast.show({
+					text: 'Battery is critically low. Please save any changes you have made and charge soon.',
+					position: 'bottom',
+					cssClass: 'toast-round bg-color-red'
+				});
+			},
+			updateBatteryInfo: function(battery) {
+				var self = this;
+				var batteryData = {};
+				batteryData.status = battery.isPlugged ? 'Charging' : 'Not Charging';
+				batteryData.level = battery.level.toFixed(0) + ' %';
+				self.$setState({
+					battery: batteryData
+				});
+			}
+		},
+		on: {
+			pageInit: function() {
+				var self = this;
+				window.addEventListener('batterystatus', self.onBatteryStatus);
+				window.addEventListener('batterylow', self.onBatteryLow);
+				window.addEventListener('batterycritical', self.onBatteryCritical);
+			},
+			pageBeforeRemove: function() {
+				var self = this;
+				window.removeEventListener('batterystatus', self.onBatteryStatus);
+				window.removeEventListener('batterylow', self.onBatteryLow);
+				window.removeEventListener('batterycritical', self.onBatteryCritical);
+			}
+		}
+	}
+</script>

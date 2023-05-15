@@ -1,0 +1,75 @@
+
+/*----------------------------------------
+  Slider
+------------------------------------------*/
+.slider .indicators{
+  bottom: 50px;
+  z-index: 2;
+}
+.slider .indicators .indicator-item{
+  /* border: none;
+  height: 4px;
+  width: 20px;
+  margin: 6px;
+  border: 1px solid rgba(230,230,230,0.8);
+  background-color: transparent;
+  box-shadow: 2px 2px 2px rgba(33,33,33,.1);
+  border-radius: 2px; */
+  height: 2px;
+  width: 36px;
+  margin: 4px;
+  border: 1px solid rgba(230,230,230,0.8);
+  background-color: transparent;
+  box-shadow: 2px 2px 2px rgba(33,33,33,.1);
+  border-radius: 2px;
+  opacity: 0.5;
+}
+.slider .indicators .indicator-item.active {
+  background-color: rgba(230,230,230,0.8);
+  border: none;
+  opacity: 1;
+  /* background-color: rgba(230,230,230,0.8);
+  border: none; */
+}
+.slider .slides li img{
+  position: absolute;
+}
+.slides .img-wrap{
+  height: 100%;
+}
+body .noUi-horizontal .noUi-handle, body .noUi-vertical .noUi-handle{
+  width: 23px;
+    height: 23px;
+        left: -10px;
+    top: -10px;
+}
+body .noUi-handle-touch-area {
+    position: relative;
+    width: 55px;
+    height: 55px;
+    left: -17px;
+    top: -16px;
+}
+body .noUi-target.noUi-horizontal .noUi-tooltip {
+    height: 30px;
+    width: 30px;
+    top: -13px;
+    left: 0px;
+  }
+body .noUi-target.noUi-vertical .noUi-tooltip{
+    height: 30px;
+    width: 30px;
+    top: -13px;
+    left: -2px;
+  }
+
+.slider.dark-text .slides li .caption p{
+  color: #455A64;
+}
+.slider.fullscreen ul.indicators{
+  bottom: 70px;
+}
+
+.slider .slides li .caption{
+  top: 28%;
+}

@@ -1,0 +1,199 @@
+{
+	"name": "The Clover Club",
+	"logo": "assets/custom/img/clover.svg",
+	"hero": "https://source.unsplash.com/-YHSwy6uqvk",
+	"rating": 4.5,
+	"about": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
+	"address": "Palo Alto, California - 94303, USA",
+	"latitude": 37.441169,
+	"longitude": -122.143249,
+	"phone": "+1-9876543210",
+	"email": "info@example.com",
+	"social": {
+		"facebook": "https://facebook.com",
+		"twitter": "https://twitter.com",
+		"linkedin": "https://linkedin.com",
+		"youtube": "https://youtube.com"
+	},
+	"opening_hours": [
+		{
+			"day": "Monday - Friday",
+			"time": "10 AM - 6 PM"
+		},
+		{
+			"day": "Saturday",
+			"time": "10 AM - 2 PM"
+		},
+		{
+			"day": "Sunday",
+			"time": "Closed"
+		}
+	],
+	"photos": [
+		{
+			"url": "https://source.unsplash.com/LOLSb7m6XkU"
+		},
+		{
+			"url": "https://source.unsplash.com/MtqG1lWcUw0"
+		},
+		{
+			"url": "https://source.unsplash.com/UezWo2oY4M0"
+		},
+		{
+			"url": "https://source.unsplash.com/4f4YZfDMLeU"
+		},
+		{
+			"url": "https://source.unsplash.com/g-erOiuDxro"
+		},
+		{
+			"url": "https://source.unsplash.com/MhOoD_h90ks"
+		}
+	],
+	"menu": [
+		{
+			"cuisine": "American Cuisine",
+			"items": [
+				{
+					"name": "Banana Split",
+					"image": "https://png.icons8.com/color/banana-split.png",
+					"price": "$10"
+				}
+			]
+		},
+		{
+			"cuisine": "French Cuisine",
+			"items": [
+				{
+					"name": "Croissant",
+					"image": "https://png.icons8.com/color/croissant.png",
+					"price": "$15"
+				}
+			]
+		},
+		{
+			"cuisine": "German Cuisine",
+			"items": [
+				{
+					"name": "Hamburger",
+					"image": "https://png.icons8.com/color/hamburger.png",
+					"price": "$5"
+				},
+				{
+					"name": "Pretzel",
+					"image": "https://png.icons8.com/color/pretzel.png",
+					"price": "$10"
+				}
+			]
+		},
+		{
+			"cuisine": "Japanese Cuisine",
+			"items": [
+				{
+					"name": "Bento",
+					"image": "https://png.icons8.com/color/bento.png",
+					"price": "$25"
+				},
+				{
+					"name": "Sushi",
+					"image": "https://png.icons8.com/color/sushi.png",
+					"price": "$15"
+				}
+			]
+		},
+		{
+			"cuisine": "Indian Cuisine",
+			"items": [
+				{
+					"name": "Naan",
+					"image": "https://png.icons8.com/color/naan.png",
+					"price": "$5"
+				}
+			]
+		},
+		{
+			"cuisine": "Italian Cuisine",
+			"items": [
+				{
+					"name": "Macaron",
+					"image": "https://png.icons8.com/color/macaron.png",
+					"price": "$10"
+				},
+				{
+					"name": "Pizza",
+					"image": "https://png.icons8.com/color/pizza.png",
+					"price": "$30"
+				},
+				{
+					"name": "Spaghetti",
+					"image": "https://png.icons8.com/color/spaghetti.png",
+					"price": "$25"
+				}
+			]
+		},
+		{
+			"cuisine": "Mexican Cuisine",
+			"items": [
+				{
+					"name": "Nachos",
+					"image": "https://png.icons8.com/color/nachos.png",
+					"price": "$15"
+				},
+				{
+					"name": "Quesadilla",
+					"image": "https://png.icons8.com/color/quesadilla.png",
+					"price": "$10"
+				},
+				{
+					"name": "Taco",
+					"image": "https://png.icons8.com/color/taco.png",
+					"price": "$25"
+				}
+			]
+		},
+		{
+			"cuisine": "Portugese Cuisine",
+			"items": [
+				{
+					"name": "Pastel de Nata",
+					"image": "https://png.icons8.com/color/pastel-de-nata.png",
+					"price": "$10"
+				}
+			]
+		},
+		{
+			"cuisine": "Spanish Cuisine",
+			"items": [
+				{
+					"name": "Paella",
+					"image": "https://png.icons8.com/color/paella.png",
+					"price": "$15"
+				},
+				{
+					"name": "Tapas",
+					"image": "https://png.icons8.com/color/tapas.png",
+					"price": "$25"
+				}
+			]
+		}
+	],
+	"reviews": [
+		{
+			"name": "Jane Zhu",
+			"avatar": "https://randomuser.me/api/portraits/women/44.jpg",
+			"rating": 5,
+			"comment": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet."
+		},
+		{
+			"name": "Veeti Seppanen",
+			"avatar": "https://randomuser.me/api/portraits/men/97.jpg",
+			"rating": 3,
+			"comment": "Et harum quidem rerum facilis est et expedita distinctio."
+		},
+		{
+			"name": "Line Rolland",
+			"avatar": "https://randomuser.me/api/portraits/women/79.jpg",
+			"rating": 4,
+			"comment": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit."
+		}
+	]
+}

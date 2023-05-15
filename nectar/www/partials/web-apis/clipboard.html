@@ -1,0 +1,223 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="web-apis">Web APIs</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="clipboard-api">Clipboard API</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="clipboard-api">Clipboard API</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			{{#if isApiSupported}}
+			<div class="empty-state">
+				<div class="empty-state-media">
+					<img src="assets/custom/img/clipboard.svg" alt="" />
+				</div>
+				<div class="empty-state-title">Yaay!</div>
+				<div class="empty-state-text">This browser supports Clipboard API.</div>
+				<div class="empty-state-actions">
+					<button type="button" class="button button-big button-fill button-round" @click="explore" data-i18n="explore">Explore</button>
+				</div>
+			</div>
+			{{else}}
+			<div class="empty-state">
+				<div class="empty-state-media">
+					<img class="filter-grayscale" src="assets/custom/img/clipboard.svg" alt="" />
+				</div>
+				<div class="empty-state-title">Oops!</div>
+				<div class="empty-state-text">This browser does not support Clipboard API.</div>
+				<div class="empty-state-actions">
+					<a href="https://caniuse.com/clipboard" target="_blank" class="button button-big button-fill button-round external" data-i18n="supported-browsers">Supported Browsers</a>
+				</div>
+			</div>
+			{{/if}}
+
+		</div>
+
+		{{#if isApiSupported}}
+		<div class="popup popup-tablet-fullscreen popup-explore">
+			<div class="view">
+				<div class="page">
+
+					<div class="navbar">
+						<div class="navbar-inner">
+							<div class="left ios-only">
+								<a href="#" class="link popup-close">
+									<span data-i18n="close">Close</span>
+								</a>
+							</div>
+							<div class="title" data-i18n="clipboard-api">Clipboard API</div>
+							<div class="right md-only">
+								<a href="#" class="link icon-only popup-close">
+									<i class="icon material-icons">close</i>
+								</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="page-content">
+
+						<div class="block">
+							<p>Clipboard API provides a way to programatically react on cut, copy and paste operations performed by the user as well as read from or write to the system clipboard directly on behalf of the user.</p>
+						</div>
+
+						<div class="list simple-list no-hairlines no-hairlines-between">
+							<ul>
+								<li>
+									<div class="item-cell">
+										<div class="item-input">
+											<div class="item-input-wrap">
+												<input type="text" value="Nectar - Mobile Web App Kit" />
+											</div>
+										</div>
+									</div>
+									<div class="item-cell width-auto flex-shrink-0">
+										<a href="#" class="chip bg-color-red-5 text-color-white" @click="cutText">
+											<div class="chip-label">Cut</div>
+										</a>
+										<a href="#" class="chip bg-color-yellow-5 text-color-white" @click="copyText">
+											<div class="chip-label">Copy</div>
+										</a>
+									</div>
+								</li>
+								<li>
+									<div class="item-cell">
+										<div class="item-input">
+											<div class="item-input-wrap">
+												<input type="text" readonly />
+											</div>
+										</div>
+									</div>
+									<div class="item-cell width-auto flex-shrink-0">
+										<a href="#" class="chip bg-color-lime-5 text-color-white" @click="pasteText">
+											<div class="chip-label">Paste</div>
+										</a>
+									</div>
+								</li>
+							</ul>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+		{{/if}}
+
+	</div>
+</template>
+
+<script>
+	return {
+		data: function() {
+			return {
+				isApiSupported: (function() {
+					return app.support.webApi.clipboard;
+				})()
+			}
+		},
+		methods: {
+			explore: function() {
+				var self = this;
+				var popup = app.popup.create({
+					el: '.popup-explore'
+				});
+				popup.open();
+			},
+			cutText: function(event) {
+				var self = this;
+				var textElement = app.$(event.target).closest('li').find('input');
+				if ('clipboard' in navigator) {
+					navigator.clipboard.writeText(textElement.val())
+						.then(function() {
+							textElement.val('');
+							self.showOperationStatus('Text Cut!');
+						})
+						.catch(function(error) {
+							self.showOperationStatus('Error: ' + error);
+						});
+				}
+				else {
+					try {
+						textElement[0].select();
+						document.execCommand('cut');
+						self.showOperationStatus('Text Cut!');
+					}
+					catch(error) {
+						self.showOperationStatus('Error: ' + error);
+					}
+				}
+			},
+			copyText: function(event) {
+				var self = this;
+				var textElement = app.$(event.target).closest('li').find('input');
+				if ('clipboard' in navigator) {
+					navigator.clipboard.writeText(textElement.val())
+						.then(function() {
+							self.showOperationStatus('Text Copied!');
+						})
+						.catch(function(error) {
+							self.showOperationStatus('Error: ' + error);
+						});
+				}
+				else {
+					try {
+						textElement[0].select();
+						document.execCommand('copy');
+						self.showOperationStatus('Text Copied!');
+					}
+					catch(error) {
+						self.showOperationStatus('Error: ' + error);
+					}
+				}
+			},
+			pasteText: function(event) {
+				var self = this;
+				var textElement = app.$(event.target).closest('li').find('input');
+				if ('clipboard' in navigator) {
+					navigator.clipboard.readText()
+					.then(function(text) {
+						textElement.val(text);
+						self.showOperationStatus('Text Pasted!');
+					})
+					.catch(function(error) {
+						self.showOperationStatus('Error: ' + error);
+					})
+				}
+				else {
+					try {
+						textElement[0].focus();
+						if (document.queryCommandSupported('paste')) {
+							document.execCommand('paste');
+							self.showOperationStatus('Text Pasted!');
+						}
+						else {
+							self.showOperationStatus('Paste command is not supported.');
+						}
+					}
+					catch(error) {
+						self.showOperationStatus('Error: ' + error);
+					}
+				}
+			},
+			showOperationStatus: function(message) {
+				var self = this;
+				app.toast.show({
+					text: message
+				});
+			}
+		}
+	}
+</script>

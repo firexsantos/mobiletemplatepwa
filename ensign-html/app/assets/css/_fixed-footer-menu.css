@@ -1,0 +1,165 @@
+
+/*----------------------------------------
+  Fixed Footer Menu
+------------------------------------------*/
+.footer-menu{
+  display: block;
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  height: 60px;
+  background-color: #ffffff;
+  z-index: 998;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+  -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+}
+.footer-menu.nonfixed{
+  position: relative;
+}
+body.isfullscreen .footer-menu{
+  background-color: transparent !important;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+.footer-menu ul{
+  display: inline-block;
+  width: 100%;
+  padding: 7px 0px 0 0px;
+  margin: 0px;
+}
+.footer-menu li{
+  float: left;
+  width: 20%;
+  display: inline-block;
+  height: 100%;
+  text-align: center;
+}
+.footer-menu li a{
+  display: inline-block;
+  color: #546E7A;
+}
+.isfullscreen .footer-menu li a{
+  color: #f5f5f5;
+}
+.footer-menu li i{
+  display: block;
+  font-size: 20px;
+}
+.footer-menu li span{
+  display: block;
+  font-size: 12px;
+  line-height: 20px;
+}
+.footer-menu.circular li a.active{
+  margin-top: -25px;
+}
+.footer-menu.circular li a.active span{
+  color: var(--primary-color);
+  margin-top: 9px;
+}
+.footer-menu.circular li a.active i{
+  color: #ffffff;
+  background-color: var(--primary-color);
+  border-radius: var(--border-radius-50percent);
+  height: 42px;
+  width: 42px;
+  line-height: 42px;
+  margin-top: 0px;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+  -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+  display: inline-block;
+}
+
+/* .footer-menu.boxed li a{
+  padding-top: 7px;
+  height: 60px;
+  display: block;
+}
+.footer-menu.boxed ul{
+  padding: 0;
+}
+.footer-menu.boxed li{
+  height: 60px;
+}
+.footer-menu.boxed li a.active i{
+  font-size: 26px;
+  line-height: 26px;
+} */
+
+/* .footer-menu.bordered li a:hover,
+.footer-menu.bordered li a.active{
+  border-bottom: 2px solid var(--primary-color);
+  color: var(--primary-color);
+} */
+.footer-menu.bg li a:hover,
+.footer-menu.bg li a.active{
+  background: rgba(0,0,0,0);
+  color: var(--primary-color);
+}
+
+
+[data-footer_menu="hide"] .footer-menu{
+  display: none;
+}
+
+/*----------------------------------------
+  Fixed Footer Menu - Light Style
+------------------------------------------*/
+
+body [data-footer_menu_style="light"] .footer-menu{
+  background-color: #ffffff;
+}
+body [data-footer_menu_style="light"] .footer-menu li a{
+  color: #546E7A;
+}
+
+
+/*----------------------------------------
+  Fixed Footer Menu - Dark Style
+------------------------------------------*/
+[data-footer_menu_style="dark"] .footer-menu{
+  background-color: #37474F;
+}
+[data-footer_menu_style="dark"] .footer-menu li a{
+  color: #CFD8DC;
+}
+
+/*----------------------------------------
+  Fixed Footer Menu - Colored Style
+------------------------------------------*/
+[data-footer_menu_style="colored"] .footer-menu{
+  background-color: var(--primary-color);
+}
+
+[data-footer_menu_style="colored"] .footer-menu.circular li a.active span,
+[data-footer_menu_style="colored"] .footer-menu li a{
+  color: #f5f5f5;
+}
+
+[data-footer_menu_style="colored"] .footer-menu:not(.boxed) li a.active i{
+  background-color: #f5f5f5;
+  color: var(--primary-color);
+}
+/* [data-footer_menu_style="colored"] .footer-menu li a:hover,
+[data-footer_menu_style="colored"] .footer-menu li a:hover i{
+  color: #eeeeee;
+  background: transparent;
+} */
+/* [data-footer_menu_style="colored"] .footer-menu.boxed li a.active,
+[data-footer_menu_style="colored"] .footer-menu.boxed li a.active i{
+  color: #eeeeee;
+  background: transparent;
+}
+
+[data-footer_menu_style="colored"] .footer-menu.bordered li a.active{
+  border-color: #ffffff;
+} */
+
+[data-footer_menu_style="colored"] .footer-menu.bg li a.active{
+  background: rgba(0,0,0,0.07);
+}
+
+
+[data-footer_menu="hide"] .page-footer{
+  padding-bottom: 60px;
+}

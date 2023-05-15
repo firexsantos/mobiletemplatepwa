@@ -1,0 +1,97 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="cordova-plugins">Cordova Plugins</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="local-notification">Local Notification</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="local-notification">Local Notification</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="list links-list">
+				<ul>
+					<li>
+						<a href="#" @click="showBasicNotification">Basic Notification</a>
+					</li>
+					<li>
+						<a href="#" @click="showNotificationWithImage">Notification with Image</a>
+					</li>
+					<li>
+						<a href="#" @click="showNotificationWithActions">Notification with Actions</a>
+					</li>
+					<li>
+						<a href="#" @click="showNotificationWithInput">Notification with Input</a>
+					</li>
+				</ul>
+			</div>
+
+		</div>
+
+	</div>
+</template>
+
+<script>
+	return {
+		methods: {
+			showBasicNotification: function() {
+				var self = this;
+				cordova.plugins.notification.local.schedule({
+					title: 'Welcome to Nectar',
+					text: 'Build beautiful and performant Progressive Web Apps and Cordova/PhoneGap Apps.'
+				});
+			},
+			showNotificationWithImage: function() {
+				var self = this;
+				cordova.plugins.notification.local.schedule({
+					title: 'Harry Potter',
+					text: 'JK Rowling',
+					attachments: ['https://www.dropbox.com/s/b9gfxo33zribhkd/harry-potter.jpg?raw=1']
+				});
+			},
+			showNotificationWithActions: function() {
+				var self = this;
+				cordova.plugins.notification.local.schedule({
+					title: 'Nectar Feedback',
+					text: 'Do you like Nectar?',
+					actions: [
+						{
+							id: 'yes',
+							title: 'Yes'
+						},
+						{
+							id: 'no',
+							title: 'No'
+						}
+					]
+				});
+			},
+			showNotificationWithInput: function() {
+				var self = this;
+				cordova.plugins.notification.local.schedule({
+					title: 'Hey there!',
+					text: 'What is your name?',
+					actions: [
+						{
+							id: 'name',
+							type: 'input',
+							title: 'Reply',
+							emptyText: ''
+						}
+					]
+				});
+			}
+		}
+	}
+</script>

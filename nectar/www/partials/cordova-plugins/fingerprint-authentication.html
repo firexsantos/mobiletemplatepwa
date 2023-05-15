@@ -1,0 +1,83 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="cordova-plugins">Cordova Plugins</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="fingerprint-authentication">Fingerprint Authentication</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="fingerprint-authentication">Fingerprint Authentication</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="block">This plugin allows to authenticate the users by using their fingerprint scans on supported devices.</div>
+
+			<div class="block text-align-center">
+				<a href="#" @click="checkFingerprintAvailability">
+					<img src="assets/custom/img/fingerprint.svg" width="128" alt="" />
+				</a>
+				<p>Tap to Authenticate</p>
+			</div>
+
+		</div>
+
+	</div>
+</template>
+
+<script>
+	return {
+		data: function() {
+			return {
+				config: {
+					clientId: app.data.config.app.id,
+					clientSecret: 'password'
+				}
+			}
+		},
+		methods: {
+			checkFingerprintAvailability: function() {
+				var self = this;
+				Fingerprint.isAvailable(self.fingerprintAvailable, self.fingerprintNotAvailable);
+			},
+			fingerprintAvailable: function(result) {
+				var self = this;
+				self.showAuthenticationDialog();
+			},
+			fingerprintNotAvailable: function(message) {
+				var self = this;
+				app.toast.show({
+					text: message,
+					cssClass: 'bg-color-red'
+				});
+			},
+			showAuthenticationDialog: function() {
+				var self = this;
+				Fingerprint.show(self.config, self.authenticationSuccess, self.authenticationError);
+			},
+			authenticationSuccess: function(result) {
+				var self = this;
+				app.toast.show({
+					text: 'Authentication Successful.',
+					cssClass: 'bg-color-green'
+				});
+			},
+			authenticationError: function(error) {
+				var self = this;
+				app.toast.show({
+					text: error,
+					cssClass: 'bg-color-red'
+				});
+			}
+		}
+	}
+</script>

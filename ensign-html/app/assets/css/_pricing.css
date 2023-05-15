@@ -1,0 +1,79 @@
+/*----------------------------------------
+  Pricing Tables
+----------------------------------------*/
+.pricing-tabs {
+  margin-bottom: 30px;
+}
+.pricing-tabs h2 {
+  padding: 30px 0 15px 0;
+  margin: 0px;
+  width: 90%;
+  margin: 15px 25px 0 25px;
+  border-radius: var(--border-radius);
+  line-height: 50px;
+  color: var(--primary-color);
+}
+
+.pricing-tabs h2 sup {
+  font-size: 21px;
+  position: relative;
+  top: -20px;
+}
+.pricing-tabs h2 span {
+  font-size: 50px;
+  margin: 0 0 0 5px;
+  line-height: 50px;
+}
+  .price-row {
+  padding-top: 0px;
+  margin-bottom: 20px;
+}
+.price-row .item {
+  /* text-transform: uppercase; */
+  font-weight: 500;
+  margin: 0px 0 15px 0;
+  display: inline-block;
+  width: 100%;
+  padding-left: 55px;
+  position: relative;
+}
+
+.price-row .item:before {
+  content: "\F12C";
+  font: normal normal normal 24px/1 "Material Design Icons";
+  position: absolute;
+  top: 23px;
+  left: 25px;
+  font-size: 18px;
+  color: var(--primary-color);
+}
+
+.pricing-tabs .carousel.carousel-slider .carousel-item {
+  height: 100%;
+  padding: 0px !important;
+}
+.price-row .item .title {
+  margin-bottom: 0px;
+}
+.price-row .item .tag {
+  opacity: 0.8;
+  font-size: 90%;
+}
+.pricing-tabs .btn-large {
+  width: calc(100% - 50px);
+}
+.pricing-tabs .tabs-swipable .tabs-content {
+  height: 700px;
+  min-height: 700px;
+}
+
+/*----------------------------------------
+  Site - Dark Mode - Pricing Tables
+----------------------------------------*/
+[data-site_mode='dark'] .price-row div {
+  border-color: #455a64;
+}
+[data-site_mode='dark'] .price-row .item:before,
+[data-site_mode='dark'] .pricing-tabs h2{
+  color: #f5f5f5;
+}

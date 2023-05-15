@@ -1,0 +1,52 @@
+
+/*----------------------------------------
+ Floating action buttons
+------------------------------------------*/
+.fixed-action-btn.horleft{
+  bottom: auto;
+  right: 50px;
+  left: auto;
+  top: 350px;
+    width: auto;
+}
+.fixed-action-btn.horright{
+  bottom: auto;
+  right: auto;
+  left: 50px;
+  top: 430px;
+    width: auto;
+}
+
+.fixed-action-btn.verbottom{
+  bottom: auto;
+    right: auto;
+    left: 46%;
+    top: 250px;
+    width: auto;
+}
+
+.fixed-action-btn.vertop{
+  bottom: auto;
+    right: auto;
+    left: 46%;
+    top: 550px;
+    width: auto;
+}
+.fixed-action-btn.toolbar{
+    bottom: 10px;
+    right: auto;
+    left: 46%;
+    top: auto;
+}
+
+.floatingpanel{
+  min-height: 100vh;
+}
+.fixed-action-btn{
+  bottom: 75px; 
+  right: 40px;
+}
+[data-footer_menu="hide"] .fixed-action-btn{
+  bottom: 25px; 
+  right: 40px;
+}

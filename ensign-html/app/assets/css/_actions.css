@@ -1,0 +1,208 @@
+/*----------------------
+User Actions
+-----------------------*/
+
+/* .activity .user-actions{
+  position: absolute;
+  margin-top: -60px;
+  left: 30px;
+} */
+.user-actions a{
+  margin: 14px 5px 0px 5px;
+  display: inline-block;
+
+}
+.user-actions a span{
+  position: relative;
+  top: -2px;
+  margin-right: 4px;
+}
+.user-actions a i{
+  font-size: 18px;
+  color: var(--primary-color);
+  margin-right: 4px;
+}
+
+.user-avatar .title{
+	font-weight: 500;
+	/* text-transform: uppercase; */
+	margin-bottom: 3px;
+	display: inline-block;
+}
+.user-avatar .title,
+.user-avatar .time{
+	display: block;
+}
+.user-avatar .time,
+.user-avatar p{
+	font-size: 12px;
+	line-height: 21px;
+  opacity: 0.8;
+  white-space: nowrap;
+}
+
+.user-avatar .maillink{
+  position: relative;
+  color: #455a64;
+  padding: 5px 0px 15px 0px;
+  display: inline-block;
+  width: 100%;
+}
+.user-avatar img{
+height: 42px;
+width: 42px;
+float: left;
+  margin-top: 4px;
+  margin-right: 14px;
+}
+.user-view .status:after,
+.user-avatar .status:after,
+.collection-item.avatar .status:after{
+	content: " ";
+	position: absolute;
+	width: 12px;
+	height: 12px;
+	top: 17px;
+	left: 54px;
+	border-radius: 50%;
+	border: 1px solid #ffffff;
+}
+.notifications .collection-item.avatar .status:after,
+.mailbox .collection-item.avatar .status:after{
+	top: 22px;
+	left: 54px;
+}
+
+.user-avatar .status:after{
+	top: 10px;
+	left: 34px;
+}
+.user-view .status:after{
+	top: 18px;
+	left: 68px;
+}
+
+.user-view .available:after,
+.user-avatar .available:after,
+.collection-item.avatar .available:after{
+background-color: var(--green-color);
+}
+.user-view .away:after,
+.user-avatar .away:after,
+.collection-item.avatar .away:after{
+background-color: var(--orange-color);
+}
+.user-view .idle:after,
+.user-avatar .idle:after,
+.collection-item.avatar .idle:after{
+background-color: var(--blue-color);
+}
+.user-view .busy:after,
+.user-avatar .busy:after,
+.collection-item.avatar .busy:after{
+background-color: var(--red-color);
+}
+.user-view .offline:after,
+.user-avatar .offline:after,
+.collection-item.avatar .offline:after{
+background-color: var(--blue-grey-color);
+}
+
+.user-avatar.mini img{
+	height: 32px;
+	width: 32px;
+}
+
+.user-avatar.mini .time{
+    float: right;
+    display: inline;
+    top: 7px;
+    position: relative;
+}
+.user-avatar.mini .title{
+  display: inline;
+  top: 7px;
+  position: relative;
+}
+.user-avatar.mini .status:after {
+  top: 10px;
+  left: 24px;
+}
+
+/*----------------------
+  Media grids
+-----------------------*/
+.blog-img-wrap .row,
+.collection.activity .media .row{
+  margin: 0px -10px 0 0;
+}
+.collection.activity .media .row .col,
+.blog-img-wrap .row .col{
+  padding: 0px 10px 0px 0;
+}
+.collection.activity .media .row .col.s12,
+.blog-img-wrap .row .col.s12,
+.blog-img-wrap .row .col .col,
+.collection.activity .media .row .col .col{
+  padding: 0px 10px 10px 0;
+}
+
+.blog-img-wrap .row .col{
+  margin: 0;
+}
+
+
+/*----------------------
+  Avatar List
+-----------------------*/
+.avatar-list{
+	margin: 15px 0 15px 0;
+	display: inline-block;
+  width: 100%;
+  white-space: nowrap;
+}
+.avatar-list a img {
+	width: 36px;
+	height: 36px;
+	border: 1px solid #f5f5f5;
+	vertical-align: top;
+}
+.avatar-list a {
+	margin-top: 10px;
+	margin: 0 -5px 0 0;
+	float: left;
+}
+.avatar-list .people-total{
+  color: var(--primary-color);
+  margin-left: 19px;
+    font-size: 13px;
+  line-height: 36px;
+  display: inline-block;
+}
+.ui-profile .avatar-list a img{
+  border-color: var(--primary-color);
+  width: 40px;
+  height: 40px;
+}
+.ui-profile .avatar-list{
+  width: auto;
+  margin-top: 5px;
+}
+.ui-profile .avatar-list .people-total{
+  color: #ffffff;
+  margin-left: 15px;
+}
+[data-site_mode="dark"] .avatar-list a img{
+  border-color: rgba(0, 0, 0, .3);
+}
+[data-site_mode="dark"] .user-actions a,
+[data-site_mode="dark"] .user-actions a i,
+[data-site_mode="dark"] .avatar-list .people-total{
+  color: #f5f5f5;
+}
+[data-site_mode="dark"] .events.mini .event-item .info{
+ background-color: #37474f;
+}
+[data-site_mode="dark"] .user-avatar .time, [data-site_mode="dark"] .user-avatar p{
+  color: #aaaaaa;
+}

@@ -1,0 +1,203 @@
+/*----------------------------------------
+  Top Bar
+------------------------------------------*/
+
+#logo-container {
+	font-weight: 500;
+	font-size: 24px;
+	line-height: 64px;
+}
+nav .navicon i {
+	font-size: 23px;
+}
+nav .navicon.right {
+	margin-right: -10px;
+}
+nav .navicon.back-button {
+	float: left;
+	height: 36px;
+	width: 36px;
+	margin: 10px 15px 10px -15px;
+}
+body.ishome nav .navicon.back-button {
+	display: none;
+}
+nav .navicon.nav-site-mode,
+nav .navicon.sidenav-trigger {
+	float: left;
+	height: 36px;
+	width: 36px;
+	margin: 10px 18px 10px -15px;
+}
+nav .navicon.sidenav-trigger {
+	margin-right: -8px;
+}
+nav a.sidenav-trigger i {
+	height: 36px;
+	line-height: 36px;
+	font-size: 17px;
+}
+nav .navicon.nav-site-mode i{
+	font-size: 17px;
+}
+
+nav .navicon {
+	margin-top: 0px;
+	height: 36px;
+	width: 36px;
+}
+nav .navicon i {
+	line-height: 36px;
+	height: 36px;
+}
+
+body.isfullscreen nav {
+	background-color: transparent !important;
+	box-shadow: none;
+	-webkit-box-shadow: none;
+}
+body.isfullscreen nav .brand-logo,
+body.isfullscreen nav .navicon {
+	color: #eeeeee;
+}
+nav .nav-wrapper {
+	text-align: center;
+}
+.sidenav-overlay {
+	z-index: 998;
+}
+
+@media only screen and (max-width: 600px) {
+	nav.navigation {
+		height: 56px;
+		line-height: 56px;
+	}
+	#logo-container {
+		line-height: 56px;
+	}
+}
+@media only screen and (min-width: 601px) {
+	nav .navicon.nav-site-mode,
+	nav .navicon.back-button,
+	nav .navicon.sidenav-trigger {
+		margin: 14px 15px 14px -15px;
+	}
+}
+
+nav.navigation {
+	background-color: transparent;
+	position: absolute;
+	top: 0px;
+	box-shadow: none;
+	-webkit-box-shadow: none;
+}
+
+nav.navigation.isfixed {
+	background-color: #ffffff;
+	-webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+nav.navigation.logo_on_fixed .brand-logo {
+	display: none;
+}
+nav.navigation.logo_on_fixed.isfixed .brand-logo {
+	display: inline-block;
+}
+
+/*----------------------------------------
+  Page Top Bar - Left Align
+------------------------------------------*/
+
+[data-header_align="left"] nav.navigation .brand-logo {
+	position: absolute;
+	left: -3px;
+	transform: translateX(0%);
+	-webkit-transform: translateX(0%);
+}
+[data-header_align="left"] nav.navigation .navicon[data-target="slide-nav"] {
+	float: right;
+	margin-right: -8px;
+}
+[data-header_align="left"] nav.navigation .navicon.back-button {
+	position: absolute;
+	right: 95px;
+}
+[data-header_align="left"] nav .navicon.sidenav-trigger {
+	margin-right: 18px;
+}
+
+/*----------------------------------------
+  Page Top Bar - App Based
+------------------------------------------*/
+[data-header_align="app"] nav.navigation .brand-logo {
+	position: relative;
+	left: 0px;
+	transform: translateX(0%);
+	-webkit-transform: translateX(0%);
+}
+[data-header_align="app"] nav.navigation .navicon[data-target="slide-settings"] {
+	float: right;
+	margin-right: -8px;
+}
+[data-header_align="app"] nav .navicon.sidenav-trigger {
+	margin-right: 12px;
+}
+[data-header_align="app"] nav .nav-wrapper{
+	text-align: left;
+}
+/*----------------------------------------
+  Page Top Bar - Right Aligned
+------------------------------------------*/
+[data-header_align="right"] nav.navigation .brand-logo {
+	position: absolute;
+	left: auto;
+	right: 0px;
+	transform: translateX(0%);
+	-webkit-transform: translateX(0%);
+}
+[data-header_align="right"] nav.navigation .navicon[data-target="slide-settings"],
+[data-header_align="right"] nav.navigation .nav-site-mode {
+	float: left !important;
+}
+[data-header_align="right"] nav .navicon.sidenav-trigger {
+	margin-right: 18px;
+}
+
+/*----------------------------------------
+  Page Top Bar - Dark Style
+------------------------------------------*/
+[data-header="dark"] nav.navigation.isfixed {
+	background-color: #455a64;
+}
+[data-header="dark"] nav.isfixed .brand-logo,
+[data-header="dark"] nav.isfixed .navicon {
+	color: #eeeeee;
+}
+body[data-site_mode="dark"][data-header="light"] nav .brand-logo,
+body[data-site_mode="dark"][data-header="light"] nav .navicon {
+	color: #eeeeee;
+}
+body[data-site_mode="dark"][data-header="light"] nav.isfixed .brand-logo,
+body[data-site_mode="dark"][data-header="light"] nav.isfixed .navicon {
+	color: #455a64;
+}
+body[data-site_mode="dark"][data-header="dark"] nav .brand-logo,
+body[data-site_mode="dark"][data-header="dark"] nav .navicon {
+	color: #eeeeee;
+}
+
+/*----------------------------------------
+  Page Top Bar - Colored Style
+------------------------------------------*/
+[data-header="colored"] nav.navigation.isfixed {
+	background-color: var(--primary-color);
+}
+[data-header="colored"] nav.isfixed .brand-logo,
+[data-header="colored"] nav.isfixed .navicon {
+	color: #ffffff;
+}
+body[data-site_mode="dark"] nav .brand-logo,
+body[data-site_mode="dark"] nav .navicon {
+	color: #eeeeee;
+}

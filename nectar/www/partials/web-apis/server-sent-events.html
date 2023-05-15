@@ -1,0 +1,160 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="web-apis">Web APIs</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="server-sent-events-api">Server-Sent Events API</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="server-sent-events-api">Server-Sent Events API</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			{{#if isApiSupported}}
+			<div class="empty-state">
+				<div class="empty-state-media">
+					<img src="assets/custom/img/cloud.svg" alt="" />
+				</div>
+				<div class="empty-state-title">Yaay!</div>
+				<div class="empty-state-text">This browser supports Server-Sent Events API.</div>
+				<div class="empty-state-actions">
+					<button type="button" class="button button-big button-fill button-round" @click="explore" data-i18n="explore">Explore</button>
+				</div>
+			</div>
+			{{else}}
+			<div class="empty-state">
+				<div class="empty-state-media">
+					<img class="filter-grayscale" src="assets/custom/img/cloud.svg" alt="" />
+				</div>
+				<div class="empty-state-title">Oops!</div>
+				<div class="empty-state-text">This browser does not support Server-Sent Events API.</div>
+				<div class="empty-state-actions">
+					<a href="https://caniuse.com/eventsource" target="_blank" class="button button-big button-fill button-round external" data-i18n="supported-browsers">Supported Browsers</a>
+				</div>
+			</div>
+			{{/if}}
+
+		</div>
+
+		{{#if isApiSupported}}
+		<div class="popup popup-tablet-fullscreen popup-explore">
+			<div class="view">
+				<div class="page">
+
+					<div class="navbar">
+						<div class="navbar-inner">
+							<div class="left ios-only">
+								<a href="#" class="link popup-close">
+									<span data-i18n="close">Close</span>
+								</a>
+							</div>
+							<div class="title" data-i18n="server-sent-events-api">Server-Sent Events API</div>
+							<div class="right md-only">
+								<a href="#" class="link icon-only popup-close">
+									<i class="icon material-icons">close</i>
+								</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="page-content">
+
+						<div class="block">
+							<p>Server-Sent Events API allows browser clients to receive a stream of updates from a server over a HTTP connection without resorting to polling.</p>
+							<p>Unlike WebSockets, Server-Sent Events are a one-way communications channel, ie, the messages flow from server to client only.</p>
+							<p>Server-Sent Events API can be useful when you have some rapidly updating data to display, but you don’t want to poll the server. For example, stock price ticker, scorecard, live updates etc.</p>
+						</div>
+
+						<div class="block price-ticker">
+							<span class="price">${{price}}</span>
+							{{#js_if "this.change === 'increase'"}}
+							<i class="icon fas fa-caret-up color-green"></i>
+							{{else}}
+							<i class="icon fas fa-caret-down color-red"></i>
+							{{/js_if}}
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+		{{/if}}
+
+	</div>
+</template>
+
+<style scoped>
+	{{html}} .price-ticker {
+		font-size: 64px;
+		text-align: center;
+	}
+
+	{{html}} .price-ticker .price {
+		font-weight: bold;
+	}
+
+	{{html}} .price-ticker .icon {
+		vertical-align: baseline;
+	}
+</style>
+
+<script>
+	return {
+		data: function() {
+			return {
+				isApiSupported: (function() {
+					return app.support.webApi.serverSentEvents;
+				})(),
+				sourceUrl: 'assets/custom/server/server-sent-events.php',
+				eventSource: null,
+				price: 0,
+				change: 'increase'
+			}
+		},
+		methods: {
+			explore: function() {
+				var self = this;
+				var popup = app.popup.create({
+					el: '.popup-explore',
+					on: {
+						opened: function() {
+							self.eventSource = new EventSource(self.sourceUrl);
+							self.eventSource.addEventListener('message', self.onMessage);
+						},
+						closed: function() {
+							self.eventSource.close();
+						}
+					}
+				});
+				popup.open();
+			},
+			onMessage: function(event) {
+				var self = this;
+				var currentPrice = self.price;
+				var updatedPrice = event.data;
+				var change = null;
+				if ((updatedPrice - currentPrice) > 0) {
+					change = 'increase';
+				}
+				else {
+					change = 'decrease';
+				}
+				self.$setState({
+					price: updatedPrice,
+					change: change
+				});
+			}
+		}
+	}
+</script>

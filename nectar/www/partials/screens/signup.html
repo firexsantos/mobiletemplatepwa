@@ -1,0 +1,57 @@
+<template>
+	<div class="page no-navbar no-toolbar no-swipeback">
+
+		<div class="page-content">
+
+			<div class="block text-align-center">
+				<img class="theme-light-only" src="{{$root.config.app.logo}}" width="128" alt="" />
+				<img class="theme-dark-only" src="assets/custom/img/logo-white.svg" width="128" alt="" />
+			</div>
+
+			<div class="block">
+				<p>
+					<a href="#" class="button button-big button-fill button-social brand-bg-color-facebook">
+						<i class="fab fa-fw fa-lg fa-facebook-f"></i>
+						<span>Connect with Facebook</span>
+					</a>
+				</p>
+				<p>
+					<a href="#" class="button button-big button-fill button-social brand-bg-color-google-plus">
+						<i class="fab fa-fw fa-lg fa-google"></i>
+						<span>Connect with Google</span>
+					</a>
+				</p>
+				<p>
+					<a href="#" class="button button-big button-fill button-social brand-bg-color-yahoo">
+						<i class="fab fa-fw fa-lg fa-yahoo"></i>
+						<span>Connect with Yahoo!</span>
+					</a>
+				</p>
+				<p>
+					<a href="/screens/signup/email" class="button button-big button-fill button-social color-yellow text-color-black">
+						<i class="far fa-fw fa-lg fa-envelope"></i>
+						<span>Sign Up with Email</span>
+					</a>
+				</p>
+				<p class="text-align-center">Already have an account? <a href="/screens/login" data-i18n="login">Log In</a></p>
+			</div>
+
+		</div>
+
+	</div>
+</template>
+
+<style scoped>
+	.page-content {
+		align-items: stretch;
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		justify-content: flex-start;
+		text-align: center;
+	}
+
+	.page-content > :last-child {
+		margin-top: auto;
+	}
+</style>

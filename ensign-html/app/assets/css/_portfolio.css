@@ -1,0 +1,104 @@
+/*----------------------------------------
+  Portfolio
+------------------------------------------*/
+.row.ui-mediabox.fullwidth {
+	margin-bottom: 0px;
+}
+.ui-mediabox.fullwidth .col {
+	padding: 0px;
+	margin-bottom: 0px;
+}
+.row.ui-mediabox {
+	margin: 0 -0.75rem;
+}
+.row.ui-mediabox.team-box,
+.row.ui-mediabox.fullwidth {
+	margin: 0px;
+}
+.row.ui-mediabox.circular img {
+	border-radius: var(--border-radius-50percent);
+}
+.port-data {
+	text-align: center;
+}
+
+.ui-mediabox.fullwidth .port-data {
+	padding: 0 30px;
+}
+.port-data a h4,
+.port-data a h5 {
+	color: #455a64;
+}
+
+/*boxed*/
+.ui-mediabox.port-boxed .img-wrap:not(.circle):after,
+.ui-mediabox.port-boxed .img-wrap:not(.circle),
+.ui-mediabox.port-boxed .img-wrap:not(.circle) img {
+	border-top-left-radius: var(--border-radius);
+	border-top-right-radius: var(--border-radius);
+}
+.ui-mediabox.port-boxed .img-wrap img{
+	display: inline-block;
+}
+.port-data.boxed {
+	background: #fff;
+	padding: 5px 10px 15px 10px;
+	border-bottom-left-radius: var(--border-radius);
+	border-bottom-right-radius: var(--border-radius);
+	/* margin-bottom: 30px; */
+}
+.ui-mediabox.circular .port-data.boxed,
+.ui-mediabox.fullwidth .port-data.boxed {
+	background: #fff;
+	padding: 5px 10px 15px 10px;
+	margin-bottom: 30px;
+}
+.ui-mediabox.circular .port-data.boxed {
+	padding-top: 80px;
+	margin-top: -80px;
+}
+
+.row.ui-mediabox.portfolio .col{
+	position: relative;
+}
+.row.ui-mediabox.portfolio .col .user-actions{
+	position: absolute;
+	bottom: 10px;
+	left: 20px;
+	white-space: nowrap;
+}
+.row.ui-mediabox.portfolio .user-actions a, .row.ui-mediabox.portfolio .user-actions a i {
+	color: #eeeeee;
+}
+.social-gallery-carousel .row.ui-mediabox{
+	margin: 0;
+}
+/* .social-gallery-carousel .row.ui-mediabox.portfolio .col:last-child{
+ margin-right: 15px;
+} */
+.row.ui-mediabox.portfolio .col .port-data .user-actions{
+	position: relative;
+	left: auto;
+  bottom: auto;
+}
+.row.ui-mediabox.portfolio .port-data .user-actions a, .row.ui-mediabox.portfolio .port-data .user-actions a i {
+	color: var(--primary-color);
+}
+
+/*----------------------------------------
+  Site - Dark Mode - Portfolio
+----------------------------------------*/
+
+[data-site_mode="dark"] .row.ui-mediabox.portfolio .port-data .user-actions a, 
+[data-site_mode="dark"] .row.ui-mediabox.portfolio .port-data .user-actions a i,
+[data-site_mode="dark"] .port-data a,
+[data-site_mode="dark"] .port-data a h4,
+[data-site_mode="dark"] .port-data a h5 {
+	color: #f5f5f5;
+}
+
+[data-site_mode="dark"] .ui-mediabox.circular .port-data.boxed, 
+[data-site_mode="dark"] .ui-mediabox.fullwidth .port-data.boxed,
+[data-site_mode="dark"] .port-data.boxed {
+	background: #37474f;
+}

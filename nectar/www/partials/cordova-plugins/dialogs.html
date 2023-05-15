@@ -1,0 +1,124 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="cordova-plugins">Cordova Plugins</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="dialogs">Dialogs</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="dialogs">Dialogs</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="block">
+				<p>This plugin provides access to native dialogs.</p>
+			</div>
+
+			<div class="list links-list">
+				<ul>
+					<li>
+						<a href="#" @click="alert">Alert</a>
+					</li>
+					<li>
+						<a href="#" @click="confirm">Confirm</a>
+					</li>
+					<li>
+						<a href="#" @click="prompt">Prompt</a>
+					</li>
+					<li>
+						<a href="#" @click="beep">Beep</a>
+					</li>
+				</ul>
+			</div>
+
+		</div>
+
+	</div>
+</template>
+
+<script>
+	return {
+		methods: {
+			alert: function() {
+				var self = this;
+				navigator.notification.alert(
+					'Welcome to Nectar',
+					function() {
+						app.toast.show({
+							text: 'Enjoy!',
+							position: 'bottom',
+							cssClass: 'toast-round bg-color-green'
+						});
+					},
+					'Nectar',
+					'Thank You'
+				);
+			},
+			confirm: function() {
+				var self = this;
+				navigator.notification.confirm(
+					'Are you enjoying Nectar?',
+					function(buttonIndex) {
+						switch(buttonIndex) {
+							case 1:
+								app.toast.show({
+									text: 'Yaay!',
+									position: 'bottom',
+									cssClass: 'toast-round bg-color-green'
+								});
+							break;
+							case 2:
+								app.toast.show({
+									text: 'Oops!',
+									position: 'bottom',
+									cssClass: 'toast-round bg-color-red'
+								});
+							break;
+						}
+					},
+					'Nectar',
+					['Yes', 'No']
+				);
+			},
+			prompt: function() {
+				var self = this;
+				navigator.notification.prompt(
+					'What is your name?',
+					function(result) {
+						var buttonIndex = result.buttonIndex;
+						var inputValue = result.input1;
+						switch(buttonIndex) {
+							case 1:
+								message = inputValue ? 'Hello ' + inputValue + '!' : 'Hello Anonymous!';
+							break;
+							case 2:
+								message = inputValue ? 'Bye ' + inputValue + '!' : 'Bye Anonymous!';
+							break;
+						}
+						app.toast.show({
+							text: message,
+							position: 'bottom',
+							cssClass: 'toast-round bg-color-yellow text-color-black'
+						});
+					},
+					'Nectar',
+					['OK', 'Cancel']
+				);
+			},
+			beep: function() {
+				var self = this;
+				navigator.notification.beep(1);
+			}
+		}
+	}
+</script>

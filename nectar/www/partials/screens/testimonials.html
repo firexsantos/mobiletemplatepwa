@@ -1,0 +1,351 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="back">Back</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="testimonials">Testimonials</div>
+				<div class="right ios-only">
+					<a href="#" class="link icon-only" @click="openPopup">
+						<i class="icon f7-icons">compose</i>
+					</a>
+				</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="testimonials">Testimonials</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			{{#if testimonials}}
+			<div class="block text-align-center">
+				<p class="text-italic">What our users say about us.</p>
+			</div>
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					{{#each testimonials}}
+					<div class="swiper-slide">
+						<div class="testimonial-quote-icon">
+							<i class="fas fa-2x fa-quote-left"></i>
+						</div>
+						<div class="testimonial-comment">
+							<p>{{this.comment}}</p>
+						</div>
+						<div class="testimonial-rating" data-rating="{{this.rating}}"></div>
+						<div class="testimonial-photo">
+							<img class="img-circle" src="{{this.photo}}" height="72" alt="" />
+						</div>
+						<div class="testimonial-name">{{this.name}}</div>
+						<div class="testimonial-designation">{{this.designation}}</div>
+					</div>
+					{{/each}}
+				</div>
+				<div class="swiper-pagination"></div>
+			</div>
+			{{else}}
+			<div class="empty-state">
+				<div class="empty-state-media">
+					<img src="assets/custom/img/star.svg" alt="" />
+				</div>
+				<div class="empty-state-title">No Testimonials</div>
+			</div>
+			{{/if}}
+
+		</div>
+
+		<div class="fab fab-right-bottom md-only">
+			<a href="#" @click="openPopup">
+				<i class="icon material-icons">rate_review</i>
+			</a>
+		</div>
+
+		<div class="popup popup-tablet-fullscreen popup-testimonial">
+			<div class="view">
+				<div class="page">
+
+					<div class="navbar">
+						<div class="navbar-inner">
+							<div class="left ios-only">
+								<a href="#" class="link popup-close" data-popup=".popup-testimonial">
+									<span data-i18n="cancel">Cancel</span>
+								</a>
+							</div>
+							<div class="title">Write a Testimonial</div>
+							<div class="right ios-only">
+								<button type="submit" class="button link" form="testimonial" data-i18n="submit">Submit</button>
+							</div>
+							<div class="right md-only">
+								<a href="#" class="link icon-only popup-close" data-popup=".popup-testimonial">
+									<i class="icon material-icons">close</i>
+								</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="page-content">
+
+						<div class="block text-align-center">What do you wanna say about us?</div>
+
+						<form id="testimonial" name="testimonial" action="#" method="POST" enctype="multipart/form-data">
+							<div class="list no-hairlines no-hairlines-between">
+								<ul>
+									<li>
+										<div class="item-content item-input item-input-with-info">
+											<div class="item-media">
+												<i class="icon f7-icons ios-only">person</i>
+												<i class="icon material-icons md-only">person</i>
+											</div>
+											<div class="item-inner">
+												<div class="item-title item-floating-label">Name</div>
+												<div class="item-input-wrap">
+													<input type="text" name="name" required />
+													<div class="item-input-info input-error-message"></div>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="item-content item-input item-input-with-info">
+											<div class="item-media">
+												<i class="icon f7-icons ios-only">briefcase</i>
+												<i class="icon material-icons md-only">business_center</i>
+											</div>
+											<div class="item-inner">
+												<div class="item-title item-floating-label">Designation</div>
+												<div class="item-input-wrap">
+													<input type="text" name="designation" required />
+													<div class="item-input-info input-error-message"></div>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="item-content item-input item-input-with-info">
+											<div class="item-media">
+												<i class="icon f7-icons ios-only">email</i>
+												<i class="icon material-icons md-only">email</i>
+											</div>
+											<div class="item-inner">
+												<div class="item-title item-floating-label">Email</div>
+												<div class="item-input-wrap">
+													<input type="email" name="email" required />
+													<div class="item-input-info input-error-message"></div>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="item-content item-input item-input-with-info">
+											<div class="item-media">
+												<i class="icon f7-icons ios-only">star</i>
+												<i class="icon material-icons md-only">stars</i>
+											</div>
+											<div class="item-inner">
+												<input type="hidden" name="rating" required />
+												<div class="rating"></div>
+												<div class="item-input-info input-error-message"></div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="item-content item-input item-input-with-info">
+											<div class="item-media">
+												<i class="icon f7-icons ios-only">message</i>
+												<i class="icon material-icons md-only">message</i>
+											</div>
+											<div class="item-inner">
+												<div class="item-title item-floating-label">Comment</div>
+												<div class="item-input-wrap">
+													<textarea name="comment" class="resizable" required></textarea>
+													<div class="item-input-info input-error-message"></div>
+												</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+							<div class="block md-only">
+								<button type="submit" class="button button-big button-fill" data-i18n="submit">Submit</button>
+							</div>
+						</form>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+</template>
+
+<style scoped>
+	.swiper-container {
+		text-align: center;
+	}
+
+	.swiper-slide {
+		box-sizing: border-box;
+		margin-bottom: 48px;
+		padding: 0 16px;
+	}
+
+	.testimonial-rating {
+		margin: 0 auto;
+	}
+
+	.testimonial-photo {
+		margin-top: 16px;
+	}
+
+	.testimonial-name {
+		font-size: 18px;
+	}
+</style>
+
+<script>
+	return {
+		data: function() {
+			return {
+				formValidator: null,
+				testimonials: null
+			}
+		},
+		methods: {
+			loadData: function() {
+				var self = this;
+				app.request.json(
+					'assets/custom/dataset/testimonials.json',
+					function(data) {
+						if (data) {
+							self.$setState({
+								testimonials: data
+							});
+							self.initializeSwiperSlider();
+						}
+					}
+				);
+			},
+			initializeSwiperSlider: function() {
+				var self = this;
+				var swiperSlider = app.swiper.create('.swiper-container', {
+					pagination: {
+						el: '.swiper-pagination',
+						clickable: true
+					}
+				});
+				jQuery('.testimonial-rating').each(function() {
+					jQuery(this).rateYo({
+						rating: jQuery(this).data('rating'),
+						halfStar: true,
+						normalFill: '#F4FCE3',
+						ratedFill: '#A9E34B',
+						readOnly: true,
+						spacing: '2px',
+						starWidth: '32px',
+						rtl: app.params.rtl
+					});
+				});
+			},
+			openPopup: function() {
+				var self = this;
+				var popup = app.popup.create({
+					el: '.popup-testimonial',
+					on: {
+						opened: function() {
+							self.initializeFormValidator();
+						},
+						closed: function() {
+							self.formValidator.destroy();
+							jQuery('form[name=testimonial] .rating').rateYo('rating', 0);
+							document.querySelector('form[name=testimonial]').reset();
+						}
+					}
+				});
+				popup.open();
+			},
+			initializeFormValidator: function() {
+				var self = this;
+				jQuery('form[name=testimonial] .rating').rateYo({
+					halfStar: true,
+					normalFill: '#F4FCE3',
+					ratedFill: '#A9E34B',
+					spacing: '2px',
+					starWidth: '32px'
+				})
+				.on('rateyo.set', function(e, data) {
+					jQuery('form[name=testimonial] input[name=rating]').val(data.rating);
+					jQuery('form[name=testimonial]').validate().element('input[name=rating]');
+				});
+				self.formValidator = jQuery('form[name=testimonial]').validate({
+					ignore: [],
+					rules: {
+						name: {
+							required: true
+						},
+						designation: {
+							required: true
+						},
+						email: {
+							required: true,
+							email: true
+						},
+						rating: {
+							required: true,
+							min: 1,
+							max: 5
+      			},
+						comment: {
+							required: true
+						}
+					},
+    			messages: {
+						name: {
+							required: 'Please enter name.'
+      			},
+						designation: {
+							required: 'Please enter designation.'
+      			},
+						email: {
+							required: 'Please enter email address.',
+							email: 'Please enter a valid email address.'
+						},
+						rating: {
+							required: 'Please select rating.',
+							min: 'Please select rating between 1 and 5.',
+							max: 'Please select rating between 1 and 5.'
+      			},
+						comment: {
+							required: 'Please enter comment.'
+						}
+					},
+					submitHandler: function(form) {
+						self.submitForm(form);
+					}
+				});
+			},
+			submitForm: function(form) {
+				var self = this;
+				app.toast.show({
+					text: 'Thank you for reviewing us.',
+					position: 'bottom',
+					cssClass: 'toast-round bg-color-green'
+				});
+				app.popup.close('.popup-testimonial', false);
+			}
+		},
+		on: {
+			pageInit: function() {
+				var self = this;
+				self.loadData();
+			}
+		}
+	}
+</script>

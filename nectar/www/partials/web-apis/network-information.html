@@ -1,0 +1,210 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="web-apis">Web APIs</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="network-information-api">Network Information API</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="network-information-api">Network Information API</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			{{#if isApiSupported}}
+			<div class="empty-state">
+				<div class="empty-state-media">
+					<img src="assets/custom/img/network.svg" alt="" />
+				</div>
+				<div class="empty-state-title">Yaay!</div>
+				<div class="empty-state-text">This browser supports Network Information API.</div>
+				<div class="empty-state-actions">
+					<button type="button" class="button button-big button-fill button-round" @click="explore" data-i18n="explore">Explore</button>
+				</div>
+			</div>
+			{{else}}
+			<div class="empty-state">
+				<div class="empty-state-media">
+					<img class="filter-grayscale" src="assets/custom/img/network.svg" alt="" />
+				</div>
+				<div class="empty-state-title">Oops!</div>
+				<div class="empty-state-text">This browser does not support Network Information API.</div>
+				<div class="empty-state-actions">
+					<a href="https://caniuse.com/netinfo" target="_blank" class="button button-big button-fill button-round external" data-i18n="supported-browsers">Supported Browsers</a>
+				</div>
+			</div>
+			{{/if}}
+
+		</div>
+
+		{{#if isApiSupported}}
+		<div class="popup popup-tablet-fullscreen popup-explore">
+			<div class="view">
+				<div class="page">
+
+					<div class="navbar">
+						<div class="navbar-inner">
+							<div class="left ios-only">
+								<a href="#" class="link popup-close">
+									<span data-i18n="close">Close</span>
+								</a>
+							</div>
+							<div class="title" data-i18n="network-information-api">Network Information API</div>
+							<div class="right md-only">
+								<a href="#" class="link icon-only popup-close">
+									<i class="icon material-icons">close</i>
+								</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="page-content">
+
+						<div class="block">
+							<p>Network Information API allows to access information about the network connection in use by the device.</p>
+							<p>This can be used to serve high definition content or low definition content based on the network connection.</p>
+						</div>
+
+						<div class="list">
+							<ul>
+								<li>
+									<div class="item-content">
+										<div class="item-inner">
+											<div class="item-title">Connection Type</div>
+											<div class="item-after">{{connection.type}}</div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="item-content">
+										<div class="item-inner">
+											<div class="item-title">Effective Connection Type</div>
+											<div class="item-after">{{connection.effectiveType}}</div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="item-content">
+										<div class="item-inner">
+											<div class="item-title">Maximum Downlink Speed</div>
+											<div class="item-after">{{connection.maximumDownlinkSpeed}}</div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="item-content">
+										<div class="item-inner">
+											<div class="item-title">Effective Downlink Speed</div>
+											<div class="item-after">{{connection.effectiveDownlinkSpeed}}</div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="item-content">
+										<div class="item-inner">
+											<div class="item-title">Round-Trip Time (RTT)</div>
+											<div class="item-after">{{connection.roundtripTime}}</div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="item-content">
+										<div class="item-inner">
+											<div class="item-title">Data Saver Mode</div>
+											<div class="item-after">{{connection.dataSaverMode}}</div>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+
+						<div class="note note-info text-align-center">
+							<p>Try switching between Cellular and Wi-Fi network.</p>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+		{{/if}}
+
+	</div>
+</template>
+
+<script>
+	return {
+		data: function() {
+			return {
+				isApiSupported: (function() {
+					return app.support.webApi.networkInformation;
+				})(),
+				connection: {
+					type: null,
+					effectiveType: null,
+					maximumDownlinkSpeed: null,
+					effectiveDownlinkSpeed: null,
+					roundtripTime: null,
+					dataSaverMode: null
+				}
+			}
+		},
+		methods: {
+			explore: function() {
+				var self = this;
+				var connectionPromise;
+				var popup = app.popup.create({
+					el: '.popup-explore',
+					on: {
+						opened: function() {
+							connectionPromise = Promise.resolve(navigator.connection || navigator.webkitConnection || navigator.mozConnection);
+							connectionPromise.then(function(connection) {
+								self.updateConnectionInfo(connection);
+								connection.addEventListener('change', self.onConnectionChange);
+							})
+							.catch(function(error) {
+								app.toast.show({
+									text: error.message,
+									position: 'bottom',
+									cssClass: 'toast-round bg-color-red'
+								});
+							});
+						},
+						closed: function() {
+							connectionPromise.then(function(connection) {
+								connection.removeEventListener('change', self.onConnectionChange);
+							});
+						}
+					}
+				});
+				popup.open();
+			},
+			onConnectionChange: function(event) {
+				var self = this;
+				self.updateConnectionInfo(event.target);
+			},
+			updateConnectionInfo: function(connection) {
+				var self = this;
+				var connectionData = {};
+				connectionData.type = connection.type ? connection.type.toUpperCase() : 'Not Available';
+				connectionData.effectiveType = connection.effectiveType ? connection.effectiveType.toUpperCase() : 'Not Available';
+				connectionData.maximumDownlinkSpeed = connection.downlinkMax ? connection.downlinkMax + ' Mb/s' : 'Not Available';
+				connectionData.effectiveDownlinkSpeed = connection.downlink ? connection.downlink + ' Mb/s' : 'Not Available';
+				connectionData.roundtripTime = connection.rtt ? connection.rtt + ' ms' : 'Not Available';
+				connectionData.dataSaverMode = connection.saveData ? 'On' : 'Off';
+				self.$setState({
+					connection: connectionData
+				});
+			}
+		}
+	}
+</script>

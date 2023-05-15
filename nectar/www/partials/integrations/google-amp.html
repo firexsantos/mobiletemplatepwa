@@ -1,0 +1,136 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="integrations">Integrations</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="google-amp">Google AMP</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="google-amp">Google AMP</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content hide-bars-on-scroll">
+
+			<div class="block">
+				<p><a href="https://amp.dev" target="_blank" class="external">Google AMP (Accelerated Mobile Pages)</a> is a project built on top of existing web technologies to enable blazing-fast page rendering and content delivery.</p>
+				<p>Use your existing <a href="https://amp.dev/documentation/guides-and-tutorials/integrate/amp-in-pwa" target="_blank" class="external">AMP</a> pages as a data source and load them inline within your PWA using Shadow DOM API.</p>
+			</div>
+
+			<form name="amp" action="#" method="GET" enctype="application/x-www-form-urlencoded">
+				<div class="list no-hairlines no-hairlines-between no-margin-bottom">
+					<ul>
+						<li>
+							<div class="item-content item-input item-input-with-info">
+								<div class="item-inner">
+									<div class="item-title item-floating-label">Enter the URL of AMP page to load</div>
+									<div class="item-input-wrap">
+										<input type="url" name="url" value="https://nectar.website/amp/index.html" required />
+										<div class="item-input-info input-error-message"></div>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="block margin-top text-align-center">
+					<button type="submit" class="button button-big button-fill">Load</button>
+				</div>
+			</form>
+
+			<div id="amp-container"></div>
+
+		</div>
+
+	</div>
+</template>
+
+<script>
+	return {
+		data: function() {
+			return {
+				formValidator: null,
+				ampDoc: null
+			}
+		},
+		methods: {
+			initializeFormValidator: function() {
+				var self = this;
+				self.formValidator = jQuery('form[name=amp]').validate({
+					rules: {
+						url: {
+							required: true,
+        			url: true
+      			}
+					},
+    			messages: {
+						url: {
+							required: 'Please enter URL.',
+        			url: 'Please enter a valid URL.'
+      			}
+					},
+					submitHandler: function(form) {
+						self.loadAmpPage(form.elements.namedItem('url').value);
+					}
+				});
+			},
+			fetchAmpDocument: function(url) {
+				var self = this;
+				var xhr = new XMLHttpRequest();
+				return new Promise(function(resolve, reject) {
+					xhr.open('GET', url, true);
+					xhr.responseType = 'document';
+					xhr.setRequestHeader('Accept', 'text/html');
+					xhr.onloadstart = function() {
+						app.preloader.show();
+					}
+					xhr.onload = function() {
+						resolve(xhr.responseXML);
+					};
+					xhr.onerror = function() {
+						app.toast.show({
+							text: 'Please make sure you requested a valid URL and CORS is enabled on the server.',
+							cssClass: 'toast-round bg-color-red'
+						});
+					};
+					xhr.onloadend = function() {
+						app.preloader.hide();
+					}
+					xhr.send();
+				});
+			},
+			loadAmpPage: function(url) {
+				var self = this;
+				var ampContainer = document.querySelector('#amp-container');
+				self.fetchAmpDocument(url).then(function(doc) {
+					if (self.ampDoc) {
+						self.ampDoc.close();
+						self.$setState({
+							ampDoc: null
+						});
+						var ampDocument = document.querySelector('#amp-document');
+						ampContainer.removeChild(ampDocument);
+					}
+					var ampElement = document.createElement('div');
+					ampElement.setAttribute('id', 'amp-document');
+					ampContainer.appendChild(ampElement);
+					self.ampDoc = AMP.attachShadowDoc(document.querySelector('#amp-document'), doc, url);
+				});
+			}
+		},
+		on: {
+			pageInit: function() {
+				var self = this;
+				self.initializeFormValidator();
+			}
+		}
+	}
+</script>

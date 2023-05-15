@@ -1,0 +1,140 @@
+@font-face {
+    font-family: "flaticon";
+    src: url("../fonts/flaticon1720.ttf?a9bb2cf33f20a70825ff2453001289b4") format("truetype"),
+url("../fonts/flaticon1720.woff?a9bb2cf33f20a70825ff2453001289b4") format("woff"),
+url("../fonts/flaticon1720.woff2?a9bb2cf33f20a70825ff2453001289b4") format("woff2"),
+url("../fonts/flaticon1720.eot?a9bb2cf33f20a70825ff2453001289b4#iefix") format("embedded-opentype"),
+url("../fonts/flaticon1720.svg?a9bb2cf33f20a70825ff2453001289b4#flaticon") format("svg");
+}
+
+i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
+    font-family: flaticon !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.flaticon-deal:before {
+    content: "\f101";
+}
+.flaticon-office-building:before {
+    content: "\f102";
+}
+.flaticon-left-arrow:before {
+    content: "\f103";
+}
+.flaticon-right-arrow:before {
+    content: "\f104";
+}
+.flaticon-down-arrow:before {
+    content: "\f105";
+}
+.flaticon-real-estate:before {
+    content: "\f106";
+}
+.flaticon-home:before {
+    content: "\f107";
+}
+.flaticon-twitter:before {
+    content: "\f108";
+}
+.flaticon-linkedin:before {
+    content: "\f109";
+}
+.flaticon-office:before {
+    content: "\f10a";
+}
+.flaticon-real-estate-2:before {
+    content: "\f10b";
+}
+.flaticon-terraced-house:before {
+    content: "\f10c";
+}
+.flaticon-building:before {
+    content: "\f10d";
+}
+.flaticon-real-estate-3:before {
+    content: "\f10e";
+}
+.flaticon-semi-detached:before {
+    content: "\f10f";
+}
+.flaticon-insurance-company:before {
+    content: "\f110";
+}
+.flaticon-real-estate-agency:before {
+    content: "\f111";
+}
+.flaticon-real-estate-4:before {
+    content: "\f112";
+}
+.flaticon-company:before {
+    content: "\f113";
+}
+.flaticon-real-estate-agency-1:before {
+    content: "\f114";
+}
+.flaticon-insurance:before {
+    content: "\f115";
+}
+.flaticon-commission:before {
+    content: "\f116";
+}
+.flaticon-building-1:before {
+    content: "\f117";
+}
+.flaticon-skyline:before {
+    content: "\f118";
+}
+.flaticon-cityscape:before {
+    content: "\f119";
+}
+.flaticon-youtube:before {
+    content: "\f11a";
+}
+.flaticon-visitor:before {
+    content: "\f11b";
+}
+.flaticon-enterprise:before {
+    content: "\f11c";
+}
+.flaticon-house:before {
+    content: "\f11d";
+}
+.flaticon-apartment:before {
+    content: "\f11e";
+}
+.flaticon-facebook-app-symbol:before {
+    content: "\f11f";
+}
+.flaticon-building-2:before {
+    content: "\f120";
+}
+.flaticon-town:before {
+    content: "\f121";
+}
+.flaticon-insurance-company-1:before {
+    content: "\f122";
+}
+.flaticon-villa:before {
+    content: "\f123";
+}
+.flaticon-office-building-1:before {
+    content: "\f124";
+}
+.flaticon-real-estate-agency-2:before {
+    content: "\f125";
+}
+.flaticon-real-estate-5:before {
+    content: "\f126";
+}
+.flaticon-real-estate-6:before {
+    content: "\f127";
+}
+.flaticon-interest-rate:before {
+    content: "\f128";
+}

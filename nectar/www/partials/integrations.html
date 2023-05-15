@@ -1,0 +1,298 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="home">Home</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="integrations">Integrations</div>
+				<div class="right">
+					<a href="#" class="link icon-only searchbar-enable" data-searchbar=".searchbar">
+						<i class="icon f7-icons ios-only">search</i>
+						<i class="icon material-icons md-only">search</i>
+					</a>
+				</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="integrations">Integrations</div>
+					</div>
+				</div>
+				<form class="searchbar searchbar-expandable searchbar-init" data-search-container=".search-list" data-search-item="li" data-search-in=".item-title">
+					<div class="searchbar-inner">
+						<div class="searchbar-input-wrap">
+							<input type="search" placeholder="Search" data-i18n="[placeholder]search" />
+							<i class="searchbar-icon"></i>
+							<span class="input-clear-button"></span>
+						</div>
+						<span class="searchbar-disable-button" data-i18n="cancel">Cancel</span>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="searchbar-hide-on-search">
+				<div class="block">
+					<p>{{$root.config.app.title}} provides integration for these third party services right out-of-the-box.</p>
+				</div>
+			</div>
+
+			<div class="searchbar-not-found">
+				<div class="empty-state">
+					<div class="empty-state-media">
+						<img src="assets/custom/img/no-search.svg" alt="" />
+					</div>
+					<div class="empty-state-title" data-i18n="no-search-results">No Search Results</div>
+					<div class="empty-state-actions">
+						<button type="button" class="button button-big button-fill button-round" data-i18n="try-again" @click="refreshSearchbar">Try Again</button>
+					</div>
+				</div>
+			</div>
+
+			<div class="searchbar-found">
+				<div class="list search-list">
+					<ul>
+						<li>
+							<a href="/integrations/alasql" class="item-link">
+								<div class="item-content">
+									<div class="item-media">
+										<img src="assets/custom/img/alasql.svg" width="24" alt="" />
+									</div>
+									<div class="item-inner">
+										<div class="item-title" data-i18n="alasql">AlaSQL</div>
+										<div class="item-afer">
+											<span class="badge color-blue">Web</span>
+											<span class="badge color-black">Cordova</span>
+										</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/integrations/algolia-places" class="item-link">
+								<div class="item-content">
+									<div class="item-media">
+										<img src="assets/custom/img/algolia.svg" width="24" alt="" />
+									</div>
+									<div class="item-inner">
+										<div class="item-title" data-i18n="algolia-places">Algolia Places</div>
+										<div class="item-afer">
+											<span class="badge color-blue">Web</span>
+											<span class="badge color-black">Cordova</span>
+										</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/integrations/disqus" class="item-link">
+								<div class="item-content">
+									<div class="item-media">
+										<img src="assets/custom/img/disqus.svg" width="24" alt="" />
+									</div>
+									<div class="item-inner">
+										<div class="item-title" data-i18n="disqus">Disqus</div>
+										<div class="item-afer">
+											<span class="badge color-blue">Web</span>
+										</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/integrations/embedly" class="item-link">
+								<div class="item-content">
+									<div class="item-media">
+										<img src="assets/custom/img/embedly.svg" width="24" alt="" />
+									</div>
+									<div class="item-inner">
+										<div class="item-title" data-i18n="embedly">Embedly</div>
+										<div class="item-afer">
+											<span class="badge color-blue">Web</span>
+											<span class="badge color-black">Cordova</span>
+										</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/integrations/facebook-account-kit" class="item-link">
+								<div class="item-content">
+									<div class="item-media">
+										<img src="assets/custom/img/account-kit.svg" width="24" alt="" />
+									</div>
+									<div class="item-inner">
+										<div class="item-title" data-i18n="facebook-account-kit">Facebook Account Kit</div>
+										<div class="item-afer">
+											<span class="badge color-blue">Web</span>
+										</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/integrations/facebook-comments" class="item-link">
+								<div class="item-content">
+									<div class="item-media">
+										<img src="assets/custom/img/facebook-comments.svg" width="24" alt="" />
+									</div>
+									<div class="item-inner">
+										<div class="item-title" data-i18n="facebook-comments">Facebook Comments</div>
+										<div class="item-afer">
+											<span class="badge color-blue">Web</span>
+										</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/integrations/google-admob" class="item-link">
+								<div class="item-content">
+									<div class="item-media">
+										<img src="assets/custom/img/google-admob.svg" width="24" alt="" />
+									</div>
+									<div class="item-inner">
+										<div class="item-title" data-i18n="google-admob">Google AdMob</div>
+										<div class="item-afer">
+											<span class="badge color-black">Cordova</span>
+										</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/integrations/google-amp" class="item-link">
+								<div class="item-content">
+									<div class="item-media">
+										<img src="assets/custom/img/google-amp.svg" width="24" alt="" />
+									</div>
+									<div class="item-inner">
+										<div class="item-title" data-i18n="google-amp">Google AMP</div>
+										<div class="item-afer">
+											<span class="badge color-blue">Web</span>
+											<span class="badge color-black">Cordova</span>
+										</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/integrations/google-maps" class="item-link">
+								<div class="item-content">
+									<div class="item-media">
+										<img src="assets/custom/img/google-maps.svg" width="24" alt="" />
+									</div>
+									<div class="item-inner">
+										<div class="item-title" data-i18n="google-maps">Google Maps</div>
+										<div class="item-afer">
+											<span class="badge color-blue">Web</span>
+											<span class="badge color-black">Cordova</span>
+										</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/integrations/google-sheets" class="item-link">
+								<div class="item-content">
+									<div class="item-media">
+										<img src="assets/custom/img/google-sheets.svg" width="24" alt="" />
+									</div>
+									<div class="item-inner">
+										<div class="item-title" data-i18n="google-sheets">Google Sheets</div>
+										<div class="item-afer">
+											<span class="badge color-blue">Web</span>
+											<span class="badge color-black">Cordova</span>
+										</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/integrations/gravatar" class="item-link">
+								<div class="item-content">
+									<div class="item-media">
+										<img src="assets/custom/img/gravatar.svg" width="24" alt="" />
+									</div>
+									<div class="item-inner">
+										<div class="item-title" data-i18n="gravatar">Gravatar</div>
+										<div class="item-afer">
+											<span class="badge color-blue">Web</span>
+											<span class="badge color-black">Cordova</span>
+										</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/integrations/mailchimp" class="item-link">
+								<div class="item-content">
+									<div class="item-media">
+										<img src="assets/custom/img/mailchimp.svg" width="24" alt="" />
+									</div>
+									<div class="item-inner">
+										<div class="item-title" data-i18n="mailchimp">MailChimp</div>
+										<div class="item-afer">
+											<span class="badge color-blue">Web</span>
+											<span class="badge color-black">Cordova</span>
+										</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/integrations/qrcode" class="item-link">
+								<div class="item-content">
+									<div class="item-media">
+										<img src="assets/custom/img/qrcode.svg" width="24" alt="" />
+									</div>
+									<div class="item-inner">
+										<div class="item-title" data-i18n="qr-code">QR Code</div>
+										<div class="item-afer">
+											<span class="badge color-blue">Web</span>
+											<span class="badge color-black">Cordova</span>
+										</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/integrations/rss-feed" class="item-link">
+								<div class="item-content">
+									<div class="item-media">
+										<img src="assets/custom/img/rss.svg" width="24" alt="" />
+									</div>
+									<div class="item-inner">
+										<div class="item-title" data-i18n="rss-feed">RSS Feed</div>
+										<div class="item-afer">
+											<span class="badge color-blue">Web</span>
+											<span class="badge color-black">Cordova</span>
+										</div>
+									</div>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+</template>
+
+<script>
+	return {
+		methods: {
+			refreshSearchbar: function() {
+				var self = this;
+				app.searchbar.clear('.searchbar');
+			}
+		}
+	}
+</script>

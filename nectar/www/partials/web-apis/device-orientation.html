@@ -1,0 +1,166 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="web-apis">Web APIs</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="device-orientation-api">Device Orientation API</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="device-orientation-api">Device Orientation API</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			{{#if isApiSupported}}
+			<div class="empty-state">
+				<div class="empty-state-media">
+					<img src="assets/custom/img/3d-rotate.svg" alt="" />
+				</div>
+				<div class="empty-state-title">Yaay!</div>
+				<div class="empty-state-text">This browser supports Device Orientation API.</div>
+				<div class="empty-state-actions">
+					<button type="button" class="button button-big button-fill button-round" @click="explore" data-i18n="explore">Explore</button>
+				</div>
+			</div>
+			{{else}}
+			<div class="empty-state">
+				<div class="empty-state-media">
+					<img class="filter-grayscale" src="assets/custom/img/3d-rotate.svg" alt="" />
+				</div>
+				<div class="empty-state-title">Oops!</div>
+				<div class="empty-state-text">This browser does not support Device Orientation API.</div>
+				<div class="empty-state-actions">
+					<a href="https://caniuse.com/deviceorientation" target="_blank" class="button button-big button-fill button-round external" data-i18n="supported-browsers">Supported Browsers</a>
+				</div>
+			</div>
+			{{/if}}
+
+		</div>
+
+		{{#if isApiSupported}}
+		<div class="popup popup-tablet-fullscreen popup-explore">
+			<div class="view">
+				<div class="page">
+
+					<div class="navbar">
+						<div class="navbar-inner">
+							<div class="left ios-only">
+								<a href="#" class="link popup-close">
+									<span data-i18n="close">Close</span>
+								</a>
+							</div>
+							<div class="title" data-i18n="device-orientation-api">Device Orientation API</div>
+							<div class="right md-only">
+								<a href="#" class="link icon-only popup-close">
+									<i class="icon material-icons">close</i>
+								</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="page-content">
+
+						<div class="block">
+							<p>Device Orientation API allows to access the gyroscope and compass data in order to determine the static orientation of the user's device in all the three dimensions.</p>
+						</div>
+
+						<div class="block text-align-center">
+							<img class="logo" src="assets/custom/img/logo.svg" height="128" alt="" />
+						</div>
+
+						<div class="list">
+							<ul>
+								<li>
+									<div class="item-content">
+										<div class="item-inner">
+											<div class="item-title">Gamma</div>
+											<div class="item-after">{{deviceOrientation.gamma}}</div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="item-content">
+										<div class="item-inner">
+											<div class="item-title">Beta</div>
+											<div class="item-after">{{deviceOrientation.beta}}</div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="item-content">
+										<div class="item-inner">
+											<div class="item-title">Alpha</div>
+											<div class="item-after">{{deviceOrientation.alpha}}</div>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+		{{/if}}
+
+	</div>
+</template>
+
+<script>
+	return {
+		data: function() {
+			return {
+				isApiSupported: (function() {
+					return app.support.webApi.deviceOrientation;
+				})(),
+				deviceOrientation: {
+					alpha: null,
+					beta: null,
+					gamma: null
+				}
+			}
+		},
+		methods: {
+			explore: function() {
+				var self = this;
+				var popup = app.popup.create({
+					el: '.popup-explore',
+					on: {
+						opened: function() {
+							window.addEventListener('deviceorientation', self.onDeviceOrientation);
+						},
+						closed: function() {
+							window.removeEventListener('deviceorientation', self.onDeviceOrientation);
+						}
+					}
+				});
+				popup.open();
+			},
+			onDeviceOrientation: function(event) {
+				var self = this;
+				self.updateDeviceOrientationInfo(event);
+			},
+			updateDeviceOrientationInfo: function(orientation) {
+				var self = this;
+				var orientationData = {};
+				orientationData.alpha = orientation.alpha ? orientation.alpha + ' deg' : '0';
+				orientationData.beta = orientation.beta ? orientation.beta + ' deg' : '0';
+				orientationData.gamma = orientation.gamma ? orientation.gamma + ' deg' : '0';
+				self.$setState({
+					deviceOrientation: orientationData
+				});
+				document.querySelector('.logo').style.transform = 'rotate(' + orientation.gamma + 'deg) rotate3d(1, 0, 0, ' + (orientation.beta * -1) + 'deg)';
+			}
+		}
+	}
+</script>

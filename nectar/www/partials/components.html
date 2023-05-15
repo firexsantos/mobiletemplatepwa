@@ -1,0 +1,575 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				{{#js_if "app.data.config.theme.navigation == 'hamburger'"}}
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="home">Home</span>
+					</a>
+				</div>
+				{{/js_if}}
+				<div class="title md-only" data-i18n="components">Components</div>
+				<div class="right">
+					<a href="#" class="link icon-only searchbar-enable" data-searchbar=".searchbar">
+						<i class="icon f7-icons ios-only">search</i>
+						<i class="icon material-icons md-only">search</i>
+					</a>
+				</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="components">Components</div>
+					</div>
+				</div>
+				<form class="searchbar searchbar-expandable searchbar-init" data-search-container=".search-list" data-search-item="li" data-search-in=".item-title">
+					<div class="searchbar-inner">
+						<div class="searchbar-input-wrap">
+							<input type="search" placeholder="Search" data-i18n="[placeholder]search" />
+							<i class="searchbar-icon"></i>
+							<span class="input-clear-button"></span>
+						</div>
+						<span class="searchbar-disable-button" data-i18n="cancel">Cancel</span>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="searchbar-hide-on-search">
+				<div class="block">
+					<p>Components are the basic building blocks for creating beautiful and intuitive UI/UX.</p>
+				</div>
+			</div>
+
+			<div class="searchbar-not-found">
+				<div class="empty-state">
+					<div class="empty-state-media">
+						<img src="assets/custom/img/no-search.svg" alt="" />
+					</div>
+					<div class="empty-state-title" data-i18n="no-search-results">No Search Results</div>
+					<div class="empty-state-actions">
+						<button type="button" class="button button-big button-fill button-round" data-i18n="try-again" @click="refreshSearchbar">Try Again</button>
+					</div>
+				</div>
+			</div>
+
+			<div class="searchbar-found">
+				<div class="list search-list">
+					<ul>
+						<li>
+							<a href="/components/accordion" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="accordion">Accordion</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/components/action-sheet" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="action-sheet">Action Sheet</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/components/autocomplete" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="autocomplete">Autocomplete</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/components/badge" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="badge">Badge</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/components/button" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="button">Button</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/components/cards" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="cards">Cards</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/components/checkbox" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="checkbox">Checkbox</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/components/chips" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="chips">Chips</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/components/content-block" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="content-block">Content Block</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/components/data-table" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="data-table">Data Table</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/components/datepicker" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="datepicker">Datepicker</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/components/dialog" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="dialog">Dialog</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/components/form-elements" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="form-elements">Form Elements</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/components/form-validator" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="form-validator">Form Validator</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/components/floating-action-button" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="floating-action-button">Floating Action Button</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/components/gauge" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="gauge">Gauge</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/components/grid" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="grid">Grid</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/components/hamburger" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="hamburger">Hamburger</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/components/infinite-scroll" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="infinite-scroll">Infinite Scroll</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/components/keypad" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="keypad">Keypad</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/components/lazy-load" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="lazy-load">Lazy Load</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/components/list-index" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="list-index">List Index</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/components/list-view" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="list-view">List View</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/components/navbar" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="navbar">Navbar</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/components/note" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="note">Note</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/components/notification" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="notification">Notification</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/components/photo-browser" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="photo-browser">Photo Browser</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/components/picker" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="picker">Picker</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/components/popover" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="popover">Popover</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/components/popup" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="popup">Popup</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/components/preloader" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="preloader">Preloader</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/components/progress-bar" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="progress-bar">Progress Bar</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/components/pull-to-refresh" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="pull-to-refresh">Pull to Refresh</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/components/radio" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="radio">Radio</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/components/range-slider" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="range-slider">Range Slider</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/components/rating" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="rating">Rating</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/components/searchbar" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="searchbar">Searchbar</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/components/sheet-modal" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="sheet-modal">Sheet Modal</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/components/side-panel" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="side-panel">Side Panel</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/components/signature-pad" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="signature-pad">Signature Pad</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/components/smart-select" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="smart-select">Smart Select</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/components/sortable-list" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="sortable-list">Sortable List</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/components/stepper" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="stepper">Stepper</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/components/stories" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="stories">Stories</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/components/subnavbar" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="subnavbar">Subnavbar</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/components/swipeout" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="swipeout">Swipeout</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/components/swiper-slider" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="swiper-slider">Swiper Slider</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/components/tabs" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="tabs">Tabs</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/components/timeline" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="timeline">Timeline</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/components/timepicker" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="timepicker">Timepicker</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/components/toast" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="toast">Toast</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/components/toggle" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="toggle">Toggle</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/components/toolbar" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="toolbar">Toolbar</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/components/tooltip" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="tooltip">Tooltip</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/components/virtual-list" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title" data-i18n="virtual-list">Virtual List</div>
+									</div>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+</template>
+
+<script>
+	return {
+		methods: {
+			refreshSearchbar: function() {
+				var self = this;
+				app.searchbar.clear('.searchbar');
+			}
+		}
+	}
+</script>

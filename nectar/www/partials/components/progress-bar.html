@@ -1,0 +1,126 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="components">Components</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="progress-bar">Progress Bar</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="progress-bar">Progress Bar</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="block">
+				<p>Progress Bar indicates the progress of an operation.</p>
+			</div>
+
+			<div class="block-title">Determinate</div>
+			<div class="block block-strong">
+				<div class="progressbar progressbar-determinate-inline" data-progress="10"></div>
+				<p class="row">
+					<button type="button" class="button button-fill col" data-progress="0" @click="setDeterminateInlineProgressBarValue">0%</button>
+					<button type="button" class="button button-fill col" data-progress="25" @click="setDeterminateInlineProgressBarValue">25%</button>
+					<button type="button" class="button button-fill col" data-progress="50" @click="setDeterminateInlineProgressBarValue">50%</button>
+					<button type="button" class="button button-fill col" data-progress="75" @click="setDeterminateInlineProgressBarValue">75%</button>
+					<button type="button" class="button button-fill col" data-progress="100" @click="setDeterminateInlineProgressBarValue">100%</button>
+				</p>
+			</div>
+
+			<div class="block-title">Infinite</div>
+			<div class="block block-strong">
+				<div class="progressbar-infinite"></div>
+				<p><button type="button" class="button button-big button-fill" @click="showInfiniteOverlayProgressBar">Overlay</button></p>
+			</div>
+
+			<div class="block-title">Colored</div>
+			<div class="list simple-list">
+				<ul>
+					<li>
+						<div class="item-cell width-auto">Red</div>
+						<div class="item-cell">
+							<div class="progressbar color-red" data-progress="5"></div>
+						</div>
+					</li>
+					<li>
+						<div class="item-cell width-auto">Green</div>
+						<div class="item-cell">
+							<div class="progressbar color-green" data-progress="15"></div>
+						</div>
+					</li>
+					<li>
+						<div class="item-cell width-auto">Blue</div>
+						<div class="item-cell">
+							<div class="progressbar color-blue" data-progress="25"></div>
+						</div>
+					</li>
+					<li>
+						<div class="item-cell width-auto">Pink</div>
+						<div class="item-cell">
+							<div class="progressbar color-pink" data-progress="35"></div>
+						</div>
+					</li>
+					<li>
+						<div class="item-cell width-auto">Yellow</div>
+						<div class="item-cell">
+							<div class="progressbar color-yellow" data-progress="45"></div>
+						</div>
+					</li>
+					<li>
+						<div class="item-cell width-auto">Orange</div>
+						<div class="item-cell">
+							<div class="progressbar color-orange" data-progress="55"></div>
+						</div>
+					</li>
+					<li>
+						<div class="item-cell width-auto">Gray</div>
+						<div class="item-cell">
+							<div class="progressbar color-gray" data-progress="65"></div>
+						</div>
+					</li>
+					<li>
+						<div class="item-cell width-auto">Black</div>
+						<div class="item-cell">
+							<div class="progressbar color-black" data-progress="75"></div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+	</div>
+</template>
+
+<style scoped>
+	.simple-list li .item-cell:first-child {
+		min-width: 64px;
+	}
+</style>
+
+<script>
+	return {
+		methods: {
+			setDeterminateInlineProgressBarValue: function(event) {
+				var self = this;
+				var progress = event.target.dataset.progress;
+				app.progressbar.set('.progressbar-determinate-inline', progress);
+			},
+			showInfiniteOverlayProgressBar: function() {
+				var self = this;
+				app.progressbar.show('multi');
+				setTimeout(function() {
+					app.progressbar.hide();
+				}, 5000);
+			}
+		}
+	}
+</script>

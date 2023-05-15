@@ -1,0 +1,27 @@
+
+/*----------------------------------------
+  Tooltip
+------------------------------------------*/
+.tooltip-content{
+  text-align: left;
+}
+.tooltip-content .tooltip-title{
+  font-size: 15px;  
+  margin-top: 0px;
+}
+
+.tooltip-content p{
+  font-size: 13px;
+  line-height: 21px;
+  margin-bottom: 0px;
+}
+.material-tooltip{
+  border-radius: var(--border-radius);
+  padding: 5px 20px;
+}
+.material-tooltip .tooltip-content h6{
+  padding: 10px 0px 0 0;
+}
+.material-tooltip .tooltip-content p{
+  padding: 0px 0px 10px 0;
+}

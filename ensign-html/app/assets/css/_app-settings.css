@@ -1,0 +1,138 @@
+
+/*----------------------------------------
+  App Settings
+------------------------------------------*/
+
+.appsettings[data-value='deep-purple']{  background: var(--deep-purple-color) !important; }
+.appsettings[data-value='red']{  background: var(--red-color) !important; }
+.appsettings[data-value='orange']{  background: var(--orange-color) !important; }
+.appsettings[data-value='blue']{  background: var(--blue-color) !important; }
+.appsettings[data-value='green']{  background: var(--green-color) !important; }
+.appsettings[data-value='teal']{  background: var(--teal-color) !important; }
+.appsettings[data-value='amber']{  background: var(--amber-color) !important; }
+.appsettings[data-value='pink']{  background: var(--pink-color) !important; }
+.appsettings[data-value='indigo']{  background: var(--indigo-color) !important; }
+.appsettings[data-value='blue-grey']{  background: var(--blue-grey-color) !important; }
+.appsettings[data-value='brown']{  background: var(--brown-color) !important; }
+.appsettings[data-value='cyan']{  background: var(--cyan-color) !important; }
+.appsettings[data-value='light-green']{  background: var(--light-green-color) !important; }
+.appsettings[data-value='purple']{  background: var(--purple-color) !important; }
+.appsettings[data-value='grey']{  background: var(--grey-color) !important; }
+
+.theme .appsettings{
+  height: 74px;
+  width: 74px;
+  border-radius: var(--border-radius);
+  -webkit-box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1), 0 3px 11px -2px rgba(0, 0, 0, 0.1), 0 1px 5px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1), 0 3px 11px -2px rgba(0, 0, 0, 0.1), 0 1px 5px 0 rgba(0, 0, 0, 0.1);
+}
+
+
+.appsettings .mdi:before{
+    content: "\F130" !important;
+}
+.appsettings.active .mdi:before{
+    content: "\F5E1" !important; /*"\F854"*/
+}
+
+.appsettings i{
+  opacity: 0.7;
+}
+.appsettings.active i{
+  opacity: 1;
+}
+
+.theme .appsettings .mdi:before {
+    content: "\F131" !important;
+}
+.theme .appsettings.active .mdi:before {
+    content: "\F12C" !important; /*"\F854"*/
+}
+.appsettings.active:not([data-type='theme']) .mdi:before {
+    color: var(--primary-color) !important;
+}
+
+[data-menu="colored"] .appsettings:not([data-type='theme']) .mdi:before {
+  color: #ffffff !important;
+}
+[data-menu="colored"] .appsettings.active:not([data-type='theme']) .mdi:before{
+  color: #ffffff !important;
+}
+[data-menu="colored"] .appsettings[data-type='theme'] .mdi:before {
+  color: #ffffff !important;
+}
+.sidesettings .lvl1.theme{
+  width: 19%;
+  float: left;
+  margin-bottom: 5px;
+  margin-left: 5%;
+  margin-top: 10px;
+  max-width: 90px;
+}
+.sidesettings .lvl1.theme + .sep-wrap {
+  /* margin-top: 15px; */
+  display: inline-block;
+  width: 100%;
+  /* margin-bottom: 10px; */
+}
+
+.sidenav li.lvl1.theme .waves-effect{
+  padding-left: 0px;
+  border: none;
+  border-radius: var(--border-radius);
+}
+.sidesettings .sh-wrap{
+  clear: both;
+  display: block;
+  width: 100%;
+}
+.sidesettings .lvl1.theme a{
+
+  text-align: center;
+  display: inline-block;
+  width: 100%;
+}
+.sidesettings .lvl1.theme a i{
+  /* display: block; */
+  /* margin: 9px 0 3px 0px; */
+  color: #fff !important;
+  font-size: 31px;
+  position: absolute;
+  top: calc(50% - 37px);
+  left: 0;
+  width: 100%;
+  text-align: center;
+  height: 74px;
+  line-height: 74px;
+}
+.sidenav li.theme .appsettings a i{
+  display: none;
+}
+
+.sidenav li.theme .appsettings.active i{
+  display: inline-block;
+}
+.sidenav li.theme .appsettings.active .title{
+  display: none;
+}
+.sidesettings .lvl1.theme a .title{
+  width: 100%;
+    position: absolute;
+    top: calc(50% - 11px);
+    display: inline-block;
+    line-height: 20px;
+    font-size: 11px;
+    background: rgba(0,0,0,.3);
+    color: #f5f5f5;
+    padding: 2px 5px;
+    white-space: nowrap;
+    left: 0%;
+}
+
+[data-menu="dark"] .appsettings.active:not([data-type='theme']) .mdi:before {
+  color: #cccccc !important;
+}
+/* [data-menu="dark"] .sidesettings .lvl1.theme a .title{
+  background-color: #263238;
+  color: #CFD8DC;
+} */

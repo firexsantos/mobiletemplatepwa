@@ -1,0 +1,130 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="components">Components</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="smart-select">Smart Select</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="smart-select">Smart Select</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="block">
+				<p>Smart Select converts usual form selects into pages with grouped radios and checkboxes.</p>
+			</div>
+
+			<div class="list no-hairlines-between">
+				<ul>
+					<li class="item-divider">Default</li>
+					<li>
+						<a class="item-link smart-select smart-select-init">
+							<select name="today">
+								<option value="monday" selected>Monday</option>
+								<option value="tuesday">Tuesday</option>
+								<option value="wednesday">Wednesday</option>
+								<option value="thursday">Thursday</option>
+								<option value="friday">Friday</option>
+								<option value="saturday">Saturday</option>
+								<option value="sunday">Sunday</option>
+							</select>
+							<div class="item-content">
+								<div class="item-inner">
+									<div class="item-title">Today</div>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li class="item-divider">Custom Options</li>
+					<li>
+						<a class="item-link smart-select smart-select-init">
+							<select name="fruit">
+								<option value="apple" selected data-option-image="https://www.dropbox.com/s/4xs9r6telgpqfws/apple.svg?raw=1">Apple</option>
+								<option value="cherry" data-option-image="https://www.dropbox.com/s/75zig33f73n8enh/cherry.svg?raw=1">Cherry</option>
+								<option value="grapes" data-option-image="https://www.dropbox.com/s/8pwfdy6reoqcqta/grapes.svg?raw=1">Grapes</option>
+								<option value="orange" data-option-image="https://www.dropbox.com/s/df1yax01g8q4gjg/orange.svg?raw=1">Orange</option>
+								<option value="pineapple" data-option-image="https://www.dropbox.com/s/6tdrzg28wvojx3j/pineapple.svg?raw=1">Pineapple</option>
+								<option value="raspberry" data-option-image="https://www.dropbox.com/s/r2xsaiwk51xvtmg/raspberry.svg?raw=1">Raspberry</option>
+								<option value="strawberry" data-option-image="https://www.dropbox.com/s/4ab8u9v5thus9r5/strawberry.svg?raw=1">Strawberry</option>
+							</select>
+							<div class="item-content">
+								<div class="item-inner">
+									<div class="item-title">Fruit</div>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li class="item-divider">Multiple Values</li>
+					<li>
+						<a class="item-link smart-select smart-select-init">
+							<select name="cars" multiple>
+								<optgroup label="American">
+									<option value="cadillac" selected>Cadillac</option>
+									<option value="chrysler">Chrysler</option>
+									<option value="dodge">Dodge</option>
+									<option value="ford">Ford</option>
+								</optgroup>
+								<optgroup label="German">
+									<option value="audi" selected>Audi</option>
+									<option value="bmw">BMW</option>
+									<option value="mercedes">Mercedes</option>
+									<option value="volkswagen">Volkswagen</option>
+									<option value="volvo">Volvo</option>
+								</optgroup>
+								<optgroup label="Japanese">
+									<option value="honda" selected>Honda</option>
+									<option value="lexus">Lexus</option>
+									<option value="mazda">Mazda</option>
+									<option value="nissan">Nissan</option>
+									<option value="toyota">Toyota</option>
+								</optgroup>
+							</select>
+							<div class="item-content">
+								<div class="item-inner">
+									<div class="item-title">Cars</div>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li class="item-divider">Popover</li>
+					<li>
+  					<a class="item-link smart-select smart-select-init" data-open-in="popover">
+    					<select name="superhero">
+      					<option value="batman" selected>Batman</option>
+      					<option value="hulk">Hulk</option>
+								<option value="ironman">Ironman</option>
+      					<option value="spiderman">Spiderman</option>
+      					<option value="superman">Superman</option>
+      					<option value="thor">Thor</option>
+      					<option value="wonder-woman">Wonder Woman</option>
+    					</select>
+    					<div class="item-content">
+      					<div class="item-inner">
+        					<div class="item-title">Superhero</div>
+      					</div>
+    					</div>
+  					</a>
+					</li>
+				</ul>
+			</div>
+
+		</div>
+
+	</div>
+</template>
+
+<style>
+	{{html}} .smart-select-page li .item-media img  {
+		width: 32px;
+	}
+</style>

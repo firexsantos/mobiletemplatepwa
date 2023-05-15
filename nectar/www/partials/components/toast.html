@@ -1,0 +1,253 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="components">Components</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="toast">Toast</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="toast">Toast</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="block">
+				<p>Toast provides a simple feedback about an operation in a small popup.</p>
+			</div>
+
+			<div class="list">
+				<div class="list-group">
+					<ul>
+						<li class="list-group-title">Position</li>
+						<li>
+							<a href="#" class="item-link" @click="showToastPositionTop">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title">Top</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="#" class="item-link" @click="showToastPositionCenter">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title">Center</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="#" class="item-link" @click="showToastPositionBottom">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title">Bottom</div>
+									</div>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="list-group">
+					<ul>
+						<li class="list-group-title">Colored</li>
+						<li>
+							<a href="#" class="item-link" @click="showToastColorRed">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title">Red</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="#" class="item-link" @click="showToastColorGreen">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title">Green</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="#" class="item-link" @click="showToastColorBlue">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title">Blue</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="#" class="item-link" @click="showToastColorPink">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title">Pink</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="#" class="item-link" @click="showToastColorYellow">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title">Yellow</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="#" class="item-link" @click="showToastColorOrange">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title">Orange</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="#" class="item-link" @click="showToastColorGray">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title">Gray</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="#" class="item-link" @click="showToastColorBlack">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title">Black</div>
+									</div>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+</template>
+
+<script>
+	return {
+		methods: {
+			showToastPositionTop: function() {
+				var self = this;
+				app.toast.show({
+					text: 'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet.',
+					position: 'top',
+					closeButton: true,
+					closeButtonText: 'OK'
+				});
+			},
+			showToastPositionCenter: function() {
+				var self = this;
+				app.toast.show({
+					icon: '<i class="icon far fa-lg fa-star"></i>',
+					text: 'Rated!',
+					position: 'center',
+					closeTimeout: 5000
+				});
+			},
+			showToastPositionBottom: function() {
+				var self = this;
+				app.toast.show({
+					text: 'Neque porro quisquam est.',
+					position: 'bottom',
+					closeButton: true,
+					closeButtonText: 'OK',
+					cssClass: 'toast-round'
+				});
+			},
+			showToastColorRed: function() {
+				var self = this;
+				app.toast.show({
+					icon: '<i class="icon fas fa-lg fa-times"></i>',
+					text: 'Neque porro quisquam est.',
+					position: 'bottom',
+					cssClass: 'toast-round bg-color-red'
+				});
+			},
+			showToastColorGreen: function() {
+				var self = this;
+				app.toast.show({
+					icon: '<i class="icon fas fa-lg fa-check"></i>',
+					text: 'Neque porro quisquam est.',
+					position: 'bottom',
+					cssClass: 'toast-round bg-color-green'
+				});
+			},
+			showToastColorBlue: function() {
+				var self = this;
+				app.toast.show({
+					icon: '<i class="icon fas fa-lg fa-info"></i>',
+					text: 'Neque porro quisquam est.',
+					position: 'bottom',
+					cssClass: 'toast-round bg-color-blue'
+				});
+			},
+			showToastColorPink: function() {
+				var self = this;
+				app.toast.show({
+					icon: '<i class="icon far fa-lg fa-grin-stars"></i>',
+					text: 'Neque porro quisquam est.',
+					position: 'bottom',
+					cssClass: 'toast-round bg-color-pink'
+				});
+			},
+			showToastColorYellow: function() {
+				var self = this;
+				app.toast.show({
+					icon: '<i class="icon fab fa-lg fa-ello"></i>',
+					text: 'Hello World',
+					position: 'bottom',
+					cssClass: 'toast-round bg-color-yellow text-color-black'
+				});
+			},
+			showToastColorOrange: function() {
+				var self = this;
+				app.toast.show({
+					icon: '<i class="icon fas fa-lg fa-exclamation"></i>',
+					text: 'Neque porro quisquam est.',
+					position: 'bottom',
+					cssClass: 'toast-round bg-color-orange'
+				});
+			},
+			showToastColorGray: function() {
+				var self = this;
+				app.toast.show({
+					text: 'Neque porro quisquam est.',
+					position: 'bottom',
+					closeButton: true,
+					closeButtonColor: 'white',
+					closeButtonText: 'Done',
+					cssClass: 'toast-round bg-color-gray'
+				});
+			},
+			showToastColorBlack: function() {
+				var self = this;
+				app.toast.show({
+					text: 'Neque porro quisquam est.',
+					position: 'bottom',
+					closeButton: true,
+					closeButtonColor: 'white',
+					closeButtonText: 'Okay',
+					cssClass: 'toast-round bg-color-black'
+				});
+			}
+		}
+	}
+</script>

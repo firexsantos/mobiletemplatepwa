@@ -1,0 +1,95 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="swiper-slider">Swiper Slider</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="horizontal-slider">Horizontal Slider</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="horizontal-slider">Horizontal Slider</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide" style="background-image: url('https://source.unsplash.com/-LRuNvY8W7Q');">
+					</div>
+					<div class="swiper-slide" style="background-image: url('https://source.unsplash.com/h6VVqZmA3wQ');">
+					</div>
+					<div class="swiper-slide" style="background-image: url('https://source.unsplash.com/z369YxEcJpo');">
+					</div>
+					<div class="swiper-slide" style="background-image: url('https://source.unsplash.com/zAkISnvAHRo');">
+					</div>
+					<div class="swiper-slide" style="background-image: url('https://source.unsplash.com/VaH2X8eHKVg');">
+					</div>
+				</div>
+				<div class="swiper-button-prev color-white"></div>
+				<div class="swiper-button-next color-white"></div>
+			</div>
+
+		</div>
+
+	</div>
+</template>
+
+<style scoped>
+	.swiper-container {
+		height: 100%;
+	}
+
+	.swiper-slide {
+		align-items: center;
+		background-color: #323334;
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		box-sizing: border-box;
+		color: #FFFFFF;
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		justify-content: center;
+		text-align: center;
+		width: 100%;
+	}
+</style>
+
+<script>
+	return {
+		methods: {
+			initializeSwiperSlider: function() {
+				var self = this;
+				app.swiper.create('.swiper-container', {
+					autoplay: {
+						delay: 5000,
+						disableOnInteraction: false
+					},
+					direction: 'horizontal',
+					grabCursor: true,
+					loop: true,
+					navigation: {
+						nextEl: '.swiper-button-next',
+						prevEl: '.swiper-button-prev'
+					},
+					spaceBetween: 16
+				});
+			}
+		},
+		on: {
+			pageInit: function() {
+				var self = this;
+				self.initializeSwiperSlider();
+			}
+		}
+	}
+</script>

@@ -1,0 +1,442 @@
+<template>
+	<div class="page no-navbar no-toolbar no-swipeback">
+
+		<div class="page-content">
+
+			<form name="profile" method="POST" action="#" enctype="multipart/form-data">
+
+				<div class="swiper-container">
+
+					<div class="swiper-wrapper">
+
+						<div class="swiper-slide">
+							<div class="list no-hairlines no-hairlines-between">
+								<ul>
+									<li>
+										<div class="item-content item-input">
+											<div class="item-inner">
+												<div class="item-title item-label">What's your name?</div>
+												<div class="item-input-wrap">
+													<input type="text" name="name" required />
+												</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+							<div class="slide-actions">
+								<button type="button" class="button button-big button-fill button-round" data-i18n="next" @click="validateName">Next</button>
+							</div>
+						</div>
+
+						<div class="swiper-slide">
+							<div class="slide-navigation">
+								<a href="#" class="link" @click="previousSlide">
+									<i class="fa-stack fa-2x">
+										<span class="fas fa-stack-2x fa-circle"></span>
+										<span class="fas fa-stack-1x fa-arrow-{{arrowDirection}} fa-inverse"></span>
+									</i>
+								</a>
+							</div>
+							<div class="list no-hairlines no-hairlines-between margin-top">
+								<ul>
+									<li>
+										<div class="item-content item-input">
+											<div class="item-inner">
+												<div class="item-title item-label">What's your gender?</div>
+												<div class="block no-padding no-margin-bottom">
+													<ul class="gender-wrapper">
+														<li>
+															<label>
+																<input type="radio" name="gender" value="male" />
+																<img src="assets/custom/img/boy.svg" alt="" />
+															</label>
+														</li>
+														<li>
+															<label>
+																<input type="radio" name="gender" value="female" />
+																<img src="assets/custom/img/girl.svg" alt="" />
+															</label>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+							<div class="slide-actions">
+								<button type="button" class="button button-big button-fill button-round" data-i18n="next" @click="validateGender">Next</button>
+							</div>
+						</div>
+
+						<div class="swiper-slide">
+							<div class="slide-navigation">
+								<a href="#" class="link" @click="previousSlide">
+									<i class="fa-stack fa-2x">
+										<span class="fas fa-stack-2x fa-circle"></span>
+										<span class="fas fa-stack-1x fa-arrow-{{arrowDirection}} fa-inverse"></span>
+									</i>
+								</a>
+							</div>
+							<div class="list no-hairlines no-hairlines-between margin-top">
+								<ul>
+									<li>
+										<div class="item-content item-input">
+											<div class="item-inner">
+												<div class="item-title item-label">When's your birthday?</div>
+												<div class="item-input-wrap">
+													<input type="text" name="birthday" required />
+												</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+							<div class="slide-actions">
+								<button type="button" class="button button-big button-fill button-round" data-i18n="next" @click="validateBirthday">Next</button>
+							</div>
+						</div>
+
+						<div class="swiper-slide">
+							<div class="slide-navigation">
+								<a href="#" class="link" @click="previousSlide">
+									<i class="fa-stack fa-2x">
+										<span class="fas fa-stack-2x fa-circle"></span>
+										<span class="fas fa-stack-1x fa-arrow-{{arrowDirection}} fa-inverse"></span>
+									</i>
+								</a>
+							</div>
+							<div class="list no-hairlines no-hairlines-between margin-top">
+								<ul>
+									<li>
+										<div class="item-content item-input">
+											<div class="item-inner">
+												<div class="item-title item-label">What's your email?</div>
+												<div class="item-input-wrap">
+													<input type="email" name="email" required />
+												</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+							<div class="slide-actions">
+								<button type="button" class="button button-big button-fill button-round" data-i18n="next" @click="validateEmail">Next</button>
+							</div>
+						</div>
+
+						<div class="swiper-slide">
+							<div class="slide-navigation">
+								<a href="#" class="link" @click="previousSlide">
+									<i class="fa-stack fa-2x">
+										<span class="fas fa-stack-2x fa-circle"></span>
+										<span class="fas fa-stack-1x fa-arrow-{{arrowDirection}} fa-inverse"></span>
+									</i>
+								</a>
+							</div>
+							<div class="list no-hairlines no-hairlines-between margin-top">
+								<ul>
+									<li>
+										<div class="item-content item-input no-padding">
+											<div class="item-inner no-padding">
+												<div class="item-title item-label">What are your interests?</div>
+												<div class="block no-padding no-margin-bottom">
+													{{#each interests}}
+													<label class="chip-selectable">
+														<input type="checkbox" name="interest[]" value="{{this}}" />
+														<div class="chip chip-outline">
+															<div class="chip-label">{{this}}</div>
+														</div>
+													</label>
+													{{/each}}
+												</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+							<div class="slide-actions">
+								<button type="button" class="button button-big button-fill button-round" @click="validateInterests">Get Started</button>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="swiper-pagination"></div>
+
+				</div>
+
+			</form>
+
+		</div>
+
+	</div>
+</template>
+
+<style scoped>
+	form {
+		height: 100%;
+	}
+
+	.swiper-container {
+		height: 100%;
+	}
+
+	.swiper-wrapper {
+		height: 100%;
+	}
+
+	.swiper-slide {
+		align-items: stretch;
+		box-sizing: border-box;
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		justify-content: flex-start;
+		padding: 32px 16px;
+		text-align: center;
+	}
+
+	.slide-navigation {
+		align-self: flex-start;
+	}
+
+	.slide-navigation a .fa-stack-1x {
+		margin-left: 0 !important;
+	}
+
+	.slide-media {
+		margin-top: 16px;
+	}
+
+	.slide-actions {
+		margin-top: auto;
+	}
+
+	.item-label {
+		color: var(--oc-color-gray-4) !important;
+		font-size: 28px;
+		font-weight: bold;
+		line-height: normal;
+	}
+
+	.item-label.input-valid {
+		color: var(--oc-color-green-8) !important;
+	}
+
+	.item-label.input-invalid {
+		color: var(--oc-color-red-8) !important;
+	}
+
+	.item-input-focused .item-label {
+		color: var(--oc-color-gray-4) !important;
+	}
+
+	.item-input-focused .item-label.input-valid {
+		color: var(--oc-color-green-8) !important;
+	}
+
+	.item-input-focused .item-label.input-invalid {
+		color: var(--oc-color-red-8) !important;
+	}
+
+	.item-input-wrap {
+		margin-top: 24px !important;
+	}
+
+	.item-input-focused .item-input-wrap:after {
+		display: none;
+	}
+
+	.item-input-with-value .item-input-wrap:after {
+		display: none;
+	}
+
+	.list input {
+		color: #343A40 !important;
+		font-size: 24px !important;
+		font-weight: bold;
+		text-align: center;
+	}
+
+	.theme-dark {{this}} .list input {
+		color: #FFFFFF !important;
+	}
+
+	.gender-wrapper {
+		list-style-type: none;
+		margin: 0;
+		padding: 0 !important;
+		text-align: center;
+	}
+
+	.gender-wrapper li {
+		display: inline-block;
+		margin: 6px 12px;
+	}
+
+	.gender-wrapper li label input {
+		display: none;
+	}
+
+	.gender-wrapper li label img {
+		filter: grayscale(100%);
+		height: auto;
+		width: 102px;
+	}
+
+	.gender-wrapper li label input:checked ~ img {
+		filter: grayscale(0);
+	}
+</style>
+
+<script>
+	return {
+		data: function() {
+			return {
+				nextScreen: '/home',
+				slider: null,
+				formValidator: null,
+				interests: [
+					'Animation', 'Architecture', 'Art',
+					'Business',
+					'Cars',
+					'Dance', 'Design',
+					'Economics',
+					'Finance', 'Future',
+					'Gaming',
+					'Health', 'Humor',
+					'Internet of Things', 'Investing',
+					'Love',
+					'Movies', 'Music',
+					'Photography', 'Politics',
+					'Technology', 'Travel',
+					'Yoga'
+				],
+				arrowDirection: (function() {
+					if (app.params.rtl) {
+						return 'right';
+					}
+					else {
+						return 'left';
+					}
+				})()
+			}
+		},
+		methods: {
+			initializeSlider: function() {
+				var self = this;
+				self.slider = app.swiper.create('.swiper-container', {
+					allowTouchMove: false,
+					pagination: {
+						el: '.swiper-pagination',
+						type: 'progressbar'
+					}
+				});
+			},
+			initializeFormValidator: function() {
+				var self = this;
+				self.formValidator = jQuery('form[name=profile]').validate({
+					rules: {
+						name: {
+							required: true
+						},
+						gender: {
+							required: true
+						},
+						email: {
+							required: true,
+        			email:true
+      			},
+						birthday: {
+							required: true
+						},
+						'interest[]': {
+							required: true,
+							minlength: 1
+						}
+					}
+				});
+			},
+			initializeBirthdayPicker: function() {
+				var self = this;
+				var datepicker = app.calendar.create({
+					inputEl: 'input[name=birthday]',
+					dateFormat: 'dd/mm/yyyy',
+					openIn: 'sheet',
+					maxDate: new Date(),
+					closeOnSelect: true
+				});
+			},
+			previousSlide: function() {
+				var self = this;
+				self.slider.slidePrev();
+			},
+			validateName: function() {
+				var self = this;
+				if (self.formValidator.check('[name=name]')) {
+					self.$('input[name=name]').parents('.item-inner').find('.item-label').removeClass('input-invalid').addClass('input-valid');
+					self.slider.slideNext();
+				}
+				else {
+					self.$('input[name=name]').parents('.item-inner').find('.item-label').removeClass('input-valid').addClass('input-invalid');
+					self.$('input[name=name]').focus();
+				}
+			},
+			validateGender: function() {
+				var self = this;
+				if (self.$('input[name=gender]:checked').length == 1) {
+					self.$('input[name=gender]').parents('.item-inner').find('.item-label').removeClass('input-invalid').addClass('input-valid');
+					self.slider.slideNext();
+				}
+				else {
+					self.$('input[name=gender]').parents('.item-inner').find('.item-label').removeClass('input-valid').addClass('input-invalid');
+				}
+			},
+			validateBirthday: function() {
+				var self = this;
+				if (self.formValidator.check('[name=birthday]')) {
+					self.$('input[name=birthday]').parents('.item-inner').find('.item-label').removeClass('input-invalid').addClass('input-valid');
+					self.slider.slideNext();
+				}
+				else {
+					self.$('input[name=birthday]').parents('.item-inner').find('.item-label').removeClass('input-valid').addClass('input-invalid');
+				}
+			},
+			validateEmail: function() {
+				var self = this;
+				if (self.formValidator.check('[name=email]')) {
+					self.$('input[name=email]').parents('.item-inner').find('.item-label').removeClass('input-invalid').addClass('input-valid');
+					self.slider.slideNext();
+				}
+				else {
+					self.$('input[name=email]').parents('.item-inner').find('.item-label').removeClass('input-valid').addClass('input-invalid');
+					self.$('input[name=email]').focus();
+				}
+			},
+			validateInterests: function() {
+				var self = this;
+				if (self.$("input[name='interest[]']:checked").length > 0) {
+					self.$("input[name='interest[]']").parents('.item-inner').find('.item-label').removeClass('input-invalid').addClass('input-valid');
+					self.saveProfile();
+				}
+				else {
+					self.$("input[name='interest[]']").parents('.item-inner').find('.item-label').removeClass('input-valid').addClass('input-invalid');
+				}
+			},
+			saveProfile: function() {
+				var self = this;
+				app.views.current.router.navigate(self.nextScreen);
+			}
+		},
+		on: {
+			pageInit: function() {
+				var self = this;
+				self.initializeSlider();
+				self.initializeFormValidator();
+				self.initializeBirthdayPicker();
+			}
+		}
+	}
+</script>

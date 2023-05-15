@@ -1,0 +1,83 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="cordova-plugins">Cordova Plugins</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="vibration">Vibration</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="vibration">Vibration</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="block">
+				<p>This plugin allows to access the vibration mechanism of the device.</p>
+				<p>It can be used to provide physical feedback to the user by causing the device to shake.</p>
+			</div>
+
+			<div class="block">
+				<p><button type="button" class="button button-big button-fill color-green" @click="singleVibration">Single Vibration</button></p>
+				<p><button type="button" class="button button-big button-fill color-green" @click="patternedVibration">Patterned Vibration</button></p>
+			</div>
+
+			{{#if isVibrating}}
+			<div class="block">
+				<p><button type="button" class="button button-big button-fill color-red" @click="stopVibration">Stop Vibration</button></p>
+			</div>
+			{{/if}}
+
+		</div>
+
+	</div>
+</template>
+
+<script>
+	return {
+		data: function() {
+			return {
+				isVibrating: false
+			}
+		},
+		methods: {
+			singleVibration: function() {
+				var self = this;
+				navigator.vibrate(1000);
+				self.setVibrationStatus(true);
+				setTimeout(function() { self.setVibrationStatus(false); }, 1000);
+			},
+			patternedVibration: function() {
+				var self = this;
+				navigator.vibrate([1000, 500, 1500, 1000, 2000]);
+				self.setVibrationStatus(true);
+				setTimeout(function() { self.setVibrationStatus(false); }, 6000);
+			},
+			stopVibration: function() {
+				var self = this;
+				navigator.vibrate(0);
+				self.setVibrationStatus(false);
+			},
+			setVibrationStatus: function(status) {
+				var self = this;
+				self.$setState({
+					isVibrating: status
+				});
+			}
+		},
+		on: {
+			pageBeforeRemove: function() {
+				var self = this;
+				self.stopVibration();
+			}
+		}
+	}
+</script>

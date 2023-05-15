@@ -1,0 +1,51 @@
+/*--------------------------------------------------
+    ## All responsive style
+---------------------------------------------------*/
+.height-100vh {
+  height: 90vh;
+}
+.banner-slider {
+  margin-left: 22px;
+}
+.banner-slider-wrap {
+  overflow: hidden
+}
+@media all and (max-width: 1399px) {
+  .qr-button span {
+    font-size: 35px;
+  } 
+}
+@media all and (max-width: 1199px) {
+  
+}
+@media all and (max-width: 991px) {
+  
+}
+@media all and (max-width: 767px) {
+  
+}
+@media all and (max-width: 575px) {
+  .container,
+  .container-fluid,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl,
+  .container-xxl {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+}
+@media all and (max-width: 574px) {
+  
+}
+@media all and (max-width: 425px) {
+  
+}
+@media all and (max-width: 375px) {
+  
+}
+@media all and (max-width: 360px) {
+  
+}

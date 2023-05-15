@@ -1,0 +1,15 @@
+{
+  "background_color": "#40189d",
+  "description": "Jobie - Job Portal Mobile App Template.",
+  "display": "fullscreen",
+  "icons": [
+    {
+      "src": "assets/images/pwa.png",
+      "sizes": "200x200",
+      "type": "image/png"
+    }
+  ],
+  "name": "Jobie - Job Portal",
+  "short_name": "Jobie",
+  "start_url": "/mobile-app/xhtml/index.html"
+}

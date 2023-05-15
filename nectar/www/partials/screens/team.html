@@ -1,0 +1,121 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="back">Back</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="team">Team</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="team">Team</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="block-title text-align-center">Meet our Team</div>
+			<div class="block">
+				{{#if team}}
+				<div class="row justify-content-flex-start">
+					{{#each team}}
+					<div class="col-100 tablet-50 desktop-33">
+						<div class="card">
+							<div class="card-content card-content-padding text-align-center">
+								<img class="img-circle member-photo" src="{{this.photo}}" width="104" alt="" />
+								<div class="member-name">{{this.name}}</div>
+								<div class="member-designation">{{this.designation}}</div>
+								<p class="member-contact">
+									{{#if this.email}}
+									<a href="mailto:{{this.email}}" target="_blank" class="external">
+										<i class="fa-stack">
+											<span class="fas fa-circle fa-stack-2x text-color-pink"></span>
+											<span class="fas fa-envelope fa-stack-1x fa-inverse"></span>
+										</i>
+									</a>
+									{{/if}}
+									{{#if this.medium}}
+									<a href="{{this.medium}}" target="_blank" class="external">
+										<i class="fa-stack">
+											<span class="fas fa-circle fa-stack-2x brand-color-medium"></span>
+											<span class="fab fa-medium-m fa-stack-1x fa-inverse"></span>
+										</i>
+									</a>
+									{{/if}}
+									{{#if this.linkedin}}
+									<a href="{{this.linkedin}}" target="_blank" class="external">
+										<i class="fa-stack">
+											<span class="fas fa-circle fa-stack-2x brand-color-linkedin"></span>
+											<span class="fab fa-linkedin-in fa-stack-1x fa-inverse"></span>
+										</i>
+									</a>
+									{{/if}}
+									{{#if this.twitter}}
+									<a href="{{this.twitter}}" target="_blank" class="external">
+										<i class="fa-stack">
+											<span class="fas fa-circle fa-stack-2x brand-color-twitter"></span>
+											<span class="fab fa-twitter fa-stack-1x fa-inverse"></span>
+										</i>
+									</a>
+									{{/if}}
+								</p>
+							</div>
+						</div>
+					</div>
+					{{/each}}
+				</div>
+				{{/if}}
+			</div>
+
+		</div>
+
+	</div>
+</template>
+
+<style scoped>
+	.member-name {
+		font-size: 20px;
+	}
+
+	.member-designation {
+		color: var(--oc-color-gray-6);
+		font-size: 15px;
+	}
+</style>
+
+<script>
+	return {
+		data: function() {
+			return {
+				team: null
+			}
+		},
+		methods: {
+			loadData: function() {
+				var self = this;
+				app.request.json(
+					'assets/custom/dataset/team.json',
+					function(data) {
+						if (data) {
+							self.$setState({
+								team: data
+							});
+						}
+					}
+				);
+			}
+		},
+		on: {
+			pageInit: function() {
+				var self = this;
+				self.loadData();
+			}
+		}
+	}
+</script>

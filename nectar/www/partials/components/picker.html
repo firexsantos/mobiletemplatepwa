@@ -1,0 +1,192 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="components">Components</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="picker">Picker</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="picker">Picker</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="block">
+				<p>Picker includes one or more scrollable lists of distinct values, each of which has a single selected value.</p>
+			</div>
+
+			<div class="list no-hairlines">
+				<ul>
+					<li class="item-divider">Single Value</li>
+					<li>
+						<div class="item-content item-input">
+							<div class="item-inner">
+								<div class="item-input-wrap">
+									<input type="text" id="picker-single-value" placeholder="Your iPhone" readonly />
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="item-divider">Multiple Values</li>
+					<li>
+						<div class="item-content item-input">
+							<div class="item-inner">
+								<div class="item-input-wrap">
+									<input type="text" id="picker-multiple-values" placeholder="Describe Yourself" readonly />
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="item-divider">Dependent Values</li>
+					<li>
+						<div class="item-content item-input">
+							<div class="item-inner">
+								<div class="item-input-wrap">
+									<input type="text" id="picker-dependent-values" placeholder="Your Car" readonly />
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="item-divider">Custom Toolbar</li>
+					<li>
+						<div class="item-content item-input">
+							<div class="item-inner">
+								<div class="item-input-wrap">
+									<input type="text" id="picker-custom-toolbar" placeholder="Describe Yourself" readonly />
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+
+		</div>
+
+	</div>
+</template>
+
+<script>
+	return {
+		methods: {
+			initializePickerSingleValue: function() {
+				var self = this;
+				var picker = app.picker.create({
+					inputEl: '#picker-single-value',
+					cols: [
+						{
+							textAlign: 'center',
+							values: ['iPhone', 'iPhone 3G', 'iPhone 3GS', 'iPhone 4', 'iPhone 4S', 'iPhone 5', 'iPhone 5C', 'iPhone 5S', 'iPhone 6', 'iPhone 6 Plus', 'iPhone 6S', 'iPhone 6S Plus', 'iPhone SE', 'iPhone 7', 'iPhone 7 Plus', 'iPhone 8', 'iPhone 8 Plus', 'iPhone X', 'iPhone XS', 'iPhone XS Max', 'iPhone XR']
+						}
+					]
+				});
+			},
+			initializePickerMultipleValues: function() {
+				var self = this;
+				var picker = app.picker.create({
+					inputEl: '#picker-multiple-values',
+					rotateEffect: true,
+					cols: [
+						{
+							textAlign: 'left',
+							values: ['Super', 'Amazing', 'Bat', 'Iron', 'Rocket', 'Lex', 'Beautiful', 'Wonderful', 'Raining', 'Happy', 'Funny', 'Cool', 'Hot']
+						},
+						{
+							values: ['Man', 'Luthor', 'Woman', 'Boy', 'Girl', 'Person', 'Cutie', 'Babe', 'Raccoon']
+						}
+					]
+				});
+			},
+			initializePickerDependentValues: function() {
+				var self = this;
+				var cars = {
+					American : ['Cadillac', 'Chrysler', 'Dodge', 'Ford'],
+					German : ['Audi', 'BMW', 'Mercedes', 'Volkswagen', 'Volvo'],
+					Japanese : ['Honda', 'Lexus', 'Mazda', 'Nissan', 'Toyota']
+				};
+				var picker = app.picker.create({
+					inputEl: '#picker-dependent-values',
+					rotateEffect: true,
+					formatValue: function(values) {
+						return values[1];
+					},
+					cols: [
+						{
+							textAlign: 'left',
+							values: ['American', 'German', 'Japanese'],
+							onChange: function(picker, country) {
+								if(picker.cols[1].replaceValues) {
+									picker.cols[1].replaceValues(cars[country]);
+								}
+							}
+						},
+						{
+							values: cars.American,
+						}
+					]
+				});
+			},
+			initializePickerCustomToolbar: function() {
+				var self = this;
+				var picker = app.picker.create({
+					inputEl: '#picker-custom-toolbar',
+					rotateEffect: true,
+					cols: [
+						{
+							values: ['Mr', 'Ms']
+						},
+						{
+							textAlign: 'left',
+							values: ['Super', 'Amazing', 'Bat', 'Iron', 'Rocket', 'Lex', 'Beautiful', 'Wonderful', 'Raining', 'Happy', 'Funny', 'Cool', 'Hot']
+						},
+						{
+							values: ['Man', 'Luthor', 'Woman', 'Boy', 'Girl', 'Person', 'Cutie', 'Babe', 'Raccoon']
+						}
+					],
+					renderToolbar: function() {
+						return '<div class="toolbar">' +
+							'<div class="toolbar-inner">' +
+								'<div class="left">' +
+									'<a href="#" class="link randomize-values">Randomize</a>' +
+								'</div>' +
+								'<div class="right">' +
+									'<a href="#" class="link sheet-close popover-close">That\'s Me</a>' +
+								'</div>' +
+							'</div>' +
+						'</div>';
+  				},
+					on: {
+						open: function(picker) {
+							picker.$el.find('.randomize-values').on('click', function() {
+								var col0Values = picker.cols[0].values;
+								var col0RandomValue = col0Values[Math.floor(Math.random() * col0Values.length)];
+								var col1Values = picker.cols[1].values;
+								var col1RandomValue = col1Values[Math.floor(Math.random() * col1Values.length)];
+								var col2Values = picker.cols[2].values;
+								var col2RandomValue = col2Values[Math.floor(Math.random() * col2Values.length)];
+								picker.setValue([col0RandomValue, col1RandomValue, col2RandomValue]);
+							});
+						}
+					}
+				});
+			}
+		},
+		on: {
+			pageInit: function() {
+				var self = this;
+				self.initializePickerSingleValue();
+				self.initializePickerMultipleValues();
+				self.initializePickerDependentValues();
+				self.initializePickerCustomToolbar();
+			}
+		}
+	}
+</script>

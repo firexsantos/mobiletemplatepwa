@@ -1,0 +1,177 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="integrations">Integrations</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="mailchimp">MailChimp</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="mailchimp">MailChimp</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="block">
+				<p><a href="https://mailchimp.com" target="_blank" class="external">MailChimp</a> is a marketing automation platform and an email marketing service where you can create and send emails, manage subscribers and mailing lists.</p>
+			</div>
+
+			<div class="block">
+				<button class="button button-big button-fill" @click="openPopup">Open Subscribe Form</button>
+			</div>
+
+		</div>
+
+		<div class="popup popup-tablet-fullscreen popup-subscribe">
+			<div class="view">
+				<div class="page">
+
+					<div class="navbar">
+						<div class="navbar-inner">
+							<div class="left ios-only">
+								<a href="#" class="link popup-close" data-popup=".popup-subscribe">
+									<span data-i18n="cancel">Cancel</span>
+								</a>
+							</div>
+							<div class="title">Subscribe Us</div>
+							<div class="right ios-only">
+								<button type="submit" class="button link" form="subscribe">Subscribe</button>
+							</div>
+							<div class="right md-only">
+								<a href="#" class="link icon-only popup-close" data-popup=".popup-subscribe">
+									<i class="icon material-icons">close</i>
+								</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="page-content">
+
+						<div class="block text-align-center">
+							<img src="assets/custom/img/newsletter.svg" height="96" alt="" />
+							<p>Subscribe for weekly newsletters and get more of Nectar delivered to your inbox.</p>
+					</div>
+
+						<form id="subscribe" name="subscribe" action="{{$app.data.config.mailchimp.subscribeUrl}}" method="GET">
+							<input type="hidden" name="u" value="{{$app.data.config.mailchimp.userId}}" />
+							<input type="hidden" name="id" value="{{$app.data.config.mailchimp.audienceId}}" />
+							<div class="list no-hairlines no-hairlines-between">
+								<ul>
+									<li>
+										<div class="item-content item-input item-input-with-info">
+											<div class="item-media">
+												<i class="icon f7-icons ios-only">email</i>
+												<i class="icon material-icons md-only">email</i>
+											</div>
+											<div class="item-inner">
+												<div class="item-title item-floating-label">Email</div>
+												<div class="item-input-wrap">
+													<input type="email" name="EMAIL" required />
+													<div class="item-input-info input-error-message"></div>
+												</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+							<div class="block md-only">
+								<button type="submit" class="button button-big button-fill">Subscribe</button>
+							</div>
+						</form>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+</template>
+
+<script>
+	return {
+		methods: {
+			openPopup: function() {
+				var self = this;
+				var popup = app.popup.create({
+					el: '.popup-subscribe',
+					on: {
+						opened: function() {
+							self.initializeFormValidator();
+						},
+						closed: function() {
+							self.formValidator.destroy();
+							document.querySelector('form[name=subscribe]').reset();
+						}
+					}
+				});
+				popup.open();
+			},
+			initializeFormValidator: function() {
+				var self = this;
+				self.formValidator = jQuery('form[name=subscribe]').validate({
+					ignore: [],
+					rules: {
+						EMAIL: {
+							required: true,
+							email: true
+						}
+					},
+    			messages: {
+						EMAIL: {
+							required: 'Please enter email address.',
+							email: 'Please enter a valid email address.'
+						}
+					},
+					submitHandler: function(form) {
+						self.submitForm(form);
+					}
+				});
+			},
+			submitForm: function(form) {
+				var self = this;
+				jQuery.ajax({
+					url: self.$(form).attr('action'),
+					data: app.form.convertToData(form),
+					dataType: 'jsonp',
+					jsonp: 'c',
+					beforeSend: function() {
+						app.preloader.show();
+					},
+					success: function(data) {
+						if (data.result == 'success') {
+							app.toast.show({
+								text: data.msg,
+								cssClass: 'toast-round bg-color-green'
+							});
+							app.popup.close('.popup-subscribe', false);
+						}
+						else {
+							app.toast.show({
+								text: data.msg,
+								cssClass: 'toast-round bg-color-red'
+							});
+						}
+					},
+					error: function() {
+						app.toast.show({
+							text: 'An error occured. Please try again later.',
+							cssClass: 'toast-round bg-color-red'
+						});
+					},
+					complete: function() {
+						app.preloader.hide();
+					}
+				});
+			}
+		}
+	}
+</script>

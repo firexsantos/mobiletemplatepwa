@@ -1,0 +1,148 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="components">Components</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="popover">Popover</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="popover">Popover</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="block">
+				<p>A popover is a window that appears when the user taps or clicks on an element.</p>
+				<p>It is used to present information temporarily.</p>
+			</div>
+
+			<div class="list">
+				<div class="list-group">
+					<ul>
+						<li class="list-group-title">Text Popover</li>
+						<li>
+							<a href="#" class="item-link popover-open" data-popover=".popover-text">
+								<div class="item-content">
+									<div class="item-media">
+										<i class="icon fas fa-fw fa-lg fa-font color-blue"></i>
+									</div>
+									<div class="item-inner">
+										<div class="item-title">Text</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="#" class="item-link popover-open" data-popover=".popover-link">
+								<div class="item-content">
+									<div class="item-media">
+										<i class="icon fas fa-fw fa-lg fa-link color-red"></i>
+									</div>
+									<div class="item-inner">
+										<div class="item-title">Link</div>
+									</div>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="list-group">
+					<ul>
+						<li class="list-group-title">Media Popover</li>
+						<li>
+							<a href="#" class="item-link popover-open" data-popover=".popover-image">
+								<div class="item-content">
+									<div class="item-media">
+										<i class="icon fas fa-fw fa-lg fa-image color-orange"></i>
+									</div>
+									<div class="item-inner">
+										<div class="item-title">Image</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="#" class="item-link popover-open" data-popover=".popover-video">
+								<div class="item-content">
+									<div class="item-media">
+										<i class="icon fas fa-fw fa-lg fa-film color-pink"></i>
+									</div>
+									<div class="item-inner">
+										<div class="item-title">Video</div>
+									</div>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="popover popover-text">
+    	<div class="popover-inner">
+				<div class="block">
+					<p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.</p>
+				</div>
+			</div>
+  	</div>
+
+		<div class="popover popover-link">
+    	<div class="popover-inner">
+				<div class="list">
+					<ul>
+						<li>
+							<a href="#" class="item-link list-button popover-close color-pink">
+								<i class="fas fa-fw fa-camera"></i>
+								&nbsp;
+								<span>Camera</span>
+							</a>
+						</li>
+						<li>
+							<a href="#" class="item-link list-button popover-close color-blue">
+								<i class="fas fa-fw fa-map-marker-alt"></i>
+								&nbsp;
+								<span>Location</span>
+							</a>
+						</li>
+						<li>
+							<a href="#" class="item-link list-button popover-close color-green">
+								<i class="fas fa-fw fa-wifi"></i>
+								&nbsp;
+								<span>Wi-Fi</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+  	</div>
+
+		<div class="popover popover-image">
+    	<div class="popover-inner">
+				<div class="block">
+					<img class="img-responsive" src="https://www.dropbox.com/s/ltjqwlhqw3q5ykk/FMkrYuWb.jpg?raw=1" alt="" />
+				</div>
+			</div>
+  	</div>
+
+		<div class="popover popover-video">
+    	<div class="popover-inner">
+				<div class="block">
+					<video class="video-responsive no-fastclick" preload="auto" controls>
+						<source type="video/mp4" src="https://www.dropbox.com/s/h5yzy6qv0z4zge0/BRRc0aSL.mp4?raw=1" />
+					</video>
+				</div>
+			</div>
+  	</div>
+
+	</div>
+</template>

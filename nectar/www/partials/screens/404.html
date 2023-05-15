@@ -1,0 +1,44 @@
+<template>
+	<div class="page no-navbar no-toolbar no-swipeback">
+
+		<div class="page-content">
+
+			<div class="empty-state">
+				<div class="empty-state-media">
+					<img class="filter-grayscale-10" src="assets/custom/img/404.svg" alt="" />
+				</div>
+				<div class="empty-state-title">Oops!</div>
+				<div class="empty-state-text">The page you are looking for doesn't exist.</div>
+				<div class="empty-state-actions">
+					<a href="#" class="button button-big button-fill button-round" @click="loadNextScreen">Go Back</a>
+					<a href="/screens/contact-us" class="button button-big button-outline button-round">Contact Us</a>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+</template>
+
+<style scoped>
+	.empty-state .empty-state-media img {
+		height: auto;
+		width: 272px;
+	}
+</style>
+
+<script>
+	return {
+		data: function() {
+			return {
+				nextScreen: '/home'
+			}
+		},
+		methods: {
+			loadNextScreen: function() {
+				var self = this;
+				app.views.current.router.back();
+			}
+		}
+	}
+</script>

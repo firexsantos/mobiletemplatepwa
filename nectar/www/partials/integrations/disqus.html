@@ -1,0 +1,57 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="integrations">Integrations</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="disqus">Disqus</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="disqus">Disqus</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="block">
+				<p><a href="https://disqus.com" target="_blank" class="external">Disqus</a> is a global comment system that improves discussion on websites and connects conversations across the web.</p>
+			</div>
+
+			<div class="block">
+				<div id="disqus_thread"></div>
+			</div>
+
+		</div>
+
+	</div>
+</template>
+
+<script>
+	return {
+		methods: {
+			loadDisqusComments: function() {
+				var self = this;
+				var disqus_config = function() {
+					this.page.identifier = 'NECTAR_TEST_COMMENTS';
+					this.page.url = 'https://nectar.website/comments#test';
+					this.page.title = 'Nectar Test Comments';
+					this.language = 'en';
+				};
+				LazyLoad.js(['https://pmsgz.disqus.com/embed.js']);
+			}
+		},
+		on: {
+			pageInit: function() {
+				var self = this;
+				self.loadDisqusComments();
+			}
+		}
+	}
+</script>

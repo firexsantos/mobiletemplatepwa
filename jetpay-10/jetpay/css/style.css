@@ -1,0 +1,1032 @@
+/*
+Jetpay - Wallet Mobile Template
+Author : aStyers
+Author URL : https://themeforest.net/user/astylers
+*/
+
+/*table of content
+
+- general
+- history
+- withdraw
+- transfer
+- voucher
+- internet
+- tickets
+- events
+- donation
+- electricity
+- livechat
+- login register
+
+*/
+
+/*general*/
+body {
+    background: #e9eef5;
+    font-size: 13px;
+    color: #777;
+    font-family: 'Roboto', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
+    line-height: 20px;
+    color: #333;
+    font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+    font-size: 26px;
+}
+
+h2 {
+    font-size: 23px;
+}
+
+h3 {
+    font-size: 20px;
+}
+
+h4 {
+    font-size: 18px;
+}
+
+h5 {
+    font-size: 16px;
+}
+
+h6 {
+    font-size: 14px;
+}
+
+p {
+    margin: 0;
+    margin-bottom: 6px;
+}
+
+p:last-child {
+    margin-bottom: 0;
+}
+
+a {
+    color: #333;
+}
+
+/*image*/
+img {
+    width: 100%;
+    height: 100%;
+}
+
+img.people {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+
+/* background */
+.icon-small i {
+    font-size: 16px;
+    position: relative;
+    top: 1px;
+}
+
+.icon-middle i {
+    font-size: 18px;
+    position: relative;
+    top: 1px;
+}
+
+.icon-big i {
+    font-size: 30px;
+}
+
+.icon-width {
+    color: #fff;
+    width: 32px;
+    height: 32px;
+    display: block;
+    border-radius: 50%;
+    line-height: 32px;
+}
+
+.icon-color-red i {
+    color: #f44336;
+}
+
+.icon-color-purple i {
+    color: #ba68c8;
+}
+
+.icon-color-blue i {
+    color: #64b5f6;
+}
+
+.icon-color-green i {
+    color: #66bb6a;
+}
+
+.icon-color-yellow i {
+    color: #fdd835;
+}
+
+.icon-color-orange {
+    color: #fb8c00;
+}
+
+.icon-color-teal i {
+    color: #80cbc4;
+}
+
+.icon-color-pink i {
+    color: #e91e63;
+}
+
+.icon-color-lime i {
+    color: #dce775;
+}
+
+/* background */
+.background-primer {
+    background: #9831e0;
+}
+
+.background-white {
+    background: white;
+}
+
+.background-circle {
+    height: 52px;
+    width: 100%;
+    margin-bottom: 28px;
+}
+
+.background-circle-slider {
+    height: 60px;
+    width: 100%;
+    position: absolute;
+}
+
+/* color*/
+.color-primer {
+    color: #9831e0;
+}
+
+.color-white {
+    color: #fff;
+}
+
+/*slider*/
+.slider .content {
+    height: 210px;
+    position: relative;
+}
+
+.slider .swiper-container.swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
+    margin: 0 4px;
+    background: #fff;
+    opacity: 1;
+    width: 7px;
+    height: 7px;
+}
+
+.slider .swiper-container.swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background: #9831e0;
+}
+
+/* mask */
+.mask {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+/* caption */
+.caption {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: 0 30px;
+    color: #fff;
+}
+
+.caption h1,
+.caption h2,
+.caption h3,
+.caption h4,
+.caption h5,
+.caption h6 {
+    color: #ffffff;
+}
+
+/* text */
+.text-right {
+    text-align: right;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* float */
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+/* font-weight */
+.font-weight-900 {
+    font-weight: 900;
+}
+
+.font-weight-800 {
+    font-weight: 800;
+}
+
+.font-weight-700 {
+    font-weight: 700;
+}
+
+.font-weight-600 {
+    font-weight: 600;
+}
+
+.font-weight-500 {
+    font-weight: 500;
+}
+
+.font-weight-400 {
+    font-weight: 400;
+}
+
+/* position */
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
+/* row */
+.row {
+    margin-bottom: 15px;
+}
+
+.row:last-child {
+    margin-bottom: 0;
+}
+
+.row-no-margin-bottom {
+    margin-bottom: 0;
+}
+
+/* border-radius */
+.border-radius {
+    border-radius: 25px;
+}
+
+.border-radius-top-left-right {
+    border-radius: 25px 25px 0 0;
+}
+
+.border-radius-circle {
+    border-radius: 50%;
+}
+
+.border-radius-style {
+    border-radius: 0% 0% 90% 90% / 0% 0% 66% 66%;
+}
+
+.border-active {
+    border: 2px solid #9831e0;
+}
+
+/* box-shadow */
+.box-shadow {
+    box-shadow: 0 12px 30px -15px rgba(0, 0, 0, 0.2);
+}
+
+/* page-content */
+.page {
+    background: #e9eef5;
+}
+
+.page-content {
+    padding-top: 0;
+}
+
+/* container */
+.container {
+    padding: 0 15px !important;
+}
+
+/* overflow */
+.overflow-hidden {
+    overflow: hidden;
+}
+
+/* padding */
+.padding-middle {
+    padding: 20px 0;
+}
+
+.padding-left-small {
+    padding-left: 8px;
+}
+
+.padding-right-small {
+    padding-right: 8px;
+}
+
+.padding-top-small {
+    padding-top: 8px;
+}
+
+.padding-bottom-small {
+    padding-bottom: 8px;
+}
+
+.padding-box {
+    padding: 15px;
+}
+
+.padding-box h6 {
+    margin-top: 5px;
+}
+
+.padding-small {
+    padding: 8px;
+}
+
+.padding-box-middle {
+    padding: 15px;
+}
+
+/* margin */
+.margin-left-middle {
+    margin-left: 13px;
+}
+
+.margin-right-middle {
+    margin-right: 13px;
+}
+
+.margin-top-middle {
+    margin-top: 13px;
+}
+
+.margin-bottom-middle {
+    margin-bottom: 13px;
+}
+
+.margin-left-small {
+    margin-left: 8px;
+}
+
+.margin-right-small {
+    margin-right: 8px;
+}
+
+.margin-top-small {
+    margin-top: 8px;
+}
+
+.margin-bottom-small {
+    margin-bottom: 8px;
+}
+
+.margin-pages {
+    margin-top: 85px;
+}
+
+.margin-pages2 {
+    margin-top: 76px;
+}
+
+.margin-bottom-5px {
+    margin-bottom: 5px;
+}
+
+/* separator */
+.separator {
+    height: 26px;
+}
+
+.separator-small {
+    height: 18px;
+}
+
+.separator-bottom {
+    height: 26px;
+}
+
+@-moz-document url-prefix() {
+    .separator-bottom {
+        height: 86px;
+    }
+
+}
+
+/* display */
+.display-block {
+    display: block;
+}
+
+/* button */
+.buttons {
+    border: 0;
+    background: #9831e0;
+    color: #fff;
+    border-radius: 25px;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 18px;
+    width: auto;
+    cursor: pointer;
+}
+
+.buttons-center {
+    display: block;
+    margin: auto;
+}
+
+.buttons-full {
+    width: 100%;
+}
+
+.buttons-red {
+    background: #f44336;
+}
+
+/* letter spacing */
+.letter-spacing {
+    letter-spacing: 1px;
+}
+
+/* social media color */
+.socmed-facebook {
+    color: #3b5999;
+}
+
+.socmed-twitter {
+    color: #55acee;
+}
+
+.socmed-google {
+    color: #dd4b39;
+}
+
+.socmed-whatsapp {
+    color: #25D366;
+}
+
+.socmed-whchat {
+    color: #09b83e;
+}
+
+/* social media background */
+.socmed-bg-facebook {
+    background: #3b5999;
+}
+
+.socmed-bg-twitter {
+    background: #55acee;
+}
+
+.socmed-bg-google {
+    background: #dd4b39;
+}
+
+.socmed-bg-whatsapp {
+    background: #25D366;
+}
+
+/* list */
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+ul li {
+    list-style: none;
+    display: inline-block;
+    margin: 0 3px;
+}
+
+/* menus */
+.menus h6 {
+    font-size: 13px;
+}
+
+/* navbar */
+.navbar {
+    background: #9831e0;
+}
+
+.navbar a i {
+    color: #fff;
+}
+
+.navbar .title {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    width: 100%;
+}
+
+.navbar .title img.people {
+    width: 35px;
+    height: 35px;
+}
+
+.navbar .title p {
+    font-size: 11px;
+}
+
+.navbar .title p i {
+    margin-right: 6px;
+    color: #72ea72;
+    font-size: 10px;
+}
+
+.navbar .tabs-text-center {
+    text-align: center !important;
+}
+
+/* toolbar bottom */
+.toolbar-bottom {
+    background: #fff;
+    box-shadow: 0 -3px 13px rgba(15, 15, 15, 0.18);
+}
+
+.toolbar-bottom .tab-link {
+    text-transform: unset;
+    font-size: 11px;
+}
+
+.toolbar-bottom .tab-link i {
+    font-size: 18px;
+    line-height: 26px;
+}
+
+.toolbar-bottom .tab-link-active {
+    color: #9831e0;
+}
+
+.toolbar-bottom .tab-link-active i {
+    color: #9831e0;
+}
+
+.toolbar-bottom .toolbar-inner .tab-link-highlight {
+    background: transparent;
+}
+
+.toolbar-bottom::after {
+    background: transparent;
+}
+
+/* list-pages */
+.list-pages {
+    margin-top: 85px !important;
+}
+
+.list-pages ul li {
+    display: block;
+    margin: 8px 0;
+}
+
+.list-pages ul li a {
+    padding: 10px 20px;
+    background: #fff;
+    display: block;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.list-pages ul li:last-child {
+    margin-bottom: 0;
+}
+
+.list-pages.account-list {
+    margin-top: 32px !important;
+}
+
+/* pagination */
+.pagination {
+    text-align: center;
+}
+
+.pagination ul li a {
+    background: #fff;
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    display: block;
+    line-height: 32px;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+/* form */
+form input {
+    border: 1px solid #ccc !important;
+    padding: 10px 17px !important;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 14px;
+    color: #777 !important;
+    border-radius: 25px !important;
+    margin-bottom: 13px !important;
+}
+
+form textarea {
+    border: 1px solid #ccc;
+    padding: 10px 17px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 14px;
+    color: #acacbc !important;
+    border-radius: 25px !important;
+}
+
+/* placeholder */
+::-webkit-input-placeholder {
+    color: #acacbc !important;
+    opacity: 1;
+}
+
+::-moz-placeholder {
+    color: #acacbc !important;
+    opacity: 1;
+}
+
+:-ms-input-placeholder {
+    color: #acacbc !important;
+    opacity: 1;
+}
+
+:-moz-placeholder {
+    color: #acacbc !important;
+    opacity: 1;
+}
+
+/* history */
+.history .icon-big i {
+    margin-top: 16px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+/* deposit */
+.deposit .content {
+    width: 200px;
+    margin: auto;
+}
+
+.deposit .content form i {
+    position: relative;
+    top: 32px;
+    font-size: 20px;
+    left: 17px;
+}
+
+.deposit .content form input {
+    background: white !important;
+    box-shadow: 0 12px 30px -15px rgba(0, 0, 0, 0.2) !important;
+}
+
+.deposit .fa-stack {
+    left: -17px;
+}
+
+/* withdraw */
+.withdraw .content {
+    width: 200px;
+    margin: auto;
+}
+
+.withdraw .content form i {
+    position: relative;
+    top: 32px;
+    font-size: 20px;
+    left: 17px;
+}
+
+.withdraw .content form input {
+    background: white !important;
+    box-shadow: 0 12px 30px -15px rgba(0, 0, 0, 0.2) !important;
+}
+
+.withdraw .fa-stack {
+    left: -17px;
+}
+
+/* transfer */
+.transfer .content {
+    width: 200px;
+    margin: auto;
+}
+
+.transfer .fa-stack {
+    left: -17px;
+}
+
+.transfer form i {
+    position: relative;
+    top: 32px;
+    font-size: 20px;
+    left: 17px;
+}
+
+.transfer form input {
+    background: white !important;
+    box-shadow: 0 12px 30px -15px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* voucher */
+.voucher .icon-big {
+    width: 48px !important;
+    display: block;
+    text-align: center;
+}
+
+.voucher .icon-big i {
+    margin-top: 16px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.voucher .buttons {
+    float: right;
+    margin-top: 13px;
+}
+
+/* internet */
+.internet form {
+    position: relative;
+}
+
+.internet form .buttons {
+    float: right;
+    position: absolute;
+    right: 1px;
+    overflow: hidden;
+    top: 1px;
+    height: 37px;
+    border-radius: 0 25px 25px 0;
+    padding-left: 12px;
+}
+
+.internet .content {
+    border: dashed 2px #e91e63;
+}
+
+.internet .text {
+    font-size: 15px;
+    font-weight: 500;
+    color: #333;
+}
+
+.internet img.people {
+    position: relative;
+    bottom: 11px;
+}
+
+.internet .icon-big i {
+    position: relative;
+    top: -4px;
+}
+
+/* ticket */
+.ticket .icon-big {
+    width: 48px !important;
+    display: block;
+    text-align: center;
+}
+
+.ticket .icon-big i {
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.ticket .buttons {
+    float: right;
+    margin-top: 2px;
+}
+
+/* events */
+.events .icon-small i {
+    margin-top: 10px;
+}
+
+.events .buttons {
+    float: right;
+    margin-top: 2px;
+}
+
+/* donation */
+.donation form {
+    position: relative;
+}
+
+.donation form .buttons {
+    float: right;
+    position: absolute;
+    right: 1px;
+    overflow: hidden;
+    top: 1px;
+    height: 37px;
+    border-radius: 0 25px 25px 0;
+    padding-left: 12px;
+}
+
+.donation .content {
+    border: dashed 2px #e91e63;
+}
+
+.donation .text {
+    font-size: 15px;
+    font-weight: 500;
+    color: #333;
+}
+
+.donation img.people {
+    position: relative;
+    bottom: 11px;
+}
+
+/* electricity */
+.electricity form {
+    position: relative;
+}
+
+.electricity form .buttons {
+    float: right;
+    position: absolute;
+    right: 1px;
+    overflow: hidden;
+    top: 1px;
+    height: 37px;
+    border-radius: 0 25px 25px 0;
+    padding-left: 12px;
+}
+
+.electricity .content {
+    border: dashed 2px #e91e63;
+}
+
+.electricity .text {
+    font-size: 15px;
+    font-weight: 500;
+    color: #333;
+}
+
+.electricity img.people {
+    position: relative;
+    bottom: 11px;
+}
+
+/* livechat */
+.navbar .title {
+    font-size: 17px;
+    font-weight: 500;
+    padding: 22px 0;
+    width: 100%;
+    color: #fff;
+}
+
+.navbar .title img {
+    width: 32px;
+    height: 32px;
+    float: left;
+    margin-right: 13px;
+    border-radius: 50%;
+    margin-top: 2px;
+}
+
+.navbar .title .content {
+    overflow: hidden;
+}
+
+.navbar .title .content h6 {
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 0;
+    position: relative;
+    top: 2px;
+}
+
+.navbar .title .content p {
+    font-size: 12px;
+    font-weight: 400;
+    color: #ddd;
+    margin: 0;
+}
+
+.livechat .content-right {
+    background: #9831e0;
+    float: right;
+    padding: 5px 12px;
+    color: #fff;
+    box-shadow: 0 12px 30px -15px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+.livechat .row {
+    margin-bottom: 0;
+}
+
+.livechat .clear {
+    clear: both;
+}
+
+.livechat img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-top: 18px;
+    display: block;
+}
+
+.livechat .content {
+    background: #fff;
+    border-radius: 5px;
+    margin-top: 22px;
+    float: left;
+    padding: 5px 12px;
+    color: #333;
+    margin-left: 48px;
+    top: -54px;
+    position: relative;
+    margin-bottom: -36px;
+    box-shadow: 0 12px 30px -15px rgba(0, 0, 0, 0.2);
+}
+
+.fast-live form {
+    width: 100%;
+}
+
+.fast-live input {
+    width: 100% !important;
+    background: #fff;
+    border-radius: 0 !important;
+    margin-bottom: 0 !important;
+    border: 0 !important;
+    padding: 0 45px !important;
+}
+
+.fast-live .fast-ti-right {
+    position: relative;
+    top: -22px;
+    float: right;
+    right: 12px;
+    transform: rotate(50deg);
+    font-size: 23px !important;
+    cursor: pointer;
+    color: #9831e0;
+}
+
+.fast-live .fast-ti-left {
+    position: relative;
+    top: 22px;
+    left: 10px;
+    font-size: 20px !important;
+    cursor: pointer;
+    color: #777;
+}
+
+/* login register */
+.login-register .link-closess {
+    display: block;
+    padding-bottom: 115px;
+    padding-top: 16px;
+    padding-right: 18px;
+}
+
+.login-register .link-closess a i {
+    font-size: 28px;
+}
+
+.login-register form input {
+    background: #fff !important;
+}

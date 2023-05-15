@@ -1,0 +1,157 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="web-apis">Web APIs</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="screen-orientation-api">Screen Orientation API</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="screen-orientation-api">Screen Orientation API</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			{{#if isApiSupported}}
+			<div class="empty-state">
+				<div class="empty-state-media">
+					<img src="assets/custom/img/screen-rotate.svg" alt="" />
+				</div>
+				<div class="empty-state-title">Yaay!</div>
+				<div class="empty-state-text">This browser supports Screen Orientation API.</div>
+				<div class="empty-state-actions">
+					<button type="button" class="button button-big button-fill button-round" @click="explore" data-i18n="explore">Explore</button>
+				</div>
+			</div>
+			{{else}}
+			<div class="empty-state">
+				<div class="empty-state-media">
+					<img class="filter-grayscale" src="assets/custom/img/screen-rotate.svg" alt="" />
+				</div>
+				<div class="empty-state-title">Oops!</div>
+				<div class="empty-state-text">This browser does not support Screen Orientation API.</div>
+				<div class="empty-state-actions">
+					<a href="https://caniuse.com/screen-orientation" target="_blank" class="button button-big button-fill button-round external" data-i18n="supported-browsers">Supported Browsers</a>
+				</div>
+			</div>
+			{{/if}}
+
+		</div>
+
+		{{#if isApiSupported}}
+		<div class="popup popup-tablet-fullscreen popup-explore">
+			<div class="view">
+				<div class="page">
+
+					<div class="navbar">
+						<div class="navbar-inner">
+							<div class="left ios-only">
+								<a href="#" class="link popup-close">
+									<span data-i18n="close">Close</span>
+								</a>
+							</div>
+							<div class="title" data-i18n="screen-orientation-api">Screen Orientation API</div>
+							<div class="right md-only">
+								<a href="#" class="link icon-only popup-close">
+									<i class="icon material-icons">close</i>
+								</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="page-content">
+
+						<div class="block">
+							<p>Screen Orientation API allows to get information about the current orientation of the screen.</p>
+						</div>
+
+						<div class="block text-align-center">
+							<img class="{{screenOrientation}}" src="assets/custom/img/mobile.svg" height="196" alt="" />
+							<p class="screen-orientation">{{screenOrientation}}</p>
+						</div>
+
+						<div class="note note-warning text-align-center">
+							<p>Rotate your device to change screen orientation.</p>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+		{{/if}}
+
+	</div>
+</template>
+
+<style scoped>
+	{{html}} .screen-orientation {
+		font-size: 24px;
+	}
+
+	{{html}} .portrait-primary {
+		transform: rotate(0deg);
+	}
+
+	{{html}} .portrait-secondary {
+		transform: rotate(180deg);
+	}
+
+	{{html}} .landscape-primary {
+		transform: rotate(270deg);
+	}
+
+	{{html}} .landscape-secondary {
+		transform: rotate(90deg);
+	}
+</style>
+
+<script>
+	return {
+		data: function() {
+			return {
+				isApiSupported: (function() {
+					return app.support.webApi.screenOrientation;
+				})(),
+				screenOrientation: (function() {
+					return screen.orientation.type;
+				})()
+			}
+		},
+		methods: {
+			explore: function() {
+				var self = this;
+				var popup = app.popup.create({
+					el: '.popup-explore',
+					on: {
+						opened: function() {
+							screen.orientation.addEventListener('change', self.onScreenOrientationChange);
+						},
+						closed: function() {
+							screen.orientation.removeEventListener('change', self.onScreenOrientationChange);
+						}
+					}
+				});
+				popup.open();
+			},
+			onScreenOrientationChange: function(event) {
+				var self = this;
+				self.updateScreenOrientationInfo(event.target);
+			},
+			updateScreenOrientationInfo: function(orientation) {
+				var self = this;
+				self.$setState({
+					screenOrientation: orientation.type
+				});
+			}
+		}
+	}
+</script>

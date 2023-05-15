@@ -1,0 +1,389 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="back">Back</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="contact-us">Contact Us</div>
+				<div class="right ios-only">
+					<a href="#" class="link icon-only" @click="openPopup">
+						<i class="icon f7-icons">compose</i>
+					</a>
+				</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="contact-us">Contact Us</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			{{#if contact}}
+			<div class="embed">
+				<iframe class="embed-content" frameborder="0" allowfullscreen src="https://www.google.com/maps/embed/v1/place?key={{$root.config.googleMaps.apiKey}}&q={{contact.latitude}},{{contact.longitude}}"></iframe>
+			</div>
+
+			<div class="list no-hairlines no-hairlines-between margin-vertical">
+				<ul>
+					<li>
+						<div class="item-content">
+							<div class="item-media">
+								<i class="fa-stack">
+									<span class="fas fa-square fa-stack-2x text-color-blue ios-only"></span>
+									<span class="fas fa-circle fa-stack-2x text-color-blue md-only"></span>
+									<span class="fas fa-info fa-stack-1x fa-inverse"></span>
+								</i>
+							</div>
+							<div class="item-inner">
+								<div class="item-title">{{contact.name}}</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-media">
+								<i class="fa-stack">
+									<span class="fas fa-square fa-stack-2x text-color-green ios-only"></span>
+									<span class="fas fa-circle fa-stack-2x text-color-green md-only"></span>
+									<span class="fas fa-map-marker-alt fa-stack-1x fa-inverse"></span>
+								</i>
+							</div>
+							<div class="item-inner">
+								<div class="item-title">{{contact.address}}</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-media">
+								<i class="fa-stack">
+									<span class="fas fa-square fa-stack-2x text-color-black ios-only"></span>
+									<span class="fas fa-circle fa-stack-2x text-color-black md-only"></span>
+									<span class="fas fa-phone fa-stack-1x fa-inverse"></span>
+								</i>
+							</div>
+							<div class="item-inner">
+								<div class="item-title">{{contact.phone}}</div>
+								<div class="item-after">
+									<a href="tel:{{contact.phone}}" target="_blank" class="external">Call</a>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-media">
+								<i class="fa-stack">
+									<span class="fas fa-square fa-stack-2x text-color-orange ios-only"></span>
+									<span class="fas fa-circle fa-stack-2x text-color-orange md-only"></span>
+									<span class="fas fa-envelope fa-stack-1x fa-inverse"></span>
+								</i>
+							</div>
+							<div class="item-inner">
+								<div class="item-title">{{contact.email}}</div>
+								<div class="item-after">
+									<a href="mailto:{{contact.email}}" target="_blank" class="external">Send Mail</a>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-media">
+								<i class="fa-stack">
+									<span class="fas fa-square fa-stack-2x text-color-pink ios-only"></span>
+									<span class="fas fa-circle fa-stack-2x text-color-pink md-only"></span>
+									<span class="fas fa-heart fa-stack-1x fa-inverse"></span>
+								</i>
+							</div>
+							<div class="item-inner">
+								<div class="item-title">
+									<a href="{{contact.social.facebook}}" target="_blank" class="external">
+										<i class="fa-stack">
+											<span class="fas fa-square fa-stack-2x brand-color-facebook ios-only"></span>
+											<span class="fas fa-circle fa-stack-2x brand-color-facebook md-only"></span>
+											<span class="fab fa-facebook-f fa-stack-1x fa-inverse"></span>
+										</i>
+									</a>
+									<a href="{{contact.social.twitter}}" target="_blank" class="external">
+										<i class="fa-stack">
+											<span class="fas fa-square fa-stack-2x brand-color-twitter ios-only"></span>
+											<span class="fas fa-circle fa-stack-2x brand-color-twitter md-only"></span>
+											<span class="fab fa-twitter fa-stack-1x fa-inverse"></span>
+										</i>
+									</a>
+									<a href="{{contact.social.linkedin}}" target="_blank" class="external">
+										<i class="fa-stack">
+											<span class="fas fa-square fa-stack-2x brand-color-linkedin ios-only"></span>
+											<span class="fas fa-circle fa-stack-2x brand-color-linkedin md-only"></span>
+											<span class="fab fa-linkedin-in fa-stack-1x fa-inverse"></span>
+										</i>
+									</a>
+									<a href="{{contact.social.youtube}}" target="_blank" class="external">
+										<i class="fa-stack">
+											<span class="fas fa-square fa-stack-2x brand-color-youtube ios-only"></span>
+											<span class="fas fa-circle fa-stack-2x brand-color-youtube md-only"></span>
+											<span class="fab fa-youtube fa-stack-1x fa-inverse"></span>
+										</i>
+									</a>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+
+			<div class="list accordion-list no-margin-top">
+				<ul>
+					<li class="accordion-item">
+						<a href="#" class="item-link">
+							<div class="item-content">
+								<div class="item-media">
+									<i class="fa-stack">
+										<span class="fas fa-square fa-stack-2x text-color-yellow ios-only"></span>
+										<span class="fas fa-circle fa-stack-2x text-color-yellow md-only"></span>
+										<span class="far fa-clock fa-stack-1x fa-inverse text-color-black"></span>
+									</i>
+								</div>
+								<div class="item-inner">
+									<div class="item-title text-color-green">Open Today</div>
+								</div>
+							</div>
+						</a>
+						<div class="accordion-item-content">
+							<div class="list no-hairlines">
+								<ul>
+									{{#each contact.opening_hours}}
+									<li>
+										<div class="item-content">
+											<div class="item-inner">
+												<div class="item-title">{{this.day}}</div>
+												<div class="item-after">{{this.time}}</div>
+											</div>
+										</div>
+									</li>
+									{{/each}}
+								</ul>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			{{/if}}
+
+		</div>
+
+		<div class="fab fab-right-bottom md-only">
+			<a href="#" @click="openPopup">
+				<i class="icon material-icons">message</i>
+			</a>
+		</div>
+
+		<div class="popup popup-tablet-fullscreen popup-contact">
+			<div class="view">
+				<div class="page">
+
+					<div class="navbar">
+						<div class="navbar-inner">
+							<div class="left ios-only">
+								<a href="#" class="link popup-close" data-popup=".popup-contact">
+									<span data-i18n="cancel">Cancel</span>
+								</a>
+							</div>
+							<div class="title">Write Us</div>
+							<div class="right ios-only">
+								<button type="submit" class="button link" form="contact" data-i18n="send">Send</button>
+							</div>
+							<div class="right md-only">
+								<a href="#" class="link icon-only popup-close" data-popup=".popup-contact">
+									<i class="icon material-icons">close</i>
+								</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="page-content">
+
+						<div class="block text-align-center">Feel free to drop us a message.</div>
+
+						<form id="contact" name="contact" action="#" method="POST" enctype="multipart/form-data">
+							<div class="list no-hairlines no-hairlines-between">
+								<ul>
+									<li>
+										<div class="item-content item-input item-input-with-info">
+											<div class="item-media">
+												<i class="icon f7-icons ios-only">person</i>
+												<i class="icon material-icons md-only">person</i>
+											</div>
+											<div class="item-inner">
+												<div class="item-title item-floating-label">Name</div>
+												<div class="item-input-wrap">
+													<input type="text" name="name" required />
+													<div class="item-input-info input-error-message"></div>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="item-content item-input item-input-with-info">
+											<div class="item-media">
+												<i class="icon f7-icons ios-only">email</i>
+												<i class="icon material-icons md-only">email</i>
+											</div>
+											<div class="item-inner">
+												<div class="item-title item-floating-label">Email</div>
+												<div class="item-input-wrap">
+													<input type="email" name="email" required />
+													<div class="item-input-info input-error-message"></div>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="item-content item-input item-input-with-info">
+											<div class="item-media">
+												<i class="icon f7-icons ios-only">info_round</i>
+												<i class="icon material-icons md-only">info</i>
+											</div>
+											<div class="item-inner">
+												<div class="item-title item-floating-label">Subject</div>
+												<div class="item-input-wrap">
+													<input type="text" name="subject" required />
+													<div class="item-input-info input-error-message"></div>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="item-content item-input item-input-with-info">
+											<div class="item-media">
+												<i class="icon f7-icons ios-only">message</i>
+												<i class="icon material-icons md-only">message</i>
+											</div>
+											<div class="item-inner">
+												<div class="item-title item-floating-label">Message</div>
+												<div class="item-input-wrap">
+													<textarea name="message" class="resizable" required></textarea>
+													<div class="item-input-info input-error-message"></div>
+												</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+							<div class="block md-only">
+								<button type="submit" class="button button-big button-fill" data-i18n="send">Send</button>
+							</div>
+						</form>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+</template>
+
+<script>
+	return {
+		data: function() {
+			return {
+				formValidator: null,
+				contact: null
+			}
+		},
+		methods: {
+			loadData: function() {
+				var self = this;
+				app.request.json(
+					'assets/custom/dataset/contact.json',
+					function(data) {
+						if (data) {
+							self.$setState({
+								contact: data
+							});
+						}
+					}
+				);
+			},
+			openPopup: function() {
+				var self = this;
+				var popup = app.popup.create({
+					el: '.popup-contact',
+					on: {
+						opened: function() {
+							self.initializeFormValidator();
+						},
+						closed: function() {
+							self.formValidator.destroy();
+							document.querySelector('form[name=contact]').reset();
+						}
+					}
+				});
+				popup.open();
+			},
+			initializeFormValidator: function() {
+				var self = this;
+				self.formValidator = jQuery('form[name=contact]').validate({
+					ignore: [],
+					rules: {
+						name: {
+							required: true
+						},
+						email: {
+							required: true,
+							email: true
+						},
+						subject: {
+							required: true
+						},
+						message: {
+							required: true
+						}
+					},
+    			messages: {
+						name: {
+							required: 'Please enter name.'
+      			},
+						email: {
+							required: 'Please enter email address.',
+							email: 'Please enter a valid email address.'
+						},
+						subject: {
+							required: 'Please enter subject.'
+      			},
+						message: {
+							required: 'Please enter message.'
+						}
+					},
+					submitHandler: function(form) {
+						self.submitForm(form);
+					}
+				});
+			},
+			submitForm: function(form) {
+				var self = this;
+				app.toast.show({
+					text: 'Thank you for writing us. We will get back to you soon.',
+					position: 'bottom',
+					cssClass: 'toast-round bg-color-green'
+				});
+				app.popup.close('.popup-contact', false);
+			}
+		},
+		on: {
+			pageInit: function() {
+				var self = this;
+				self.loadData();
+			}
+		}
+	}
+</script>

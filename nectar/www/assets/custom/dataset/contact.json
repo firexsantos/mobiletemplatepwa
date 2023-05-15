@@ -1,0 +1,28 @@
+{
+	"name": "Nectar Inc.",
+	"address": "Palo Alto, California - 94303, USA",
+	"latitude": 37.441169,
+	"longitude": -122.143249,
+	"phone": "+1-9876543210",
+	"email": "info@nectar.com",
+	"social": {
+		"facebook": "https://facebook.com",
+		"twitter": "https://twitter.com",
+		"linkedin": "https://linkedin.com",
+		"youtube": "https://youtube.com"
+	},
+	"opening_hours": [
+		{
+			"day": "Monday - Friday",
+			"time": "10 AM - 6 PM"
+		},
+		{
+			"day": "Saturday",
+			"time": "10 AM - 2 PM"
+		},
+		{
+			"day": "Sunday",
+			"time": "Closed"
+		}
+	]
+}

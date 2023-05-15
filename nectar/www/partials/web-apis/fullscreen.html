@@ -1,0 +1,189 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="web-apis">Web APIs</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="fullscreen-api">Fullscreen API</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="fullscreen-api">Fullscreen API</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			{{#if isApiSupported}}
+			<div class="empty-state">
+				<div class="empty-state-media">
+					<img src="assets/custom/img/fullscreen.svg" alt="" />
+				</div>
+				<div class="empty-state-title">Yaay!</div>
+				<div class="empty-state-text">This browser supports Fullscreen API.</div>
+				<div class="empty-state-actions">
+					<button type="button" class="button button-big button-fill button-round" @click="explore" data-i18n="explore">Explore</button>
+				</div>
+			</div>
+			{{else}}
+			<div class="empty-state">
+				<div class="empty-state-media">
+					<img class="filter-grayscale" src="assets/custom/img/fullscreen.svg" alt="" />
+				</div>
+				<div class="empty-state-title">Oops!</div>
+				<div class="empty-state-text">This browser does not support Fullscreen API.</div>
+				<div class="empty-state-actions">
+					<a href="https://caniuse.com/fullscreen" target="_blank" class="button button-big button-fill button-round external" data-i18n="supported-browsers">Supported Browsers</a>
+				</div>
+			</div>
+			{{/if}}
+
+		</div>
+
+		{{#if isApiSupported}}
+		<div class="popup popup-tablet-fullscreen popup-explore">
+			<div class="view">
+				<div class="page">
+
+					<div class="navbar">
+						<div class="navbar-inner">
+							<div class="left ios-only">
+								<a href="#" class="link popup-close">
+									<span data-i18n="close">Close</span>
+								</a>
+							</div>
+							<div class="title" data-i18n="fullscreen-api">Fullscreen API</div>
+							<div class="right md-only">
+								<a href="#" class="link icon-only popup-close">
+									<i class="icon material-icons">close</i>
+								</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="page-content">
+
+						<div class="block">
+							<p>Fullscreen API allows the app to present itself or any of its elements in fullscreen mode, without the browser UI elements visible.</p>
+						</div>
+
+						<div class="block">
+							{{#if isFullscreen}}
+							<button type="button" class="button button-big button-fill color-red" @click="exitFullscreen">Exit Fullscreen Mode</button>
+							{{else}}
+							<button type="button" class="button button-big button-fill color-green" data-fullscreen="html">Launch Fullscreen Mode</button>
+							{{/if}}
+						</div>
+
+						<div class="block text-align-center text-color-blue">
+							<img class="img-center img-responsive fullscreen-image" src="https://www.dropbox.com/s/j3wvseqp95ikx8e/a7eeff3f.jpg?raw=1" alt="" data-fullscreen=".fullscreen-image" />
+						</div>
+
+						<div class="note note-info text-align-center">
+							<p>Click on the image to view it in fullscreen mode.</p>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+		{{/if}}
+
+	</div>
+</template>
+
+<script>
+	return {
+		data: function() {
+			return {
+				isApiSupported: (function() {
+					return app.support.webApi.fullscreen;
+				})(),
+				isFullscreen: (function() {
+					return (document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement);
+				})()
+			}
+		},
+		methods: {
+			explore: function() {
+				var self = this;
+				var popup = app.popup.create({
+					el: '.popup-explore',
+					on: {
+						opened: function() {
+							self.$('[data-fullscreen]').on('click', self.launchFullscreen);
+							document.addEventListener('fullscreenchange', self.onFullscreenChange);
+							document.addEventListener('webkitfullscreenchange', self.onFullscreenChange);
+							document.addEventListener('mozfullscreenchange', self.onFullscreenChange);
+							document.addEventListener('msfullscreenchange', self.onFullscreenChange);
+						},
+						close: function() {
+							self.exitFullscreen();
+						},
+						closed: function() {
+							self.$('[data-fullscreen]').off('click', self.launchFullscreen);
+							document.removeEventListener('fullscreenchange', self.onFullscreenChange);
+							document.removeEventListener('webkitfullscreenchange', self.onFullscreenChange);
+							document.removeEventListener('mozfullscreenchange', self.onFullscreenChange);
+							document.removeEventListener('msfullscreenchange', self.onFullscreenChange);
+						}
+					}
+				});
+				popup.open();
+			},
+			launchFullscreen: function(event) {
+				var self = this;
+				var element = document.querySelector(event.target.dataset.fullscreen);
+				if (element) {
+					if ('requestFullscreen' in element) {
+						element.requestFullscreen();
+					}
+					else if ('webkitRequestFullscreen' in element) {
+						element.webkitRequestFullscreen();
+					}
+					else if ('mozRequestFullScreen' in element) {
+						element.mozRequestFullScreen();
+					}
+					else if ('msRequestFullscreen' in element) {
+						element.msRequestFullscreen();
+					}
+				}
+			},
+			onFullscreenChange: function(event) {
+				var self = this;
+				if (document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement) {
+					self.$setState({
+						isFullscreen: true
+					});
+				}
+				else {
+					self.$setState({
+						isFullscreen: false
+					});
+				}
+			},
+			exitFullscreen: function() {
+				var self = this;
+				if ('exitFullscreen' in document) {
+					document.exitFullscreen();
+				}
+				else if ('webkitExitFullscreen' in document) {
+					document.webkitExitFullscreen();
+				}
+				else if ('mozCancelFullScreen' in document) {
+					document.mozCancelFullScreen();
+				}
+				else if ('msExitFullscreen' in document) {
+					document.msExitFullscreen();
+				}
+			}
+		}
+	}
+</script>

@@ -1,0 +1,188 @@
+<template>
+	<div class="page">
+
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only" data-i18n="components">Components</span>
+					</a>
+				</div>
+				<div class="title md-only" data-i18n="form-elements">Form Elements</div>
+				<div class="subnavbar ios-only">
+					<div class="subnavbar-inner">
+						<div class="title" data-i18n="form-elements">Form Elements</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+      <div class="list no-hairlines no-hairlines-between">
+        <ul>
+          <li class="item-content item-input">
+            <div class="item-inner">
+              <div class="item-title item-label">Stacked Label</div>
+              <div class="item-input-wrap">
+                <input type="text" />
+                <span class="input-clear-button"></span>
+              </div>
+            </div>
+          </li>
+          <li class="item-content item-input inline-label">
+            <div class="item-inner">
+              <div class="item-title item-label">Inline Label</div>
+              <div class="item-input-wrap">
+                <input type="text" />
+                <span class="input-clear-button"></span>
+              </div>
+            </div>
+          </li>
+          {{#if $theme.md}}
+          <li class="item-content item-input">
+            <div class="item-inner">
+              <div class="item-title item-floating-label">Floating Label</div>
+              <div class="item-input-wrap">
+                <input type="text" />
+                <span class="input-clear-button"></span>
+              </div>
+            </div>
+          </li>
+          {{/if}}
+          <li class="item-content item-input item-input-with-info">
+            <div class="item-inner">
+              <div class="item-title item-label">Item Info</div>
+              <div class="item-input-wrap">
+                <input type="text" />
+                <span class="input-clear-button"></span>
+                <div class="item-input-info">Some information about the input field.</div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="block-title">Input Types</div>
+      <div class="list no-hairlines no-hairlines-between">
+        <ul>
+          <li class="item-content item-input">
+            <div class="item-inner">
+              <div class="item-title item-floating-label">Text</div>
+              <div class="item-input-wrap">
+                <input type="text" />
+                <span class="input-clear-button"></span>
+              </div>
+            </div>
+          </li>
+          <li class="item-content item-input">
+            <div class="item-inner">
+              <div class="item-title item-floating-label">Password</div>
+              <div class="item-input-wrap">
+                <input type="password" />
+                <span class="input-clear-button"></span>
+              </div>
+            </div>
+          </li>
+          <li class="item-content item-input">
+            <div class="item-inner">
+              <div class="item-title item-floating-label">Email</div>
+              <div class="item-input-wrap">
+                <input type="email" />
+                <span class="input-clear-button"></span>
+              </div>
+            </div>
+          </li>
+          <li class="item-content item-input">
+            <div class="item-inner">
+              <div class="item-title item-floating-label">URL</div>
+              <div class="item-input-wrap">
+                <input type="url" />
+                <span class="input-clear-button"></span>
+              </div>
+            </div>
+          </li>
+          <li class="item-content item-input">
+            <div class="item-inner">
+              <div class="item-title item-floating-label">Number</div>
+              <div class="item-input-wrap">
+                <input type="number" min="5" max="10" step="5" />
+                <span class="input-clear-button"></span>
+              </div>
+            </div>
+          </li>
+          <li class="item-content item-input">
+            <div class="item-inner">
+              <div class="item-title item-floating-label">Tel</div>
+              <div class="item-input-wrap">
+                <input type="tel" />
+                <span class="input-clear-button"></span>
+              </div>
+            </div>
+          </li>
+					<li class="item-content item-input">
+            <div class="item-inner">
+              <div class="item-title item-floating-label">Color</div>
+              <div class="item-input-wrap">
+                <input type="color" />
+              </div>
+            </div>
+          </li>
+          <li class="item-content item-input">
+            <div class="item-inner">
+              <div class="item-title item-floating-label">Date</div>
+              <div class="item-input-wrap">
+                <input type="date" value="1991-12-22" />
+              </div>
+            </div>
+          </li>
+          <li class="item-content item-input">
+            <div class="item-inner">
+              <div class="item-title item-label">Select</div>
+              <div class="item-input-wrap input-dropdown-wrap">
+                <select>
+                  <option value="red">Red</option>
+                  <option value="green">Green</option>
+                  <option value="blue">Blue</option>
+                </select>
+              </div>
+            </div>
+          </li>
+          <li class="item-content item-input">
+            <div class="item-inner">
+              <div class="item-title item-label">File</div>
+              <div class="item-input-wrap">
+                <label class="button button-small button-fill button-file display-inline-block">
+                  <input type="file" required />
+                  <span>Upload</span>
+                  <i class="fas fa-check"></i>
+                </label>
+              </div>
+            </div>
+          </li>
+          <li class="item-content item-input">
+            <div class="item-inner">
+              <div class="item-title item-label">Range Slider</div>
+              <div class="item-input-wrap">
+                <div class="range-slider range-slider-init" data-label="true">
+                  <input type="range" value="50" min="0" max="100" step="1" />
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="item-content item-input">
+            <div class="item-inner">
+              <div class="item-title item-label">Textarea</div>
+              <div class="item-input-wrap">
+                <textarea class="resizable"></textarea>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+		</div>
+
+	</div>
+</template>

@@ -1,0 +1,56 @@
+[
+	{
+		"name": "Laurie Barnaby",
+		"designation": "Data Scientist",
+		"photo": "https://randomuser.me/api/portraits/women/48.jpg",
+		"email": "email@example.com",
+		"medium": "https://medium.com",
+		"linkedin": "https://linkedin.com",
+		"twitter": null
+	},
+	{
+		"name": "Line Rolland",
+		"designation": "Account Executive",
+		"photo": "https://randomuser.me/api/portraits/women/79.jpg",
+		"email": "email@example.com",
+		"medium": null,
+		"linkedin": "https://linkedin.com",
+		"twitter": null
+	},
+	{
+		"name": "Jane Zhu",
+		"designation": "Risk Strategist",
+		"photo": "https://randomuser.me/api/portraits/women/44.jpg",
+		"email": "email@example.com",
+		"medium": null,
+		"linkedin": "https://linkedin.com",
+		"twitter": "https://twitter.com"
+	},
+	{
+		"name": "Wyatt Morris",
+		"designation": "Product Manager",
+		"photo": "https://randomuser.me/api/portraits/men/91.jpg",
+		"email": "email@example.com",
+		"medium": "https://medium.com",
+		"linkedin": "https://linkedin.com",
+		"twitter": "https://twitter.com"
+	},
+	{
+		"name": "Topias Kantola",
+		"designation": "Developer Advocate",
+		"photo": "https://randomuser.me/api/portraits/men/60.jpg",
+		"email": "email@example.com",
+		"medium": "https://medium.com",
+		"linkedin": "https://linkedin.com",
+		"twitter": null
+	},
+	{
+		"name": "Noah Pierre",
+		"designation": "UI/UX Designer",
+		"photo": "https://randomuser.me/api/portraits/men/35.jpg",
+		"email": "email@example.com",
+		"medium": "https://medium.com",
+		"linkedin": null,
+		"twitter": "https://linkedin.com"
+	}
+]
